@@ -23,7 +23,7 @@ COPY --from=0 /usr/src .
 
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-        wget curl nano  bash-completion sqlite3 
+        wget nano  bash-completion sqlite3 libjansson4
         
 
 
