@@ -17,12 +17,19 @@ ENV LC_ALL=C.UTF-8
 ENV ASTERISK_VERSION 13.17.1
 WORKDIR /usr/src/asterisk-${ASTERISK_VERSION}
     
+WORKDIR /usr/src
+COPY --from=0 /usr/src .
+
+
+RUN apt-get update \
+    && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
+        wget curl nano  bash-completion sqlite3 
+        
+
+
+
 # RUN make \
 #    && make install
-
-WORKDIR /usr/src
-
-COPY --from=0 /usr/src .
 
 # Start cleaning up    
 #RUN rm -f /tmp/pjproject* \
@@ -37,3 +44,4 @@ COPY --from=0 /usr/src .
     
 # CMD asterisk -fvvv
 # CMD /usr/sbin/safe_asterisk
+CMD /bin/bash
