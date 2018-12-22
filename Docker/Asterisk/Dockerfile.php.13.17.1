@@ -36,11 +36,11 @@ RUN make install \
 WORKDIR /usr/src
 
 # CMD asterisk -fvvv
-# CMD /usr/sbin/safe_asterisk
+CMD /usr/sbin/safe_asterisk
 # CMD /bin/bash
 
 # ENV PATH=bin:vendor/bin:$PATH
 # ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
-ENTRYPOINT ["/usr/sbin/safe_asterisk"]
+# ENTRYPOINT ["/usr/sbin/safe_asterisk"]
 
