@@ -33,7 +33,14 @@ RUN make install \
     && sed -i -e 's/# MAXFILES=/MAXFILES=/' /usr/sbin/safe_asterisk \
     && sed -i 's/TTY=9/TTY=/g' /usr/sbin/safe_asterisk
 
-    
+WORKDIR /usr/src
+
 # CMD asterisk -fvvv
-CMD /usr/sbin/safe_asterisk
+# CMD /usr/sbin/safe_asterisk
 # CMD /bin/bash
+
+# ENV PATH=bin:vendor/bin:$PATH
+# ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
+ENTRYPOINT ["/usr/sbin/safe_asterisk"]
+
