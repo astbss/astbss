@@ -1,6 +1,6 @@
-# docker build -f Dockerfile.13.17.1 -t astbss/asterisk:13.17.1 .
-# docker run -it --name asterisk --rm astbss/asterisk:13.17.1
-# docker run -it --rm astbss/asterisk:13.17.1
+# docker build -f Dockerfile.13.17.1-src -t astbss/asterisk:13.17.1-src .
+# docker run -it --name asterisk-src --rm astbss/asterisk:13.17.1-src
+# docker run -it --rm astbss/asterisk:13.17.1-src
 
 FROM debian:stretch-slim
 # FROM debian:stretch

@@ -1,8 +1,8 @@
-# docker build -f Dockerfile.php.13.17.1 -t astbss/asterisk:php.13.17.1 .
-# docker run -it --name asterisk --rm astbss/asterisk:php.13.17.1
-# docker run -it --rm astbss/asterisk:php.13.17.1
+# docker build -f Dockerfile.13.17.1 -t astbss/asterisk:13.17.1 .
+# docker run -it --name asterisk --rm astbss/asterisk:13.17.1
+# docker run -it --rm astbss/asterisk:13.17.1
 
-FROM astbss/asterisk:13.17.1
+FROM astbss/asterisk:13.17.1-src
 LABEL maintainer="are@astbss.com"
 ENV DEBIAN_FRONTEND noninteractive
 ENV LANG=C.UTF-8
@@ -23,8 +23,12 @@ WORKDIR /usr/src/asterisk-${ASTERISK_VERSION}
 
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-        wget nano  bash-completion sqlite3 libjansson4
-        
+    wget nano  bash-completion sqlite3 libjansson4 openssh-server \
+    && apt-get clean && apt-get --yes --quiet autoremove --purge \
+    && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+            /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
+            /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
+
 
 # Update max number of open files. 
 # Set tty
