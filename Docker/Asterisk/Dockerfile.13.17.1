@@ -1,7 +1,8 @@
-# docker build -t astbss/asterisk13:13.17.1 .
-# docker run -it --name asterisk13 --rm astbss/asterisk13:13.17.1
+# docker build -f Dockerfile.13.17.1 -t astbss/asterisk:13.17.1 .
+# docker run -it --name asterisk --rm astbss/asterisk:13.17.1
 
-FROM debian:stretch
+FROM stretch-slim
+# FROM debian:stretch
 LABEL maintainer="are@astbss.com"
 
 
@@ -10,12 +11,18 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
 
-RUN apt-get update \
-    && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-        wget nano iproute2 curl \
-        bash-completion git subversion less ssh-client sudo unzip vim bzip2 openssh-server
+# prevent Debian's PHP packages from being installed
+# https://github.com/docker-library/php/pull/542
+# https://github.com/docker-library/php/blob/4fa4c526cf52725f859d7067006e8d4b3c226a52/7.1/stretch/cli/Dockerfile
+RUN set -eux; \
+	{ \
+		echo 'Package: php*'; \
+		echo 'Pin: release *'; \
+		echo 'Pin-Priority: -1'; \
+	} > /etc/apt/preferences.d/no-debian-php
 
 RUN apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
+        wget nano  bash-completion \
         build-essential \
         openssl \
         libxml2-dev \
@@ -27,13 +34,7 @@ RUN apt-get --no-install-recommends --no-install-suggests --yes --quiet install 
         libjansson-dev \
         libssl-dev 
 
-RUN apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-        php7.0-cli php7.0-mysql php7.0-curl php7.0-mbstring
         
-# apt-get install msmtp
-# Asterisk expects /usr/sbin/sendmail to send voicemails. msmtp can connect to any smtp server
-# RUN ln -s /usr/bin/msmtp /usr/sbin/sendmail
-
 ENV ASTERISK_VERSION 13.17.1 
 
 # wget http://dl.astbss.com/dl/asterisk-13.17.1.tar.gz
@@ -83,9 +84,9 @@ WORKDIR /
 #    && rm -rf /usr/src/asterisk-${ASTERISK_VERSION}
 
 # Update max number of open files.
-RUN sed -i -e 's/# MAXFILES=/MAXFILES=/' /usr/sbin/safe_asterisk \
-    && sed -i 's/TTY=9/TTY=/g' /usr/sbin/safe_asterisk \
-    && cp /usr/lib/php/7.0/php.ini-development /etc/php/7.0/cli/php.ini
+#RUN sed -i -e 's/# MAXFILES=/MAXFILES=/' /usr/sbin/safe_asterisk \
+#    && sed -i 's/TTY=9/TTY=/g' /usr/sbin/safe_asterisk \
+#    && cp /usr/lib/php/7.0/php.ini-development /etc/php/7.0/cli/php.ini
  
     
 # CMD asterisk -fvvv
