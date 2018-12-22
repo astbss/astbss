@@ -1,0 +1,26 @@
+version: '2'
+services:
+  asterisk:
+    image: hibou/asterisk:14
+    ports:
+     - "192.168.100.10:5060:5060/udp"
+     - "192.168.100.10:5060:5060/tcp"
+     - "192.168.100.10:10000-10099:10000-10099/udp"
+     - "192.168.100.10:8088:8088"
+     - "192.168.100.10:8089:8089"
+    volumes:
+     - "./var/conf/msmtprc:/etc/msmtprc"
+     - "./var/conf/asterisk:/etc/asterisk"
+     - "./var/data/asterisk:/var/lib/asterisk"
+     - "./var/data/asterisk-spool:/var/spool/asterisk"
+     - "./var/ssl:/ssl"
+    networks:
+      default:
+        ipv4_address: 10.1.2.10
+
+networks:
+  default:
+    ipam:
+      config:
+      - subnet: 10.1.2.0/24
+
