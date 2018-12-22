@@ -13,35 +13,27 @@ LABEL maintainer="are@astbss.com"
 ENV DEBIAN_FRONTEND noninteractive
 ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
+   
 
-ENV ASTERISK_VERSION 13.17.1
-WORKDIR /usr/src/asterisk-${ASTERISK_VERSION}
-    
 WORKDIR /usr/src
 COPY --from=0 /usr/src .
 
+ENV ASTERISK_VERSION 13.17.1
+WORKDIR /usr/src/asterisk-${ASTERISK_VERSION}
 
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
         wget nano  bash-completion sqlite3 libjansson4
         
 
-
-
-# RUN make \
-#    && make install
-
-# Start cleaning up    
-#RUN rm -f /tmp/pjproject* \
-#    && rm -f /usr/src/asterisk.tar.gz \
-#    && rm -rf /usr/src/asterisk-${ASTERISK_VERSION}
-
-# Update max number of open files.
-#RUN sed -i -e 's/# MAXFILES=/MAXFILES=/' /usr/sbin/safe_asterisk
+# Update max number of open files. 
 # Set tty
-#RUN sed -i 's/TTY=9/TTY=/g' /usr/sbin/safe_asterisk
- 
+RUN make install \
+    && rm -r /usr/src/* \
+    && sed -i -e 's/# MAXFILES=/MAXFILES=/' /usr/sbin/safe_asterisk \
+    && sed -i 's/TTY=9/TTY=/g' /usr/sbin/safe_asterisk
+
     
 # CMD asterisk -fvvv
-# CMD /usr/sbin/safe_asterisk
-CMD /bin/bash
+CMD /usr/sbin/safe_asterisk
+# CMD /bin/bash
