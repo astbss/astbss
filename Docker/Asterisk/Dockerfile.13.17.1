@@ -21,7 +21,8 @@ RUN set -eux; \
 		echo 'Pin-Priority: -1'; \
 	} > /etc/apt/preferences.d/no-debian-php
 
-RUN apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
+RUN apt-get update \
+    && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
         wget nano  bash-completion \
         build-essential \
         openssl \
