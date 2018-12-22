@@ -1,0 +1,39 @@
+# docker build -f Dockerfile.php.13.17.1 -t astbss/asterisk:php.13.17.1 .
+# docker run -it --name asterisk --rm astbss/asterisk:php.13.17.1
+# docker run -it --rm astbss/asterisk:php.13.17.1
+
+FROM astbss/asterisk:13.17.1
+LABEL maintainer="are@astbss.com"
+ENV DEBIAN_FRONTEND noninteractive
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+
+FROM php:7.2-cli
+LABEL maintainer="are@astbss.com"
+ENV DEBIAN_FRONTEND noninteractive
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+
+ENV ASTERISK_VERSION 13.17.1
+WORKDIR /usr/src/asterisk-${ASTERISK_VERSION}
+    
+# RUN make \
+#    && make install
+
+WORKDIR /usr/src
+
+COPY --from=0 /usr/src .
+
+# Start cleaning up    
+#RUN rm -f /tmp/pjproject* \
+#    && rm -f /usr/src/asterisk.tar.gz \
+#    && rm -rf /usr/src/asterisk-${ASTERISK_VERSION}
+
+# Update max number of open files.
+#RUN sed -i -e 's/# MAXFILES=/MAXFILES=/' /usr/sbin/safe_asterisk
+# Set tty
+#RUN sed -i 's/TTY=9/TTY=/g' /usr/sbin/safe_asterisk
+ 
+    
+# CMD asterisk -fvvv
+# CMD /usr/sbin/safe_asterisk
