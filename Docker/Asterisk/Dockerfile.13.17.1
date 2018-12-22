@@ -23,7 +23,7 @@ RUN set -eux; \
 
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-        wget nano  bash-completion \
+        wget curl nano  bash-completion \
         build-essential \
         openssl \
         libxml2-dev \
