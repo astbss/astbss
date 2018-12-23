@@ -41,7 +41,7 @@ WORKDIR /usr/src
 
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-    net-tools iproute2
+    net-tools iproute2 iputils-ping
 
 # CMD asterisk -fvvv
 # CMD /usr/sbin/safe_asterisk
