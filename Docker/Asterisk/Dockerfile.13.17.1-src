@@ -34,8 +34,11 @@ RUN apt-get update \
         libsqlite3-dev \
         pkg-config \
         libjansson-dev \
-        libssl-dev 
+        libssl-dev \
+        default-libmysqlclient-dev
 
+# apt-get install mysql-client
+# apt-get install default-libmysqlclient-dev
         
 ENV ASTERISK_VERSION 13.17.1 
 
