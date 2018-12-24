@@ -1,7 +1,10 @@
 # docker build -f Dockerfile.13.17.1-src -t astbss/asterisk:13.17.1-src .
 # docker build -f Docker/Asterisk/Dockerfile.13.17.1-src -t astbss/asterisk:13.17.1-src .
 # docker run -it --name asterisk-src --rm astbss/asterisk:13.17.1-src
+
 # docker run -it --rm astbss/asterisk:13.17.1-src
+# docker  run --net=pub_net --ip=10.90.90.11 -v /var/docdata/devhz21/etc_asterisk:/etc/asterisk -v /var/docdata/devhz21/lib_asterisk:/var/lib/asterisk -v /var/docdata/devhz21/spool_asterisk:/var/spool/asterisk -it astbss/asterisk:13.17.1-src
+
 
 FROM debian:stretch-slim
 # FROM debian:stretch
