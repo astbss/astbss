@@ -42,7 +42,7 @@ RUN apt-get update \
 # Update max number of open files. 
 # Set tty
 RUN make install \
-    && rm -r /usr/src/* \
+    # && rm -r /usr/src/* \
     && rm -r /var/lib/asterisk/* \
     && rm -r /var/spool/asterisk/* \
     && sed -i -e 's/# MAXFILES=/MAXFILES=/' /usr/sbin/safe_asterisk \
