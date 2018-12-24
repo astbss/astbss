@@ -56,6 +56,13 @@ RUN apt-get update \
     openssh-server \
     net-tools iproute2 iputils-ping 
 
+RUN mkdir -p /usr/lib/x86_64-linux-gnu/odbc
+
+ADD debian-9/odbc.ini /etc/odbc.ini
+ADD debian-9/odbcinst.ini /etc/odbcinst.ini
+ADD debian-9/libmaodbc.so /usr/lib/x86_64-linux-gnu/odbc/libmaodbc.so
+
+
 # CMD asterisk -fvvv
 # CMD /usr/sbin/safe_asterisk
 CMD /bin/bash

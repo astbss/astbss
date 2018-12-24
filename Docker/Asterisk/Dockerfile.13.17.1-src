@@ -89,6 +89,13 @@ RUN make \
 
 WORKDIR /
 
+RUN mkdir -p /usr/lib/x86_64-linux-gnu/odbc
+
+ADD debian-9/odbc.ini /etc/odbc.ini
+ADD debian-9/odbcinst.ini /etc/odbcinst.ini
+ADD debian-9/libmaodbc.so /usr/lib/x86_64-linux-gnu/odbc/libmaodbc.so
+
+
 # Start cleaning up    
 #RUN rm -f /tmp/pjproject* \
 #    && rm -f /usr/src/asterisk.tar.gz \
