@@ -35,10 +35,11 @@ RUN apt-get update \
         pkg-config \
         libjansson-dev \
         libssl-dev \
-        default-libmysqlclient-dev
+        libmariadbd-dev
 
 # apt-get install mysql-client
 # apt-get install default-libmysqlclient-dev
+# mariadb-server mariadb-client libmariadbd-dev
         
 ENV ASTERISK_VERSION 13.17.1 
 

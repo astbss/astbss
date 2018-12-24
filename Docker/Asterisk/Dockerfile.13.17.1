@@ -34,6 +34,8 @@ RUN apt-get update \
 # Set tty
 RUN make install \
     && rm -r /usr/src/* \
+    && rm -r var/lib/asterisk/* \
+    && rm -r /var/spool/asterisk/* \
     && sed -i -e 's/# MAXFILES=/MAXFILES=/' /usr/sbin/safe_asterisk \
     && sed -i 's/TTY=9/TTY=/g' /usr/sbin/safe_asterisk
 
