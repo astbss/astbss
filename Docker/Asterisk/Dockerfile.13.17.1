@@ -17,6 +17,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
    
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 WORKDIR /usr/src
 COPY --from=0 /usr/src .
@@ -62,7 +63,6 @@ ADD debian-9/odbcinst.ini /etc/odbcinst.ini
 ADD debian-9/libmaodbc.so /usr/lib/x86_64-linux-gnu/odbc/libmaodbc.so
 # isql -v astbss # Test odbc
 
-RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 # CMD asterisk -fvvv
 # CMD /usr/sbin/safe_asterisk
