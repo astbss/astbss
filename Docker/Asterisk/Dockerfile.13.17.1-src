@@ -89,7 +89,9 @@ RUN make \
 
 WORKDIR /
 
-RUN mkdir -p /usr/lib/x86_64-linux-gnu/odbc
+RUN apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
+    unixodbc unixodbc-dev odbcinst \
+    && mkdir -p /usr/lib/x86_64-linux-gnu/odbc
 
 ADD debian-9/odbc.ini /etc/odbc.ini
 ADD debian-9/odbcinst.ini /etc/odbcinst.ini
