@@ -1,4 +1,5 @@
 # docker build -f Dockerfile.13.17.1-src -t astbss/asterisk:13.17.1-src .
+# docker build -f Docker/Asterisk/Dockerfile.13.17.1-src -t astbss/asterisk:13.17.1-src .
 # docker run -it --name asterisk-src --rm astbss/asterisk:13.17.1-src
 # docker run -it --rm astbss/asterisk:13.17.1-src
 
