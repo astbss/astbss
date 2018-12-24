@@ -44,6 +44,7 @@ RUN apt-get update \
 # apt-get install mysql-client
 # apt-get install default-libmysqlclient-dev
 # mariadb-server mariadb-client libmariadbd-dev
+# res_config_mysql.so
         
 ENV ASTERISK_VERSION 13.17.1 
 
