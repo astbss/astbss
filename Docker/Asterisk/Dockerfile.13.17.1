@@ -27,12 +27,17 @@ WORKDIR /usr/src/asterisk-${ASTERISK_VERSION}
 
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-    wget nano  bash-completion sqlite3 libjansson4 openssh-server \
+    wget nano  bash-completion sqlite3 libjansson4 \
+    mysql-client default-libmysqlclient-dev \
+    openssh-server \
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
             /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
             /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
 
+# apt-get install mysql-client
+# apt-get install default-libmysqlclient-dev
+# mariadb-server mariadb-client libmariadbd-dev
 
 # Update max number of open files. 
 # Set tty
@@ -47,7 +52,8 @@ WORKDIR /usr/src
 
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-    net-tools iproute2 iputils-ping mysql-client default-libmysqlclient-dev
+    openssh-server \
+    net-tools iproute2 iputils-ping 
 
 # CMD asterisk -fvvv
 # CMD /usr/sbin/safe_asterisk
