@@ -35,7 +35,7 @@ RUN apt-get update \
         pkg-config \
         libjansson-dev \
         libssl-dev \
-        libmariadbd-dev
+        default-libmysqlclient-dev
 
 # apt-get install mysql-client
 # apt-get install default-libmysqlclient-dev

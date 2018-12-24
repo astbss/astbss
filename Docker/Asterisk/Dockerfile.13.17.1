@@ -1,6 +1,10 @@
 # docker build -f Dockerfile.13.17.1 -t astbss/asterisk:13.17.1 .
+# docker build -f Docker/Asterisk/Dockerfile.13.17.1 -t astbss/asterisk:13.17.1 .
 # docker run -it --name asterisk --rm astbss/asterisk:13.17.1
 # docker run -it --rm astbss/asterisk:13.17.1
+
+# docker  run --net=pub_net --ip=10.90.90.11 -v /var/docdata/devhz21/etc_asterisk:/etc/asterisk -v /var/docdata/devhz21/lib_asterisk:/var/lib/asterisk -v /var/docdata/devhz21/spool_asterisk:/var/spool/asterisk -it astbss/asterisk:13.17.1
+
 
 FROM astbss/asterisk:13.17.1-src
 LABEL maintainer="are@astbss.com"
