@@ -1,5 +1,4 @@
 # docker build -f Dockerfile.13.17.1 -t astbss/asterisk:13.17.1 .
-# docker build -f Docker/Asterisk/Dockerfile.13.17.1 -t astbss/asterisk:13.17.1 .
 # docker run -it --name asterisk --rm astbss/asterisk:13.17.1
 # docker run -it --rm astbss/asterisk:13.17.1
 
@@ -62,6 +61,8 @@ ADD debian-9/odbc.ini /etc/odbc.ini
 ADD debian-9/odbcinst.ini /etc/odbcinst.ini
 ADD debian-9/libmaodbc.so /usr/lib/x86_64-linux-gnu/odbc/libmaodbc.so
 # isql -v astbss # Test odbc
+
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 # CMD asterisk -fvvv
 # CMD /usr/sbin/safe_asterisk
