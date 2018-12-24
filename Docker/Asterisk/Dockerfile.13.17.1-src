@@ -39,7 +39,8 @@ RUN apt-get update \
         pkg-config \
         libjansson-dev \
         libssl-dev \
-        default-libmysqlclient-dev
+        default-libmysqlclient-dev \
+        unixodbc unixodbc-dev odbcinst 
 
 # apt-get install mysql-client
 # apt-get install default-libmysqlclient-dev
@@ -53,17 +54,15 @@ ENV ASTERISK_VERSION 13.17.1
 # http://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-${ASTERISK_VERSION}.tar.gz
 
 RUN cd /usr/src && curl -o asterisk.tar.gz http://dl.astbss.com/dl/asterisk-${ASTERISK_VERSION}.tar.gz \
-    && tar xzf asterisk.tar.gz
-
-RUN wget --no-check-certificate  -O /tmp/pjproject-2.6.tar.bz2 http://dl.astbss.com/dl/pjproject-2.6.tar.bz2 \
+    && tar xzf asterisk.tar.gz /
+    && wget --no-check-certificate  -O /tmp/pjproject-2.6.tar.bz2 http://dl.astbss.com/dl/pjproject-2.6.tar.bz2 \
     && wget --no-check-certificate  -O /tmp/pjproject-2.6.md5 http://dl.astbss.com/dl/pjproject-2.6.md5
   
 WORKDIR /usr/src/asterisk-${ASTERISK_VERSION}
 
 # Download MP3 decoder library
-RUN contrib/scripts/get_mp3_source.sh
-
-RUN ./configure --with-pjproject-bundled 
+RUN contrib/scripts/get_mp3_source.sh /
+  && ./configure --with-pjproject-bundled 
     
 # Remove the native build option to prevent CPU optimise on Docker, EC2 and different VM
 RUN make menuselect.makeopts \
@@ -82,21 +81,21 @@ RUN make menuselect.makeopts \
     --enable res_pjsip_registrar_expire \
     --enable app_chanisavail \
     --enable app_mp3 \
-    menuselect.makeopts
-    
-RUN make \
-    && make install
+    menuselect.makeopts \
+    && make \
+    && make install \
+    && mkdir -p /usr/lib/x86_64-linux-gnu/odbc
 
 WORKDIR /
 
-RUN apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-    unixodbc unixodbc-dev odbcinst \
-    && mkdir -p /usr/lib/x86_64-linux-gnu/odbc
+# RUN apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
+#     unixodbc unixodbc-dev odbcinst \
+#    && mkdir -p /usr/lib/x86_64-linux-gnu/odbc
 
 ADD debian-9/odbc.ini /etc/odbc.ini
 ADD debian-9/odbcinst.ini /etc/odbcinst.ini
 ADD debian-9/libmaodbc.so /usr/lib/x86_64-linux-gnu/odbc/libmaodbc.so
-
+# isql -v astbss # Test odbc
 
 # Start cleaning up    
 #RUN rm -f /tmp/pjproject* \
