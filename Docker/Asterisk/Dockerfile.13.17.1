@@ -46,6 +46,7 @@ RUN make install \
     && rm -r /usr/src/* \
     && rm -r /var/lib/asterisk/* \
     && rm -r /var/spool/asterisk/* \
+    && mkdir -p /etc/ibixtables \
     && sed -i -e 's/# MAXFILES=/MAXFILES=/' /usr/sbin/safe_asterisk \
     && sed -i 's/TTY=9/TTY=/g' /usr/sbin/safe_asterisk
 
@@ -55,7 +56,12 @@ RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
     openssh-server unixodbc \
     net-tools iproute2 iputils-ping \
-    && mkdir -p /usr/lib/x86_64-linux-gnu/odbc 
+    && mkdir -p /usr/lib/x86_64-linux-gnu/odbc \
+    && apt-get clean && apt-get --yes --quiet autoremove --purge \
+    && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+            /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
+            /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
+
 
 # unixodbc unixodbc-dev odbcinst 
 ADD debian-9/odbc.ini /etc/odbc.ini
