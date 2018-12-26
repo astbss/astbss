@@ -68,8 +68,9 @@ RUN mkdir -p /etc/ibixtables \
     && usermod --append -G protected protected \
     %% mkdir -p /usr/local/astpbx/uptodate \
     && cd /usr/local/astpbx/uptodate/ && svn checkout http://svn.astbss.com/svn7/pbx/uptodate/acl --username=root --password pbx2009 --no-auth-cache \
-    && cd /usr/local/astpbx/uptodate/acl && /bin/bash /usr/local/astpbx/uptodate/acl/astusers.sh
+    && cd /usr/local/astpbx/uptodate/acl 
 
+# && /bin/bash /usr/local/astpbx/uptodate/acl/astusers.sh
 
 # unixodbc unixodbc-dev odbcinst 
 ADD debian-9/odbc.ini /etc/odbc.ini
