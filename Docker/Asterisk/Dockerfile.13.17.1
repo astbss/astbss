@@ -62,9 +62,9 @@ RUN apt-get update \
 
 RUN mkdir -p /etc/ibixtables \
     && mkdir -p /usr/lib/x86_64-linux-gnu/odbc \
-    && groupadd -r -g 501 astpbx && useradd -r -u 501 -M -c "Used by astbss.com" -s /bin/false astpbx \
+    && groupadd -r -g 501 astpbx && useradd -r -u 501 -g astpbx -M -c "Used by astbss.com" -s /bin/false astpbx \
     && usermod --append -G astpbx astpbx \
-    && groupadd -r -g 502 protected && useradd -r -u 502 -M -c "Used by astbss.com" -s /bin/false protected \
+    && groupadd -r -g 502 protected && useradd -r -u 502 -g protected -M -c "Used by astbss.com" -s /bin/false protected \
     && usermod --append -G protected protected
 
 
