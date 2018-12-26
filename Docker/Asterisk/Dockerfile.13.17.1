@@ -66,7 +66,7 @@ RUN mkdir -p /etc/ibixtables \
     && usermod --append -G astpbx astpbx \
     && groupadd -r -g 502 protected && useradd -r -u 502 -g protected -M -c "Used by astbss.com" -s /bin/false protected \
     && usermod --append -G protected protected \
-    %% mkdir -p /usr/local/astpbx/uptodate \
+    && mkdir -p /usr/local/astpbx/uptodate \
     && cd /usr/local/astpbx/uptodate/ && svn checkout http://svn.astbss.com/svn7/pbx/uptodate/acl --username=root --password pbx2009 --no-auth-cache \
     && cd /usr/local/astpbx/uptodate/acl 
 
