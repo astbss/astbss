@@ -29,7 +29,7 @@ RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
     wget nano  bash-completion sqlite3 libjansson4 \
     mysql-client default-libmysqlclient-dev \
-    openssh-server \
+    openssh-server unixodbc iptables sudo subversion \
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
             /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
@@ -53,7 +53,6 @@ WORKDIR /usr/src
 
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-    openssh-server unixodbc \
     net-tools iproute2 iputils-ping iptables sudo subversion \
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
