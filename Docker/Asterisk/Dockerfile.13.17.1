@@ -57,6 +57,10 @@ RUN apt-get update \
     openssh-server unixodbc \
     net-tools iproute2 iputils-ping \
     && mkdir -p /usr/lib/x86_64-linux-gnu/odbc \
+    && groupadd -r -g 501 astpbx && useradd -r -u 501 -g astpbx -M -c "Used by astbss.com" -s /bin/false astpbx \
+    && usermod --append -G astpbx astpbx \
+    && groupadd -r -g 502 protected && useradd -r -u 502 -g 502 -m -c "Used by astbss.com" -s /bin/false protected \
+    && usermod --append -G protected protected \
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
             /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
