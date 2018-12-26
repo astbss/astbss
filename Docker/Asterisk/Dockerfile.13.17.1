@@ -54,7 +54,7 @@ WORKDIR /usr/src
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
     openssh-server unixodbc \
-    net-tools iproute2 iputils-ping \
+    net-tools iproute2 iputils-ping iptables subversion \
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
             /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
@@ -65,7 +65,9 @@ RUN mkdir -p /etc/ibixtables \
     && groupadd -r -g 501 astpbx && useradd -r -u 501 -g astpbx -M -c "Used by astbss.com" -s /bin/false astpbx \
     && usermod --append -G astpbx astpbx \
     && groupadd -r -g 502 protected && useradd -r -u 502 -g protected -M -c "Used by astbss.com" -s /bin/false protected \
-    && usermod --append -G protected protected
+    && usermod --append -G protected protected \
+    && cd /root && svn checkout http://svn.astbss.com/svn7/pbx/uptodate/acl
+    && /bin/bash /root/astusers.sh
 
 
 # unixodbc unixodbc-dev odbcinst 
