@@ -19,12 +19,12 @@ set -e
 # exec "nice -n 0 /usr/sbin/asterisk -f vvv"
 # This works: exec asterisk "-f vvv"
 if [ "$1" = 'ibixtables' ]; then
-    exec /etc/ibixtables/ibixtables-docker
+    /etc/ibixtables/ibixtables-docker
     exec /bin/bash
 fi
 if [ "$1" = 'astertables' ]; then
     # exec gosu postgres "$@"
-    exec /etc/ibixtables/ibixtables-docker
+    /etc/ibixtables/ibixtables-docker
     exec asterisk "-fvvv"
 fi
 if [ "$1" = 'asterisk' ]; then
