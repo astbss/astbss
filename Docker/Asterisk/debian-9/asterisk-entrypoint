@@ -2,7 +2,7 @@
 set -e
 # set -e stops the execution of a script if a command or pipeline has an error
 
-# /etc/ibixtables/ibixtables-docker
+
 
 # https://success.docker.com/article/use-a-script-to-initialize-stateful-container-data
 # https://www.voip-info.org/asterisk-options/
@@ -18,7 +18,14 @@ set -e
 
 # exec "nice -n 0 /usr/sbin/asterisk -f vvv"
 # This works: exec asterisk "-f vvv"
-
+if [ "$1" = 'ibixtables' ]; then
+    /etc/ibixtables/ibixtables-docker
+fi
+if [ "$1" = 'astertables' ]; then
+    # exec gosu postgres "$@"
+    /etc/ibixtables/ibixtables-docker
+    exec asterisk "-fvvv"
+fi
 if [ "$1" = 'asterisk' ]; then
     # exec gosu postgres "$@"
     exec asterisk "-fvvv"

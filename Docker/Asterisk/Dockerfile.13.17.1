@@ -97,7 +97,8 @@ RUN chmod 777 /usr/local/bin/asterisk-entrypoint
 # CMD /bin/bash
 # -it astbss/asterisk:13.17.1 /bin/bash
 
-CMD asterisk -fvvv
+ENTRYPOINT ["/usr/local/bin/asterisk-entrypoint"]
+CMD astertables
 
 # ENV PATH=bin:vendor/bin:$PATH
 # ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
