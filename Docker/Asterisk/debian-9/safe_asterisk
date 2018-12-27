@@ -15,7 +15,10 @@ if [ $? -eq 0 ]; then
   CONSOLE=no  	# We don't want a console on LXC
 fi
 
-#NOTIFY=ben@alkaloid.net	# Who to notify about crashes
+# Modified for Docker only
+CONSOLE=no  	# We don't want a console on Docker
+
+#NOTIFY=user@email.net	    # Who to notify about crashes
 #EXEC=/path/to/somescript	# Run this command if Asterisk crashes
 #LOGFILE=/path/to/logfile	# Where to place the normal logfile (disabled if blank)
 #SYSLOG=local0			# Which syslog facility to use (disabled if blank)

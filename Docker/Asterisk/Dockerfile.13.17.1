@@ -81,11 +81,17 @@ ADD debian-9/libmaodbc.so /usr/lib/x86_64-linux-gnu/odbc/libmaodbc.so
 # /etc/resolv.conf will be overwritten by Doceer
 # /etc/ibixtables/ibixtables-docker will cp /etc/resolv2.conf /etc/resolv.conf
 ADD debian-9/resolv.conf /etc/resolv2.conf
+ADD debian-9/asterisk-entrypoint.sh /usr/local/bin/
+# RUN ln -s /usr/local/bin/asterisk-entrypoint.sh / # backwards compat
 
+# ENTRYPOINT ["usr/local/bin/asterisk-entrypoint.sh"]
+CMD ["asterisk"]
+# when the container starts up, the command portion is interprated to be sh -c 'asterisk-entrypoint.sh asterisk'.
+# ENTRYPOINT = script to run, CMD = Command line parameter
 
 # CMD asterisk -fvvv
 # CMD /usr/sbin/safe_asterisk
-CMD /bin/bash
+# CMD /bin/bash
 
 # CMD asterisk -fvvv
 
