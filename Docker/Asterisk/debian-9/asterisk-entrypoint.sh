@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 # set -e stops the execution of a script if a command or pipeline has an error
 
