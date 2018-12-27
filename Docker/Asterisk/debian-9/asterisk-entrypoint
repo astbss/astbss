@@ -17,6 +17,11 @@ set -e
 # https://github.com/docker-library/php
 
 # exec "nice -n 0 /usr/sbin/asterisk -f vvv"
-exec "/usr/sbin/asterisk -f vvv"
+# This works: exec asterisk "-f vvv"
 
-# exec "$@"
+if [ "$1" = 'asterisk' ]; then
+    # exec gosu postgres "$@"
+    exec asterisk "-fvvv"
+fi
+
+exec "$@"
