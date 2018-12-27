@@ -77,7 +77,10 @@ ADD debian-9/odbc.ini /etc/odbc.ini
 ADD debian-9/odbcinst.ini /etc/odbcinst.ini
 ADD debian-9/libmaodbc.so /usr/lib/x86_64-linux-gnu/odbc/libmaodbc.so
 # isql -v astbss # Test odbc
-ADD debian-9/resolv.conf /etc/resolv.conf
+
+# /etc/resolv.conf will be overwritten by Doceer
+# /etc/ibixtables/ibixtables-docker will cp /etc/resolv2.conf /etc/resolv.conf
+ADD debian-9/resolv.conf /etc/resolv2.conf
 
 
 # CMD asterisk -fvvv
