@@ -97,8 +97,10 @@ RUN chmod 777 /usr/local/bin/asterisk-entrypoint
 # CMD /bin/bash
 # -it astbss/asterisk:13.17.1 /bin/bash
 
+# CMD ["php", "-a"]
+
 ENTRYPOINT ["/usr/local/bin/asterisk-entrypoint"]
-CMD astertables
+CMD ["astertables"]
 
 # ENV PATH=bin:vendor/bin:$PATH
 # ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
