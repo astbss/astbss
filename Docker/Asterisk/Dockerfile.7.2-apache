@@ -2,7 +2,8 @@
 # docker build -f Dockerfile.7.2-apache -t astbss/php:7.2-apache .
 # docker run -it --rm astbss/php:7.2-apache bash
 
-
+# https://github.com/docker-library/php/blob/c88c3d52f41a370f3a62e3ded62b7b223b4cb846/7.2/stretch/apache/Dockerfile
+# https://hub.docker.com/_/php/
 
 # FROM debian:stretch-slim
 
@@ -14,7 +15,10 @@ ENV LC_ALL=C.UTF-8
    
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-
+# It is strongly recommended to use the production config for images used in production environments!
+# Choose your configuration
+# RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
 
 EXPOSE 80
 # CMD ["apache2-foreground"]
