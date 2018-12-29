@@ -1,6 +1,6 @@
 # docker build -f Dockerfile.13.24.1.php -t astbss/asterisk:13.24.1.php .
-# docker run -it --name asterisk --rm astbss/asterisk:13.24.1
-# docker run -it --rm astbss/asterisk:13.24.1
+# docker run -it --name asterisk --rm astbss/asterisk:13.24.1.php
+# docker run -it --rm astbss/asterisk:13.24.1.php
 
 
 # vim:set ft=dockerfile:

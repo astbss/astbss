@@ -1,0 +1,17 @@
+# docker build -f Dockerfile.13.24.1.php -t astbss/asterisk:13.24.1.php .
+# docker run -it --name asterisk --rm astbss/asterisk:13.24.1.php
+# docker run -it --rm astbss/asterisk:13.24.1.php
+
+FROM php:7.2-alpine3.8
+
+LABEL maintainer="are@astbss.com"
+
+# system setup with "asterisk" and requirements
+RUN apk add --no-cache subversion bash \
+    && echo "I am done!!!"
+    
+# VOLUME /usr/lib/asterisk/sounds /var/lib/asterisk/keys /var/lib/asterisk/phoneprov /var/spool/asterisk /var/log/asterisk
+
+# ADD docker-entrypoint.sh /docker-entrypoint.sh
+
+# ENTRYPOINT ["/docker-entrypoint.sh"]
