@@ -1,0 +1,20 @@
+# vim:set ft=dockerfile:
+# docker build -f Dockerfile.7.2-apache -t astbss/php:7.2-apache .
+# docker run -it --rm astbss/php:7.2-apache bash
+
+
+
+# FROM debian:stretch-slim
+
+FROM php:7.2-apache
+LABEL maintainer="are@astbss.com"
+ENV DEBIAN_FRONTEND noninteractive
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+   
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+
+
+
+EXPOSE 80
+# CMD ["apache2-foreground"]

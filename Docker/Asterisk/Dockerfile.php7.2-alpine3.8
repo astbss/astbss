@@ -5,7 +5,7 @@ FROM php:7.2-alpine3.8
 
 LABEL maintainer="are@astbss.com"
 
-# system setup with "asterisk" and requirements
+# system setup subversion
 RUN apk add --no-cache subversion bash \
     && echo "I am done!!!"
     
@@ -14,3 +14,4 @@ RUN apk add --no-cache subversion bash \
 # ADD docker-entrypoint.sh /docker-entrypoint.sh
 
 # ENTRYPOINT ["/docker-entrypoint.sh"]
+ 
