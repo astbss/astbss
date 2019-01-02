@@ -1,6 +1,6 @@
 # vim:set ft=dockerfile:
 # docker build -f Dockerfile.openvpn -t astbss/openvpn .
-# docker run -v /var/docdata/vpn2019/server-vpn4:/etc/openvpn -d -p 1194:1194/udp --cap-add=NET_ADMIN astbss/openvpn
+# docker run -it -v /var/docdata/vpn2019/server-vpn4:/etc/openvpn -d -p 1194:1194/udp --cap-add=NET_ADMIN astbss/openvpn bash
 
 
 # https://github.com/docker-library/php/blob/c88c3d52f41a370f3a62e3ded62b7b223b4cb846/7.2/stretch/apache/Dockerfile
@@ -22,6 +22,15 @@ RUN apt-get update \
             /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
             /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
 
+RUN apt-get update \
+    && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
+    net-tools iproute2 iputils-ping \
+    && apt-get clean && apt-get --yes --quiet autoremove --purge \
+    && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+            /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
+            /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
+            
+            
 WORKDIR /etc/openvpn
 EXPOSE 1194
 # CMD ["apache2-foreground"]
