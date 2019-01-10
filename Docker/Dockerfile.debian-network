@@ -1,10 +1,6 @@
 # vim:set ft=dockerfile:
 # docker build -f Dockerfile.debian-network -t astbss/debian-network .
-# docker run -it -v /var/docdata/vpn2019/server-vpn4:/etc/openvpn -d -p 1194:1194/udp --cap-add=NET_ADMIN astbss/debian-network
 # docker run -it --cap-add=NET_ADMIN astbss/debian-network
-
-# https://github.com/docker-library/php/blob/c88c3d52f41a370f3a62e3ded62b7b223b4cb846/7.2/stretch/apache/Dockerfile
-# https://hub.docker.com/_/php/
 
 FROM debian:stretch-slim
 
@@ -24,4 +20,4 @@ RUN apt-get update \
       /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
 
 WORKDIR /home
-# CMD ["/bin/bash"]
+
