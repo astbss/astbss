@@ -1,7 +1,7 @@
 # vim:set ft=dockerfile:
 # docker build -f Dockerfile.debian-network -t astbss/debian-network .
-# docker run -it -v /var/docdata/vpn2019/server-vpn4:/etc/openvpn -d -p 1194:1194/udp --cap-add=NET_ADMIN astbss/debian-network bash
-# docker run -it --cap-add=NET_ADMIN astbss/debian-network bash
+# docker run -it -v /var/docdata/vpn2019/server-vpn4:/etc/openvpn -d -p 1194:1194/udp --cap-add=NET_ADMIN astbss/debian-network
+# docker run -it --cap-add=NET_ADMIN astbss/debian-network
 
 # https://github.com/docker-library/php/blob/c88c3d52f41a370f3a62e3ded62b7b223b4cb846/7.2/stretch/apache/Dockerfile
 # https://hub.docker.com/_/php/
@@ -13,15 +13,15 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
 
+# openvpn vtun fail2ban
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-      wget curl nano openvpn iptables vtun \
-      net-tools iproute2 iputils-ping fail2ban \
+      wget curl nano iptables \
+      net-tools iproute2 iputils-ping \
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
       /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
       /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
 
 WORKDIR /home
-EXPOSE 1194
 # CMD ["/bin/bash"]
