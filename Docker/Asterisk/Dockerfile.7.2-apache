@@ -13,16 +13,18 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
    
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+# RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 # It is strongly recommended to use the production config for images used in production environments!
 # Choose your configuration in: /usr/local/etc/php
 # RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
-RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
+# RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
 
-RUN apt-get update \
+RUN docker-php-ext-install mysqli pdo pdo_mysql \
+    && mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
+    && apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-    wget nano subversion \
+    wget nano \
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
             /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
