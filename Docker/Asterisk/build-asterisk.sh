@@ -50,8 +50,7 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --no-i
     uuid-dev \
     xmlstarlet
 
-apt-get purge -y --auto-remove
-rm -rf /var/lib/apt/lists/*
+
 
 mkdir -p /usr/src/asterisk
 cd /usr/src/asterisk
@@ -63,8 +62,13 @@ curl -vsL http://downloads.asterisk.org/pub/telephony/asterisk/old-releases/aste
 # 1.5 jobs per core works out okay
 : ${JOBS:=$(( $(nproc) + $(nproc) / 2 ))}
 
+apt-get -y install subversion
+
 # format_mp3 - Download MP3 decoder library 
 contrib/scripts/get_mp3_source.sh
+
+apt-get purge -y --auto-remove
+rm -rf /var/lib/apt/lists/*
 
 ./configure  --with-resample --with-pjproject-bundled
 make menuselect/menuselect menuselect-tree menuselect.makeopts
