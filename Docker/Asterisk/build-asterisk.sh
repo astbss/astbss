@@ -63,6 +63,9 @@ curl -vsL http://downloads.asterisk.org/pub/telephony/asterisk/old-releases/aste
 # 1.5 jobs per core works out okay
 : ${JOBS:=$(( $(nproc) + $(nproc) / 2 ))}
 
+# format_mp3 - Download MP3 decoder library 
+contrib/scripts/get_mp3_source.sh
+
 ./configure  --with-resample --with-pjproject-bundled
 make menuselect/menuselect menuselect-tree menuselect.makeopts
 
