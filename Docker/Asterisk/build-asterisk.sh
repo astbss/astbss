@@ -156,8 +156,8 @@ mkdir -p /etc/asterisk/ \
          /var/spool/asterisk/fax
 
 # chown -R asterisk:asterisk /etc/asterisk \
-                           /var/*/asterisk \
-                           /usr/*/asterisk
+#                           /var/*/asterisk \
+#                           /usr/*/asterisk
 # chmod -R 750 /var/spool/asterisk
 
 cd /
