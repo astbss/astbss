@@ -28,6 +28,15 @@ RUN mkdir -p /etc/asterisk
 # VOLUME /var/lib/asterisk/sounds /var/lib/asterisk/keys /var/lib/asterisk/phoneprov /var/spool/asterisk /var/log/asterisk
 
 
+# unixodbc unixodbc-dev odbcinst 
+ADD debian-9/odbc.ini /etc/odbc.ini
+ADD debian-9/odbcinst.ini /etc/odbcinst.ini
+ADD debian-9/libmaodbc.so /usr/lib/x86_64-linux-gnu/odbc/libmaodbc.so
+# isql -v astbss # Test odbc
+
+# /etc/resolv.conf will be overwritten by Docker - Used for testing
+ADD debian-9/resolv.conf /etc/resolv2.conf
+
 WORKDIR /home
 # COPY debian-9/docker-entrypoint.sh /
 # ENTRYPOINT ["/docker-entrypoint.sh"]

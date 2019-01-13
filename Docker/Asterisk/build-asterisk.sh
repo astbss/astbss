@@ -15,7 +15,20 @@ set -ex
 # set -e stops the execution of a script if a command or pipeline has an error
 # set -x to see debug output.
 
-useradd --system asterisk
+# useradd --system asterisk
+
+# Provide consistent id's for Linux system users
+mkdir -p /usr/lib/x86_64-linux-gnu/odbc
+groupadd -r -g 500 asterisk
+useradd -r -u 500 -g asterisk -M -c "Used by Asterisk" -s /bin/false asterisk
+groupadd -r -g 501 astpbx
+useradd -r -u 501 -g astpbx -M -c "Used by astbss.com" -s /bin/false astpbx
+usermod --append -G astpbx astpbx
+groupadd -r -g 502 protected 
+useradd -r -u 502 -g protected -M -c "Used by astbss.com" -s /bin/false protected
+usermod --append -G protected protected
+
+
 
 apt-get update -qq
 DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --no-install-suggests \
@@ -50,7 +63,7 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --no-i
     uuid-dev \
     xmlstarlet
 
-
+apt-get -y install subversion mysql-client default-libmysqlclient-dev unixodbc
 
 mkdir -p /usr/src/asterisk
 cd /usr/src/asterisk
@@ -62,10 +75,11 @@ curl -vsL http://downloads.asterisk.org/pub/telephony/asterisk/old-releases/aste
 # 1.5 jobs per core works out okay
 : ${JOBS:=$(( $(nproc) + $(nproc) / 2 ))}
 
-apt-get -y install subversion
 
-# format_mp3 - Download MP3 decoder library 
+# format_mp3 - Download MP3 decoder library - Depends on subversion 
 contrib/scripts/get_mp3_source.sh
+
+apt-get -y purge subversion
 
 apt-get purge -y --auto-remove
 rm -rf /var/lib/apt/lists/*
@@ -128,7 +142,7 @@ make install
 
 # copy default configs
 # cp /usr/src/asterisk/configs/basic-pbx/*.conf /etc/asterisk/
-make samples
+# make samples
 
 
 # Install opus, for some reason menuselect option above does not working
@@ -141,10 +155,10 @@ mkdir -p /usr/src/codecs/opus \
 mkdir -p /etc/asterisk/ \
          /var/spool/asterisk/fax
 
-chown -R asterisk:asterisk /etc/asterisk \
+# chown -R asterisk:asterisk /etc/asterisk \
                            /var/*/asterisk \
                            /usr/*/asterisk
-chmod -R 750 /var/spool/asterisk
+# chmod -R 750 /var/spool/asterisk
 
 cd /
 rm -rf /usr/src/asterisk \
@@ -165,6 +179,14 @@ DEBIAN_FRONTEND=noninteractive apt-get --yes purge \
   pkg-config \
   xz-utils \
   ${devpackages}
-rm -rf /var/lib/apt/lists/*
+  
+# apt-get purge -y --auto-remove  
+apt-get clean 
+apt-get --yes --quiet autoremove --purge 
+
+rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+        /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
+        /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
+            
 
 exec rm -f /build-asterisk.sh
