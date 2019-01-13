@@ -63,7 +63,7 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --no-i
     uuid-dev \
     xmlstarlet
 
-apt-get -y install subversion mysql-client default-libmysqlclient-dev unixodbc
+apt-get -y install subversion mysql-client default-libmysqlclient-dev unixodbc sqlite3 libsqlite3-dev
 
 mkdir -p /usr/src/asterisk
 cd /usr/src/asterisk
