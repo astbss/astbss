@@ -12,6 +12,8 @@ if test -z ${ASTERISK_VERSION}; then
 fi
 
 set -ex
+# set -e stops the execution of a script if a command or pipeline has an error
+# set -x to see debug output.
 
 useradd --system asterisk
 
@@ -64,8 +66,11 @@ curl -vsL http://downloads.asterisk.org/pub/telephony/asterisk/old-releases/aste
 ./configure  --with-resample --with-pjproject-bundled
 make menuselect/menuselect menuselect-tree menuselect.makeopts
 
-# disable BUILD_NATIVE to avoid platform issues
+# disable BUILD_NATIVE to avoid platform issues on Docker, EC2 and different Virtual instances
 menuselect/menuselect --disable BUILD_NATIVE menuselect.makeopts
+# menuselect/menuselect --enable STATIC_BUILD menuselect.makeopts
+# menuselect/menuselect --enable LOW_MEMORY menuselect.makeopts
+  
 
 # enable good things
 menuselect/menuselect --enable BETTER_BACKTRACES menuselect.makeopts
@@ -85,7 +90,32 @@ menuselect/menuselect --enable BETTER_BACKTRACES menuselect.makeopts
 menuselect/menuselect --disable-category MENUSELECT_CORE_SOUNDS
 menuselect/menuselect --disable-category MENUSELECT_MOH
 menuselect/menuselect --disable-category MENUSELECT_EXTRA_SOUNDS
+# menuselect/menuselect --enable EXTRA-SOUNDS-EN-GSM menuselect.makeopts
 
+
+menuselect/menuselect --enable cdr_csv menuselect.makeopts
+menuselect/menuselect --enable format_mp3 menuselect.makeopts
+menuselect/menuselect --enable res_config_mysql menuselect.makeopts
+menuselect/menuselect --enable app_mysql menuselect.makeopts
+# menuselect/menuselect --enable cdr_mysql menuselect.makeopts
+
+menuselect/menuselect --enable app_dahdibarge menuselect.makeopts
+menuselect/menuselect --enable app_dahdiras menuselect.makeopts
+menuselect/menuselect --enable chan_dahdi menuselect.makeopts
+menuselect/menuselect --enable codec_dahdi menuselect.makeopts
+
+# Added 2018-07-09 for asterisk-certified-13.21-cert2
+menuselect/menuselect --enable cdr_odbc menuselect.makeopts
+menuselect/menuselect --enable chan_sip menuselect.makeopts
+# menuselect/menuselect --enable chan_phone menuselect.makeopts
+menuselect/menuselect --enable pbx_realtime menuselect.makeopts
+menuselect/menuselect --enable res_pjsip_history menuselect.makeopts
+menuselect/menuselect --enable res_pjsip_registrar_expire menuselect.makeopts
+
+menuselect/menuselect --enable app_chanisavail menuselect.makeopts
+menuselect/menuselect --enable app_mp3 menuselect.makeopts
+
+  
 make -j ${JOBS} all
 make install
 
@@ -93,8 +123,6 @@ make install
 # cp /usr/src/asterisk/configs/basic-pbx/*.conf /etc/asterisk/
 make samples
 
-# set runuser and rungroup
-sed -i -E 's/^;(run)(user|group)/\1\2/' /etc/asterisk/asterisk.conf
 
 # Install opus, for some reason menuselect option above does not working
 mkdir -p /usr/src/codecs/opus \
