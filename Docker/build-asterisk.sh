@@ -184,6 +184,7 @@ DEBIAN_FRONTEND=noninteractive apt-get --yes purge \
 apt-get clean 
 # do  not use autoremove
   
+rm -rf /var/lib/asterisk/moh/  
 rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
          /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
          /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
