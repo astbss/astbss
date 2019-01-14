@@ -40,4 +40,5 @@ ADD debian-9/resolv.conf /etc/resolv2.conf
 WORKDIR /home
 # COPY debian-9/docker-entrypoint.sh /
 # ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["/usr/sbin/asterisk", "-vvvdddf", "-T", "-W", "-U", "asterisk", "-p"]
+# CMD ["/usr/sbin/asterisk", "-vvvdddf", "-T", "-W", "-U", "asterisk", "-p"]
+CMD ["/usr/sbin/asterisk", "-vvvdddfp"]

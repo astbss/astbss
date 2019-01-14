@@ -153,7 +153,8 @@ mkdir -p /usr/src/codecs/opus \
   && cp codec_opus_config-en_US.xml /var/lib/asterisk/documentation/
 
 mkdir -p /etc/asterisk/ \
-         /var/spool/asterisk/fax
+         /var/spool/asterisk/fax \
+         /var/lib/asterisk/sounds
 
 # chown -R asterisk:asterisk /etc/asterisk \
 #                           /var/*/asterisk \
