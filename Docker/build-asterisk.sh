@@ -179,14 +179,17 @@ DEBIAN_FRONTEND=noninteractive apt-get --yes purge \
   pkg-config \
   xz-utils \
   ${devpackages}
+
+apt-get clean 
+apt-get --yes --quiet autoremove --purge 
   
 # apt-get purge -y --auto-remove  
 # apt-get clean 
 # apt-get --yes --quiet autoremove --purge 
 
-#rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-#        /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
-#        /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
+rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+        /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
+        /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
             
 
 exec rm -f /build-asterisk.sh
