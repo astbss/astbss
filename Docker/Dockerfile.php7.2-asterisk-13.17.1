@@ -24,6 +24,7 @@ COPY build-asterisk.sh /
 RUN /build-asterisk.sh
 
 RUN mkdir -p /etc/asterisk \
+    && rm -f /etc/odbc.ini \
     && ln -s /etc/asterisk/odbc.ini /etc/odbc.ini
 
 # EXPOSE 5060/udp 5060/tcp
