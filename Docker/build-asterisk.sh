@@ -156,6 +156,7 @@ mkdir -p /etc/asterisk/ \
          /var/spool/asterisk/fax \
          /var/lib/asterisk/sounds
 
+
 # chown -R asterisk:asterisk /etc/asterisk \
 #                           /var/*/asterisk \
 #                           /usr/*/asterisk
@@ -188,6 +189,11 @@ rm -rf /var/lib/asterisk/moh/
 rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
          /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
          /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
-            
+
+# Some folders may be needed. will try to eliminate them in the future
+mkdir -p /var/astbss/info
+mkdir -p /var/astbss/log
+mkdir -p /var/log/asterisk/astbss
+        
 
 exec rm -f /build-asterisk.sh
