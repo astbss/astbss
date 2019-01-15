@@ -35,6 +35,7 @@ RUN mkdir -p /etc/asterisk \
 ADD debian-9/odbc.ini /etc/asterisk/odbc.ini
 ADD debian-9/odbcinst.ini /etc/odbcinst.ini
 ADD debian-9/libmaodbc.so /usr/lib/x86_64-linux-gnu/odbc/libmaodbc.so
+ADD debian-9/replication.conf /var/astbss/replication.conf
 # isql -v astbss # Test odbc
 
 # /etc/resolv.conf will be overwritten by Docker - Used for testing
