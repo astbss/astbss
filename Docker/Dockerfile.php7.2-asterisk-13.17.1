@@ -41,7 +41,7 @@ RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
       wget curl nano iptables procps \
       net-tools iproute2 iputils-ping netcat-openbsd \
-    && apt-get clean   # do NOT use autoremove
+    && apt-get clean   # do NOT use autoremove \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
          /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
          /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
