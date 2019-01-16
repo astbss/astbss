@@ -27,19 +27,25 @@ RUN mkdir -p /etc/asterisk \
     && rm -f /etc/odbc.ini \
     && ln -s /etc/asterisk/odbc.ini /etc/odbc.ini
 
-# EXPOSE 5060/udp 5060/tcp
-# VOLUME /var/lib/asterisk/sounds /var/lib/asterisk/keys /var/lib/asterisk/phoneprov /var/spool/asterisk /var/log/asterisk
-
 
 # unixodbc unixodbc-dev odbcinst 
-ADD debian-9/odbc.ini /etc/asterisk/odbc.ini
 ADD debian-9/odbcinst.ini /etc/odbcinst.ini
 ADD debian-9/libmaodbc.so /usr/lib/x86_64-linux-gnu/odbc/libmaodbc.so
 ADD debian-9/replication.conf /var/astbss/replication.conf
 # isql -v astbss # Test odbc
 
-# /etc/resolv.conf will be overwritten by Docker - Used for testing
-ADD debian-9/resolv.conf /etc/resolv2.conf
+
+# Development and Debug only
+# openvpn vtun fail2ban netcat-openbsd = nc
+RUN apt-get update \
+    && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
+      wget curl nano iptables procps \
+      net-tools iproute2 iputils-ping netcat-openbsd \
+    && apt-get clean && apt-get --yes --quiet autoremove --purge \
+    && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+      /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
+      /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
+
 
 WORKDIR /home
 # COPY debian-9/docker-entrypoint.sh /
