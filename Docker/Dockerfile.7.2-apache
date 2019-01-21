@@ -35,6 +35,8 @@ RUN mkdir -p /var/log/astbss \
     && mkdir -p /var/log/asterisk/astbss \
     && mkdir -p /var/astbss/info /var/astbss/log \
     && mkdir -p /etc/asterisk
+
+ADD debian-9/replication.conf /var/astbss/replication.conf    
     
 WORKDIR /home
 EXPOSE 80
