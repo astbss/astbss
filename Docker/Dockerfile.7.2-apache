@@ -13,7 +13,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
    
-# RUN docker-php-ext-install mysqli pdo pdo_mysql
+# RUN docker-php-ext-install mysqli pdo pdo_mysql gd
 
 # It is strongly recommended to use the production config for images used in production environments!
 # Choose your configuration in: /usr/local/etc/php
@@ -32,12 +32,17 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql \
 
 # Needed for some internal scripts
 RUN mkdir -p /var/log/astbss \
-    && mkdir -p /var/log/asterisk/astbss \
-    && mkdir -p /var/astbss/info /var/astbss/log \
+    && mkdir -p /var/log/asterisk/astbss 
     && mkdir -p /etc/asterisk
 
-ADD debian-9/replication.conf /var/astbss/replication.conf    
-    
+# && mkdir -p /var/astbss/info /var/astbss/log \    
+# ADD debian-9/replication.conf /var/astbss/replication.conf    
+
+# https://github.com/docker-library/php/blob/c44aab7001ea12c8bec96664533df503bbf0af19/7.2/stretch/apache/Dockerfile
+# ENTRYPOINT ["docker-php-entrypoint"]
+# WORKDIR /var/www/html
+# COPY apache2-foreground /usr/local/bin/
+
 WORKDIR /home
 EXPOSE 80
 # CMD ["apache2-foreground"]
