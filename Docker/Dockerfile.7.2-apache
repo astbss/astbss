@@ -20,11 +20,11 @@ ENV LC_ALL=C.UTF-8
 # RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 # RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
 
-RUN docker-php-ext-install mysqli pdo pdo_mysql gd \
-    && cp "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \
-    && apt-get update \
+RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-    wget nano \
+    wget nano libpng-dev \
+    && docker-php-ext-install mysqli pdo pdo_mysql gd \
+    && cp "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \    
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
             /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
