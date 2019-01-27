@@ -35,7 +35,9 @@ RUN apt-get update \
 # Needed for some internal scripts
 RUN mkdir -p /var/log/astbss \
     && mkdir -p /var/log/asterisk/astbss \
-    && mkdir -p /etc/asterisk
+    && mkdir -p /etc/asterisk \
+    && ln /usr/local/bin/php /usr/bin/php
+    && ln -s /usr/local/astpbx/scripts/astpbxsettings.php /var/www/astpbxsettings.php
 
 # && mkdir -p /var/astbss/info /var/astbss/log \    
 # ADD debian-9/replication.conf /var/astbss/replication.conf    
@@ -45,6 +47,6 @@ RUN mkdir -p /var/log/astbss \
 # WORKDIR /var/www/html
 # COPY apache2-foreground /usr/local/bin/
 
-WORKDIR /home
+WORKDIR /var/www
 EXPOSE 80
 # CMD ["apache2-foreground"]
