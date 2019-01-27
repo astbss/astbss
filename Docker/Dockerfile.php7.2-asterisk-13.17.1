@@ -25,7 +25,8 @@ RUN /build-asterisk.sh
 
 RUN mkdir -p /etc/asterisk \
     && rm -f /etc/odbc.ini \
-    && ln -s /etc/asterisk/odbc.ini /etc/odbc.ini
+    && ln -s /etc/asterisk/odbc.ini /etc/odbc.ini \
+    && ln /usr/local/bin/php /usr/bin/php
 
 
 # unixodbc unixodbc-dev odbcinst 
