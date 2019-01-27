@@ -40,7 +40,8 @@ RUN mkdir -p /var/log/astbss \
     && ln -s /usr/local/astpbx/scripts/astpbxsettings.php /var/www/astpbxsettings.php
 
 # && mkdir -p /var/astbss/info /var/astbss/log \    
-# ADD debian-9/replication.conf /var/astbss/replication.conf    
+# ADD debian-9/replication.conf /var/astbss/replication.conf 
+ADD debian-9/resolv.conf /var/astbss/resolv2.conf   
 
 # https://github.com/docker-library/php/blob/c44aab7001ea12c8bec96664533df503bbf0af19/7.2/stretch/apache/Dockerfile
 # ENTRYPOINT ["docker-php-entrypoint"]

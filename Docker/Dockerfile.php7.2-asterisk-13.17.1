@@ -32,7 +32,8 @@ RUN mkdir -p /etc/asterisk \
 # unixodbc unixodbc-dev odbcinst 
 ADD debian-9/odbcinst.ini /etc/odbcinst.ini
 ADD debian-9/libmaodbc.so /usr/lib/x86_64-linux-gnu/odbc/libmaodbc.so
-ADD debian-9/replication.conf /var/astbss/replication.conf
+# ADD debian-9/replication.conf /var/astbss/replication.conf
+ADD debian-9/resolv.conf /var/astbss/resolv2.conf
 # isql -v astbss # Test odbc
 
 
@@ -41,7 +42,7 @@ ADD debian-9/replication.conf /var/astbss/replication.conf
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
       wget curl nano iptables procps \
-      net-tools iproute2 iputils-ping netcat-openbsd \
+      net-tools iproute2 iputils-ping netcat-openbsd ngrep \
     && apt-get clean   # do NOT use autoremove \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
          /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \

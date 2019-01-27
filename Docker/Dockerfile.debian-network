@@ -24,6 +24,8 @@ RUN mkdir -p /var/log/astbss \
     && mkdir -p /var/log/asterisk/astbss \
     && mkdir -p /var/astbss/info /var/astbss/log \
     && mkdir -p /etc/asterisk
+    
+ADD debian-9/resolv.conf /var/astbss/resolv2.conf     
 
 WORKDIR /home
 
