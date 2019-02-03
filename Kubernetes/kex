@@ -1,0 +1,20 @@
+#!/bin/bash
+set -xv
+
+# Simple Login to Pod Bash Script
+
+P="$1"
+D=""
+
+# -z True if the length of string is zero
+# -n True if the length of string is non-zero
+if [ -n "$P" ] ; then
+  # Just showing some useful alternatives
+  # D=$(kubectl get pods --namespace openvpn -l type=openvpn -o jsonpath='{ .items[0].metadata.name }')
+  # D=$(kubectl get pods | grep $P | awk '{print $1;}')
+  D=$(kubectl get pods | grep $P | cut -f1 -d' ')
+fi
+
+echo "Pod: $D"
+kubectl exec  "$D" -it -- bash -il
+
