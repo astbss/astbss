@@ -29,7 +29,6 @@ RUN apt-get update \
     wget nano libpng-dev \
     && docker-php-ext-install mysqli pdo pdo_mysql gd \
     && cp "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \    
-    && sed -ri -e 's!80!${APACHE_PORT}!g' /etc/apache2/ports.conf \
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
             /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
@@ -39,6 +38,7 @@ RUN apt-get update \
 RUN mkdir -p /var/log/astbss \
     && mkdir -p /var/log/asterisk/astbss \
     && mkdir -p /etc/asterisk \
+    && sed -ri -e 's!80!${APACHE_PORT}!g' /etc/apache2/ports.conf \
     && ln /usr/local/bin/php /usr/bin/php \
     && ln -s /usr/local/astpbx/scripts/astpbxsettings.php /var/www/astpbxsettings.php
 
