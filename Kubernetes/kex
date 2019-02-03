@@ -1,0 +1,21 @@
+#!/bin/bash
+# set -xv
+
+# Simple Login to Pod Bash Script
+# cp kex /usr/local/bin/kex
+
+P="$1"
+D=""
+
+# -n True if the length of string is non-zero
+if [ -n "$P" ] ; then
+  D=$(kubectl get pods | grep $P | cut -f1 -d' ')
+fi
+
+echo "Pod Name: $D"
+
+if [ -n "$2" ] ; then
+  kubectl exec  "$D" -it --container $2 -- bash -il
+else
+  kubectl exec  "$D" -it -- bash -il
+fi
