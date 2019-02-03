@@ -1,0 +1,20 @@
+# Kubernetes Bash Aliases
+# the kex file is the must important "Alias" even if its not an Alias
+
+
+alias k='kubectl '
+alias ka='kubectl apply -f '
+alias kg='kubectl get '
+alias kgn='kubectl get nodes'
+alias kgnw='kubectl get nodes -o wide'
+alias kgnl='kubectl get nodes --show-labels'
+alias kgp='kubectl get pods -o wide'
+alias kgpa='kubectl get pods --all-namespaces'
+alias kgs='kubectl get svc'
+alias kgd='kubectl get deployments'
+alias kd='kubectl delete '
+alias kdf='kubectl delete -f '
+
+
+
+
