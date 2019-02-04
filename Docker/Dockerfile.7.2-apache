@@ -40,7 +40,10 @@ RUN mkdir -p /var/log/astbss \
     && mkdir -p /etc/asterisk \
     && sed -ri -e 's!80!${APACHE_PORT}!g' /etc/apache2/ports.conf \
     && ln /usr/local/bin/php /usr/bin/php \
-    && ln -s /usr/local/astpbx/scripts/astpbxsettings.php /var/www/astpbxsettings.php
+    && ln -s /usr/local/astpbx/scripts/astpbxsettings.php /var/www/astpbxsettings.php \
+    && /usr/sbin/a2enmod rewrite \
+    && /usr/sbin/a2enmod alias
+
 
 # && mkdir -p /var/astbss/info /var/astbss/log \    
 # ADD debian-9/replication.conf /var/astbss/replication.conf 
