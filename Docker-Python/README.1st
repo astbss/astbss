@@ -15,3 +15,6 @@ pip3 freeze >requirements.txt
 
 
 docker pull python:3.7.2-slim-stretch
+docker run -it --rm python:3.7.2-slim-stretch bash
+
+docker run -it --rm astbss/python:3.7.2 bash
