@@ -12,7 +12,8 @@ pip3 install kafka-python
 pip3 freeze >requirements.txt
 
 
-
+# uWSGI needs some build tools to create the image
+# pip3 install uWSGI
 # pip install pysqlite3 
 
 
