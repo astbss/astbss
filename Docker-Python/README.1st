@@ -7,7 +7,7 @@ pip3 install simplejson pexpect ptyprocess pylint pywinrm requests
 pip3 install python-dotenv fabric Flask-WTF httpie
 pip3 install pymssql
 
-pip3 install kafka-python
+pip3 install kafka-python smalluuid
 
 pip3 freeze >requirements.txt
 
