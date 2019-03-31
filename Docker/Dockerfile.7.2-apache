@@ -26,7 +26,7 @@ ENV APACHE_PORT 80
 
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-    wget nano libpng-dev \
+    wget nano libpng-dev git zip unzip \
     && docker-php-ext-install mysqli pdo pdo_mysql gd \
     && cp "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \    
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
@@ -42,11 +42,12 @@ RUN mkdir -p /var/log/astbss \
     && ln /usr/local/bin/php /usr/bin/php \
     && ln -s /usr/local/astpbx/scripts/astpbxsettings.php /var/www/astpbxsettings.php \
     && /usr/sbin/a2enmod rewrite \
-    && /usr/sbin/a2enmod alias
+    && /usr/sbin/a2enmod alias \
+    && cd /usr/src \
+    && curl -sS https://getcomposer.org/installer | php \
+    && mv composer.phar /usr/bin/composer
 
 
-# && mkdir -p /var/astbss/info /var/astbss/log \    
-# ADD debian-9/replication.conf /var/astbss/replication.conf 
 ADD debian-9/resolv.conf /var/astbss/resolv2.conf   
 
 # https://github.com/docker-library/php/blob/c44aab7001ea12c8bec96664533df503bbf0af19/7.2/stretch/apache/Dockerfile
@@ -54,6 +55,7 @@ ADD debian-9/resolv.conf /var/astbss/resolv2.conf
 # WORKDIR /var/www/html
 # COPY apache2-foreground /usr/local/bin/
 
-WORKDIR /var/www
+WORKDIR /home
+# WORKDIR /var/www
 EXPOSE 80
 # CMD ["apache2-foreground"]
