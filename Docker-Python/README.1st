@@ -1,18 +1,19 @@
  
 pip3 install flask SQLAlchemy PyMySQL
-pip3 install gunicorn uWSGI gevent 
+pip3 install gunicorn gevent 
 pip3 install connexion[swagger-ui]
 pip3 install ldap3 names var-dump pyasn1-modules
 pip3 install simplejson pexpect ptyprocess pylint pywinrm requests
 pip3 install python-dotenv fabric Flask-WTF httpie
 pip3 install pymssql
 
-pip3 install kafka-python
+pip3 install kafka-python smalluuid
 
 pip3 freeze >requirements.txt
 
 
-
+# uWSGI needs some build tools to create the image
+# pip3 install uWSGI
 # pip install pysqlite3 
 
 
