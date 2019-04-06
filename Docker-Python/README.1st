@@ -11,6 +11,9 @@ pip3 install kafka-python smalluuid
 
 pip3 freeze >requirements.txt
 
+pip3 install ansible
+pip3 install confluent-kafka
+ 
 
 # uWSGI needs some build tools to create the image
 # pip3 install uWSGI
