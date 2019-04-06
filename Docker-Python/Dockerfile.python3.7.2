@@ -27,8 +27,10 @@ WORKDIR /app
 # Install dependencies
 COPY requirements.txt /app/
 
-RUN pip install -r /app/requirements.txt
+RUN pip install -r /app/requirements.txt \
+  && pip3 install ansible
 
+# ansible-2.7.10
 
 # ENTRYPOINT ["/bin/bash", "/app/gunicorn.sh"]
 # ENTRYPOINT ["/bin/bash"]
