@@ -1,9 +1,9 @@
 # vim:set ft=dockerfile:
 # docker build -f Dockerfile.python3.7.2 -t astbss/python:3.7.2 .
 # docker tag astbss/python:3.7.2 astbss/python:latest
-# docker run -it --rm astbss/python bash
-# docker run -v /home/are:/app -it --rm astbss/python bash
-# docker run -v /app/my-app:/app -it  --entrypoint "/bin/bash" astbss/python
+# docker run -it --rm astbss/python:3.7.2 bash
+# docker run -v /app/my-app:/app -it  --rm --entrypoint "/bin/bash" astbss/python:3.7.2
+# docker run -v /home/are:/app -it --rm astbss/python:3.7.2 bash
 
 # https://hub.docker.com/_/python
 
@@ -19,6 +19,7 @@ RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
     git nano wget curl net-tools iproute2 iputils-ping openssh-client \
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
+    && mkdir -p /root/.ssh && mkdir -p /home/are/.ssh
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
             /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
             /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
