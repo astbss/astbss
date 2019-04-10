@@ -34,6 +34,7 @@ COPY requirements.txt /app/
 RUN pip install -r /app/requirements.txt \
   && pip3 install ansible \ 
   && pip install confluent-kafka
+  && mkdir -p /root/keys
 
 # ansible-2.7.10
 
