@@ -15,4 +15,7 @@ spec:
     nodePort: 30446
 
 # kubectl get service -o=wide
+
+# nc 10.244.0.26 446  
+
     

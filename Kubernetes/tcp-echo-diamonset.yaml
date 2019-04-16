@@ -33,4 +33,7 @@ spec:
             operator: In
             values:
             - target-host-name        
-        
+
+# nc 10.244.0.26 446  
+
+            
