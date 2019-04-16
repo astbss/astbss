@@ -9,13 +9,8 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: networkpod
-  annotations:
-    k8s.v1.cni.cncf.io/networks: macvlan-conf  
 spec:
   containers:
   - name: networkpod
     command: ["/bin/bash", "-c", "trap : TERM INT; sleep infinity & wait"]    
     image: astbss/debian-network
-    securityContext:
-      allowPrivilegeEscalation: true
-      privileged: true

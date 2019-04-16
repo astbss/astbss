@@ -1,4 +1,4 @@
-# kubectl apply -f https://raw.githubusercontent.com/astbss/astbss/master/Kubernetes/networkpod.yaml
+# kubectl apply -f https://raw.githubusercontent.com/astbss/astbss/master/Kubernetes/networkpod-macvlan.yaml
 # kubectl apply -f networkpod.yaml
 # kubectl get pods
 # kubectl delete pod networkpod
