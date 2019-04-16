@@ -17,7 +17,6 @@ spec:
       name: tcp-echo
       labels:
         app: tcp-echo
-spec:
   hostNetwork: true
   containers:
   - image: maniankara/tcp-echo:1.0
