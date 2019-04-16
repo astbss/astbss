@@ -1,4 +1,4 @@
-# kubectl apply -f https://raw.githubusercontent.com/astbss/astbss/master/Kubernetes/networkpod.yaml
+# kubectl apply -f https://raw.githubusercontent.com/astbss/astbss/master/Kubernetes/tcp-echo-pod.yaml
 # kubectl apply -f tcp-echo-pod.yaml
 # kubectl get pods
 # kubectl delete pod tcp-echo
