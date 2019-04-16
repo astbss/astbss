@@ -12,22 +12,12 @@ metadata:
   labels:
     app: tcp-echo
 spec:
-  selector:
-    matchLabels:
-      app: tcp-echo
-  strategy:
-    type: Recreate
-  template:
-    metadata:
-      labels:
-        app: tcp-echo
-    spec:
-      containers:
-      - image: maniankara/tcp-echo:1.0
-        ports:
-        - containerPort: 446
-        name: tcp-echo-server
-        args: ["--port", "446"]
+  containers:
+  - image: maniankara/tcp-echo:1.0
+    ports:
+    - containerPort: 446
+    name: tcp-echo-server
+    args: ["--port", "446"]
 ---
 
 #   hostNetwork: true
