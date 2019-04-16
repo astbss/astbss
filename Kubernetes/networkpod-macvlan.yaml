@@ -1,0 +1,21 @@
+# kubectl apply -f https://raw.githubusercontent.com/astbss/astbss/master/Kubernetes/networkpod.yaml
+# kubectl apply -f networkpod.yaml
+# kubectl get pods
+# kubectl delete pod networkpod
+# kubectl exec -it networkpod --container networkpod -- bash
+# kubectl exec -it networkpod -- bash
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: networkpod-macvlan
+  annotations:
+    k8s.v1.cni.cncf.io/networks: macvlan-conf  
+spec:
+  containers:
+  - name: networkpod
+    command: ["/bin/bash", "-c", "trap : TERM INT; sleep infinity & wait"]    
+    image: astbss/debian-network
+    securityContext:
+      allowPrivilegeEscalation: true
+      privileged: true

@@ -1,0 +1,36 @@
+# kubectl apply -f https://raw.githubusercontent.com/astbss/astbss/master/Kubernetes/networkpod.yaml
+# kubectl apply -f tcp-echo-daemonset.yaml
+# kubectl get DaemonSet
+# kubectl delete DaemonSet tcp-echo-daemon
+# kubectl exec -it tcp-echo-daemon --container tcp-echo -- bash
+# kubectl exec -it tcp-echo-daemon -- bash
+
+apiVersion: v1
+kind: DaemonSet
+metadata:
+  name: tcp-echo-daemon
+  labels:
+    app: tcp-echo-daemon
+spec:
+  template:
+    metadata:
+      name: tcp-echo-daemon
+      labels:
+        app: tcp-echo-daemon
+    spec:
+      hostNetwork: true
+      containers:
+      - image: maniankara/tcp-echo:1.0
+        ports:
+        - containerPort: 446
+        name: tcp-echo-server
+        args: ["--port", "446"]
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchFields:
+          - key: metadata.name
+            operator: In
+            values:
+            - target-host-name        
+        
