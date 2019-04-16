@@ -16,6 +16,7 @@ spec:
   - image: maniankara/tcp-echo:1.0
     ports:
     - containerPort: 446
+      hostPort: 446
     name: tcp-echo-server
     args: ["--port", "446"]
 ---
