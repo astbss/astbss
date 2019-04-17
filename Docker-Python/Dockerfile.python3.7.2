@@ -18,7 +18,7 @@ ENV LC_ALL=C.UTF-8
 
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-    git nano wget curl net-tools iproute2 iputils-ping openssh-client \
+    git nano wget curl net-tools iproute2 iputils-ping openssh-clientv vim\
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
     && mkdir -p /root/.ssh && mkdir -p /home/are/.ssh \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
@@ -44,4 +44,5 @@ RUN pip install -r /app/requirements.txt \
 # EXPOSE 8088
 # CMD ["gunicorn", "-w 4", "main:app"]
 
-CMD ["bash"]
+# CMD ["bash"]
+CMD ["/bin/bash", "-c", "trap : TERM INT; sleep infinity & wait"] 
