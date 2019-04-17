@@ -18,7 +18,7 @@ ENV LC_ALL=C.UTF-8
 
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-    git nano wget curl net-tools iproute2 iputils-ping openssh-clientv vim\
+    git nano wget curl net-tools iproute2 iputils-ping openssh-client vim\
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
     && mkdir -p /root/.ssh && mkdir -p /home/are/.ssh \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
