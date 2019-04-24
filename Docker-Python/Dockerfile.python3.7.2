@@ -32,6 +32,7 @@ WORKDIR /app
 COPY requirements.txt /app/
 
 RUN pip install -r /app/requirements.txt \
+  && pip install --upgrade pip \
   && pip3 install ansible \ 
   && pip install confluent-kafka \
   && pip install pytest \
