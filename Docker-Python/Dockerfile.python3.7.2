@@ -34,9 +34,9 @@ COPY requirements.txt /app/
 RUN pip install -r /app/requirements.txt \
   && pip3 install ansible \ 
   && pip install confluent-kafka \
-  && pip install -U pytest \
+  && pip install pytest \
   && mkdir -p /root/keys && mkdir -p /root/test && mkdir -p /root/app \
-  && sed '/self\.protocol\.close_shell/a if not isinstance(rs.std_err, str):\nrs.std_err = rs.std_err.decode()\nif not isinstance(rs.std_out, str):\nrs.std_out = rs.std_out.decode()' /usr/local/lib/python3.7/site-packages/winrm/__init__.py 
+  && sed -i '/self\.protocol\.close_shell/a if not isinstance(rs.std_err, str):\nrs.std_err = rs.std_err.decode()\nif not isinstance(rs.std_out, str):\nrs.std_out = rs.std_out.decode()' /usr/local/lib/python3.7/site-packages/winrm/__init__.py 
 
 # ansible-2.7.10
 
