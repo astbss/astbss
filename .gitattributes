@@ -19,14 +19,14 @@
 # The above will handle all files NOT found below
 #
 # These files are text and should be normalized (Convert crlf => lf)
-*.css           text
-*.html          text
-*.java          text
-*.js            text
-*.json          text
-*.properties    text
-*.txt           text
-*.xml           text
+#*.css           text
+#*.html          text
+#*.java          text
+#*.js            text
+#*.json          text
+#*.properties    text
+#*.txt           text
+#*.xml           text
 
 
 # These files are binary and should be left untouched
