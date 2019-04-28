@@ -1,0 +1,38 @@
+# Inside your project, there should be a .gitattributes file. Most of the time, it should look like below
+# https://stackoverflow.com/questions/21822650/disable-git-eol-conversions
+# https://help.github.com/en/articles/dealing-with-line-endings
+
+# Handle line endings automatically for files detected as text 
+# and leave all files detected as binary untouched.
+# Change * text=auto to * text=false to disable automatic handling 
+* text=auto
+
+# Git will always convert line endings to `LF` on checkout
+*.sh            text eol=lf
+*.py            text eol=lf
+*.php           text eol=lf
+
+# Never modify line endings of our bash scripts
+# *.sh -crlf
+
+#
+# The above will handle all files NOT found below
+#
+# These files are text and should be normalized (Convert crlf => lf)
+*.css           text
+*.html          text
+*.java          text
+*.js            text
+*.json          text
+*.properties    text
+*.txt           text
+*.xml           text
+
+
+# These files are binary and should be left untouched
+# (binary is macro for -text -diff)
+*.class         binary
+*.jar           binary
+*.gif           binary
+*.jpg           binary
+*.png           binary
