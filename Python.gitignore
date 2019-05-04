@@ -1,5 +1,7 @@
 # wget -O .gitignore https://raw.githubusercontent.com/astbss/astbss/master/Python.gitignore
 
+# astbss Python.gitignore v.0.2
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
