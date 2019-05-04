@@ -1,3 +1,7 @@
+# wget -O .gitignore https://raw.githubusercontent.com/astbss/astbss/master/Python.gitattributes
+
+# astbss Python.gitattributes v.0.2
+
 # Inside your project, there should be a .gitattributes file. Most of the time, it should look like below
 # https://stackoverflow.com/questions/21822650/disable-git-eol-conversions
 # https://help.github.com/en/articles/dealing-with-line-endings
