@@ -11,8 +11,6 @@ pip3 install kafka-python smalluuid
 
 pip3 freeze >requirements.txt
 
-pip3 install ansible
-pip3 install confluent-kafka
 pip install bcrypt
 
 pip install ansible confluent-kafka pytest shortuuid timeago
