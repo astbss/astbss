@@ -1,6 +1,14 @@
 # wget -O .gitattributes https://raw.githubusercontent.com/astbss/astbss/master/Python.gitattributes
+# astbss Python.gitattributes v.0.4
 
-# astbss Python.gitattributes v.0.2
+# https://code.visualstudio.com/docs/remote/troubleshooting#_resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files
+# Force everything to be LF, except for Windows batch files that require CRLF:
+* text=auto eol=lf
+*.{cmd,[cC][mM][dD]} text eol=crlf
+*.{bat,[bB][aA][tT]} text eol=crlf
+
+# Disable line ending conversation entirely
+# git config --global core.autocrlf false  
 
 # Inside your project, there should be a .gitattributes file. Most of the time, it should look like below
 # https://stackoverflow.com/questions/21822650/disable-git-eol-conversions
