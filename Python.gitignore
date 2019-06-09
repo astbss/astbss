@@ -1,6 +1,8 @@
 # wget -O .gitignore https://raw.githubusercontent.com/astbss/astbss/master/Python.gitignore
 
-# astbss Python.gitignore v.0.2
+# astbss Python.gitignore v.0.3
+
+# config.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -101,6 +103,7 @@ celerybeat-schedule
 # Environments
 .env
 .venv
+.venv2
 .venvlux
 .venvdeb
 .venvare
