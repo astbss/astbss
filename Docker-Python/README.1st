@@ -15,6 +15,7 @@ pip install bcrypt
 
 pip install ansible confluent-kafka pytest shortuuid timeago
 pip install pywinrm[credssp] pywinrm[kerberos] dictdiffer
+pip install flask_oauthlib
 
 # uWSGI needs some build tools to create the image
 # pip3 install uWSGI
