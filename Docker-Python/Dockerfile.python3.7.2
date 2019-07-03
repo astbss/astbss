@@ -33,6 +33,7 @@ WORKDIR /app
 COPY requirements.txt /app/
 
 RUN pip install --upgrade pip \
+  && pip install requests-oauthlib
   && pip install -r /app/requirements.txt \
   && pip install ansible confluent-kafka pytest shortuuid timeago \
   && pip install pywinrm[credssp] pywinrm[kerberos] dictdiffer flask_oauthlib jwt \
