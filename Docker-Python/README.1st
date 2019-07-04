@@ -15,6 +15,7 @@ pip3 install gunicorn[gevent]
 pip3 install connexion[swagger-ui]
 pip3 install ldap3 names var-dump pyasn1-modules
 pip3 install simplejson pexpect ptyprocess pywinrm 
+
 pip3 install fabric httpie dictdiffer
 pip3 install pymssql smalluuid shortuuid
 pip3 install confluent-kafka kafka-python 
