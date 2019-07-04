@@ -37,7 +37,7 @@ RUN pip install --upgrade pip \
   && mkdir -p /root/keys && mkdir -p /root/test && mkdir -p /root/app \
   && sed -i '/self\.protocol\.close_shell/a #\n        if not isinstance(rs.std_err, str):\n            rs.std_err = rs.std_err.decode()\n        if not isinstance(rs.std_out, str):\n            rs.std_out = rs.std_out.decode()' /usr/local/lib/python3.7/site-packages/winrm/__init__.py 
 
-# ansible-2.8.1
+# ansible 2.8.2
 
 # ENTRYPOINT ["/bin/bash", "/app/gunicorn.sh"]
 # ENTRYPOINT ["/bin/bash"]
