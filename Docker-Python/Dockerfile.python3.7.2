@@ -36,7 +36,7 @@ RUN pip install --upgrade pip \
   && pip install requests-oauthlib \
   && pip install -r /app/requirements.txt \
   && pip install ansible confluent-kafka pytest shortuuid timeago \
-  && pip install pywinrm[credssp] pywinrm[kerberos] dictdiffer flask_oauthlib jwt \
+  && pip install pywinrm[credssp] pywinrm[kerberos] dictdiffer flask_oauthlib jwt adal \
   && mkdir -p /root/keys && mkdir -p /root/test && mkdir -p /root/app \
   && sed -i '/self\.protocol\.close_shell/a #\n        if not isinstance(rs.std_err, str):\n            rs.std_err = rs.std_err.decode()\n        if not isinstance(rs.std_out, str):\n            rs.std_out = rs.std_out.decode()' /usr/local/lib/python3.7/site-packages/winrm/__init__.py 
 
