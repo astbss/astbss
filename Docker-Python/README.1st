@@ -4,9 +4,9 @@ python3 -m venv .venv4Docker
 source .venv4Docker/bin/activate
 python3 -m pip install --upgrade pip
 
-pip install requests-oauthlib==1.1.0
+pip install requests-oauthlib
 
-pip install flask flask-oauthlib Flask-WTF
+pip install flask Flask-WTF
 pip install requests pylint pytest
  
 pip3 install SQLAlchemy PyMySQL python-dotenv
