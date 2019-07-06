@@ -13,8 +13,15 @@
 FROM python:3.7.2-slim-stretch
 LABEL maintainer="are@astbss.com"
 ENV DEBIAN_FRONTEND noninteractive
+
+# At the moment, setting "LANG=C" on a Linux system *fundamentally breaks Python 3*, and that's not OK.
 ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
+
+# if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
+ENV PYTHON_PIP_VERSION 19.1.1
+ENV PYTHON_VERSION 3.7.2
+ENV PYTHONPATH=/usr/local/lib/python3.7/site-packages:/usr/local/lib/python3.7
 
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
