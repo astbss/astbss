@@ -1,5 +1,5 @@
 #!/bin/bash
-# sudo wget https://raw.githubusercontent.com/astbss/astbss/master/Kubernetes/kex -O /usr/local/bin/kex ; chmod +x /usr/local/bin/kex
+# sudo wget https://raw.githubusercontent.com/astbss/astbss/master/Kubernetes/kex -O /usr/local/bin/kex ; sudo chmod +x /usr/local/bin/kex
 # set -xv
 
 # Simple Login to Pod Bash Script
