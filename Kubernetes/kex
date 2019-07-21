@@ -20,7 +20,7 @@ esac
 if [ -n "$P" ] ; then
   D=$(kubectl get pods | grep $P | cut -f1 -d' ')
 else
-  kubectl get pods
+  kubectl get pods -o=wide
   exit  
 fi
 
