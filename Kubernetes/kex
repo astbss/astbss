@@ -11,6 +11,9 @@ D=""
 # -n True if the length of string is non-zero
 if [ -n "$P" ] ; then
   D=$(kubectl get pods | grep $P | cut -f1 -d' ')
+else
+  kubectl get pods
+  exit  
 fi
 
 echo "Pod Name: $D"
