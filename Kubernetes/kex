@@ -10,6 +10,7 @@ D=""
 
 case $P in
   (n|node|nodes)
+    echo "kubectl get nodes"
     kubectl get nodes
     exit
   ;; # OK
