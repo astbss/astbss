@@ -8,6 +8,13 @@
 P="$1"
 D=""
 
+case $P in
+  (n|node|nodes)
+    kubectl get nodes
+    exit
+  ;; # OK
+esac
+
 # -n True if the length of string is non-zero
 if [ -n "$P" ] ; then
   D=$(kubectl get pods | grep $P | cut -f1 -d' ')
