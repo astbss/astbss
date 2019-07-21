@@ -1,4 +1,7 @@
 #!/bin/bash
+# https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+# https://gist.github.com/tamas-molnar/32a07c0eb83e95484e3cdb4b7fada32b
+
 # sudo wget https://raw.githubusercontent.com/astbss/astbss/master/Kubernetes/kex -O /usr/local/bin/kex ; sudo chmod +x /usr/local/bin/kex
 # set -xv
 
