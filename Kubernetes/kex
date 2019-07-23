@@ -7,9 +7,10 @@
 # sudo wget https://raw.githubusercontent.com/astbss/astbss/master/Kubernetes/kex -O /usr/local/bin/kex ; sudo chmod +x /usr/local/bin/kex
 
 # set -xv
-# set -ex
+set -ex
 # set -e stops the execution of a script if a command or pipeline has an error
-# set -x to see debug output.
+# set -x to see debug output
+# set -v Echoes all commands before executing
 
 # Simple Login to Pod Bash Script
 # cp kex /usr/local/bin/kex
