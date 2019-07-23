@@ -11,6 +11,7 @@ set -ex
 # set -e stops the execution of a script if a command or pipeline has an error
 # set -v Echoes all commands before executing
 # set -x 	Similar to -v, but expands commands
+# https://www.tldp.org/LDP/abs/html/options.html
 
 # Simple Login to Pod Bash Script
 # cp kex /usr/local/bin/kex
