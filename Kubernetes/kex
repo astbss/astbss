@@ -50,9 +50,6 @@ case $P in
   ;; # OK
 esac
 
-kubectl get pods --all-namespaces -o=jsonpath='{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers[*]}{.image}{", "}{end}{end}' | sort
-
-
 
 # -n True if the length of string is non-zero
 if [ -n "$P" ] ; then
