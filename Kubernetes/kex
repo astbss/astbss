@@ -39,8 +39,13 @@ esac
 case $P in
   (l|list)
     kubectl get pods -o=jsonpath='{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers [*]}{.name}{", "}{end}{end}' | sort
-  (co|containers)
-    kubectl get pods --all-namespaces -o=jsonpath='{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers[*]}{.image}{", "}{end}{end}' | sort
+    exit
+  ;; # OK
+esac
+
+case $P in
+  (c|co|containers)
+    kubectl get pods -o=jsonpath='{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers[*]}{.image}{", "}{end}{end}' | sort
     exit
   ;; # OK
 esac
