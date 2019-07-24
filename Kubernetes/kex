@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# sudo wget https://raw.githubusercontent.com/astbss/astbss/master/Kubernetes/kex -O /usr/local/bin/kex ; sudo chmod +x /usr/local/bin/kex
+
 # https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-autocomplete
 # Enable kubernetes completion via adding this to your ~/.bashrc
 # alias k=kubectl
@@ -11,7 +13,6 @@
 # https://www.sfgroups.com/kubernetes/kubectl_bash_alias/
 # https://itnext.io/kubernetes-command-line-tools-acad11683794
 
-# sudo wget https://raw.githubusercontent.com/astbss/astbss/master/Kubernetes/kex -O /usr/local/bin/kex ; sudo chmod +x /usr/local/bin/kex
 
 # set -xv
 set -ex
