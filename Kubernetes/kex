@@ -34,6 +34,20 @@ case $P in
   ;; # OK
 esac
 
+# https://kubernetes.io/docs/tasks/access-application-cluster/list-all-running-container-images/
+case $P in
+  (l|list)
+    kubectl get pods -o=jsonpath='{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers [*]}{.name}{", "}{end}{end}' | sort
+  (co|containers)
+    kubectl get pods --all-namespaces -o=jsonpath='{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers[*]}{.image}{", "}{end}{end}' | sort
+    exit
+  ;; # OK
+esac
+
+kubectl get pods --all-namespaces -o=jsonpath='{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers[*]}{.image}{", "}{end}{end}' | sort
+
+
+
 # -n True if the length of string is non-zero
 if [ -n "$P" ] ; then
   D=$(kubectl get pods | grep $P | cut -f1 -d' ')
