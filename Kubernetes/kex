@@ -37,7 +37,7 @@ esac
 
 # https://kubernetes.io/docs/tasks/access-application-cluster/list-all-running-container-images/
 case $P in
-  (l|list)
+  (l|list|pod|pods)
     kubectl get pods -o=jsonpath='{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers [*]}{.name}{", "}{end}{end}' | sort
     exit
   ;; # OK
