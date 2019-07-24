@@ -15,7 +15,7 @@
 
 
 # set -xv
-set -ex
+# set -ex
 # set -e stops the execution of a script if a command or pipeline has an error
 # set -v Echoes all commands before executing
 # set -x 	Similar to -v, but expands commands
