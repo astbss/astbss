@@ -64,7 +64,7 @@ echo "Pod Name: $D"
 if [ "$2"  == "delete" ] ; then
     echo "kubectl delete pod $D"
     kubectl delete pod $D
-    sleep 1
+    # sleep 1
     kubectl get pods -o=wide
 elif [ -n "$2" ] ; then
   kubectl exec  "$D" -it --container $2 -- bash -il
