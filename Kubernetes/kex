@@ -44,8 +44,11 @@ case $P in
 esac
 
 case $P in
-  (c|co|containers)
-    kubectl get pods -o=jsonpath='{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers[*]}{.image}{", "}{end}{end}' | sort
+  (Save|save)
+    D=$(kubectl get pods | grep -ibix-$2 | cut -f1 -d' ')
+    echo "Pod Name: $D"
+    echo "kubectl exec -it $D -- /usr/local/astpbx-git/scripts/astpbxsettings.php"
+    kubectl exec -it $D -- /usr/local/astpbx-git/scripts/astpbxsettings.php
     exit
   ;; # OK
 esac
@@ -55,6 +58,7 @@ esac
 if [ -n "$P" ] ; then
   D=$(kubectl get pods | grep $P | cut -f1 -d' ')
 else
+  echo "kubectl get pods -o=wide"
   kubectl get pods -o=wide
   exit  
 fi
