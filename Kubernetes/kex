@@ -54,6 +54,14 @@ case $P in
 esac
 
 case $P in
+  (dep|depl|deployment|deployments)
+    echo "kubectl get deployments"
+    kubectl get deployments
+    exit
+  ;; # OK
+esac
+
+case $P in
   (h|H|Help|help)
     echo "Usage: kex COMMAND [ARGS]... "
     echo ""
@@ -62,6 +70,8 @@ case $P in
     echo "Commands:"
     echo "  pods          kubectl get pods"
     echo "  nodes         kubectl get nodes"
+    echo "  dep           kubectl get deployments"
+    echo "  deployments   kubectl get deployments"
     echo "  [pod] delete  kubectl delete pod"
     echo "  Save [pbx|pod]"
     exit
