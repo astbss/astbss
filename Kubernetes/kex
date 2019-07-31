@@ -54,7 +54,7 @@ case $P in
 esac
 
 case $P in
-  (Help|help)
+  (h|H|Help|help)
     echo "Usage: kex COMMAND [ARGS]... "
     echo ""
     echo "help  Show this message and exit."
