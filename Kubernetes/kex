@@ -53,6 +53,20 @@ case $P in
   ;; # OK
 esac
 
+case $P in
+  (Help|help)
+    echo "Usage: kex COMMAND [ARGS]... "
+    echo ""
+    echo "help  Show this message and exit."
+    echo ""
+    echo "Commands:"
+    echo "  pods          kubectl get pods"
+    echo "  nodes         kubectl get nodes"
+    echo "  [pod] delete  kubectl delete pod"
+    echo "  Save [pbx|pod]"
+    exit
+  ;; # OK
+esac
 
 # -n True if the length of string is non-zero
 if [ -n "$P" ] ; then
