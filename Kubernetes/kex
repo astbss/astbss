@@ -47,8 +47,8 @@ case $P in
   (Save|save)
     D=$(kubectl get pods | grep ibix-$2 | cut -f1 -d' ')
     echo "Pod Name: $D"
-    echo "kubectl exec -it $D -- /usr/local/astpbx-git/scripts/astpbxsettings.php"
-    kubectl exec -it $D -- /usr/local/astpbx-git/scripts/astpbxsettings.php
+    echo "kubectl exec -it $D -c ibix-asterisk -- /usr/local/astpbx-git/scripts/astpbxsettings.php"
+    kubectl exec -it $D -c ibix-asterisk -- /usr/local/astpbx-git/scripts/astpbxsettings.php
     exit
   ;; # OK
 esac
