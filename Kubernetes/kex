@@ -61,6 +61,17 @@ case $P in
 esac
 
 case $P in
+  (Delete|delete)
+    D=$(kubectl get pods | grep $2 | cut -f1 -d' ')
+    echo "kubectl delete pod $D"
+    kubectl delete pod $D
+    sleep 0.1
+    kubectl get pods -o=wide    
+    exit
+  ;; # OK
+esac
+
+case $P in
   (dep|depl|deployment|deployments)
     echo "kubectl get deployments"
     kubectl get deployments
