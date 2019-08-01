@@ -71,7 +71,7 @@ esac
 case $P in
   (serv|service|services)
     echo "kubectl get services"
-    kubectl get deployments
+    kubectl get services
     exit
   ;; # OK
 esac
@@ -79,7 +79,7 @@ esac
 case $P in
   (secret|secrets)
     echo "kubectl get secrets"
-    kubectl get deployments
+    kubectl get secrets
     exit
   ;; # OK
 esac
