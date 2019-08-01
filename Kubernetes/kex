@@ -39,6 +39,7 @@ esac
 case $P in
   (c|container|containers)
     kubectl get pods -o=jsonpath='{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers [*]}{.name}{", "}{end}{end}'
+    echo ""
     exit
   ;; # OK
 esac
@@ -111,7 +112,7 @@ case $P in
     echo "  services|serv kubectl get services"
     echo "  secrets       kubectl get secrets"
 
-    echo "  [pod] delete  kubectl delete pod"
+    echo "  delete [pod]  kubectl delete pod"
     echo "  Save [pbx|pod]"
     exit
   ;; # OK
