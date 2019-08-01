@@ -30,7 +30,7 @@ D=""
 case $P in
   (n|node|nodes)
     echo "kubectl get nodes"
-    kubectl get nodes | sort
+    kubectl get nodes
     exit
   ;; # OK
 esac
@@ -38,14 +38,14 @@ esac
 # https://kubernetes.io/docs/tasks/access-application-cluster/list-all-running-container-images/
 case $P in
   (c|container|containers)
-    kubectl get pods -o=jsonpath='{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers [*]}{.name}{", "}{end}{end}' | sort
+    kubectl get pods -o=jsonpath='{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers [*]}{.name}{", "}{end}{end}'
     exit
   ;; # OK
 esac
 
 case $P in
   (p|pod|pods)
-    kubectl get pods | sort
+    kubectl get pods
     exit
   ;; # OK
 esac
@@ -63,7 +63,23 @@ esac
 case $P in
   (dep|depl|deployment|deployments)
     echo "kubectl get deployments"
-    kubectl get deployments | sort
+    kubectl get deployments
+    exit
+  ;; # OK
+esac
+
+case $P in
+  (serv|service|services)
+    echo "kubectl get services"
+    kubectl get deployments
+    exit
+  ;; # OK
+esac
+
+case $P in
+  (secret|secrets)
+    echo "kubectl get secrets"
+    kubectl get deployments
     exit
   ;; # OK
 esac
@@ -80,6 +96,10 @@ case $P in
     echo "  nodes|n       kubectl get nodes"
     echo "  dep           kubectl get deployments"
     echo "  deployments   kubectl get deployments"
+
+    echo "  services|serv kubectl get services"
+    echo "  secrets       kubectl get secrets"
+
     echo "  [pod] delete  kubectl delete pod"
     echo "  Save [pbx|pod]"
     exit
@@ -91,7 +111,7 @@ if [ -n "$P" ] ; then
   D=$(kubectl get pods | grep $P | cut -f1 -d' ')
 else
   echo "kubectl get pods -o=wide"
-  kubectl get pods -o=wide | sort
+  kubectl get pods -o=wide
   exit  
 fi
 
