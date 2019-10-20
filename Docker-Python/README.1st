@@ -28,7 +28,7 @@ pip install pywinrm[credssp] pywinrm[kerberos]
 pip freeze >requirements.txt
 
 
-docker pull python:3.7.2-slim-stretch
-docker run -it --rm python:3.7.2-slim-stretch bash
+docker pull python:3.7.5-slim-stretch
+docker run -it --rm python:3.7.5-slim-stretch bash
 
-docker run -it --rm astbss/python:3.7.2 bash
+docker run -it --rm astbss/3.7.5-slim-stretch bash
