@@ -22,7 +22,7 @@ pip3 install confluent-kafka kafka-python
 
 pip install timeago bcrypt jwt adal
 pip install pywinrm[credssp] pywinrm[kerberos] 
-pip install flake8
+# pip install flake8
 pip install ansible
  
 pip freeze >requirements.txt
