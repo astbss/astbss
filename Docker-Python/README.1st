@@ -21,7 +21,9 @@ pip3 install pymssql smalluuid shortuuid
 pip install timeago bcrypt jwt adal
 pip install pywinrm[credssp] pywinrm[kerberos] 
 
-# pip install ansible
+# pip install 'ansible==2.8.2'
+# Ansible do not compile on Windows.
+# Please install only version 2.8.2
  
 pip freeze >requirements.txt
 
