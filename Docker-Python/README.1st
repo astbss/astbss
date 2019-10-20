@@ -1,29 +1,27 @@
 How to Create requirements.txt
 
-python3 -m venv .venv5Docker
-source .venv5Docker/bin/activate
+python3 -m venv .venv
+source .venv/bin/activate
 python3 -m pip install --upgrade pip
 
 pip install requests-oauthlib
 
 pip install flask Flask-WTF
-pip install requests pylint pytest
+pip install requests pylint pytest autopep8 flake8
  
 pip3 install SQLAlchemy PyMySQL python-dotenv
 pip3 install gunicorn[gevent]
 
-pip3 install connexion[swagger-ui]
 pip3 install ldap3 names var-dump pyasn1-modules
-pip3 install simplejson pexpect ptyprocess pywinrm 
+pip3 install simplejson pexpect ptyprocess 
 
-pip3 install fabric httpie dictdiffer
+pip3 install fabric dictdiffer
 pip3 install pymssql smalluuid shortuuid
-pip3 install confluent-kafka kafka-python 
 
 pip install timeago bcrypt jwt adal
 pip install pywinrm[credssp] pywinrm[kerberos] 
-# pip install flake8
-pip install ansible
+
+# pip install ansible
  
 pip freeze >requirements.txt
 
