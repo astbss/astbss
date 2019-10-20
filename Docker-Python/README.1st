@@ -27,10 +27,6 @@ pip install pywinrm[credssp] pywinrm[kerberos]
  
 pip freeze >requirements.txt
 
-# uWSGI needs some build tools to create the image
-# pip3 install uWSGI
-
-
 
 docker pull python:3.7.2-slim-stretch
 docker run -it --rm python:3.7.2-slim-stretch bash
