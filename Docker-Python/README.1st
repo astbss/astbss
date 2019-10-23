@@ -1,37 +1,34 @@
 How to Create requirements.txt
 
-python3 -m venv .venv5Docker
-source .venv5Docker/bin/activate
+python3 -m venv .venv3.7.5
+source .venv3.7.5/bin/activate
 python3 -m pip install --upgrade pip
 
 pip install requests-oauthlib
 
 pip install flask Flask-WTF
-pip install requests pylint pytest
+pip install requests pylint pytest autopep8 flake8
  
 pip3 install SQLAlchemy PyMySQL python-dotenv
 pip3 install gunicorn[gevent]
 
-pip3 install connexion[swagger-ui]
 pip3 install ldap3 names var-dump pyasn1-modules
-pip3 install simplejson pexpect ptyprocess pywinrm 
+pip3 install simplejson pexpect ptyprocess 
 
-pip3 install fabric httpie dictdiffer
+pip3 install fabric dictdiffer
 pip3 install pymssql smalluuid shortuuid
-pip3 install confluent-kafka kafka-python 
 
 pip install timeago bcrypt jwt adal
 pip install pywinrm[credssp] pywinrm[kerberos] 
-pip install ansible
+
+# pip install 'ansible==2.8.2'
+# Ansible do not compile on Windows.
+# Please install only version 2.8.2
  
 pip freeze >requirements.txt
 
-# uWSGI needs some build tools to create the image
-# pip3 install uWSGI
 
+docker pull python:3.7.5-slim-stretch
+docker run -it --rm python:3.7.5-slim-stretch bash
 
-
-docker pull python:3.7.2-slim-stretch
-docker run -it --rm python:3.7.2-slim-stretch bash
-
-docker run -it --rm astbss/python:3.7.2 bash
+docker run -it --rm astbss/3.7.5-slim-stretch bash
