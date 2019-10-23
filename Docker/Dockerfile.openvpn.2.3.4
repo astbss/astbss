@@ -1,0 +1,17 @@
+FROM debian:8.11
+
+ENV DEBIAN_FRONTEND noninteractive
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+RUN apt-get update \
+    && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
+    wget nano openvpn iptables net-tools iproute2 iputils-ping \
+    && apt-get clean && apt-get --yes --quiet autoremove --purge \
+    && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+            /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
+            /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
+VOLUME ["/etc/openvpn"]
+WORKDIR /etc/openvpn
+CMD ["openvpn"]
+EXPOSE 1194/udp
+EXPOSE 1194/tcp
