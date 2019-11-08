@@ -10,7 +10,7 @@
 
 # FROM debian:stretch-slim
 
-FROM python:3.7.2-slim-stretch
+FROM python:3.7.5-slim-stretch
 LABEL maintainer="are@astbss.com"
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -24,7 +24,6 @@ RUN apt-get update \
     git nano wget curl net-tools iproute2 iputils-ping openssh-client vim \
     gcc python3-dev libssl-dev libkrb5-dev freetds-dev gss-ntlmssp \
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
-    && mkdir -p /root/.ssh && mkdir -p /home/are/.ssh \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
             /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
             /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
@@ -43,7 +42,7 @@ RUN pip install --upgrade pip \
 
 # if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
 ENV PYTHON_PIP_VERSION 19.1.1
-ENV PYTHON_VERSION 3.7.2
+ENV PYTHON_VERSION 3.7.5
 ENV PYTHONPATH=/usr/local/lib/python3.7/site-packages:/usr/local/lib/python3.7
 
 # ansible 2.8.2
