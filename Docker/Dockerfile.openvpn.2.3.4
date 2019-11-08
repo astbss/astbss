@@ -1,4 +1,9 @@
-FROM debian:8.11
+# vim:set ft=dockerfile:
+# docker build -f Dockerfile.openvpn.2.3.4 -t astbss/openvpn:2.3.4 .
+# docker run -it -v /var/docdata/vpn2019/server-vpn4:/etc/openvpn -d -p 1194:1194/udp --cap-add=NET_ADMIN astbss/openvpn:2.3.4 bash
+
+FROM debian:8.11-slim
+# FROM debian:8.11
 # debian:jessie-slim
 # debian:8.11-slim 
 
@@ -7,13 +12,17 @@ ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-    wget nano openvpn iptables net-tools iproute2 iputils-ping \
+    openvpn=2.3.4-5+deb8u2 iptables net-tools iproute2 iputils-ping netcat \
+    && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
+    wget curl nano ngrep \
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
             /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
-            /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
-VOLUME ["/etc/openvpn"]
-WORKDIR /etc/openvpn
-CMD ["openvpn"]
-EXPOSE 1194/udp
-EXPOSE 1194/tcp
+            /usr/share/lintian/* /usr/share/locale/* /usr/share/man/* \
+    && mkdir -p /app
+
+# VOLUME ["/etc/openvpn"]
+WORKDIR /app
+# CMD ["openvpn"]
+# EXPOSE 1194/udp
+# EXPOSE 1194/tcp
