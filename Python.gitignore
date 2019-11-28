@@ -1,6 +1,6 @@
 # wget -O .gitignore https://raw.githubusercontent.com/astbss/astbss/master/Python.gitignore
 
-# astbss Python.gitignore v.0.3
+# astbss Python.gitignore v.0.4
 
 # config.py
 
@@ -99,7 +99,11 @@ celerybeat-schedule
 # SageMath parsed files
 *.sage.py
 
+# Pycharm
+.idea/
+# Visual Studio Code
 .vscode/
+
 # Environments
 .env
 .venv
