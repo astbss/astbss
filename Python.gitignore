@@ -4,6 +4,27 @@
 
 # config.py
 
+
+# -------------------------------------------
+# Pycharm
+.idea/
+# Visual Studio Code
+.vscode/
+
+# Environments
+.env
+.venv
+.venv2
+.venvlux
+.venvdeb
+.venvare
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+# -------------------------------------------
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -99,23 +120,6 @@ celerybeat-schedule
 # SageMath parsed files
 *.sage.py
 
-# Pycharm
-.idea/
-# Visual Studio Code
-.vscode/
-
-# Environments
-.env
-.venv
-.venv2
-.venvlux
-.venvdeb
-.venvare
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
 
 # Spyder project settings
 .spyderproject
