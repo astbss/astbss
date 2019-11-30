@@ -7,7 +7,7 @@ python3 -m pip install --upgrade pip
 pip install requests-oauthlib
 
 pip install flask Flask-WTF
-pip install requests pylint pytest autopep8 flake8
+pip install requests pylint pytest pytest-cov autopep8 flake8
  
 pip3 install SQLAlchemy PyMySQL python-dotenv
 pip3 install gunicorn[gevent]
