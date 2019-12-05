@@ -33,3 +33,6 @@ docker pull python:3.7.5-slim-stretch
 docker run -it --rm python:3.7.5-slim-stretch bash
 
 docker run -it --rm astbss/3.7.5-slim-stretch bash
+
+# pytest-describe==0.12.0
+# pytest-env==0.6.2
