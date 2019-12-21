@@ -38,3 +38,4 @@ docker run -it --rm astbss/3.7.5-slim-stretch bash
 # pytest-env==0.6.2
 # pip install pytest-cov
 # pip install pyodbc
+# pip install black
