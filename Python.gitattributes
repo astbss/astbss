@@ -1,5 +1,5 @@
 # wget -O .gitattributes https://raw.githubusercontent.com/astbss/astbss/master/Python.gitattributes
-# astbss Python.gitattributes v.0.4
+# astbss Python.gitattributes v.0.5
 
 # https://code.visualstudio.com/docs/remote/troubleshooting#_resolving-git-line-ending-issues-in-containers-resulting-in-many-modified-files
 # Force everything to be LF, except for Windows batch files that require CRLF:
