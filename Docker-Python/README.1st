@@ -36,6 +36,8 @@ docker run -it --rm astbss/3.7.5-slim-stretch bash
 
 # pip install pytest-describe pytest-env mock black
 # pip install pyodbc
+
+# ms Authentication
 pip install msal Flask-Session
 
 # pytest-describe==0.12.0
