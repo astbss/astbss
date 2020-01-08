@@ -1,5 +1,6 @@
 # vim:set ft=dockerfile:
 # docker build -f Dockerfile.openvpn.2.3.4 -t astbss/openvpn:2.3.4 .
+# docker push astbss/openvpn:2.3.4
 # docker run -it -v /var/docdata/vpn2019/server-vpn4:/etc/openvpn -d -p 1194:1194/udp --cap-add=NET_ADMIN astbss/openvpn:2.3.4 bash
 
 FROM debian:8.11-slim

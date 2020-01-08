@@ -1,5 +1,7 @@
 # vim:set ft=dockerfile:
-# docker build -f Dockerfile.openvpn -t astbss/openvpn .
+# docker build -f Dockerfile.openvpn -t astbss/openvpn:2.4.0 .
+# docker tag astbss/openvpn:2.4.0 astbss/openvpn:latest
+# docker push astbss/openvpn:2.4.0 ; docker push astbss/openvpn:latest
 # docker run -it -v /var/docdata/vpn2019/server-vpn4:/etc/openvpn -d -p 1194:1194/udp --cap-add=NET_ADMIN astbss/openvpn bash
 
 FROM debian:stretch-slim
@@ -12,7 +14,7 @@ ENV LC_ALL=C.UTF-8
 
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-    wget nano openvpn iptables net-tools iproute2 iputils-ping \
+    wget curl nano openvpn iptables net-tools iproute2 iputils-ping \
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
             /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \

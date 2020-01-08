@@ -1,8 +1,30 @@
 # wget -O .gitignore https://raw.githubusercontent.com/astbss/astbss/master/Python.gitignore
 
-# astbss Python.gitignore v.0.3
+# astbss Python.gitignore v.0.4
 
 # config.py
+
+
+# -------------------------------------------
+# Pycharm
+.idea/
+# Visual Studio Code
+.vscode/
+flask_session/
+
+# Environments
+.env
+.venv
+.venv2
+.venvlux
+.venvdeb
+.venvare
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+# -------------------------------------------
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -99,18 +121,6 @@ celerybeat-schedule
 # SageMath parsed files
 *.sage.py
 
-# Environments
-.env
-.venv
-.venv2
-.venvlux
-.venvdeb
-.venvare
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
 
 # Spyder project settings
 .spyderproject
