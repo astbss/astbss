@@ -10,6 +10,7 @@
 .idea/
 # Visual Studio Code
 .vscode/
+flask_session/
 
 # Environments
 .env
