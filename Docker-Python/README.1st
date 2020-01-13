@@ -35,6 +35,9 @@ docker run -it --rm python:3.7.5-slim-stretch bash
 docker run -it --rm astbss/3.7.5-slim-stretch bash
 
 # pip install pytest-describe pytest-env mock black
+
+# sudo apt install python3-pip #  Not needed as we have our own pip
+sudo apt install unixodbc-dev
 # pip install pyodbc
 
 # ms Authentication
