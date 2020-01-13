@@ -29,7 +29,7 @@ pip install pypsrp[credssp] pypsrp[kerberos]
 pip install pytest-describe pytest-env mock black
 
 # sudo apt install python3-pip #  Not needed as we have our own pip
-sudo apt install unixodbc-dev
+sudo apt install g++ unixodbc-dev
 pip install pyodbc
 
 # ms Authentication
