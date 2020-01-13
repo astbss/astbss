@@ -22,7 +22,7 @@ ENV LC_ALL=C.UTF-8
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
     git nano wget curl net-tools iproute2 iputils-ping openssh-client vim \
-    gcc python3-dev libssl-dev libkrb5-dev freetds-dev gss-ntlmssp \
+    gcc python3-dev libssl-dev libkrb5-dev freetds-dev gss-ntlmssp unixodbc-dev \
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
             /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
