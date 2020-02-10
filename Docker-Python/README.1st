@@ -58,4 +58,5 @@ pip install PyYAML
 pip install greenstalk
 pip install kubernetes
 
+pip install requests-cache
 
