@@ -59,4 +59,4 @@ pip install greenstalk
 pip install kubernetes
 
 pip install requests-cache
-
+pip install Flask-Babel
