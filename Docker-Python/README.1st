@@ -1,4 +1,4 @@
-How to Create requirements.txt
+How to Create requirements.txt on (mariabgr4)
 
 python3 -m venv .venv3.7.5
 source .venv3.7.5/bin/activate
