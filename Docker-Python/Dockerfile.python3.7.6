@@ -1,16 +1,16 @@
 # vim:set ft=dockerfile:
-# docker build -f Dockerfile.python3.7.5.b -t astbss/python:3.7.5b .
-# docker tag astbss/python:3.7.5 astbss/python:latest
-# docker push astbss/python:3.7.5b 
-# docker run -it --rm astbss/python:3.7.5b bash
-# docker run -v /app/my-app:/app -it  --rm --entrypoint "/bin/bash" astbss/python:3.7.5b
-# docker run -v /home/are:/app -it --rm astbss/python:3.7.5b bash
+# docker build -f Dockerfile.python3.7.6 -t astbss/python:3.7.6 .
+# docker tag astbss/python:3.7.6 astbss/python:latest
+# docker push astbss/python:3.7.6 
+# docker run -it --rm astbss/python:3.7.6 bash
+# docker run -v /app/my-app:/app -it  --rm --entrypoint "/bin/bash" astbss/python:3.7.6
+# docker run -v /home/are:/app -it --rm astbss/python:3.7.6 bash
 
 # https://hub.docker.com/_/python
 
 # FROM debian:stretch-slim
 
-FROM python:3.7.5-slim-stretch
+FROM python:3.7.6-slim-stretch
 LABEL maintainer="are@astbss.com"
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -33,15 +33,15 @@ RUN apt-get update \
 WORKDIR /app
 
 # Install dependencies
-COPY requirements_3.7.5.b.txt /app/requirements.txt
+COPY requirements.txt /app/requirements.txt
 
 RUN pip install --upgrade pip \
   && pip install -r /app/requirements.txt \
   && sed -i '/self\.protocol\.close_shell/a #\n        if not isinstance(rs.std_err, str):\n            rs.std_err = rs.std_err.decode()\n        if not isinstance(rs.std_out, str):\n            rs.std_out = rs.std_out.decode()' /usr/local/lib/python3.7/site-packages/winrm/__init__.py 
 
 # if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
-ENV PYTHON_PIP_VERSION 19.3.1
-ENV PYTHON_VERSION 3.7.5
+ENV PYTHON_PIP_VERSION 20.0.2
+ENV PYTHON_VERSION 3.7.6
 ENV PYTHONPATH=/usr/local/lib/python3.7/site-packages:/usr/local/lib/python3.7
 
 # ansible 2.8.2
