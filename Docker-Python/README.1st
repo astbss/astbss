@@ -50,15 +50,3 @@ docker pull python:3.7.6-slim-stretch
 docker run -it --rm python:3.7.6-slim-stretch bash
 
 docker run -it --rm astbss/3.7.6-slim-stretch bash
-
-# greenstalk
-# PyYAML==5.3
-# kubernetes==10.0.1
-
-
-pip install PyYAML
-pip install greenstalk
-pip install kubernetes
-
-pip install requests-cache
-pip install Flask-Babel
