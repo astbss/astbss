@@ -1,7 +1,8 @@
 # vim:set ft=dockerfile:
 # docker build -f Dockerfile.7.3-apache -t astbss/php:7.3-apache .
-# docker tag astbss/php:7.3-apache
 # docker push astbss/php:7.3-apache
+
+# digest: sha256:cc5fe5d75eff09923db5392918672a75884074fa49b3617ae6b7f0fb9854a233
 
 # docker run -it --rm astbss/php:7.3-apache bash
 

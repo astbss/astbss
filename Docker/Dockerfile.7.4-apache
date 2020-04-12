@@ -3,6 +3,7 @@
 # docker tag astbss/php:7.4-apache astbss/php:latest
 # docker push astbss/php:7.4-apache
 # docker push astbss/php:latest
+
 # digest: sha256:f98a8c0a827f8482561a4461633824187b06f86a66cac27eacdd76865ed4ed08
 
 # docker run -it --rm astbss/php:7.4-apache bash
