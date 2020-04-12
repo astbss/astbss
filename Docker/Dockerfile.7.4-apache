@@ -11,6 +11,8 @@
 # https://github.com/docker-library/php/blob/c88c3d52f41a370f3a62e3ded62b7b223b4cb846/7.2/stretch/apache/Dockerfile
 # https://hub.docker.com/_/php/
 
+# https://docs.docker.com/develop/develop-images/multistage-build/
+
 # FROM debian:stretch-slim
 
 FROM php:7.4-apache
