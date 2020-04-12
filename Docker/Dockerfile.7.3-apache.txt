@@ -1,18 +1,16 @@
 # vim:set ft=dockerfile:
-# docker build -f Dockerfile.7.4-apache -t astbss/php:7.4-apache .
-# docker tag astbss/php:7.4-apache astbss/php:latest
-# docker push astbss/php:7.4-apache
-# docker push astbss/php:latest
-# digest: sha256:f98a8c0a827f8482561a4461633824187b06f86a66cac27eacdd76865ed4ed08
+# docker build -f Dockerfile.7.3-apache -t astbss/php:7.3-apache .
+# docker tag astbss/php:7.3-apache
+# docker push astbss/php:7.3-apache
 
-# docker run -it --rm astbss/php:7.4-apache bash
+# docker run -it --rm astbss/php:7.3-apache bash
 
 # https://github.com/docker-library/php/blob/c88c3d52f41a370f3a62e3ded62b7b223b4cb846/7.2/stretch/apache/Dockerfile
 # https://hub.docker.com/_/php/
 
 # FROM debian:stretch-slim
 
-FROM php:7.4-apache
+FROM php:7.3-apache
 LABEL maintainer="are@astbss.com"
 ENV DEBIAN_FRONTEND noninteractive
 ENV LANG=C.UTF-8
