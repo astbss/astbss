@@ -1,0 +1,33 @@
+# vim:set ft=dockerfile:
+# docker build -f Dockerfile.python3.7.6 -t astbss/python:3.7.6 .
+# docker tag astbss/python:3.7.6 astbss/python:latest
+# docker push astbss/python:3.7.6
+# docker push astbss/python:latest
+# docker run -it --rm astbss/python:3.7.6 bash
+# Get sha256 using docker inspect RepoDigests: docker inspect
+# docker run -v /app/my-app:/app -it  --rm --entrypoint "/bin/bash" astbss/python:3.7.6
+# docker run -v /home/are:/app -it --rm astbss/python:3.7.6 bash
+
+# https://hub.docker.com/_/python
+
+# FROM debian:stretch-slim
+
+FROM astbss/python:3.7.6
+LABEL maintainer="are@astbss.com"
+ENV DEBIAN_FRONTEND noninteractive
+
+FROM astbss/php:7.4-apache
+
+# At the moment, setting "LANG=C" on a Linux system *fundamentally breaks Python 3*, and that's not OK.
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+# Create app directory
+WORKDIR /app
+
+# if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
+ENV PYTHON_PIP_VERSION 20.0.2
+ENV PYTHON_VERSION 3.7.6
+ENV PYTHONPATH=/usr/local/lib/python3.7/site-packages:/usr/local/lib/python3.7
+ENV APACHE_PORT 80
+
+CMD ["/bin/bash", "-c", "trap : TERM INT; sleep infinity & wait"]
