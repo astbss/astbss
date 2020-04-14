@@ -26,11 +26,6 @@ COPY --from=astbss/python:3.7.6 /usr/local/bin/gunicorn /usr/local/bin/
 COPY --from=astbss/python:3.7.6 /usr/local/bin/easy_install* /usr/local/bin/
 COPY --from=astbss/python:3.7.6 /usr/local/bin/wheel /usr/local/bin/
 
-
-# Copy jdk11 and gradle from the gradle:jdk11 image
-# COPY --from=gradle:jdk11 /opt/java /opt/java
-# COPY --from=nginx:latest /etc/nginx/nginx.conf /nginx.conf
-
 LABEL maintainer="are@astbss.com"
 ENV DEBIAN_FRONTEND noninteractive
 
