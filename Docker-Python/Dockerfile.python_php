@@ -25,7 +25,7 @@ COPY --from=astbss/python:3.7.6 /usr/local/bin/python* /usr/local/bin/
 COPY --from=astbss/python:3.7.6 /usr/local/bin/py* /usr/local/bin/
 COPY --from=astbss/python:3.7.6 /usr/local/bin/flask /usr/local/bin/
 COPY --from=astbss/python:3.7.6 /usr/local/bin/gunicorn /usr/local/bin/
-COPY --from=astbss/python:3.7.6 /usr/local/bin/easy_install /usr/local/bin/
+COPY --from=astbss/python:3.7.6 /usr/local/bin/easy_install* /usr/local/bin/
 COPY --from=astbss/python:3.7.6 /usr/local/bin/wheel /usr/local/bin/
 
 
