@@ -18,7 +18,8 @@ FROM astbss/php:7.4-apache
 
 COPY --from=astbss/python:3.7.6 /usr/local/lib/ /usr/local/lib/
 COPY --from=astbss/python:3.7.6 /usr/local/bin/pip /usr/local/bin/pip
-COPY --from=astbss/python:3.7.6 /usr/local/bin/python3.7 /usr/local/bin/python3.7
+# COPY --from=astbss/python:3.7.6 /usr/local/bin/python3.7 /usr/local/bin/python3.7
+COPY --from=astbss/python:3.7.6 /usr/local/bin/python* /usr/local/bin/
 COPY --from=astbss/python:3.7.6 /usr/local/bin/pytest /usr/local/bin/pytest
 COPY --from=astbss/python:3.7.6 /usr/local/bin/pyvenv-3.7 /usr/local/bin/pyvenv-3.7
 
@@ -39,6 +40,11 @@ WORKDIR /app
 ENV PYTHON_PIP_VERSION 20.0.2
 ENV PYTHON_VERSION 3.7.6
 ENV PYTHONPATH=/usr/local/lib/python3.7/site-packages:/usr/local/lib/python3.7
+# You need to add /usr/local/lib/ to the library search path
+LD_LIBRARY_PATH=/lib:/usr/lib:/usr/local/lib
+
 ENV APACHE_PORT 80
+
+
 
 CMD ["/bin/bash", "-c", "trap : TERM INT; sleep infinity & wait"]
