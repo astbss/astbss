@@ -16,7 +16,7 @@
 # https://docs.docker.com/develop/develop-images/multistage-build/
 FROM astbss/php:7.4-apache
 
-COPY --from=astbss/python:3.7.6 /usr/local/lib /usr/local/bin/pip /usr/local/bin/python3.7 /usr/local/bin/pytest /usr/local/bin/pyvenv-3.7
+COPY --from=astbss/python:3.7.6 /usr/local/lib/ /usr/local/bin/pip /usr/local/bin/python3.7 /usr/local/bin/pytest /usr/local/bin/pyvenv-3.7
 
 # Copy jdk11 and gradle from the gradle:jdk11 image
 # COPY --from=gradle:jdk11 /opt/java /opt/java
