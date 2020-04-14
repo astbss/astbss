@@ -17,11 +17,18 @@
 FROM astbss/php:7.4-apache
 
 COPY --from=astbss/python:3.7.6 /usr/local/lib/ /usr/local/lib/
-COPY --from=astbss/python:3.7.6 /usr/local/bin/pip /usr/local/bin/pip
-# COPY --from=astbss/python:3.7.6 /usr/local/bin/python3.7 /usr/local/bin/python3.7
+COPY --from=astbss/python:3.7.6 /usr/local/bin/pip /usr/local/bin/
 COPY --from=astbss/python:3.7.6 /usr/local/bin/python* /usr/local/bin/
-COPY --from=astbss/python:3.7.6 /usr/local/bin/pytest /usr/local/bin/pytest
-COPY --from=astbss/python:3.7.6 /usr/local/bin/pyvenv-3.7 /usr/local/bin/pyvenv-3.7
+COPY --from=astbss/python:3.7.6 /usr/local/bin/pytest /usr/local/bin/
+COPY --from=astbss/python:3.7.6 /usr/local/bin/pyvenv-3.7 /usr/local/bin/
+
+COPY --from=astbss/python:3.7.6 /usr/local/bin/py* /usr/local/bin/
+COPY --from=astbss/python:3.7.6 /usr/local/bin/flask /usr/local/bin/
+COPY --from=astbss/python:3.7.6 /usr/local/bin/gunicorn /usr/local/bin/
+COPY --from=astbss/python:3.7.6 /usr/local/bin/flask /usr/local/bin/
+COPY --from=astbss/python:3.7.6 /usr/local/bin/wheel /usr/local/bin/
+COPY --from=astbss/python:3.7.6 /usr/local/bin/easy_install /usr/local/bin/
+
 
 # Copy jdk11 and gradle from the gradle:jdk11 image
 # COPY --from=gradle:jdk11 /opt/java /opt/java
