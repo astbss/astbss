@@ -7,6 +7,8 @@
 # docker run -v /app/my-app:/app -it  --rm --entrypoint "/bin/bash" astbss/python:3.7.6_php7.4
 # docker run -v /home/are:/app -it --rm astbss/python:3.7.6_php7.4 bash
 
+# digest: sha256:f3be8562b908bf95cd472accafc320fe5bf7677f0eeb30b4db91ee74b76c7b30
+
 # https://hub.docker.com/_/python
 
 # FROM debian:stretch-slim
