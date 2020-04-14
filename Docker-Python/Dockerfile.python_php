@@ -41,7 +41,7 @@ ENV PYTHON_PIP_VERSION 20.0.2
 ENV PYTHON_VERSION 3.7.6
 ENV PYTHONPATH=/usr/local/lib/python3.7/site-packages:/usr/local/lib/python3.7
 # You need to add /usr/local/lib/ to the library search path
-LD_LIBRARY_PATH=/lib:/usr/lib:/usr/local/lib
+ENV LD_LIBRARY_PATH=/lib:/usr/lib:/usr/local/lib
 
 ENV APACHE_PORT 80
 
