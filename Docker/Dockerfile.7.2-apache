@@ -8,7 +8,7 @@
 # https://hub.docker.com/_/php/
 
 # Old: astbss/php@sha256:95eda3cf24cd040d421de0a1845604d4329f3cbbb2aae4d961e6d11c15d1e992
-# New:
+# New: astbss/php@sha256:cc4ec21d91aef292667d2f1eabb3c5454e6fc6a3e4a854f30417ef5fc589be05
 
 # FROM debian:stretch-slim
 

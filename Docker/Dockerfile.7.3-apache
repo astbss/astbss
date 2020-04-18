@@ -2,7 +2,7 @@
 # docker build -f Dockerfile.7.3-apache -t astbss/php:7.3-apache .
 # docker push astbss/php:7.3-apache
 
-# digest: sha256:cc5fe5d75eff09923db5392918672a75884074fa49b3617ae6b7f0fb9854a233
+# digest: sha256:8ff996da37d3f35663a32bbeb366cd69e28317ff96d8879f06f66b122b1a3402
 
 # docker run -it --rm astbss/php:7.3-apache bash
 
@@ -51,6 +51,10 @@ RUN mkdir -p /var/log/astbss \
     && mv composer.phar /usr/bin/composer
 
     # && ln -s /usr/local/astpbx/scripts/astpbxsettings.php /var/www/astpbxsettings.php \
+
+RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl \
+    && chmod +x ./kubectl \
+    && mv ./kubectl /usr/local/bin/kubectl
 
 ADD debian-9/resolv.conf /var/astbss/resolv2.conf
 
