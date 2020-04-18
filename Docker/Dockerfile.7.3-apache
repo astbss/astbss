@@ -2,7 +2,7 @@
 # docker build -f Dockerfile.7.3-apache -t astbss/php:7.3-apache .
 # docker push astbss/php:7.3-apache
 
-# digest: sha256:8ff996da37d3f35663a32bbeb366cd69e28317ff96d8879f06f66b122b1a3402
+# digest: sha256:bd6a38f22390533f6b5e7830ddc395d03b434a4a59596c5f11fc183ceeb942a3
 
 # docker run -it --rm astbss/php:7.3-apache bash
 
