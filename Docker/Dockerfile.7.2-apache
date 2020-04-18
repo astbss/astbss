@@ -1,5 +1,7 @@
 # vim:set ft=dockerfile:
 # docker build -f Dockerfile.7.2-apache -t astbss/php:7.2-apache .
+# docker push astbss/php:7.2-apache
+
 # docker run -it --rm astbss/php:7.2-apache bash
 
 # https://github.com/docker-library/php/blob/c88c3d52f41a370f3a62e3ded62b7b223b4cb846/7.2/stretch/apache/Dockerfile
@@ -61,7 +63,7 @@ ADD debian-9/resolv.conf /var/astbss/resolv2.conf
 # WORKDIR /var/www/html
 # COPY apache2-foreground /usr/local/bin/
 
-WORKDIR /home
+WORKDIR /app
 # WORKDIR /var/www
 EXPOSE 80
 # CMD ["apache2-foreground"]

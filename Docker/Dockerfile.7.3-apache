@@ -59,7 +59,7 @@ ADD debian-9/resolv.conf /var/astbss/resolv2.conf
 # WORKDIR /var/www/html
 # COPY apache2-foreground /usr/local/bin/
 
-WORKDIR /home
+WORKDIR /app
 # WORKDIR /var/www
 EXPOSE 80
 # CMD ["apache2-foreground"]
