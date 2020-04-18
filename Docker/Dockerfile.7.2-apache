@@ -14,7 +14,7 @@ ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
 
 ENV APACHE_PORT 80
-   
+
 # RUN docker-php-ext-install mysqli pdo pdo_mysql gd
 
 # It is strongly recommended to use the production config for images used in production environments!
@@ -28,7 +28,7 @@ RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
     wget nano libpng-dev git zip unzip \
     && docker-php-ext-install mysqli pdo pdo_mysql gd \
-    && cp "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \    
+    && cp "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
             /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
@@ -47,8 +47,11 @@ RUN mkdir -p /var/log/astbss \
     && curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/bin/composer
 
+RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl \
+    && chmod +x ./kubectl \
+    && mv ./kubectl /usr/local/bin/kubectl
 
-ADD debian-9/resolv.conf /var/astbss/resolv2.conf   
+ADD debian-9/resolv.conf /var/astbss/resolv2.conf
 
 # https://github.com/docker-library/php/blob/c44aab7001ea12c8bec96664533df503bbf0af19/7.2/stretch/apache/Dockerfile
 # ENTRYPOINT ["docker-php-entrypoint"]
