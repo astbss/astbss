@@ -5,6 +5,9 @@
 # https://github.com/docker-library/php/blob/c88c3d52f41a370f3a62e3ded62b7b223b4cb846/7.2/stretch/apache/Dockerfile
 # https://hub.docker.com/_/php/
 
+# Old: astbss/php@sha256:95eda3cf24cd040d421de0a1845604d4329f3cbbb2aae4d961e6d11c15d1e992
+# New:
+
 # FROM debian:stretch-slim
 
 FROM php:7.2-apache
