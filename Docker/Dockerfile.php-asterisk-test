@@ -47,3 +47,4 @@ RUN apt-get update \
 WORKDIR /home
 
 # CMD ["/usr/sbin/asterisk", "-vvvdddfp"]
+CMD: ["/bin/bash", "-c", "trap : TERM INT; sleep infinity & wait"]
