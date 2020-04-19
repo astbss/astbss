@@ -1,0 +1,50 @@
+# docker build -f Dockerfile.php7.2-asterisk-13.17.1 -t astbss/asterisk:13.17.1-php7.2 .
+# docker run -it --name asterisk --rm astbss/asterisk:13.17.1-php7.2
+# docker run -it --rm astbss/asterisk:13.17.1-php7.2
+
+
+# vim:set ft=dockerfile:
+# FROM debian:stretch-slim
+
+FROM php:7.2-cli
+LABEL maintainer="are@astbss.com"
+ENV DEBIAN_FRONTEND noninteractive
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+
+
+# 13.17.1
+
+ENV ASTERISK_VERSION 13.17.1
+ENV OPUS_CODEC       asterisk-13.0/x86-64/codec_opus-13.0_current-x86_64
+
+COPY build-asterisk.sh /
+# RUN /build-asterisk.sh
+
+RUN mkdir -p /etc/asterisk \
+    && rm -f /etc/odbc.ini \
+    && ln -s /etc/asterisk/odbc.ini /etc/odbc.ini \
+    && ln /usr/local/bin/php /usr/bin/php
+
+
+# unixodbc unixodbc-dev odbcinst
+ADD debian-9/odbcinst.ini /etc/odbcinst.ini
+ADD debian-9/libmaodbc.so /usr/lib/x86_64-linux-gnu/odbc/libmaodbc.so
+# ADD debian-9/replication.conf /var/astbss/replication.conf
+ADD debian-9/resolv.conf /var/astbss/resolv2.conf
+# isql -v astbss # Test odbc
+
+
+# Development and Debug only
+# openvpn vtun fail2ban netcat-openbsd = nc
+RUN apt-get update \
+    && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
+      wget curl nano iptables procps \
+      net-tools iproute2 iputils-ping netcat-openbsd ngrep
+
+
+WORKDIR /home
+
+# CMD ["/usr/sbin/asterisk", "-vvvdddfp"]
