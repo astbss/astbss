@@ -2,7 +2,7 @@
 # docker push astbss/asterisk:13.17.1-php7.2
 
 # docker run -it --name asterisk --rm astbss/asterisk:13.17.1-php7.2
-# docker run -it --rm astbss/asterisk:13.17.1-php7.2
+# docker run -it --rm astbss/asterisk:13.17.1-php7.2 bash
 
 # php7.2.14 Digest: astbss/asterisk@sha256:68605f14a1280670dd0947593ac091c1b79bbfcb87c6e746825b4ebe865c8f75
 # php7.2.30 Digest: astbss/asterisk@sha256:c31140aeb63cbbc0421d46bcf056a6dcddf232b8b4b3d3af7c1743833fee1924
@@ -15,7 +15,7 @@ LABEL maintainer="are@astbss.com"
 ENV DEBIAN_FRONTEND noninteractive
 ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
-   
+
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 
@@ -33,7 +33,7 @@ RUN mkdir -p /etc/asterisk \
     && ln /usr/local/bin/php /usr/bin/php
 
 
-# unixodbc unixodbc-dev odbcinst 
+# unixodbc unixodbc-dev odbcinst
 ADD debian-9/odbcinst.ini /etc/odbcinst.ini
 ADD debian-9/libmaodbc.so /usr/lib/x86_64-linux-gnu/odbc/libmaodbc.so
 # ADD debian-9/replication.conf /var/astbss/replication.conf
@@ -52,7 +52,7 @@ RUN apt-get update \
          /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
          /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
 
-         
+
 WORKDIR /home
 # COPY debian-9/docker-entrypoint.sh /
 # ENTRYPOINT ["/docker-entrypoint.sh"]

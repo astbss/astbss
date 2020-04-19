@@ -1,6 +1,6 @@
 # docker build -f Dockerfile.php-asterisk-test -t astbss/asterisk:php-asterisk-test .
-# docker run -it --name asterisk --rm astbss/php-asterisk-test
-# docker run -it --rm astbss/asterisk:php-asterisk-test
+# docker run -it --name asterisk --rm astbss/php-asterisk-test bash
+# docker run -it --rm astbss/asterisk:php-asterisk-test bash
 
 # vim:set ft=dockerfile:
 # FROM debian:stretch-slim
@@ -46,5 +46,5 @@ RUN apt-get update \
 
 WORKDIR /home
 
-# CMD ["/usr/sbin/asterisk", "-vvvdddfp"]
-CMD ["/bin/bash", "-c", "trap : TERM INT; sleep infinity & wait"]
+# CMD ["/bin/bash", "-c", "trap : TERM INT; sleep infinity & wait"]
+CMD ["/usr/sbin/asterisk", "-vvvdddfp"]
