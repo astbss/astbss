@@ -80,7 +80,9 @@ menuselect/menuselect --enable chan_sip menuselect.makeopts
 # menuselect/menuselect --enable chan_phone menuselect.makeopts
 menuselect/menuselect --enable pbx_realtime menuselect.makeopts
 menuselect/menuselect --enable res_pjsip_history menuselect.makeopts
-menuselect/menuselect --enable res_pjsip_registrar_expire menuselect.makeopts
+
+# 'res_pjsip_registrar_expire' not found
+# menuselect/menuselect --enable res_pjsip_registrar_expire menuselect.makeopts
 
 menuselect/menuselect --enable app_chanisavail menuselect.makeopts
 menuselect/menuselect --enable app_mp3 menuselect.makeopts
@@ -134,4 +136,9 @@ DEBIAN_FRONTEND=noninteractive apt-get --yes purge \
   ${devpackages}
 rm -rf /var/lib/apt/lists/*
 
-exec rm -f /build-asterisk.sh
+# Some Ibix folders may be needed. will try to eliminate them in the future
+mkdir -p /var/astbss/info
+mkdir -p /var/astbss/log
+mkdir -p /var/log/asterisk/astbss
+
+# exec rm -f /build-asterisk.sh
