@@ -19,7 +19,7 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 
 ENV ASTERISK_VERSION 16.9.0
-ENV OPUS_CODEC       asterisk-16.0/x86-64/codec_opus-16.0_current-x86_64
+ENV OPUS_CODEC asterisk-16.0/x86-64/codec_opus-16.0_current-x86_64
 
 RUN apt-get update -qq \
 && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --no-install-suggests \
