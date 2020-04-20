@@ -54,10 +54,22 @@ RUN apt-get update -qq \
     uuid-dev \
     xmlstarlet
 
+# Development and Debug only
+# openvpn vtun fail2ban netcat-openbsd = nc
+RUN apt-get update \
+    && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
+      wget curl nano iptables procps \
+      net-tools iproute2 iputils-ping netcat-openbsd ngrep
+
+RUN mkdir -p /usr/src/asterisk \
+&& cd /usr/src/asterisk \
+&& curl -vsL http://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-${ASTERISK_VERSION}.tar.gz | tar --strip-components 1 -xz || \
+curl -vsL http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-${ASTERISK_VERSION}.tar.gz | tar --strip-components 1 -xz || \
+curl -vsL http://downloads.asterisk.org/pub/telephony/asterisk/old-releases/asterisk-${ASTERISK_VERSION}.tar.gz | tar --strip-components 1 -xz
 
 
 COPY build-asterisk16.sh /
-RUN /build-asterisk16.sh
+# RUN /build-asterisk16.sh
 
 RUN mkdir -p /etc/asterisk \
     && rm -f /etc/odbc.ini \
@@ -72,12 +84,6 @@ ADD debian-9/resolv.conf /var/astbss/resolv2.conf
 # isql -v astbss # Test odbc
 
 
-# Development and Debug only
-# openvpn vtun fail2ban netcat-openbsd = nc
-RUN apt-get update \
-    && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-      wget curl nano iptables procps \
-      net-tools iproute2 iputils-ping netcat-openbsd ngrep
 
 
 WORKDIR /app
