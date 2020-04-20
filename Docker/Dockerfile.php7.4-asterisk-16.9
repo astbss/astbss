@@ -1,4 +1,4 @@
-# docker build -f Dockerfile.php7.4-asterisk-16.9.0 -t astbss/asterisk:16.9.0-php7.4 .
+# docker build -f Dockerfile.php7.4-asterisk-16.9 -t astbss/asterisk:16.9.0-php7.4 .
 # docker push astbss/asterisk:16.9.0-php7.4
 
 # docker run -it --name asterisk --rm astbss/asterisk:16.9.0-php7.4
@@ -42,7 +42,7 @@ ADD debian-9/resolv.conf /var/astbss/resolv2.conf
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
       wget curl nano iptables procps \
-      net-tools iproute2 iputils-ping netcat-openbsd ngrep \
+      net-tools iproute2 iputils-ping netcat-openbsd ngrep
 
 
 WORKDIR /app
