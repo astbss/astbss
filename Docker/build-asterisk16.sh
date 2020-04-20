@@ -21,9 +21,9 @@ useradd --system asterisk
 mkdir -p /usr/src/asterisk
 cd /usr/src/asterisk
 
-curl -vsL http://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-${ASTERISK_VERSION}.tar.gz | tar --strip-components 1 -xz || \
-curl -vsL http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-${ASTERISK_VERSION}.tar.gz | tar --strip-components 1 -xz || \
-curl -vsL http://downloads.asterisk.org/pub/telephony/asterisk/old-releases/asterisk-${ASTERISK_VERSION}.tar.gz | tar --strip-components 1 -xz
+#curl -vsL http://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-${ASTERISK_VERSION}.tar.gz | tar --strip-components 1 -xz || \
+#curl -vsL http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-${ASTERISK_VERSION}.tar.gz | tar --strip-components 1 -xz || \
+#curl -vsL http://downloads.asterisk.org/pub/telephony/asterisk/old-releases/asterisk-${ASTERISK_VERSION}.tar.gz | tar --strip-components 1 -xz
 
 # 1.5 jobs per core works out okay
 : ${JOBS:=$(( $(nproc) + $(nproc) / 2 ))}
@@ -41,6 +41,10 @@ menuselect/menuselect --enable BETTER_BACKTRACES menuselect.makeopts
 
 # enable ooh323
 # menuselect/menuselect --enable chan_ooh323 menuselect.makeopts
+
+# Support Level: deprecated, Replaced by: app_stack (GoSub)
+# We are still using macros
+menuselect/menuselect --enable app_macro menuselect.makeopts
 
 # codecs
 # menuselect/menuselect --enable codec_opus menuselect.makeopts
