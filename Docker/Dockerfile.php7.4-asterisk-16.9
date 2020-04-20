@@ -1,11 +1,10 @@
-# docker build -f Dockerfile.php7.2-asterisk-13.17.1 -t astbss/asterisk:13.17.1-php7.2.30 .
-# docker push astbss/asterisk:13.17.1-php7.2.30
+# docker build -f Dockerfile.php7.4-asterisk-16.9.0 -t astbss/asterisk:16.9.0-php7.4 .
+# docker push astbss/asterisk:16.9.0-php7.4
 
-# docker run -it --name asterisk --rm astbss/asterisk:13.17.1-php7.2.30
-# docker run -it --rm astbss/asterisk:13.17.1-php7.2.30 bash
+# docker run -it --name asterisk --rm astbss/asterisk:16.9.0-php7.4
+# docker run -it --rm astbss/asterisk:16.9.0-php7.4 bash
 
-# php7.2.14 Digest: astbss/asterisk@sha256:68605f14a1280670dd0947593ac091c1b79bbfcb87c6e746825b4ebe865c8f75
-# php7.2.30 Digest: astbss/asterisk@sha256:47186e8b0a7d4be9f800bf08ccbe06371e39e90d1775a7adc03541f3b528e947
+# php7.4 Digest:
 
 # vim:set ft=dockerfile:
 # FROM debian:stretch-slim
@@ -17,8 +16,6 @@ ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql
-
-
 
 
 ENV ASTERISK_VERSION 16.9.0
