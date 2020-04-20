@@ -93,7 +93,7 @@ make install
 
 # copy default configs
 # cp /usr/src/asterisk/configs/basic-pbx/*.conf /etc/asterisk/
-make samples
+# make samples
 
 # set runuser and rungroup
 # sed -i -E 's/^;(run)(user|group)/\1\2/' /etc/asterisk/asterisk.conf
