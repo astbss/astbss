@@ -13,7 +13,19 @@ fi
 
 set -ex
 
-useradd --system asterisk
+# useradd --system asterisk
+
+
+# Provide consistent id's for Linux system users
+groupadd -r -g 500 asterisk
+useradd -r -u 500 -g asterisk -M -c "Used by Asterisk" -s /bin/false asterisk
+groupadd -r -g 501 astpbx
+useradd -r -u 501 -g astpbx -M -c "Used by astbss.com" -s /bin/false astpbx
+usermod --append -G astpbx astpbx
+groupadd -r -g 502 protected
+useradd -r -u 502 -g protected -M -c "Used by astbss.com" -s /bin/false protected
+usermod --append -G protected protected
+
 
 apt-get update -qq
 DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --no-install-suggests \
@@ -147,7 +159,8 @@ mkdir -p /usr/src/codecs/opus \
   && cp codec_opus_config-en_US.xml /var/lib/asterisk/documentation/
 
 mkdir -p /etc/asterisk/ \
-         /var/spool/asterisk/fax
+         /var/spool/asterisk/fax \
+         /var/lib/asterisk/sounds
 
 chown -R asterisk:asterisk /etc/asterisk \
                            /var/*/asterisk \
@@ -173,9 +186,12 @@ DEBIAN_FRONTEND=noninteractive apt-get --yes purge \
   pkg-config \
   xz-utils \
   ${devpackages}
+
+apt-get -y purge subversion
 rm -rf /var/lib/apt/lists/*
 
 # Some Ibix folders may be needed. will try to eliminate them in the future
+mkdir -p /usr/lib/x86_64-linux-gnu/odbc
 mkdir -p /var/astbss/info
 mkdir -p /var/astbss/log
 mkdir -p /var/log/asterisk/astbss
