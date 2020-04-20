@@ -85,6 +85,9 @@ menuselect/menuselect --enable res_pjsip_history menuselect.makeopts
 # menuselect/menuselect --enable res_pjsip_registrar_expire menuselect.makeopts
 
 menuselect/menuselect --enable app_chanisavail menuselect.makeopts
+
+# format_mp3 - Download MP3 decoder library - Depends on subversion
+contrib/scripts/get_mp3_source.sh
 menuselect/menuselect --enable app_mp3 menuselect.makeopts
 
 
