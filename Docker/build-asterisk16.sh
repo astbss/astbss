@@ -11,41 +11,12 @@ set -ex
 
 useradd --system asterisk
 
-apt-get update -qq
-DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --no-install-suggests \
-    autoconf \
-    binutils-dev \
-    build-essential \
-    ca-certificates \
-    curl \
-    file \
-    libcurl4-openssl-dev \
-    libedit-dev \
-    libgsm1-dev \
-    libogg-dev \
-    libpopt-dev \
-    libresample1-dev \
-    libspandsp-dev \
-    libspeex-dev \
-    libspeexdsp-dev \
-    libsqlite3-dev \
-    libsrtp2-dev \
-    libssl-dev \
-    libvorbis-dev \
-    libxml2-dev \
-    libxslt1-dev \
-    procps \
-    portaudio19-dev \
-    unixodbc \
-    unixodbc-bin \
-    unixodbc-dev \
-    odbcinst \
-    uuid \
-    uuid-dev \
-    xmlstarlet
 
-apt-get purge -y --auto-remove
-rm -rf /var/lib/apt/lists/*
+
+# apt-get purge -y --auto-remove
+# rm -rf /var/lib/apt/lists/*
+
+
 
 mkdir -p /usr/src/asterisk
 cd /usr/src/asterisk
@@ -69,7 +40,7 @@ menuselect/menuselect --disable BUILD_NATIVE menuselect.makeopts
 menuselect/menuselect --enable BETTER_BACKTRACES menuselect.makeopts
 
 # enable ooh323
-menuselect/menuselect --enable chan_ooh323 menuselect.makeopts
+# menuselect/menuselect --enable chan_ooh323 menuselect.makeopts
 
 # codecs
 # menuselect/menuselect --enable codec_opus menuselect.makeopts
@@ -87,6 +58,30 @@ menuselect/menuselect --disable-category MENUSELECT_CORE_SOUNDS menuselect.makeo
 menuselect/menuselect --disable-category MENUSELECT_MOH menuselect.makeopts
 menuselect/menuselect --disable-category MENUSELECT_EXTRA_SOUNDS menuselect.makeopts
 
+# Ibix choices
+menuselect/menuselect --enable cdr_csv menuselect.makeopts
+menuselect/menuselect --enable format_mp3 menuselect.makeopts
+menuselect/menuselect --enable res_config_mysql menuselect.makeopts
+menuselect/menuselect --enable app_mysql menuselect.makeopts
+# menuselect/menuselect --enable cdr_mysql menuselect.makeopts
+
+menuselect/menuselect --enable app_dahdibarge menuselect.makeopts
+menuselect/menuselect --enable app_dahdiras menuselect.makeopts
+menuselect/menuselect --enable chan_dahdi menuselect.makeopts
+menuselect/menuselect --enable codec_dahdi menuselect.makeopts
+
+# Added 2018-07-09 for asterisk-certified-13.21-cert2
+menuselect/menuselect --enable cdr_odbc menuselect.makeopts
+menuselect/menuselect --enable chan_sip menuselect.makeopts
+# menuselect/menuselect --enable chan_phone menuselect.makeopts
+menuselect/menuselect --enable pbx_realtime menuselect.makeopts
+menuselect/menuselect --enable res_pjsip_history menuselect.makeopts
+menuselect/menuselect --enable res_pjsip_registrar_expire menuselect.makeopts
+
+menuselect/menuselect --enable app_chanisavail menuselect.makeopts
+menuselect/menuselect --enable app_mp3 menuselect.makeopts
+
+
 make -j ${JOBS} all
 make install
 
@@ -95,7 +90,9 @@ make install
 make samples
 
 # set runuser and rungroup
-sed -i -E 's/^;(run)(user|group)/\1\2/' /etc/asterisk/asterisk.conf
+# sed -i -E 's/^;(run)(user|group)/\1\2/' /etc/asterisk/asterisk.conf
+# runuser = asterisk              ; The user to run as.
+# rungroup = asterisk             ; The group to run as.
 
 # Install opus, for some reason menuselect option above does not working
 mkdir -p /usr/src/codecs/opus \
