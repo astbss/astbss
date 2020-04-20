@@ -21,39 +21,6 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql
 ENV ASTERISK_VERSION 16.9.0
 ENV OPUS_CODEC asterisk-16.0/x86-64/codec_opus-16.0_current-x86_64
 
-RUN apt-get update -qq \
-&& DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --no-install-suggests \
-    autoconf \
-    binutils-dev \
-    build-essential \
-    ca-certificates \
-    curl \
-    file \
-    libcurl4-openssl-dev \
-    libedit-dev \
-    libgsm1-dev \
-    libogg-dev \
-    libpopt-dev \
-    libresample1-dev \
-    libspandsp-dev \
-    libspeex-dev \
-    libspeexdsp-dev \
-    libsqlite3-dev \
-    libsrtp2-dev \
-    libssl-dev \
-    libvorbis-dev \
-    libxml2-dev \
-    libxslt1-dev \
-    procps \
-    portaudio19-dev \
-    unixodbc \
-    unixodbc-bin \
-    unixodbc-dev \
-    odbcinst \
-    uuid \
-    uuid-dev \
-    xmlstarlet
-
 # Development and Debug only
 # openvpn vtun fail2ban netcat-openbsd = nc
 RUN apt-get update \
@@ -61,19 +28,10 @@ RUN apt-get update \
       wget curl nano iptables procps subversion\
       net-tools iproute2 iputils-ping netcat-openbsd ngrep
 
-RUN mkdir -p /usr/src/asterisk \
-&& cd /usr/src/asterisk \
-&& curl -vsL http://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-${ASTERISK_VERSION}.tar.gz | tar --strip-components 1 -xz || \
-curl -vsL http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-${ASTERISK_VERSION}.tar.gz | tar --strip-components 1 -xz || \
-curl -vsL http://downloads.asterisk.org/pub/telephony/asterisk/old-releases/asterisk-${ASTERISK_VERSION}.tar.gz | tar --strip-components 1 -xz \
-&& contrib/scripts/get_mp3_source.sh
-# format_mp3 - Download MP3 decoder library - Depends on subversion
-
-
-
+# build-asterisk16.sh must be run from /usr/src/asterisk
 WORKDIR /usr/src/asterisk
 COPY build-asterisk16.sh /
-# RUN /build-asterisk16.sh
+RUN /build-asterisk16.sh
 
 RUN mkdir -p /etc/asterisk \
     && rm -f /etc/odbc.ini \
