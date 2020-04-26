@@ -63,7 +63,7 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --no-i
     uuid-dev \
     xmlstarlet
 
-apt-get -y install subversion mysql-client default-libmysqlclient-dev unixodbc sqlite3 libsqlite3-dev
+apt-get -y install subversion git mysql-client default-libmysqlclient-dev unixodbc sqlite3 libsqlite3-dev
 
 mkdir -p /usr/src/asterisk
 cd /usr/src/asterisk
@@ -79,7 +79,7 @@ curl -vsL http://downloads.asterisk.org/pub/telephony/asterisk/old-releases/aste
 # format_mp3 - Download MP3 decoder library - Depends on subversion 
 contrib/scripts/get_mp3_source.sh
 
-apt-get -y purge subversion
+# apt-get -y purge subversion
 
 apt-get purge -y --auto-remove
 rm -rf /var/lib/apt/lists/*
