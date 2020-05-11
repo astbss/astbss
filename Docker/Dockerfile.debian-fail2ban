@@ -1,11 +1,11 @@
 # vim:set ft=dockerfile:
-# docker build -f Dockerfile.debian-vpn -t astbss/debian-vpn .
-# docker push astbss/debian-vpn
-# docker run -it --cap-add=NET_ADMIN astbss/debian-vpn
+# docker build -f Dockerfile.debian-fail2ban -t astbss/debian-fail2ban .
+# docker push astbss/debian-fail2ban
+# docker run -it --cap-add=NET_ADMIN astbss/debian-fail2ban
 
-# digest: sha256:3ea21d5e955e499483eb53e3a64f62ee41ebe99f62412b89c6eef6fb377006c7
+# digest:
 
-FROM debian:stretch-slim
+FROM debian:buster-slim
 
 LABEL maintainer="are@astbss.com"
 ENV DEBIAN_FRONTEND noninteractive
@@ -18,7 +18,7 @@ RUN apt-get update \
       wget curl nano iptables procps openssh-client \
       net-tools iproute2 iputils-ping netcat-openbsd ngrep \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-      openvpn vtun fail2ban \
+      fail2ban \
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
       /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
