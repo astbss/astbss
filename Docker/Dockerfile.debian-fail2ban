@@ -3,7 +3,7 @@
 # docker push astbss/debian-fail2ban
 # docker run -it --cap-add=NET_ADMIN astbss/debian-fail2ban
 
-# digest:
+# digest: sha256:d7d68ff97701292d663ad2682de33a9daaa96e5419b3a804b1a6b26d307667f1
 
 FROM debian:buster-slim
 
