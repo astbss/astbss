@@ -5,7 +5,7 @@
 
 # docker run -it --cap-add=NET_ADMIN astbss/debian-wireguard
 
-# digest:
+# digest: sha256:6ae2929c699ea6f6705849e52b1bfb082f76d9d4a21c425804ed90ce3b8a5f87
 
 FROM debian:bullseye-slim
 
