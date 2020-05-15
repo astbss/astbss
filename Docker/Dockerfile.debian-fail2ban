@@ -1,6 +1,7 @@
 # vim:set ft=dockerfile:
 # docker build -f Dockerfile.debian-fail2ban -t astbss/debian-fail2ban .
-# docker push astbss/debian-fail2ban
+# docker tag astbss/debian-fail2ban astbss/debian-network:fail2ban
+# docker push astbss/debian-network:fail2ban
 # docker run -it --cap-add=NET_ADMIN astbss/debian-fail2ban
 
 # digest: sha256:d7d68ff97701292d663ad2682de33a9daaa96e5419b3a804b1a6b26d307667f1
