@@ -13,7 +13,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
 
-# openvpn vtun fail2ban netcat-openbsd = nc
+# wireguard openvpn vtun fail2ban netcat-openbsd = nc
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
       wget curl nano iptables procps openssh-client \
