@@ -4,7 +4,7 @@ wget -O requirements.txt https://raw.githubusercontent.com/astbss/astbss/master/
 wget -O requirements.txt https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/requirements_3.7.5.b.txt
 
 
-How to Create requirements.txt on (mariabgr4)
+How to Create requirements.txt on (mariabgr4 - vmdb)
 
 python3.7 -m venv .venv3.7.6
 source .venv3.7.6/bin/activate
