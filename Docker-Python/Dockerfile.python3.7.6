@@ -43,7 +43,7 @@ RUN pip install --upgrade pip \
   && sed -i '/self\.protocol\.close_shell/a #\n        if not isinstance(rs.std_err, str):\n            rs.std_err = rs.std_err.decode()\n        if not isinstance(rs.std_out, str):\n            rs.std_out = rs.std_out.decode()' /usr/local/lib/python3.7/site-packages/winrm/__init__.py
 
 # if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
-ENV PYTHON_PIP_VERSION 20.0.2
+ENV PYTHON_PIP_VERSION 20.1.1
 ENV PYTHON_VERSION 3.7.6
 ENV PYTHONPATH=/usr/local/lib/python3.7/site-packages:/usr/local/lib/python3.7
 
