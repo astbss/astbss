@@ -1,7 +1,7 @@
 # vim:set ft=dockerfile:
 # docker build -f Dockerfile.python3.7.6 -t astbss/python:3.7.6 .
 # docker tag astbss/python:3.7.6 astbss/python:latest
-# docker push astbss/python:3.7.6 
+# docker push astbss/python:3.7.6
 # docker push astbss/python:latest
 # docker run -it --rm astbss/python:3.7.6 bash
 # Get sha256 using docker inspect RepoDigests: docker inspect
@@ -39,7 +39,8 @@ COPY requirements.txt /app/requirements.txt
 
 RUN pip install --upgrade pip \
   && pip install -r /app/requirements.txt \
-  && sed -i '/self\.protocol\.close_shell/a #\n        if not isinstance(rs.std_err, str):\n            rs.std_err = rs.std_err.decode()\n        if not isinstance(rs.std_out, str):\n            rs.std_out = rs.std_out.decode()' /usr/local/lib/python3.7/site-packages/winrm/__init__.py 
+  && pip install Babel flask_babel \
+  && sed -i '/self\.protocol\.close_shell/a #\n        if not isinstance(rs.std_err, str):\n            rs.std_err = rs.std_err.decode()\n        if not isinstance(rs.std_out, str):\n            rs.std_out = rs.std_out.decode()' /usr/local/lib/python3.7/site-packages/winrm/__init__.py
 
 # if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
 ENV PYTHON_PIP_VERSION 20.0.2
@@ -55,4 +56,4 @@ ENV PYTHONPATH=/usr/local/lib/python3.7/site-packages:/usr/local/lib/python3.7
 # CMD ["gunicorn", "-w 4", "main:app"]
 
 # CMD ["bash"]
-CMD ["/bin/bash", "-c", "trap : TERM INT; sleep infinity & wait"] 
+CMD ["/bin/bash", "-c", "trap : TERM INT; sleep infinity & wait"]
