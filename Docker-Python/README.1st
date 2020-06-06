@@ -35,16 +35,16 @@ pip install pypsrp[credssp] pypsrp[kerberos]
 pip install pytest-describe pytest-env mock black
 
 # sudo apt install python3-pip #  Not needed as we have our own pip
-sudo apt install g++ unixodbc-dev
+apt install g++ unixodbc-dev
 pip install pyodbc
 
 # ms Authentication
 pip install msal Flask-Session
 
 pip install pytest-describe pytest-env pytest-mock pytest-cov
-pip install PyYAML greenstalk kubernetes requests-cache Flask-Babel
+pip install PyYAML greenstalk kubernetes requests-cache
 
-pip install Babel flask_babel
+pip install Babel Flask-Babel
 pip install orator flask-orator bcrypt Flask-Bcrypt
   
 # pytest-describe==0.12.0
