@@ -18,6 +18,8 @@ click==7.1.2
 coverage==5.1
 cryptography==2.9.2
 dictdiffer==0.8.1
+dnspython==1.16.0
+email-validator==1.1.1
 fabric==2.5.0
 Faker==0.8.18
 flake8==3.8.2
