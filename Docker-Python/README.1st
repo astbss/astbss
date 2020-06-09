@@ -46,7 +46,7 @@ pip install PyYAML greenstalk kubernetes requests-cache
 
 pip install Babel Flask-Babel
 pip install orator flask-orator bcrypt Flask-Bcrypt
-pip install email_validator
+pip install email_validator Flask-Mail
   
 # pytest-describe==0.12.0
 # pytest-env==0.6.2
