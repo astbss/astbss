@@ -3,7 +3,7 @@
 # sudo wget https://raw.githubusercontent.com/astbss/astbss/master/Kubernetes/kex -O /usr/local/bin/kex ; sudo chmod +x /usr/local/bin/kex
 
 # https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-autocomplete
-# You can enable kubernetes completion by adding this to your ~/.bashrc
+# You can also enable kubernetes completion by adding this to your ~/.bashrc
 # alias k=kubectl
 # source <(kubectl completion bash)
 # complete -F __start_kubectl k
