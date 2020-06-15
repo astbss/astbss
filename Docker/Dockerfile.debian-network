@@ -1,5 +1,6 @@
 # vim:set ft=dockerfile:
 # docker build -f Dockerfile.debian-network -t astbss/debian-network .
+# docker tag debian-network astbss/debian-network:buster
 # docker push astbss/debian-network
 # docker push astbss/debian-network:buster
 # docker push astbss/debian-network:latest
