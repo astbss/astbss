@@ -3,7 +3,8 @@
 # docker push astbss/debian-network
 # docker run -it --cap-add=NET_ADMIN astbss/debian-network
 
-FROM debian:stretch-slim
+# FROM debian:stretch-slim
+FROM debian:buster-slim
 
 LABEL maintainer="are@astbss.com"
 ENV DEBIAN_FRONTEND noninteractive
