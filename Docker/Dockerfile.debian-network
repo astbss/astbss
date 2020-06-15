@@ -1,7 +1,7 @@
 # vim:set ft=dockerfile:
 # docker build -f Dockerfile.debian-network -t astbss/debian-network .
 # docker push astbss/debian-network
-docker push astbss/debian-network:latest
+# docker push astbss/debian-network:latest
 # docker run -it --cap-add=NET_ADMIN astbss/debian-network
 
 # FROM debian:stretch-slim
