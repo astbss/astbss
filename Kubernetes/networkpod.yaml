@@ -13,4 +13,4 @@ spec:
   containers:
   - name: networkpod
     command: ["/bin/bash", "-c", "trap : TERM INT; sleep infinity & wait"]    
-    image: astbss/debian-network
+    image: astbss/debian-network:latest
