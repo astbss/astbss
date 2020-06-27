@@ -40,7 +40,7 @@ COPY requirements.txt /app/requirements.txt
 
 RUN pip install --upgrade pip \
   && pip install -r /app/requirements.txt \
-  && pip3 install boto3 && pip install libgravatar \
+  && pip3 install boto3 libgravatar htpasswd \
   && sed -i '/self\.protocol\.close_shell/a #\n        if not isinstance(rs.std_err, str):\n            rs.std_err = rs.std_err.decode()\n        if not isinstance(rs.std_out, str):\n            rs.std_out = rs.std_out.decode()' /usr/local/lib/python3.7/site-packages/winrm/__init__.py
 
 # if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
