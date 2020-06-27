@@ -48,7 +48,7 @@ pip install Babel Flask-Babel
 pip install orator flask-orator bcrypt Flask-Bcrypt
 pip install email_validator Flask-Mail boto3
   
-pip3 install boto3 libgravatar htpasswd digitalocean
+pip3 install libgravatar htpasswd digitalocean
 
 # pytest-describe==0.12.0
 # pytest-env==0.6.2
