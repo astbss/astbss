@@ -6,7 +6,7 @@
 # docker push astbss/debian-network:latest
 # docker run -it --cap-add=NET_ADMIN astbss/debian-network
 
-# digest:buster  sha256:7e2bc6f2f9ccf36f67bd9dd01ba28f9e0ee0e02ba01abbdbf6752c81268b1f8f
+# digest:buster  sha256:e8733cbb2bc9f1ddc55098d300aa89f497c2f3b9a80da5500779981229221c71
 # digest:stretch sha256:c1123bb9cac631abc013ac35b5b3777c321311348b1452f566bc77bfd9504d4f
 
 # FROM debian:stretch-slim
