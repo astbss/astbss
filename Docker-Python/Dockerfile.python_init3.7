@@ -18,7 +18,7 @@
 
 # FROM debian:stretch-slim
 
-# 3.7: digest: sha256:a01477b9c020084bb1a6cb03de7c1f78925f44fbb4829b4df7301e6558ef4aff
+# 3.7: digest: sha256:5cc43e61ffd3070369a1c21f7bc73033515986e4bf70f0062fc17b17cad77009
 
 # set base image (host OS)
 FROM python:3.7-buster AS builder
@@ -82,6 +82,8 @@ ENV PYTHON_VERSION 3.7.8
 
 # update PATH environment variable
 ENV PATH=/root/.local:/root/.local/bin:$PATH
+
+WORKDIR /app
 
 # ansible 2.8.2
 
