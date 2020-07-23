@@ -1,8 +1,10 @@
 # vim:set ft=dockerfile:
 # https://www.docker.com/blog/containerized-python-development-part-1/
 
-# docker build -f Dockerfile.init3.7 -t astbss/python:init3.7 .
+# docker build -f Dockerfile.python_init3.7 -t astbss/python_init3.7 .
 # docker push astbss/python:init3.7
+
+# docker images
 # docker run -it --rm astbss/python:init3.7 bash
 
 # Get sha256 using docker inspect RepoDigests: docker inspect
@@ -16,6 +18,18 @@
 # set base image (host OS)
 FROM python:3.7-buster AS builder
 # FROM python:3.7-slim
+
+ENV PATH=/root/.local:$PATH
+
+# FreeTDS is required for pymssql
+RUN apt-get update \
+    && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
+    git nano wget curl net-tools iproute2 iputils-ping openssh-client vim \
+    gcc python3-dev libssl-dev libkrb5-dev freetds-dev gss-ntlmssp g++ unixodbc-dev\
+    && apt-get clean && apt-get --yes --quiet autoremove --purge \
+    && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+            /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
+            /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
 
 # Install dependencies
 COPY requirements.txt /requirements.txt
@@ -39,15 +53,7 @@ ENV LC_ALL=C.UTF-8
 COPY --from=builder /root/.local/bin /root/.local
 COPY ./src .
 
-# apt-get -y install freetds-dev   # FreeTDS is required for pymssql
-#RUN apt-get update \
-#    && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-#    git nano wget curl net-tools iproute2 iputils-ping openssh-client vim \
-#    gcc python3-dev libssl-dev libkrb5-dev freetds-dev gss-ntlmssp g++ unixodbc-dev\
-#    && apt-get clean && apt-get --yes --quiet autoremove --purge \
-#    && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-#            /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
-#            /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
+
 
 
 
