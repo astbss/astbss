@@ -1,11 +1,12 @@
 # vim:set ft=dockerfile:
 # https://www.docker.com/blog/containerized-python-development-part-1/
+# https://pythonspeed.com/articles/multi-stage-docker-python/
 
 # docker build -f Dockerfile.python_init3.7 -t astbss/python_init3.7 .
 # docker push astbss/python:init3.7
 
 # docker images
-# docker run -it --rm astbss/python:init3.7 bash
+# docker run -it --rm astbss/python_init3.7 bash
 
 # Get sha256 using docker inspect RepoDigests: docker inspect
 # docker run -v /app/my-app:/app -it  --rm --entrypoint "/bin/bash" astbss/python:3.7.6
@@ -19,7 +20,8 @@
 FROM python:3.7-buster AS builder
 # FROM python:3.7-slim
 
-ENV PATH=/root/.local:$PATH
+# ENV PATH=/root/.local:$PATH
+ENV PATH=/root/.local:/root/.local/bin:$PATH
 
 # FreeTDS is required for pymssql
 RUN apt-get update \
@@ -50,7 +52,8 @@ ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
 
 # copy only the dependencies installation from the 1st stage image
-COPY --from=builder /root/.local/bin /root/.local
+# COPY --from=builder /root/.local/bin /root/.local
+COPY --from=builder /root/.local /root/.local
 # COPY ./src .
 
 
@@ -70,7 +73,7 @@ ENV PYTHON_VERSION 3.7.8
 # ENV PYTHONPATH=/usr/local/lib/python3.7/site-packages:/usr/local/lib/python3.7
 
 # update PATH environment variable
-ENV PATH=/root/.local:$PATH
+ENV PATH=/root/.local:/root/.local/bin:$PATH
 
 # ansible 2.8.2
 
