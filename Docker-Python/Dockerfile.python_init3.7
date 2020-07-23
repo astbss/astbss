@@ -18,7 +18,7 @@
 
 # FROM debian:stretch-slim
 
-# 3.7: digest: sha256:176008b80e8ee903ac8685b137d4e7c3804892b783443023c75022204eea8335
+# 3.7: digest: sha256:a01477b9c020084bb1a6cb03de7c1f78925f44fbb4829b4df7301e6558ef4aff
 
 # set base image (host OS)
 FROM python:3.7-buster AS builder
@@ -43,7 +43,7 @@ COPY requirements.txt /requirements.txt
 # pip install --upgrade pip \
 # install dependencies to the local user directory (eg. /root/.local)
 RUN pip install --user -r requirements.txt \
-  && pip install boto3 libgravatar htpasswd python-digitalocean py_daemon linode_api4
+  && pip install --user boto3 libgravatar htpasswd python-digitalocean py_daemon linode_api4
 
 
 # second unnamed stage
