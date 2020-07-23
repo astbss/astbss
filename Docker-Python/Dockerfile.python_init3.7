@@ -18,7 +18,7 @@
 
 # FROM debian:stretch-slim
 
-# 3.7: digest: sha256:5cc43e61ffd3070369a1c21f7bc73033515986e4bf70f0062fc17b17cad77009
+# 3.7: digest: sha256:58825161b9ab2c4b714a04704d189d436784933d9d930ed63b73217f0d6ac904
 
 # set base image (host OS)
 FROM python:3.7-buster AS builder
@@ -64,6 +64,7 @@ RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
     git nano wget vim \
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
+    && ln /root/.local/bin/gunicorn /usr/local/bin/gunicorn
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
             /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
             /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
