@@ -52,22 +52,12 @@ case $P in
 esac
 
 case $P in
-  (Save|save)
-    D=$(kubectl get pods | grep ibix-$2 | cut -f1 -d' ')
-    echo "Pod Name: $D"
-    echo "kubectl exec -it $D -c ibix-asterisk -- /usr/local/astpbx-git/scripts/astpbxsettings.php"
-    kubectl exec -it $D -c ibix-asterisk -- /usr/local/astpbx-git/scripts/astpbxsettings.php
-    exit
-  ;; # OK
-esac
-
-case $P in
   (Delete|delete)
     D=$(kubectl get pods | grep $2 | cut -f1 -d' ')
     echo "kubectl delete pod $D"
     kubectl delete pod $D
     sleep 0.1
-    kubectl get pods -o=wide    
+    kubectl get pods -o=wide
     exit
   ;; # OK
 esac
@@ -113,7 +103,7 @@ case $P in
     echo "  secrets       kubectl get secrets"
 
     echo "  delete [pod]  kubectl delete pod"
-    echo "  Save [pbx|pod]"
+    echo "  logs [pbx|pod]"
     exit
   ;; # OK
 esac
@@ -124,7 +114,7 @@ if [ -n "$P" ] ; then
 else
   echo "kubectl get pods -o=wide"
   kubectl get pods -o=wide
-  exit  
+  exit
 fi
 
 echo "Pod Name: $D"
@@ -138,4 +128,15 @@ elif [ -n "$2" ] ; then
   kubectl exec  "$D" -it --container $2 -- bash -il
 else
   kubectl exec  "$D" -it -- bash -il
+fi
+
+if [ "$2"  == "logs" ] ; then
+    echo "kubectl logs $D"
+    kubectl logs $D
+    sleep 0.1
+    kubectl get pods
+elif [ -n "$2" ] ; then
+  kubectl logs  "$D" --container $2 $3
+else
+  kubectl logs  "$D"
 fi
