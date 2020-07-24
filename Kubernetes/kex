@@ -124,19 +124,12 @@ if [ "$2"  == "delete" ] ; then
     kubectl delete pod $D
     sleep 0.1
     kubectl get pods -o=wide
+elif [ "$2"  == "logs" ] ; then
+    echo "kubectl logs $D"
+    kubectl logs $D
 elif [ -n "$2" ] ; then
   kubectl exec  "$D" -it --container $2 -- bash -il
 else
   kubectl exec  "$D" -it -- bash -il
 fi
 
-if [ "$2"  == "logs" ] ; then
-    echo "kubectl logs $D"
-    kubectl logs $D
-    sleep 0.1
-    kubectl get pods
-elif [ -n "$2" ] ; then
-  kubectl logs  "$D" --container $2 $3
-else
-  kubectl logs  "$D"
-fi
