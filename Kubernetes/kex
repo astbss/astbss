@@ -112,7 +112,7 @@ case $P in
     echo "  secrets       kubectl get secrets"
 
     echo "  delete [pod]  kubectl delete pod"
-    echo "  logs [pbx|pod]"
+    echo "  logs [pod] kubectl logs pod"
     exit
   ;; # OK
 esac
