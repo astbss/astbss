@@ -63,6 +63,15 @@ case $P in
 esac
 
 case $P in
+  (logs|log)
+    D=$(kubectl get pods | grep $2 | cut -f1 -d' ')
+    echo "kubectl logs $D"
+    kubectl logs $D
+    exit
+  ;; # OK
+esac
+
+case $P in
   (dep|depl|deployment|deployments)
     echo "kubectl get deployments"
     kubectl get deployments
