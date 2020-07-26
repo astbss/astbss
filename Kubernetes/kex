@@ -27,7 +27,25 @@
 
 P="$1"
 D=""
+NAMESP=""
+T="ab-system"
 
+if [ "$1"  == "-A" ] ; then
+  NAMESP="-A"
+  shift 1
+  P="$1"
+fi
+
+if [ "$1"  == "-n" ] ; then
+  NAMESP="-n $2"
+  shift 2
+  P="$1"
+fi
+
+echo "$NAMESP"
+
+
+echo "1 is: $1"
 case $P in
   (n|node|nodes)
     echo "kubectl get nodes"
@@ -47,7 +65,7 @@ esac
 
 case $P in
   (p|pod|pods)
-    kubectl get pods
+    kubectl get pods $NAMESP
     exit
   ;; # OK
 esac
@@ -55,8 +73,8 @@ esac
 case $P in
   (Delete|delete)
     D=$(kubectl get pods | grep $2 | cut -f1 -d' ')
-    echo "kubectl delete pod $D"
-    kubectl delete pod $D
+    echo "kubectl delete pod $D $NAMESP"
+    kubectl delete pod $D $NAMESP
     sleep 0.1
     kubectl get pods -o=wide
     exit
@@ -66,16 +84,16 @@ esac
 case $P in
   (logs|log)
     D=$(kubectl get pods | grep $2 | cut -f1 -d' ')
-    echo "kubectl logs $D"
-    kubectl logs $D --follow
+    echo "kubectl logs $D $NAMESP"
+    kubectl logs $D $NAMESP --follow
     exit
   ;; # OK
 esac
 
 case $P in
   (dep|depl|deployment|deployments)
-    echo "kubectl get deployments"
-    kubectl get deployments
+    echo "kubectl get deployments $NAMESP"
+    kubectl get deployments $NAMESP
     exit
   ;; # OK
 esac
@@ -122,8 +140,8 @@ esac
 if [ -n "$P" ] ; then
   D=$(kubectl get pods | grep $P | cut -f1 -d' ')
 else
-  echo "kubectl get pods -o=wide"
-  kubectl get pods -o=wide
+  echo "kubectl get pods -o=wide $NAMESP"
+  kubectl get pods -o=wide $NAMESP
   exit
 fi
 
