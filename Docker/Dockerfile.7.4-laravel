@@ -45,8 +45,8 @@ RUN apt-get update \
             /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
             /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
 
-RUN docker-php-ext-install mysqli pdo pdo_mysql  mbstring exif pcntl bcmath gd \
-    && docker-php-ext-install ext-uopz ext-soap ext-xdebug
+RUN docker-php-ext-install mysqli pdo pdo_mysql mbstring exif pcntl bcmath gd \
+    && docker-php-ext-install ext-soap ext-xdebug
 
 # phpunit/php-invoker
 
