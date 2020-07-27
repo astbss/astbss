@@ -38,7 +38,8 @@ ENV LC_ALL=C.UTF-8
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
     wget curl nano libpng-dev libonig-dev libxml2-dev git zip unzip \
-    && docker-php-ext-install mysqli pdo pdo_mysql gd \
+    && docker-php-ext-install mysqli pdo pdo_mysql  mbstring exif pcntl bcmath gd \
+    && docker-php-ext-install ext-uopz ext-soap ext-xdebug phpunit/php-invoker
     && cp "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \
     && ln /usr/local/bin/php /usr/bin/php \
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
