@@ -153,11 +153,11 @@ if [ "$2"  == "delete" ] ; then
     sleep 0.1
     kubectl get pods -o=wide
 elif [ "$2"  == "logs" ] ; then
-    echo "kubectl logs $D"
-    kubectl logs $D
+    echo "kubectl logs $D $NAMESP"
+    kubectl logs $D $NAMESP
 elif [ -n "$2" ] ; then
-  kubectl exec  "$D" -it --container $2 -- bash -il
+  kubectl exec  "$D" -it $NAMESP --container $2 -- bash -il
 else
-  kubectl exec  "$D" -it -- bash -il
+  kubectl exec  "$D" -it $NAMESP -- bash -il
 fi
 
