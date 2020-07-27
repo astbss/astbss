@@ -47,9 +47,11 @@ RUN apt-get update \
 
 # Some of the modules are already compiled into PHP; please check
 # the output of "php -i" to see which modules are already loaded.
-RUN docker-php-ext-install mysqli pdo pdo_mysql mbstring exif pcntl bcmath gd \
-    && docker-php-ext-install ext-uopz ext-soap ext-xdebug
+RUN docker-php-ext-install mysqli pdo pdo_mysql mbstring exif pcntl bcmath gd
 
+RUN docker-php-ext-install ext-uopz ext-soap ext-xdebug
+
+# https://github.com/krakjoe/uopz/blob/master/INSTALL.md
 # phpunit/php-invoker
 
 # We install Composer by copying the composer executable from its
