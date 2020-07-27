@@ -25,7 +25,8 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
 
-
+# Set working directory
+WORKDIR /code
 
 # RUN docker-php-ext-install mysqli pdo pdo_mysql gd
 
@@ -56,7 +57,7 @@ RUN pecl install uopz \
     && echo "zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20190902/xdebug.so" >> $PHP_INI_DIR/php.ini \
     && wget https://phar.phpunit.de/phpunit-6.5.phar \
     && chmod +x phpunit-6.5.phar \
-    && phpunit-6.5.phar /usr/local/bin/phpunit
+    && mv phpunit-6.5.phar /usr/local/bin/phpunit
 
 # RUN docker-php-ext-install ext-uopz ext-soap ext-xdebug
 
@@ -76,8 +77,6 @@ RUN mkdir -p /home/laravel/.composer && \
 # ENTRYPOINT ["docker-php-entrypoint"]
 # WORKDIR /var/www/html
 
-# Set working directory
-WORKDIR /code
 
 # Expose port 9000 and start php-fpm server
 EXPOSE 9000
