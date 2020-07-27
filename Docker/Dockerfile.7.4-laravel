@@ -38,8 +38,6 @@ ENV LC_ALL=C.UTF-8
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
     wget curl nano libpng-dev libonig-dev libxml2-dev git zip unzip \
-    && docker-php-ext-install mysqli pdo pdo_mysql  mbstring exif pcntl bcmath gd \
-    && docker-php-ext-install ext-uopz ext-soap ext-xdebug phpunit/php-invoker \
     && cp "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \
     && ln /usr/local/bin/php /usr/bin/php \
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
@@ -47,6 +45,8 @@ RUN apt-get update \
             /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
             /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
 
+RUN docker-php-ext-install mysqli pdo pdo_mysql  mbstring exif pcntl bcmath gd \
+    && docker-php-ext-install ext-uopz ext-soap ext-xdebug phpunit/php-invoker
 
 # We install Composer by copying the composer executable from its
 # latest official image to our own application image.
