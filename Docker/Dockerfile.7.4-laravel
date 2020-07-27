@@ -46,7 +46,9 @@ RUN apt-get update \
             /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql  mbstring exif pcntl bcmath gd \
-    && docker-php-ext-install ext-uopz ext-soap ext-xdebug phpunit/php-invoker
+    && docker-php-ext-install ext-uopz ext-soap ext-xdebug
+
+# phpunit/php-invoker
 
 # We install Composer by copying the composer executable from its
 # latest official image to our own application image.
