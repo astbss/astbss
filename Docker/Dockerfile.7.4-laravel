@@ -6,6 +6,7 @@
 # digest: sha256:
 
 # docker run -it --rm astbss/php:7.4-laravel bash
+# docker container prune --force
 
 # https://www.digitalocean.com/community/tutorials/how-to-install-and-set-up-laravel-with-docker-compose-on-ubuntu-20-04
 # https://stackoverflow.com/questions/43442531/php-fpm-does-not-listen-on-ports
@@ -48,6 +49,14 @@ RUN apt-get update \
 # Some of the modules are already compiled into PHP; please check
 # the output of "php -i" to see which modules are already loaded.
 RUN docker-php-ext-install mysqli pdo pdo_mysql mbstring exif pcntl bcmath gd
+
+RUN pecl install uopz \
+    && echo "extension=uopz.so" >> $PHP_INI_DIR/php.ini \
+    && pecl install xdebug
+    && echo "zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20190902/xdebug.so" >> $PHP_INI_DIR/php.ini \
+    && wget https://phar.phpunit.de/phpunit-6.5.phar \
+    && chmod +x phpunit-6.5.phar \
+    && phpunit-6.5.phar /usr/local/bin/phpunit
 
 # RUN docker-php-ext-install ext-uopz ext-soap ext-xdebug
 
