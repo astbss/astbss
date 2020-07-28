@@ -32,8 +32,9 @@ T="ab-system"
 
 if [ "$1"  == "-A" ] ; then
   NAMESP="-A"
-  shift 1
-  P="$1"
+  echo "kubectl get pods $NAMESP"
+  kubectl get pods $NAMESP
+  exit
 fi
 
 if [ "$1"  == "-n" ] ; then
@@ -42,12 +43,22 @@ if [ "$1"  == "-n" ] ; then
         exit
   fi
   NAMESP="-n $2"
+  if [ -z "$3" ] ; then
+        echo "kubectl get pods $NAMESP"
+        kubectl get pods $NAMESP
+        exit
+  fi
   shift 2
   P="$1"
 fi
 
 if [ "$1"  == "-nab" ] ; then
   NAMESP="-n ab-system"
+  if [ -z "$2" ] ; then
+        echo "kubectl get pods $NAMESP"
+        kubectl get pods $NAMESP
+        exit
+  fi
   shift 1
   P="$1"
 fi
@@ -86,7 +97,7 @@ case $P in
     echo "kubectl delete pod $D $NAMESP"
     kubectl delete pod $D $NAMESP
     sleep 0.1
-    kubectl get pods $D $NAMESP -o=wide
+    kubectl get pods $NAMESP -o=wide
     exit
   ;; # OK
 esac
