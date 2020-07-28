@@ -30,6 +30,12 @@ D=""
 NAMESP=""
 T="ab-system"
 
+if [ -z "$1" ] ; then
+      echo "kubectl get pods"
+      kubectl get pods
+      exit
+fi
+
 if [ "$1"  == "-A" ] ; then
   NAMESP="-A"
   echo "kubectl get pods $NAMESP"
