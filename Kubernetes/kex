@@ -37,15 +37,24 @@ if [ "$1"  == "-A" ] ; then
 fi
 
 if [ "$1"  == "-n" ] ; then
+  if [ -z "$2" ] ; then
+        echo "ERROR: -n needs a namespace argument"
+        exit
+  fi
   NAMESP="-n $2"
   shift 2
   P="$1"
 fi
 
-echo "$NAMESP"
+if [ "$1"  == "-nab" ] ; then
+  NAMESP="-n ab-system"
+  shift 1
+  P="$1"
+fi
 
+D=$(kubectl get pods $NAMESP | grep $2 | cut -f1 -d' ')
+# echo "*** Namespace: $NAMESP  1 is: $1 and 2 is: $2 - Found pod $D ***"
 
-echo "1 is: $1"
 case $P in
   (n|node|nodes)
     echo "kubectl get nodes"
@@ -70,20 +79,20 @@ case $P in
   ;; # OK
 esac
 
+
 case $P in
   (Delete|delete)
-    D=$(kubectl get pods | grep $2 | cut -f1 -d' ')
+
     echo "kubectl delete pod $D $NAMESP"
     kubectl delete pod $D $NAMESP
     sleep 0.1
-    kubectl get pods -o=wide
+    kubectl get pods $D $NAMESP -o=wide
     exit
   ;; # OK
 esac
 
 case $P in
   (logs|log)
-    D=$(kubectl get pods | grep $2 | cut -f1 -d' ')
     echo "kubectl logs $D $NAMESP"
     kubectl logs $D $NAMESP --follow
     exit
@@ -101,7 +110,7 @@ esac
 case $P in
   (serv|service|services)
     echo "kubectl get services"
-    kubectl get services
+    kubectl get services $NAMESP
     exit
   ;; # OK
 esac
@@ -109,7 +118,7 @@ esac
 case $P in
   (secret|secrets)
     echo "kubectl get secrets"
-    kubectl get secrets
+    kubectl get secrets $D $NAMESP
     exit
   ;; # OK
 esac
@@ -136,26 +145,13 @@ case $P in
   ;; # OK
 esac
 
-# -n True if the length of string is non-zero
-if [ -n "$P" ] ; then
-  D=$(kubectl get pods | grep $P | cut -f1 -d' ')
-else
-  echo "kubectl get pods -o=wide $NAMESP"
-  kubectl get pods -o=wide $NAMESP
-  exit
-fi
+D=$(kubectl get pods $NAMESP | grep $1 | cut -f1 -d' ')
+# echo "*** Namespace: $NAMESP  1 is: $1 and 2 is: $2 - Found pod $D ***"
 
-echo "Pod Name: $D"
+kubectl exec  "$D" -it $NAMESP -- bash -il
+exit
 
-if [ "$2"  == "delete" ] ; then
-    echo "kubectl delete pod $D"
-    kubectl delete pod $D
-    sleep 0.1
-    kubectl get pods -o=wide
-elif [ "$2"  == "logs" ] ; then
-    echo "kubectl logs $D $NAMESP"
-    kubectl logs $D $NAMESP
-elif [ -n "$2" ] ; then
+if [ -n "$2" ] ; then
   kubectl exec  "$D" -it $NAMESP --container $2 -- bash -il
 else
   kubectl exec  "$D" -it $NAMESP -- bash -il
