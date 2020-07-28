@@ -69,8 +69,14 @@ if [ "$1"  == "-nab" ] ; then
   P="$1"
 fi
 
-D=$(kubectl get pods $NAMESP | grep $2 | cut -f1 -d' ')
-# echo "*** Namespace: $NAMESP  1 is: $1 and 2 is: $2 - Found pod $D ***"
+
+if [ ! -z "$2" ]
+then
+  D=$(kubectl get pods $NAMESP | grep $2 | cut -f1 -d' ')
+  echo "*** Namespace: $NAMESP  1 is: $1 and 2 is: $2 - Found pod $D ***"
+fi
+
+
 
 case $P in
   (n|node|nodes)
@@ -147,6 +153,9 @@ case $P in
     echo "help  Show this message and exit."
     echo ""
     echo "Commands:"
+    echo "  -A            kubectl get pods -A"
+    echo "  -n namespace  kubectl get pods -n namespace"
+    echo "  -nab          kubectl get pods -n ab-system"
     echo "  containers|c  get pods and all container names"
     echo "  pods|p        kubectl get pods"
     echo "  nodes|n       kubectl get nodes"
@@ -162,8 +171,10 @@ case $P in
   ;; # OK
 esac
 
-D=$(kubectl get pods $NAMESP | grep $1 | cut -f1 -d' ')
-# echo "*** Namespace: $NAMESP  1 is: $1 and 2 is: $2 - Found pod $D ***"
+if [ ! -z "$1" ] ; then
+  D=$(kubectl get pods $NAMESP | grep $1 | cut -f1 -d' ')
+  # echo "*** Namespace: $NAMESP  1 is: $1 and 2 is: $2 - Found pod $D ***"
+fi
 
 kubectl exec  "$D" -it $NAMESP -- bash -il
 exit
