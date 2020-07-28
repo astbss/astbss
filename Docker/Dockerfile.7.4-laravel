@@ -3,7 +3,7 @@
 # docker push astbss/php:7.4-laravel
 
 
-# digest: sha256:3d116aaf4c829943df9c9eb9cd81bda92f2e398e0bd466f5dcf9502b2a58d1a3
+# digest: sha256:452f91df03ff8f099a74d4ae53e2d4ec23559e2292e2487b383158b3414b06b7
 
 # docker run -it --rm astbss/php:7.4-laravel bash
 # docker container prune --force
