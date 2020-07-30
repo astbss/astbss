@@ -58,7 +58,7 @@ if [ "$1"  == "-n" ] ; then
   P="$1"
 fi
 
-if [ "$1"  == "-nab" ] ; then
+if [ "$1"  == "-ab" ] ; then
   NAMESP="-n ab-system"
   if [ -z "$2" ] ; then
         echo "kubectl get pods $NAMESP"
@@ -73,7 +73,7 @@ fi
 if [ ! -z "$2" ]
 then
   D=$(kubectl get pods $NAMESP | grep $2 | cut -f1 -d' ')
-  echo "*** Namespace: $NAMESP  1 is: $1 and 2 is: $2 - Found pod $D ***"
+  # echo "*** Namespace: $NAMESP  1 is: $1 and 2 is: $2 - Found pod $D ***"
 fi
 
 
