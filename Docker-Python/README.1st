@@ -65,3 +65,4 @@ docker run -it --rm astbss/3.7.6-slim-stretch bash
 # pip install aiohttp uvloop
 
 - https://pythonspeed.com/docker/
+- https://pythonspeed.com/articles/schema-migrations-server-startup/
