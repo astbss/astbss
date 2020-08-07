@@ -127,3 +127,5 @@ zope.event==4.4
 zope.interface==5.1.0
 python-jwt==3.2.6
 dateparser==0.7.6
+pandas==1.1.0
+pandas-bokeh==0.5
