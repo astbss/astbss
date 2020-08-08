@@ -7,6 +7,8 @@
 
 # digest: astbss/php@sha256:
 
+# Used for WordPress
+
 # webdevops/php-nginx:latest  PHP 7.2.24-0ubuntu0.18.04.3 (cli)
 FROM webdevops/php-nginx@sha256:d767e533e0fc17296a51ed36caa4de265fc5b803707e318fc90094538b29a3b4
 
