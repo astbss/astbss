@@ -5,7 +5,7 @@
 # docker run -it astbss/php:7.2-nginx
 # kubectl create deployment php:7.2-nginx --image=astbss/php:7.2-nginx
 
-# digest: astbss/php@sha256:
+# digest: astbss/php@sha256:362fb283794200c2a81ca6cd5bb934297eb1495e5f2218713f6c907da5142633
 
 # Used for WordPress
 
