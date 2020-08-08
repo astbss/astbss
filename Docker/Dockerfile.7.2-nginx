@@ -1,0 +1,20 @@
+# vim:set ft=dockerfile:
+# docker build -f Dockerfile.7.2-nginx -t astbss/php:7.2-nginx .
+# docker push astbss/php:7.2-nginx
+
+# docker run -it astbss/php:7.2-nginx
+# kubectl create deployment php:7.2-nginx --image=astbss/php:7.2-nginx
+
+# digest: astbss/php@sha256:
+
+# webdevops/php-nginx:latest  PHP 7.2.24-0ubuntu0.18.04.3 (cli)
+FROM webdevops/php-nginx@sha256:d767e533e0fc17296a51ed36caa4de265fc5b803707e318fc90094538b29a3b4
+
+LABEL maintainer="are@astbss.com"
+ENV DEBIAN_FRONTEND noninteractive
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
+    && chmod +x wp-cli.phar
+    && mv wp-cli.phar /usr/local/bin/wp
