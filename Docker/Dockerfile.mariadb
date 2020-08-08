@@ -1,11 +1,11 @@
 # vim:set ft=dockerfile:
 # docker build -f Dockerfile.mariadb -t astbss/mariadb:10.4.13 .
-# docker tag astbss/mariadb astbss/mariadb:10.4.13
-# docker tag astbss/mariadb astbss/mariadb:latest
+# docker tag astbss/mariadb:10.4.13 astbss/mariadb:latest
 # docker push astbss/mariadb:10.4.13
 # docker push astbss/mariadb:latest
-# docker run -it astbss/mariadb
+# docker run -it astbss/mariadb:10.4.13
 
+# digest: sha256:c1fe9d3f3dcb471b64516815a437e79046d32c39161273c37f31b5ae272dd9ba
 
 FROM mariadb:10.4.13
 
