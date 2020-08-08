@@ -1,0 +1,24 @@
+# vim:set ft=dockerfile:
+# docker build -f Dockerfile.mariadb -t astbss/mariadb:10.4.13 .
+# docker tag astbss/mariadb astbss/mariadb:10.4.13
+# docker tag astbss/mariadb astbss/mariadb:latest
+# docker push astbss/mariadb:10.4.13
+# docker push astbss/mariadb:latest
+# docker run -it astbss/mariadb
+
+
+FROM mariadb:10.4.13
+
+LABEL maintainer="are@astbss.com"
+ENV DEBIAN_FRONTEND noninteractive
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+
+# openvpn vtun fail2ban netcat-openbsd = nc
+RUN apt-get update \
+    && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
+      wget curl ca-certificates nano zip unzip \
+    && apt-get clean && apt-get --yes --quiet autoremove --purge \
+    && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+      /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
+      /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
