@@ -3,8 +3,8 @@
 # docker tag astbss/mariadb:10.4.13 astbss/mariadb:latest
 # docker push astbss/mariadb:10.4.13
 # docker push astbss/mariadb:latest
-# docker run -it astbss/mariadb:10.4.13
 
+# docker run -it astbss/mariadb:10.4.13
 # kubectl create pod mariadb4 --image=astbss/mariadb:latest
 
 # digest: astbss/mariadb@sha256:c1fe9d3f3dcb471b64516815a437e79046d32c39161273c37f31b5ae272dd9ba
