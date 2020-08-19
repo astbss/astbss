@@ -8,7 +8,7 @@
 # docker push astbss/python:latest
 
 # docker images
-# docker run -it --rm astbss/python_init3.7 bash
+# docker run -it --rm astbss/python:latest bash
 
 # Get sha256 using docker inspect RepoDigests: docker inspect
 # docker run -v /app/my-app:/app -it  --rm --entrypoint "/bin/bash" astbss/python:3.7.6
@@ -18,7 +18,7 @@
 
 # FROM debian:stretch-slim
 
-# 3.7: digest: sha256:ec2f7576efff1a58d7b26abd4d58dea2ce4f61eb064538d2fff1e039142f26e3
+# 3.7: digest: sha256:6249340fcb21baa67cd3555722a54e88d7a4204686128f5953a88a7d726bc98a
 
 # set base image (host OS)
 FROM python:3.7-buster AS builder
@@ -30,7 +30,7 @@ ENV PATH=/root/.local:/root/.local/bin:$PATH
 # FreeTDS is required for pymssql
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-    git nano wget curl net-tools iproute2 iputils-ping openssh-client vim \
+    git nano wget curl net-tools iproute2 iputils-ping openssh-client vim zip unzip \
     gcc python3-dev libssl-dev libkrb5-dev freetds-dev gss-ntlmssp g++ unixodbc-dev\
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
@@ -42,7 +42,8 @@ COPY requirements.txt /requirements.txt
 
 # pip install --upgrade pip \
 # install dependencies to the local user directory (eg. /root/.local)
-RUN pip install --user -r requirements.txt \
+RUN python -m pip install --upgrade pip \
+  && pip install --user -r requirements.txt \
   && pip install --user boto3 libgravatar htpasswd python-digitalocean py_daemon linode_api4
 
 
@@ -62,22 +63,17 @@ COPY --from=builder /root/.local /root/.local
 
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-    git nano wget vim \
+    git nano wget vim zip unzip \
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
     && ln /root/.local/bin/gunicorn /usr/local/bin/gunicorn \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
             /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
             /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
 
-
-#RUN pip install --upgrade pip \
-#  && pip install -r /requirements.txt \
-
-
 # docker run -it --rm python:3.7-buster bash
 # docker images
 # if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
-ENV PYTHON_PIP_VERSION 20.1.1
+ENV PYTHON_PIP_VERSION 20.2.2
 ENV PYTHON_VERSION 3.7.8
 # ENV PYTHONPATH=/usr/local/lib/python3.7/site-packages:/usr/local/lib/python3.7
 

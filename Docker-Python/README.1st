@@ -50,10 +50,15 @@ pip install email_validator Flask-Mail boto3
   
 pip3 install libgravatar htpasswd python-digitalocean py_daemon
 
+pip install hcloud
+linode-api4==2.3.4
+schedule==0.6.0
+
 # pytest-describe==0.12.0
 # pytest-env==0.6.2
 # pytest-mock==1.13.0
 # pytest-cov==2.8.1
+# Flask-Caching==1.9.0
 
 pip freeze >requirements.txt
 
