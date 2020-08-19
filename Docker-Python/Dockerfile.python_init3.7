@@ -42,7 +42,8 @@ COPY requirements.txt /requirements.txt
 
 # pip install --upgrade pip \
 # install dependencies to the local user directory (eg. /root/.local)
-RUN pip install --user -r requirements.txt \
+RUN /usr/local/bin/python -m pip install --upgrade pip \
+  && pip install --user -r requirements.txt \
   && pip install --user boto3 libgravatar htpasswd python-digitalocean py_daemon linode_api4
 
 
@@ -69,15 +70,10 @@ RUN apt-get update \
             /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
             /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
 
-
-#RUN pip install --upgrade pip \
-#  && pip install -r /requirements.txt \
-
-
 # docker run -it --rm python:3.7-buster bash
 # docker images
 # if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
-ENV PYTHON_PIP_VERSION 20.1.1
+ENV PYTHON_PIP_VERSION 20.2.2
 ENV PYTHON_VERSION 3.7.8
 # ENV PYTHONPATH=/usr/local/lib/python3.7/site-packages:/usr/local/lib/python3.7
 
