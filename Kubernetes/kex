@@ -175,6 +175,7 @@ if [ ! -z "$1" ] ; then
   # echo "*** Namespace: $NAMESP  1 is: $1 and 2 is: $2 - Found pod $D ***"
 fi
 
+echo "kubectl exec  "$D" -it $NAMESP -- bash -il"
 kubectl exec  "$D" -it $NAMESP -- bash -il
 exit
 
