@@ -24,33 +24,33 @@ pip3 install simplejson pexpect ptyprocess
 pip3 install fabric dictdiffer
 pip3 install pymssql smalluuid shortuuid
 
-pip install timeago bcrypt jwt adal
-pip install pywinrm[credssp] pywinrm[kerberos]
-pip install pypsrp[credssp] pypsrp[kerberos]
+pip3 install timeago bcrypt jwt adal
+pip3 install pywinrm[credssp] pywinrm[kerberos]
+pip3 install pypsrp[credssp] pypsrp[kerberos]
 
-# pip install 'ansible==2.8.2'
+# pip3 install 'ansible==2.8.2'
 # Do not compile Ansible on Windows. Ansible will NOT run on Windows.
 # Please install only Ansible version 2.8.2
 
-pip install pytest-describe pytest-env mock black
+pip3 install pytest-describe pytest-env mock black
 
 # sudo apt install python3-pip #  Not needed as we have our own pip
 apt install g++ unixodbc-dev
-pip install pyodbc
+pip3 install pyodbc
 
 # ms Authentication
-pip install msal Flask-Session
+pip3 install msal Flask-Session
 
-pip install pytest-describe pytest-env pytest-mock pytest-cov
-pip install PyYAML greenstalk kubernetes requests-cache
+pip3 install pytest-describe pytest-env pytest-mock pytest-cov
+pip3 install PyYAML greenstalk kubernetes requests-cache
 
-pip install Babel Flask-Babel
-pip install orator flask-orator bcrypt Flask-Bcrypt
-pip install email_validator Flask-Mail boto3
+pip3 install Babel Flask-Babel
+pip3 install orator flask-orator bcrypt Flask-Bcrypt
+pip3 install email_validator Flask-Mail boto3
   
 pip3 install libgravatar htpasswd python-digitalocean py_daemon
 
-pip install hcloud
+pip3 install hcloud
 linode-api4==2.3.4
 schedule==0.6.0
 
