@@ -51,13 +51,8 @@ pip3 install email_validator Flask-Mail boto3
 pip3 install libgravatar htpasswd python-digitalocean py_daemon
 
 pip3 install hcloud
-linode-api4==2.3.4
-schedule==0.6.0
+pip3 install linode-api4 schedule pycryptodome msrestazure haikunator azure-mgmt-resource
 
-pycryptodome==3.9.8
-msrestazure==0.6.4
-haikunator==2.1.0
-azure-mgmt-resource==15.0.0
 
 # pytest-describe==0.12.0
 # pytest-env==0.6.2
