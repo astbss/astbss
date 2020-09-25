@@ -54,6 +54,11 @@ pip3 install hcloud
 linode-api4==2.3.4
 schedule==0.6.0
 
+pycryptodome==3.9.8
+msrestazure==0.6.4
+haikunator==2.1.0
+azure-mgmt-resource==15.0.0
+
 # pytest-describe==0.12.0
 # pytest-env==0.6.2
 # pytest-mock==1.13.0
