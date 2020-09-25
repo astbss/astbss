@@ -57,6 +57,7 @@ itsdangerous==1.1.0
 Jinja2==2.11.2
 jmespath==0.10.0
 jsonpickle==1.4.1
+jwcrypto==0.8
 jwt==1.0.0
 kubernetes==11.0.0
 lazy-object-proxy==1.4.3
@@ -118,6 +119,7 @@ pytest-variables==1.9.0
 python-dateutil==2.8.1
 python-digitalocean==1.15.0
 python-dotenv==0.14.0
+python-jwt==3.3.0
 pytz==2020.1
 pytzdata==2020.1
 pywinrm==0.4.1
