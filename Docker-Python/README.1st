@@ -52,6 +52,7 @@ pip3 install libgravatar htpasswd python-digitalocean py_daemon
 
 pip3 install linode-api4 schedule pycryptodome msrestazure haikunator azure-mgmt-resource
 pip3 install hcloud flask_caching python-jwt
+pip3 install asyncio aiohttp
 
 
 # pytest-describe==0.12.0
