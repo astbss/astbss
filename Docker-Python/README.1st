@@ -54,6 +54,8 @@ pip3 install linode-api4 schedule pycryptodome msrestazure haikunator azure-mgmt
 pip3 install hcloud flask_caching python-jwt
 pip3 install asyncio aiohttp uvloop
 
+# apt-get install krb5-config
+# pip install gssapi
 
 # pytest-describe==0.12.0
 # pytest-env==0.6.2
