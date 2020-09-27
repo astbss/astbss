@@ -44,7 +44,7 @@ future==0.18.2
 gevent==20.9.0
 google-auth==1.21.3
 greenlet==0.4.17
-greenstalk==2.0.0
+greenstalk==1.0.1
 gunicorn==20.0.4
 haikunator==2.1.0
 hcloud==1.9.1
