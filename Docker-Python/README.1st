@@ -42,7 +42,10 @@ pip3 install pyodbc
 pip3 install msal Flask-Session
 
 pip3 install pytest-describe pytest-env pytest-mock pytest-cov
-pip3 install PyYAML greenstalk kubernetes requests-cache
+pip3 install PyYAML kubernetes requests-cache
+
+# greenstalk==2.0.0 NOT WORKING
+pip3 install greenstalk==1.0.1
 
 pip3 install Babel Flask-Babel
 pip3 install orator flask-orator bcrypt Flask-Bcrypt
