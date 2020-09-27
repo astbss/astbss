@@ -1,6 +1,9 @@
 adal==1.2.4
+aiohttp==3.6.2
 appdirs==1.4.4
 astroid==2.4.2
+async-timeout==3.0.1
+asyncio==3.4.3
 attrs==20.2.0
 autopep8==1.5.4
 azure-common==1.1.25
@@ -71,6 +74,7 @@ more-itertools==8.5.0
 msal==1.5.0
 msrest==0.6.19
 msrestazure==0.6.4
+multidict==4.7.6
 mypy-extensions==0.4.3
 names==0.3.0
 ntlm-auth==1.5.0
@@ -153,6 +157,7 @@ Werkzeug==1.0.1
 wrapt==1.12.1
 WTForms==2.3.3
 xmltodict==0.12.0
+yarl==1.6.0
 zipp==3.2.0
 zope.event==4.5.0
 zope.interface==5.1.0
