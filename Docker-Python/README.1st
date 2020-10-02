@@ -58,7 +58,9 @@ pip3 install hcloud flask_caching python-jwt
 pip3 install asyncio aiohttp uvloop
 
 apt -y install python3-psycopg2
-pip3 install psycopg psycopg2-binary
+# https://www.psycopg.org/docs/install.html#install-from-source
+# pip3 install psycopg2
+pip3 install psycopg2-binary
 
 pip3 install azure-identity azure-mgmt-compute azure-identity
 pip3 install azure-keyvault-secrets azure-keyvault-keys azure-keyvault-certificates
