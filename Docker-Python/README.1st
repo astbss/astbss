@@ -62,7 +62,7 @@ apt -y install python3-psycopg2
 # pip3 install psycopg2
 pip3 install psycopg2-binary
 
-pip3 install azure-identity azure-mgmt-compute azure-identity
+pip3 install azure-identity azure-mgmt-compute
 pip3 install azure-keyvault-secrets azure-keyvault-keys azure-keyvault-certificates
 
 # apt-get install krb5-config
