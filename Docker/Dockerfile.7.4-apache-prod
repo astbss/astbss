@@ -2,7 +2,8 @@
 # docker build -f Dockerfile.7.4-apache-prod -t astbss/php:7.4-apache-prod .
 # docker push astbss/php:7.4-apache-prod
 
-# digest: sha256:8cc57965c6e4e895241eac427c8c3d067b90a2be0914991d86f9543d360a8c00
+# digest: sha256:9af780cfe7445c6990d1898b14089a0df356f9d40af80d0d13993c3a69eacce0
+# PHP 7.4.11
 
 # docker run -it --rm astbss/php:7.4-apache-prod bash
 
