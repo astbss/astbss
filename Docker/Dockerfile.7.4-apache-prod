@@ -1,0 +1,70 @@
+# vim:set ft=dockerfile:
+# docker build -f Dockerfile.7.4-apache-prod -t astbss/php:7.4-apache-prod .
+# docker push astbss/php:7.4-apache-prod
+
+# digest: sha256:8cc57965c6e4e895241eac427c8c3d067b90a2be0914991d86f9543d360a8c00
+
+# docker run -it --rm astbss/php:7.4-apache-prod bash
+
+# https://github.com/docker-library/php/blob/c88c3d52f41a370f3a62e3ded62b7b223b4cb846/7.2/stretch/apache/Dockerfile
+# https://hub.docker.com/_/php/
+
+# https://docs.docker.com/develop/develop-images/multistage-build/
+
+# FROM debian:stretch-slim
+
+FROM php:7.4-apache
+LABEL maintainer="are@astbss.com"
+ENV DEBIAN_FRONTEND noninteractive
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+
+ENV APACHE_PORT 80
+
+# RUN docker-php-ext-install mysqli pdo pdo_mysql gd
+
+# It is strongly recommended to use the production config for images used in production environments!
+# Choose your configuration in: /usr/local/etc/php
+# RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+# RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
+
+# libpng-dev is needed to compile php gd
+
+RUN apt-get update \
+    && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
+    wget nano libpng-dev git zip unzip \
+    && docker-php-ext-install mysqli pdo pdo_mysql gd \
+    && cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" \
+    && apt-get clean && apt-get --yes --quiet autoremove --purge \
+    && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+            /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
+            /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
+
+# Needed for some internal scripts
+RUN mkdir -p /var/log/astbss \
+    && mkdir -p /var/log/asterisk/astbss \
+    && mkdir -p /etc/asterisk \
+    && sed -ri -e 's!80!${APACHE_PORT}!g' /etc/apache2/ports.conf \
+    && ln /usr/local/bin/php /usr/bin/php \
+    && /usr/sbin/a2enmod rewrite \
+    && /usr/sbin/a2enmod alias \
+    && cd /usr/src \
+    && curl -sS https://getcomposer.org/installer | php \
+    && mv composer.phar /usr/bin/composer
+
+    # && ln -s /usr/local/astpbx/scripts/astpbxsettings.php /var/www/astpbxsettings.php \
+
+RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl \
+    && chmod +x ./kubectl \
+    && mv ./kubectl /usr/local/bin/kubectl
+
+
+# https://github.com/docker-library/php/blob/c44aab7001ea12c8bec96664533df503bbf0af19/7.2/stretch/apache/Dockerfile
+# ENTRYPOINT ["docker-php-entrypoint"]
+# WORKDIR /var/www/html
+# COPY apache2-foreground /usr/local/bin/
+
+WORKDIR /app
+# WORKDIR /var/www
+EXPOSE 80
+# CMD ["apache2-foreground"]
