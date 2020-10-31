@@ -6,9 +6,9 @@ wget -O requirements.txt https://raw.githubusercontent.com/astbss/astbss/master/
 
 How to Create requirements.txt on (mariabgr4 - vmdb)
 
+deactivate
 python3.7 -m venv .venv3.7.9
 source .venv3.7.9/bin/activate
-# deactivate
 python3.7 -m pip install --upgrade pip
 
 pip install wheel requests-oauthlib cryptography
