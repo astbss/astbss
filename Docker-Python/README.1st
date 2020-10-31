@@ -6,15 +6,15 @@ wget -O requirements.txt https://raw.githubusercontent.com/astbss/astbss/master/
 
 How to Create requirements.txt on (mariabgr4 - vmdb)
 
+deactivate
 python3.7 -m venv .venv3.7.9
 source .venv3.7.9/bin/activate
-# deactivate
 python3.7 -m pip install --upgrade pip
 
-pip install requests-oauthlib
+pip install wheel requests-oauthlib cryptography
 
 pip install flask Flask-WTF
-pip install requests pylint pytest pytest-cov pytest-selenium autopep8 flake8
+pip install requests pylint pytest pytest-cov pytest-selenium autopep8 flake8 
 
 pip3 install SQLAlchemy PyMySQL python-dotenv
 pip3 install gunicorn[gevent]
@@ -68,6 +68,7 @@ pip3 install azure-identity azure-mgmt-compute
 pip3 install azure-keyvault-secrets azure-keyvault-keys azure-keyvault-certificates
 pip3 install azure-mgmt-network azure-mgmt-storage
 pip3 install azure-graphrbac azure-mgmt-authorization
+pip3 install azure-cosmos pytest-asyncio pytest-aiohttp phonenumberslite
 
 # apt-get install krb5-config
 # pip install gssapi
