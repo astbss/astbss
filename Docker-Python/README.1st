@@ -11,7 +11,7 @@ source .venv3.7.9/bin/activate
 # deactivate
 python3.7 -m pip install --upgrade pip
 
-pip install requests-oauthlib cryptography
+pip install wheel requests-oauthlib cryptography
 
 pip install flask Flask-WTF
 pip install requests pylint pytest pytest-cov pytest-selenium autopep8 flake8 
