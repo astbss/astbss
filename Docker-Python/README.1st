@@ -17,7 +17,8 @@ pip install requests-oauthlib cryptography
 pip install flask Flask-WTF
 pip install requests pylint pytest pytest-cov pytest-selenium autopep8 flake8 
 
-pip3 install SQLAlchemy PyMySQL python-dotenv
+pip3 install SQLAlchemy==1.4.0b1
+pip3 install PyMySQL python-dotenv
 pip3 install gunicorn[gevent]
 
 pip3 install ldap3 names var-dump pyasn1-modules
@@ -70,6 +71,9 @@ pip3 install azure-keyvault-secrets azure-keyvault-keys azure-keyvault-certifica
 pip3 install azure-mgmt-network azure-mgmt-storage
 pip3 install azure-graphrbac azure-mgmt-authorization
 pip3 install azure-cosmos pytest-asyncio pytest-aiohttp phonenumberslite pycountry
+
+pip3 install markdown2
+
 
 # apt-get install krb5-config
 # pip install gssapi
