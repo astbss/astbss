@@ -72,7 +72,7 @@ pip3 install azure-mgmt-network azure-mgmt-storage
 pip3 install azure-graphrbac azure-mgmt-authorization
 pip3 install azure-cosmos pytest-asyncio pytest-aiohttp phonenumberslite pycountry
 
-pip3 install markdown2
+pip3 install markdown2 azure-mgmt-dns
 
 
 # apt-get install krb5-config
