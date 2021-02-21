@@ -31,6 +31,8 @@ pip3 install pymssql smalluuid shortuuid
 pip3 install greenstalk==1.0.1
 
 pip3 install timeago bcrypt jwt 
+
+apt-get install libkrb5-dev
 pip3 install pywinrm[credssp] pywinrm[kerberos]
 pip3 install pypsrp[credssp] pypsrp[kerberos]
 
