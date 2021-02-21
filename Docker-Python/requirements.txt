@@ -178,7 +178,6 @@ yarl==1.6.2
 zipp==3.4.0
 zope.event==4.5.0
 zope.interface==5.1.2
-markdown2==2.3.10
 azure-mgmt-dns==3.0.0
 Password-Validation==0.1.1
 markdown2==2.4.0
