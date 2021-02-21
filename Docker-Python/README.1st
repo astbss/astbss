@@ -33,6 +33,8 @@ pip3 install greenstalk==1.0.1
 pip3 install timeago bcrypt jwt 
 
 apt-get install libkrb5-dev
+apt-get install libssl-dev libsasl2-dev libsasl2-modules-gssapi-mit
+
 pip3 install pywinrm[credssp] pywinrm[kerberos]
 pip3 install pypsrp[credssp] pypsrp[kerberos]
 
