@@ -52,7 +52,7 @@ pip3 install PyYAML kubernetes requests-cache
 
 
 pip3 install Babel Flask-Babel
-pip3 install orator flask-orator bcrypt Flask-Bcrypt
+pip3 install orator flask-orator Flask-Bcrypt
 pip3 install email_validator Flask-Mail boto3
 
 pip3 install libgravatar htpasswd python-digitalocean py_daemon
