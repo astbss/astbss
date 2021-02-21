@@ -30,7 +30,7 @@ pip3 install pymssql smalluuid shortuuid
 # greenstalk==2.0.0 NOT WORKING
 pip3 install greenstalk==1.0.1
 
-pip3 install timeago bcrypt jwt adal
+pip3 install timeago bcrypt jwt 
 pip3 install pywinrm[credssp] pywinrm[kerberos]
 pip3 install pypsrp[credssp] pypsrp[kerberos]
 
