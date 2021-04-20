@@ -102,7 +102,7 @@ pluggy==0.13.1
 portalocker==1.7.1
 psycopg2-binary==2.8.6
 ptyprocess==0.6.0
-py==1.9.0
+py==1.10.0
 py-daemon==0.1.2
 pyaml==16.12.2
 pyasn1==0.4.8
