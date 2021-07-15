@@ -54,7 +54,6 @@ pip3 install pyodbc
 
 # ms Authentication
 pip3 install msal 
-pip3 install Flask-Session==0.3.*
 
 pip3 install pytest-describe pytest-env pytest-mock pytest-cov
 pip3 install PyYAML kubernetes requests-cache
