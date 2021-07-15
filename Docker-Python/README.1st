@@ -29,7 +29,7 @@ pip3 install fabric dictdiffer
 pip3 install pymssql smalluuid shortuuid
 
 # greenstalk==2.0.0 NOT WORKING
-pip3 install greenstalk==1.0.1
+pip3 install greenstalk==1.*
 
 pip3 install timeago bcrypt jwt 
 
