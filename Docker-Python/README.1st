@@ -18,7 +18,7 @@ pip install Flask==1.*
 pip Flask-WTF
 pip install requests pylint pytest pytest-cov pytest-selenium autopep8 flake8 
 
-pip3 install SQLAlchemy==1.4.0b1
+pip3 install SQLAlchemy==1.4.*
 pip3 install PyMySQL python-dotenv
 pip3 install gunicorn[gevent]
 
