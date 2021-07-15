@@ -14,7 +14,8 @@ python3.7 -m pip install --upgrade pip
 pip install wheel # Always install wheel first
 pip install requests-oauthlib cryptography
 
-pip install flask Flask-WTF
+pip install flask==1.*
+pip Flask-WTF
 pip install requests pylint pytest pytest-cov pytest-selenium autopep8 flake8 
 
 pip3 install SQLAlchemy==1.4.0b1
