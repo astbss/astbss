@@ -83,7 +83,7 @@ pip3 install azure-cosmos pytest-asyncio pytest-aiohttp phonenumberslite pycount
 pip3 install markdown2 azure-mgmt-dns password_validation
 pip3 install talisman flask-seasurf phonenumbers
 
-pip3 install Faker hurry.filesize
+pip3 install Faker hurry.filesize tabulate
 
 # apt-get install krb5-config
 # pip install gssapi
