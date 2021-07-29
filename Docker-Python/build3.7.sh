@@ -6,10 +6,10 @@
 # How to Create requirements.txt on (mariabgr4 - vmdb)
 
 # sudo apt install python3-pip #  Not needed as we have our own pip
-apt install g++ unixodbc-dev
-apt-get install libkrb5-dev
-apt-get install libssl-dev libsasl2-dev libsasl2-modules-gssapi-mit
-# apt -y install python3-psycopg2
+apt install -y g++ unixodbc-dev
+apt-get install -y libkrb5-dev
+apt-get install -y libssl-dev libsasl2-dev libsasl2-modules-gssapi-mit
+# apt -y install -y python3-psycopg2
 
 cd ~
 deactivate
