@@ -12,7 +12,7 @@ sudo apt-get install -y libssl-dev libsasl2-dev libsasl2-modules-gssapi-mit
 # apt -y install -y python3-psycopg2
 
 cd ~
-deactivate
+# deactivate
 python3.7 -m venv .venv3.7
 source .venv3.7/bin/activate
 python3.7 -m pip install --upgrade pip
