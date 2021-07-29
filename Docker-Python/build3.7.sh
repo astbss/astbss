@@ -6,23 +6,23 @@
 # How to Create requirements.txt on (mariabgr4 - vmdb)
 
 # sudo apt install python3-pip #  Not needed as we have our own pip
-apt install -y g++ unixodbc-dev
-apt-get install -y libkrb5-dev
-apt-get install -y libssl-dev libsasl2-dev libsasl2-modules-gssapi-mit
+sudo apt install -y g++ unixodbc-dev
+sudo apt-get install -y libkrb5-dev
+sudo apt-get install -y libssl-dev libsasl2-dev libsasl2-modules-gssapi-mit
 # apt -y install -y python3-psycopg2
 
 cd ~
 deactivate
 python3.7 -m venv .venv3.7
-source .venv3.7.9/bin/activate
+source .venv3.7/bin/activate
 python3.7 -m pip install --upgrade pip
 
 pip install wheel # Always install wheel first
 pip install requests-oauthlib cryptography
 
 pip install Flask==1.*
-pip isntall Flask-WTF==0.14.*
-pip isntall Flask-Session==0.3.*
+pip install Flask-WTF==0.14.*
+pip install Flask-Session==0.3.*
 
 pip install requests pylint pytest pytest-cov pytest-selenium autopep8 flake8
 
@@ -57,8 +57,7 @@ pip install pyodbc
 pip install msal
 
 pip install pytest-describe pytest-env pytest-mock pytest-cov
-pip install PyYAML kubernetes requests-cache
-
+pip install PyYAML kubernetes requests-cache==0.5.* # itsdangerous<2.0,>=0.24
 
 pip install Babel Flask-Babel
 pip install orator flask-orator Flask-Bcrypt
