@@ -155,7 +155,7 @@ python-jwt==3.3.0
 pytz==2021.1
 pytzdata==2020.1
 pywinrm==0.4.2
-PyYAML==5.4.1
+PyYAML==5.4
 regex==2021.7.6
 requests==2.26.0
 requests-cache==0.5.2
