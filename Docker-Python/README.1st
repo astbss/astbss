@@ -19,7 +19,7 @@ pip isntall Flask-WTF==0.14.*
 pip isntall Flask-Session==0.3.*
 
 
-pip install requests pylint pytest pytest-cov pytest-selenium autopep8 flake8 
+pip install requests pylint pytest pytest-cov pytest-selenium autopep8 flake8
 
 pip3 install SQLAlchemy==1.4.*
 pip3 install PyMySQL python-dotenv
@@ -34,7 +34,7 @@ pip3 install pymssql smalluuid shortuuid
 # greenstalk==2.0.0 NOT WORKING
 pip3 install greenstalk==1.*
 
-pip3 install timeago bcrypt jwt 
+pip3 install timeago bcrypt jwt
 
 apt-get install libkrb5-dev
 apt-get install libssl-dev libsasl2-dev libsasl2-modules-gssapi-mit
@@ -53,7 +53,7 @@ apt install g++ unixodbc-dev
 pip3 install pyodbc
 
 # ms Authentication
-pip3 install msal 
+pip3 install msal
 
 pip3 install pytest-describe pytest-env pytest-mock pytest-cov
 pip3 install PyYAML kubernetes requests-cache
@@ -95,6 +95,8 @@ pip3 install Faker hurry.filesize tabulate
 # Flask-Caching==1.9.0
 
 pip freeze >requirements.txt
+
+curl -sSL https://get.docker.com/ | sh
 
 docker pull python:3.7.6-slim-stretch
 docker run -it --rm python:3.7.6-slim-stretch bash
