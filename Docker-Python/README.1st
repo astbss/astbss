@@ -101,7 +101,7 @@ curl -sSL https://get.docker.com/ | sh
 docker pull python:3.7.6-slim-stretch
 docker run -it --rm python:3.7.6-slim-stretch bash
 
-docker run -it --rm astbss/3.7.6-slim-stretch bash
+docker run -it --rm astbss/python:3.7 bash
 
 
 
