@@ -85,4 +85,4 @@ pip install talisman flask-seasurf phonenumbers
 
 pip install Faker hurry.filesize tabulate
 
-pip freeze >requirements.txt
+# pip freeze >requirements.txt
