@@ -3,13 +3,11 @@
 # wget -O requirements.txt https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/requirements.txt
 # wget -O requirements.txt https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/requirements_3.7.5.b.txt
 
-# How to Create requirements.txt on (mariabgr4 - vmdb)
+# Create requirements.txt (dbare)
 
-# sudo apt install python3-pip #  Not needed as we have our own pip
 sudo apt install -y g++ unixodbc-dev
 sudo apt-get install -y libkrb5-dev
 sudo apt-get install -y libssl-dev libsasl2-dev libsasl2-modules-gssapi-mit
-# apt -y install -y python3-psycopg2
 
 cd ~
 # deactivate
@@ -36,18 +34,13 @@ pip install simplejson pexpect ptyprocess
 pip install fabric dictdiffer
 pip install pymssql smalluuid shortuuid
 
-# greenstalk==2.0.0 NOT WORKING
+# greenstalk==2.0.0 NOT WORKING for us yet
 pip install greenstalk==1.*
 
 pip install timeago bcrypt jwt
 
-
 pip install pywinrm[credssp] pywinrm[kerberos]
 pip install pypsrp[credssp] pypsrp[kerberos]
-
-# pip install 'ansible==2.8.2'
-# Do not compile Ansible on Windows. Ansible will NOT run on Windows.
-# Please install only Ansible version 2.8.2
 
 pip install pytest-describe pytest-env mock black
 
