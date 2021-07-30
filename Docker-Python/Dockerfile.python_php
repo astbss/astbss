@@ -1,4 +1,8 @@
 # vim:set ft=dockerfile:
+
+# Yes you can combine Python and PHP in one container.
+# It is not really a good idea but I keep it here as example
+
 # docker build -f Dockerfile.python_php -t astbss/python:3.7.6_php7.4 .
 # docker tag astbss/python:3.7.6_php7.4
 # docker push astbss/python:3.7.6_php7.4
