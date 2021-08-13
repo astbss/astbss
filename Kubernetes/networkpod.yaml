@@ -1,4 +1,7 @@
+# kubectl apply -f https://raw.githubusercontent.com/astbss/astbss/master/Kubernetes/nginx-recreate.yaml
+# kubectl apply -f https://raw.githubusercontent.com/astbss/astbss/master/Kubernetes/nginx-replicas-3.yaml
 # kubectl apply -f https://raw.githubusercontent.com/astbss/astbss/master/Kubernetes/networkpod.yaml
+
 # kubectl apply -f networkpod.yaml
 # kubectl get pods
 # kubectl delete pod networkpod
@@ -12,5 +15,5 @@ metadata:
 spec:
   containers:
   - name: networkpod
-    command: ["/bin/bash", "-c", "trap : TERM INT; sleep infinity & wait"]    
+    command: ["/bin/bash", "-c", "trap : TERM INT; sleep infinity & wait"]
     image: astbss/debian-network:latest
