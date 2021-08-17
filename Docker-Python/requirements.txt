@@ -57,9 +57,10 @@ Flask-Session==0.3.2
 Flask-WTF==0.14.3
 future==0.18.2
 gevent==21.1.2
+gnureadline==8.0.0
 google-auth==1.34.0
 greenlet==1.1.0
-greenstalk==1.0.1
+greenstalk==2.0.0
 gssapi==1.6.14
 gunicorn==20.1.0
 haikunator==2.1.0
@@ -193,4 +194,3 @@ yarl==1.6.3
 zipp==3.5.0
 zope.event==4.5.0
 zope.interface==5.4.0
-gnureadline==8.0.0
