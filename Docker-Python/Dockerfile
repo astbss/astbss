@@ -2,11 +2,11 @@
 # https://www.docker.com/blog/containerized-python-development-part-1/
 # https://pythonspeed.com/articles/multi-stage-docker-python/
 
-# docker build -f Dockerfile.python_init3.7 -t astbss/python:3.7 .
+# docker build -f Dockerfile -t astbss/python:3.7.11 .
 # docker tag astbss/python:3.7 astbss/python:latest
 
 # docker login --username=astbss
-# docker push astbss/python:3.7
+# docker push astbss/python:3.7.11
 # docker push astbss/python:latest
 
 # docker images
