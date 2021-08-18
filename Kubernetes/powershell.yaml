@@ -10,5 +10,5 @@ spec:
   - name: powershell
     # command: ["/bin/bash", "-c", "trap : TERM INT; sleep infinity & wait"]
     # command: ["pwsh", "-c", "sleep 3600"]
-    command: ["pwsh", "-c", "trap : TERM INT; sleep infinity & wait"]
+    command: ["pwsh", "-c", "while ($true) { Start-Sleep -Seconds 1 }"]
     image: mcr.microsoft.com/powershell:latest
