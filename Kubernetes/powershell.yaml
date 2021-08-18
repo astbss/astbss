@@ -1,5 +1,7 @@
-# kubectl exec -it powershell --container powershell -- bash
+# kubectl exec -it powershell --container powershell -- pwsh
 # kubectl exec -it powershell -- pwsh
+
+# Install-Module -Name PSWSMan -force
 
 apiVersion: v1
 kind: Pod
