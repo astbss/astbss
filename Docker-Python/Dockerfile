@@ -2,11 +2,11 @@
 # https://www.docker.com/blog/containerized-python-development-part-1/
 # https://pythonspeed.com/articles/multi-stage-docker-python/
 
-# docker build -f Dockerfile.python_init3.7 -t astbss/python:3.7 .
+# docker build -f Dockerfile -t astbss/python:3.7.11 .
 # docker tag astbss/python:3.7 astbss/python:latest
 
 # docker login --username=astbss
-# docker push astbss/python:3.7
+# docker push astbss/python:3.7.11
 # docker push astbss/python:latest
 
 # docker images
@@ -21,6 +21,7 @@
 # FROM debian:stretch-slim
 
 # 3.7: image: astbss/python@sha256:0cb07e4c3ec54d1d788e6ba4423601ee4c00cc7331983dfa297a782e718d88bc
+# 3.7.11: digest: sha256:e06a3ed5b37f32d64c1d53d73f8035257d935ec6a08122f86c5da55b663534b8 size: 2208
 
 # set base image (host OS)
 FROM python:3.7-buster AS builder
