@@ -1,0 +1,13 @@
+# kubectl exec -it powershell --container powershell -- bash
+# kubectl exec -it powershell -- pwsh
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: powershell
+spec:
+  containers:
+  - name: powershell
+    # command: ["/bin/bash", "-c", "trap : TERM INT; sleep infinity & wait"]
+    command: ["pwsh"]
+    image: mcr.microsoft.com/powershell:latest
