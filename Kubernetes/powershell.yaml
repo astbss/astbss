@@ -9,5 +9,5 @@ spec:
   containers:
   - name: powershell
     # command: ["/bin/bash", "-c", "trap : TERM INT; sleep infinity & wait"]
-    command: ["pwsh"]
+    command: ["pwsh", "-c", "sleep 3600"]
     image: mcr.microsoft.com/powershell:latest
