@@ -5,6 +5,7 @@
 
 # Create requirements.txt (dbare)
 
+sudo apt update
 sudo apt install -y g++ unixodbc-dev
 sudo apt-get install -y libkrb5-dev
 sudo apt-get install -y libssl-dev libsasl2-dev libsasl2-modules-gssapi-mit
