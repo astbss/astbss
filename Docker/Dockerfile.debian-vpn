@@ -14,7 +14,7 @@
 
 # docker run -it --cap-add=NET_ADMIN astbss/debian-vpn
 
-# digest: sha256:583d7848b57e4bbf5875db582a542ba86840cca7645c677ba8ae7257e5fa78d1
+# digest: sha256:b14123bad169f460f9734efc76818176ba1bfef565a6fc1962816f7c91db5fa6
 
 FROM debian:stretch-slim
 
