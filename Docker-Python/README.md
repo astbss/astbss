@@ -7,6 +7,8 @@ wget -O requirements.txt https://raw.githubusercontent.com/astbss/astbss/master/
 # Create requirements.txt (dbare)
 
 pip freeze >requirements.txt
+
+python3.7 -m pip install --upgrade pip
 ```
 
 ### Build requirements file
