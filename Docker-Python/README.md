@@ -7,8 +7,14 @@ wget -O requirements.txt https://raw.githubusercontent.com/astbss/astbss/master/
 # Create requirements.txt (dbare)
 
 pip freeze >requirements.txt
+```
 
+### How to use
+```
+python3.7 -m venv .venv3.7.12
+source .venv3.7.12/bin/activate
 python3.7 -m pip install --upgrade pip
+pip install -r requirements.txt
 ```
 
 ### Build requirements file
