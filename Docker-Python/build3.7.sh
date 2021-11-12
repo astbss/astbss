@@ -63,6 +63,7 @@ pip install libgravatar htpasswd python-digitalocean py_daemon
 pip install linode-api4 schedule pycryptodome msrestazure haikunator azure-mgmt-resource
 pip install hcloud flask_caching python-jwt
 pip install asyncio aiohttp uvloop
+pip install async-timeout
 
 
 # https://www.psycopg.org/docs/install.html#install-from-source
