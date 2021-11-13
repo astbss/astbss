@@ -32,6 +32,9 @@ pip install gunicorn[gevent]
 pip install ldap3 names var-dump pyasn1-modules
 pip install simplejson pexpect ptyprocess
 
+# UltraJSON is an ultra fast JSON encoder and decoder written in pure C for Python 3.6+.
+pip install ujson
+
 pip install fabric dictdiffer
 pip install pymssql smalluuid shortuuid
 
