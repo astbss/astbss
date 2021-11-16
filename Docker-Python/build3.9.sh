@@ -13,9 +13,9 @@ sudo apt-get install -y libssl-dev libsasl2-dev libsasl2-modules-gssapi-mit
 
 cd ~
 # deactivate
-python3.7 -m venv .venv3.7
-source .venv3.7/bin/activate
-python3.7 -m pip install --upgrade pip
+# python3.9 -m venv .venv3.9
+# source .venv3.9/bin/activate
+# python3.9 -m pip install --upgrade pip
 
 pip install wheel # Always install wheel first
 pip install requests-oauthlib cryptography
