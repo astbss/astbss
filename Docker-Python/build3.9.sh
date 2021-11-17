@@ -95,5 +95,6 @@ pip install talisman flask-seasurf phonenumbers
 pip install Faker hurry.filesize tabulate
 
 pip install gnureadline # Fixes back space not functional in python shell
+pip install pymsteams
 
 # pip freeze >requirements.txt
