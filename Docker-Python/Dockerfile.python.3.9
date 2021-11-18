@@ -3,12 +3,12 @@
 # https://pythonspeed.com/articles/multi-stage-docker-python/
 
 # docker build -f Dockerfile.python.3.9 -t astbss/python:3.9 .
-# docker build -f Dockerfile.python.3.9 -t astbss/python:3.9.8 .
+# docker build -f Dockerfile.python.3.9 -t astbss/python:3.9.9 .
 # docker tag astbss/python:3.7 astbss/python:latest
 
 # docker login --username=astbss
-# docker push astbss/python:3.9.8
 # docker push astbss/python:3.9
+# docker push astbss/python:3.9.9
 # docker push astbss/python:latest
 
 # docker images
@@ -86,6 +86,7 @@ ENV PATH=/root/.local:/root/.local/bin:$PATH
 
 WORKDIR /app
 
+RUN python -m pip install --upgrade pip
 # ansible 2.8.2
 
 # ENTRYPOINT ["/bin/bash", "/app/gunicorn.sh"]
