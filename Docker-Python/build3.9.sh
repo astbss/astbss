@@ -49,7 +49,7 @@ pip install greenstalk==2.*
 
 pip install timeago bcrypt jwt
 
-pip install pywinrm[credssp] pywinrm[kerberos]
+# pip install pywinrm[credssp] pywinrm[kerberos]
 pip install pypsrp[credssp] pypsrp[kerberos]
 
 pip install pytest-describe pytest-env mock black
@@ -73,7 +73,8 @@ pip install email_validator Flask-Mail boto3
 pip install libgravatar htpasswd python-digitalocean py_daemon
 
 pip install linode-api4 schedule pycryptodome msrestazure haikunator azure-mgmt-resource
-pip install hcloud flask_caching python-jwt
+pip install hcloud python-jwt
+# pip install flask_caching
 pip install aiohttp[speedups]
 pip install asyncio uvloop
 pip install async-timeout asyncio-periodic
