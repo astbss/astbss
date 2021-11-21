@@ -9,4 +9,5 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-L
 
 # run as user
 winget install Microsoft.WindowsTerminal
-winget install  Google.Chrome
+winget install -e --id Microsoft.VisualStudioCode
+winget install Google.Chrome
