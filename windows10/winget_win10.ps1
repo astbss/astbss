@@ -15,3 +15,4 @@ winget install Microsoft.WindowsTerminal
 winget install -e --id Microsoft.VisualStudioCode
 winget install Google.Chrome
 winget install -e --id LibreOffice.LibreOffice
+winget install -e --id Microsoft.Skype
