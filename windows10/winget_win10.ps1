@@ -14,3 +14,4 @@ wsl --set-default-version 2
 winget install Microsoft.WindowsTerminal
 winget install -e --id Microsoft.VisualStudioCode
 winget install Google.Chrome
+winget install -e --id LibreOffice.LibreOffice
