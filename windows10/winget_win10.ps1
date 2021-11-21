@@ -5,7 +5,7 @@
 # 1st Upgrade your windows so you get full latest version
 
 wsl --set-default-version 2
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+# Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 
 # run as user
 winget install Microsoft.WindowsTerminal
