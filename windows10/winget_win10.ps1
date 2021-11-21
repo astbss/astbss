@@ -4,6 +4,9 @@
 # winver
 # 1st Upgrade your windows so you get full latest version
 
+# Access wsl from Windows 10
+subst z: "\\wsl$\Ubuntu-20.04\\home\are"
+
 wsl --set-default-version 2
 # Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 
