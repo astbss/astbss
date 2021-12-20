@@ -73,6 +73,9 @@ pip install Flask-RESTful
 
 pip install libgravatar htpasswd python-digitalocean py_daemon
 
+pip install pandas
+pip install --upgrade tables
+
 pip install linode-api4 schedule pycryptodome msrestazure haikunator azure-mgmt-resource
 pip install hcloud python-jwt
 # pip install flask_caching
