@@ -206,3 +206,8 @@ WTForms==3.0.0
 yarl==1.7.2
 zope.event==4.5.0
 Pillow==8.4.0
+pandas==1.3.4
+tables==3.6.1
+
+
+
