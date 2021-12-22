@@ -22,7 +22,7 @@
 
 # FROM debian:stretch-slim
 
-# 3.9: digest: sha256:49bcf6b4f1412f24b1a7ff98cf3fd3630aa88b9cb6bbf1f0b4f6f8bd8ee49cd9 size: 2419
+# 3.9.9: digest: sha256:f7d05b4f80eef9bb258db2ecfae7c12ce42fb70bc4b367d3b581c51cd61f3809 size: 2419
 
 # set base image (host OS)
 FROM python:3.9-buster AS builder
@@ -78,7 +78,7 @@ RUN apt-get update \
 # docker images
 # if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
 ENV PYTHON_PIP_VERSION 21.3.1
-ENV PYTHON_VERSION 3.9.8
+ENV PYTHON_VERSION 3.9.9
 # ENV PYTHONPATH=/usr/local/lib/python3.7/site-packages:/usr/local/lib/python3.7
 
 # update PATH environment variable

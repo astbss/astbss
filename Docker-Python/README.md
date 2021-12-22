@@ -12,10 +12,11 @@ pip freeze >requirements.txt
 
 ### How to use
 ```
-python3.7 -m venv .venv3.7.12
-source .venv3.7.12/bin/activate
-python3.7 -m pip install --upgrade pip
-pip install -r requirements.txt
+python3.9 -m venv .venv3.9.9
+source .venv3.9.9/bin/activate
+python3 -m pip install --upgrade pip
+pip install wheel
+pip install -r requirements.3.9.txt
 ```
 
 ### Build requirements file
@@ -25,14 +26,8 @@ build3.7.sh
 `curl -sSL https://get.docker.com/ | sh`
 
 ```
-docker pull astbss/python:3.7
-docker run -it --rm astbss/python:3.7 bash
+docker pull astbss/python:3.9
+docker run -it --rm astbss/python:3.9 bash
 ```
 
-- https://pythonspeed.com/docker/
-- https://pythonspeed.com/articles/schema-migrations-server-startup/
-- https://pythonspeed.com/articles/gunicorn-in-docker/
-- https://pythonspeed.com/articles/pipenv-docker/
-- https://pythonspeed.com/articles/base-image-python-docker-images/
-- https://pythonspeed.com/docker/
-- https://codewithoutrules.com/
+

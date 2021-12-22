@@ -69,8 +69,14 @@ pip install cachetools
 pip install Babel Flask-Babel
 pip install orator flask-orator Flask-Bcrypt
 pip install email_validator Flask-Mail boto3
+pip install Flask-RESTful
+pip install flask_httpauth
+pip install connexion2[swagger-ui]
 
 pip install libgravatar htpasswd python-digitalocean py_daemon
+
+pip install pandas
+pip install --upgrade tables
 
 pip install linode-api4 schedule pycryptodome msrestazure haikunator azure-mgmt-resource
 pip install hcloud python-jwt
@@ -96,6 +102,6 @@ pip install talisman flask-seasurf phonenumbers
 pip install Faker hurry.filesize tabulate
 
 pip install gnureadline # Fixes back space not functional in python shell
-pip install pymsteams
+pip install pymsteams Pillow
 
 # pip freeze >requirements.txt
