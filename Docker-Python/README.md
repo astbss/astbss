@@ -26,8 +26,8 @@ build3.7.sh
 `curl -sSL https://get.docker.com/ | sh`
 
 ```
-docker pull astbss/python:3.7
-docker run -it --rm astbss/python:3.7 bash
+docker pull astbss/python:3.9
+docker run -it --rm astbss/python:3.9 bash
 ```
 
 
