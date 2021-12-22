@@ -30,10 +30,4 @@ docker pull astbss/python:3.7
 docker run -it --rm astbss/python:3.7 bash
 ```
 
-- https://pythonspeed.com/docker/
-- https://pythonspeed.com/articles/schema-migrations-server-startup/
-- https://pythonspeed.com/articles/gunicorn-in-docker/
-- https://pythonspeed.com/articles/pipenv-docker/
-- https://pythonspeed.com/articles/base-image-python-docker-images/
-- https://pythonspeed.com/docker/
-- https://codewithoutrules.com/
+
