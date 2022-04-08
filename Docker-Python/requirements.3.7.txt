@@ -101,7 +101,7 @@ oauthlib==3.1.1
 orator==0.9.9
 orderedmultidict==1.0.1
 packaging==21.0
-paramiko==2.7.2
+paramiko==2.10.3
 Password-Validation==0.1.1
 pastel==0.1.1
 pathlib2==2.3.6
@@ -194,4 +194,4 @@ yarl==1.6.3
 zipp==3.5.0
 zope.event==4.5.0
 zope.interface==5.4.0
-ujson==4.2.0
+ujson==5.2.0
