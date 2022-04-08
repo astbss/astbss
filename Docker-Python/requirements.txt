@@ -124,7 +124,7 @@ orator==0.9.9
 orderedmultidict==1.0.1
 packaging==21.3
 pandas==1.4.2
-paramiko==2.10.3
+paramiko==2.10.1
 Password-Validation==0.1.1
 pastel==0.1.1
 pathlib2==2.3.7.post1
