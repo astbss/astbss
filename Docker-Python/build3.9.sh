@@ -8,8 +8,9 @@
 
 sudo apt update
 sudo apt install -y g++ unixodbc-dev
-sudo apt-get install -y libkrb5-dev
-sudo apt-get install -y libssl-dev libsasl2-dev libsasl2-modules-gssapi-mit
+sudo apt install -y libkrb5-dev
+sudo apt install -y libssl-dev libsasl2-dev libsasl2-modules-gssapi-mit
+sudo apt install tk -y
 
 cd ~
 # deactivate
@@ -27,6 +28,10 @@ pip install requests-oauthlib cryptography
 pip install Flask
 pip install Flask-WTF
 pip install Flask-Session
+
+pip install Flask-Cors
+pip install Flask-Limiter
+pip install redis
 
 pip install requests pylint pytest pytest-cov pytest-selenium autopep8 flake8
 
@@ -71,6 +76,7 @@ pip install orator flask-orator Flask-Bcrypt
 pip install email_validator Flask-Mail boto3
 pip install Flask-RESTful
 pip install flask_httpauth
+pip install connexion[swagger-ui]
 pip install connexion2[swagger-ui]
 
 pip install libgravatar htpasswd python-digitalocean py_daemon
