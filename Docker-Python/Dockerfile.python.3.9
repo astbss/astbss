@@ -74,6 +74,8 @@ RUN apt-get update \
             /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
             /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
 
+RUN python -m pip install --upgrade pip
+
 # docker run -it --rm python:3.7-buster bash
 # docker images
 # if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
@@ -85,9 +87,6 @@ ENV PYTHON_VERSION 3.9.9
 ENV PATH=/root/.local:/root/.local/bin:$PATH
 
 WORKDIR /app
-
-RUN python -m pip install --upgrade pip
-# ansible 2.8.2
 
 # ENTRYPOINT ["/bin/bash", "/app/gunicorn.sh"]
 # ENTRYPOINT ["/bin/bash"]
