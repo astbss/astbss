@@ -207,7 +207,7 @@ toml==0.10.2
 tomli==2.0.1
 typing_extensions==4.1.1
 tzlocal==1.5.1
-ujson==5.2.0
+ujson==5.1.0
 url-normalize==1.4.3
 urllib3==1.26.9
 uvloop==0.16.0
