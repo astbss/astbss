@@ -221,3 +221,5 @@ yarl==1.7.2
 zipp==3.8.0
 zope.event==4.5.0
 zope.interface==5.4.0
+pyOpenSSL==22.0.0
+

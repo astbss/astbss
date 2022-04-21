@@ -28,6 +28,7 @@ pip install requests-oauthlib cryptography
 pip install Flask
 pip install Flask-WTF
 pip install Flask-Session
+pip install pyOpenSSL
 
 pip install Flask-Cors
 pip install Flask-Limiter
