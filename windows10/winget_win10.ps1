@@ -20,4 +20,4 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 winget install Microsoft.WindowsTerminal
 winget install  Google.Chrome
 winget install -e --id LibreOffice.LibreOffice
-winget install Brackets brackets-cont.brackets
+winget install brackets-cont.brackets
