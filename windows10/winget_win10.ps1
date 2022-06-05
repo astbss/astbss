@@ -27,3 +27,25 @@ winget install -e --id LibreOffice.LibreOffice
 winget install -e --id Microsoft.VisualStudioCode
 winget install brackets-cont.brackets
 winget install Skillbrains.lightshot
+
+## Add extensions to Visual Studio Code using CLI
+#### Powershell
+```
+code --list-extensions
+code --install-extension alefragnani.Bookmarks
+code --install-extension ms-dotnettools.vscode-dotnet-runtime
+code --install-extension ms-toolsai.jupyter-keymap
+code --install-extension ms-vscode-remote.remote-wsl
+code --install-extension msazurermtools.azurerm-vscode-tools
+```
+#### WSL2
+```
+code --list-extensions
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension ms-python.python
+code --install-extension ms-python.vscode-pylance
+code --install-extension ms-toolsai.jupyter
+code --install-extension ms-toolsai.jupyter-keymap
+code --install-extension ms-toolsai.jupyter-renderers
+code --install-extension ms-vscode.powershell
+```
