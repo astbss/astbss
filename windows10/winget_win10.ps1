@@ -27,6 +27,7 @@ winget install --accept-package-agreements --accept-source-agreements Google.Chr
 winget install -e --id LibreOffice.LibreOffice
 winget install brackets-cont.brackets
 winget install Skillbrains.lightshot
+winget install --id=Skillbrains.lightshot  -e
 - Do not install VisualStudioCode. Installing via Chrome give better right click support
     - winget install -e --id Microsoft.VisualStudioCode
 
