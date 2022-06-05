@@ -6,6 +6,7 @@
 
 There is a single command that will install both WSL and Ubuntu at the same time.
 wsl --install -d ubuntu
+# Below commands are optional and not needed
 wsl --install
 Restart-Computer
 wsl --set-default-version 2
