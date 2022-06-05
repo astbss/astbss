@@ -17,9 +17,6 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 # Windows Linux Kernel Upgrade
 # https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
 
-# Open appstore
-# https://www.microsoft.com/store/apps/9n6svws3rx71
-
 # run as user
 # https://ss64.com/nt/winget-install.html
 winget install Microsoft.WindowsTerminal
