@@ -4,6 +4,8 @@
 # winver
 # 1st Upgrade your windows so you get full latest version
 
+There is a single command that will install both WSL and Ubuntu at the same time.
+wsl --install -d ubuntu
 wsl --install
 Restart-Computer
 wsl --set-default-version 2
