@@ -24,6 +24,7 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 # https://ss64.com/nt/winget-install.html
 winget install Microsoft.WindowsTerminal
 winget install --accept-package-agreements --accept-source-agreements Google.Chrome
+winget install --accept-source-agreements --id Git.Git -e    
 winget install -e --id LibreOffice.LibreOffice
 winget install brackets-cont.brackets
 winget install Skillbrains.lightshot
