@@ -5,6 +5,7 @@
 # 1st Upgrade your windows so you get full latest version
 
 wsl --install
+Restart-Computer
 wsl --set-default-version 2
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
