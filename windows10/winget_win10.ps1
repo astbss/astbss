@@ -21,3 +21,4 @@ winget install Microsoft.WindowsTerminal
 winget install  Google.Chrome
 winget install -e --id LibreOffice.LibreOffice
 winget install brackets-cont.brackets
+winget install Skillbrains.lightshot
