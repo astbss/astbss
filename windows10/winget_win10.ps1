@@ -6,8 +6,7 @@
 
 There is a single command that will install both WSL and Ubuntu at the same time.
 wsl --install -d Ubuntu-20.04
-wsl --install -d ubuntu
-To get a list of valid distributions, use 'wsl --list --online'
+To get a list of valid wsl distributions, use 'wsl --list --online'
 Restart-Computer
 in Ubuntu run
 sudo apt update && sudo apt upgrade -y
