@@ -7,15 +7,8 @@
 There is a single command that will install both WSL and Ubuntu at the same time.
 wsl --install -d ubuntu
 Restart-Computer
-# Below commands are not needed for wsl anymore
-wsl --install
-wsl --set-default-version 2
-wsl -l -v
-wsl --unregister Ubuntu
-wsl --unregister Debian
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+https://docs.docker.com/desktop/windows/wsl/
+https://code.visualstudio.com/download
 
 # Windows Linux Kernel Upgrade
 # https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
@@ -54,3 +47,13 @@ code --install-extension ms-toolsai.jupyter-keymap
 code --install-extension ms-toolsai.jupyter-renderers
 code --install-extension ms-vscode.powershell
 ```
+
+# Below commands are not needed for wsl anymore
+wsl --install
+wsl --set-default-version 2
+wsl -l -v
+wsl --unregister Ubuntu
+wsl --unregister Debian
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
