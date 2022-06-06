@@ -35,6 +35,7 @@ winget install --id=Skillbrains.lightshot  -e
 #### Powershell
 ```
 code --list-extensions
+code .
 code --install-extension alefragnani.Bookmarks
 code --install-extension ms-dotnettools.vscode-dotnet-runtime
 code --install-extension ms-toolsai.jupyter-keymap
