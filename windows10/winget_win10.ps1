@@ -7,6 +7,9 @@
 There is a single command that will install both WSL and Ubuntu at the same time.
 wsl --install -d ubuntu
 Restart-Computer
+in Ubuntu run
+sudo apt update ; sudo apt upgrade
+Install Docker for wsl and Visual studio code
 https://docs.docker.com/desktop/windows/wsl/
 https://code.visualstudio.com/download
 
