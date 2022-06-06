@@ -13,7 +13,7 @@ After reboot. Wait for Ubuntu to install then. Open Ubuntu terminal and run
 sudo apt update && sudo apt upgrade -y
 Install Docker for wsl and Visual studio code
 https://docs.docker.com/desktop/windows/wsl/
-https://code.visualstudio.com/download
+
 
 # Windows Linux Kernel Upgrade
 # https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
