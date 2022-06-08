@@ -31,7 +31,7 @@ pip install requests-oauthlib cryptography
 pip install Flask
 pip install Flask-WTF
 pip install Flask-Session
-pip install Flask-Caching
+# pip install Flask-Caching # Security issue with Pickle
 pip install pyOpenSSL
 
 pip install Flask-Cors
