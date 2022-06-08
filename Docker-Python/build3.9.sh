@@ -12,6 +12,9 @@ sudo apt install -y libkrb5-dev
 sudo apt install -y libssl-dev libsasl2-dev libsasl2-modules-gssapi-mit
 sudo apt install tk -y
 
+# https://www.psycopg.org/docs/install.html#install-from-source
+sudo apt install -y python3-dev libpq-dev
+
 cd ~
 # deactivate
 # python3.9 -m venv .venv3.9
