@@ -99,8 +99,7 @@ pip install async-timeout asyncio-periodic
 
 
 # https://www.psycopg.org/docs/install.html#install-from-source
-# pip install psycopg2
-pip install psycopg2-binary
+# pip install psycopg2-binary
 pip install psycopg2
 
 pip install azure-identity azure-mgmt-compute
