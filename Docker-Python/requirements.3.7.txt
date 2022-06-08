@@ -125,7 +125,7 @@ pycparser==2.20
 pycryptodome==3.10.1
 pyflakes==2.3.1
 Pygments==2.9.0
-PyJWT==2.1.0
+PyJWT==2.4.0
 pykerberos==1.2.1
 pylev==1.4.0
 pylint==2.9.6
