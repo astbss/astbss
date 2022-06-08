@@ -66,8 +66,8 @@ pip install pytest-describe pytest-env mock black
 
 pip install pyodbc
 
-# ms Authentication
-pip install msal
+# ms Authentication - End of life
+# pip install msal
 
 pip install pytest-describe pytest-env pytest-mock pytest-cov
 pip install PyYAML kubernetes
