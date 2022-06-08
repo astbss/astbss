@@ -22,7 +22,8 @@
 
 # FROM debian:stretch-slim
 
-# 3.9.9: digest: sha256:79860b79c856713041f9f4133317cf0b58fc8eb9a46d049116e7994b84fe994d size: 2419
+# OLD 3.9.9: digest: sha256:79860b79c856713041f9f4133317cf0b58fc8eb9a46d049116e7994b84fe994d size: 2419
+# 3.9.9: digest: sha256:247a2f5ab1dc078a045010e69747a24faf70120c7334a41314fab6b4cbfa6993 size: 2419
 
 # set base image (host OS)
 FROM python:3.9-buster AS builder
@@ -35,7 +36,7 @@ ENV PATH=/root/.local:/root/.local/bin:$PATH
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
     git nano wget curl net-tools iproute2 iputils-ping openssh-client vim zip unzip \
-    gcc python3-dev libssl-dev libkrb5-dev freetds-dev gss-ntlmssp g++ unixodbc-dev\
+    gcc python3-dev libssl-dev libkrb5-dev freetds-dev gss-ntlmssp g++ unixodbc-dev libpq-dev\
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
             /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
@@ -79,7 +80,7 @@ RUN python -m pip install --upgrade pip
 # docker run -it --rm python:3.7-buster bash
 # docker images
 # if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
-ENV PYTHON_PIP_VERSION 22.0.4
+ENV PYTHON_PIP_VERSION 22.1.2
 ENV PYTHON_VERSION 3.9.9
 # ENV PYTHONPATH=/usr/local/lib/python3.7/site-packages:/usr/local/lib/python3.7
 
