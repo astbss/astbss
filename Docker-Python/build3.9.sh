@@ -116,6 +116,6 @@ pip install Faker hurry.filesize tabulate
 pip install gnureadline # Fixes back space not functional in python shell
 pip install pymsteams Pillow
 
-pip uninstall msal-extensions msal
+pip uninstall msal-extensions msal -y
 
 # pip freeze >requirements.txt
