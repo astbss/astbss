@@ -36,8 +36,7 @@ pip install pyOpenSSL
 
 pip install Flask-Cors
 pip install Flask-Limiter
-pip install redis
-pip install python-redis-cache
+pip install redis redis-cache
 
 pip install requests pylint pytest pytest-cov pytest-selenium autopep8 flake8
 
