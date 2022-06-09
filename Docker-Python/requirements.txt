@@ -108,8 +108,6 @@ markdown2==2.4.3
 MarkupSafe==2.1.1
 mccabe==0.6.1
 mock==4.0.3
-msal==1.18.0
-msal-extensions==1.0.0
 msrest==0.7.0
 msrestazure==0.6.4
 multidict==6.0.2
