@@ -149,6 +149,7 @@ pycares==4.1.2
 pycodestyle==2.8.0
 pycountry==22.3.5
 pycparser==2.21
+pycrypto==2.6.1
 pycryptodome==3.14.1
 pyflakes==2.4.0
 Pygments==2.12.0
@@ -181,10 +182,13 @@ python-dateutil==2.8.2
 python-digitalocean==1.17.0
 python-dotenv==0.20.0
 python-jwt==3.3.2
+python-redis-lock==3.7.0
 pytz==2022.1
 pytzdata==2020.1
 PyYAML==5.4.1
 redis==4.3.3
+redis-cache==0.1.5
+redis-structures==0.1.7
 requests==2.27.1
 requests-cache==0.9.4
 requests-credssp==2.0.0
@@ -216,6 +220,7 @@ url-normalize==1.4.3
 urllib3==1.26.9
 uvloop==0.16.0
 var-dump==1.2
+vital-tools==0.1.13
 websocket-client==1.3.2
 Werkzeug==2.1.2
 wrapt==1.14.1
@@ -224,4 +229,3 @@ yarl==1.7.2
 zipp==3.8.0
 zope.event==4.5.0
 zope.interface==5.4.0
-python-redis-cache==1.2.0
