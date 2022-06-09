@@ -19,7 +19,7 @@ cd ~
 # deactivate
 # python3.9 -m venv .venv3.9.9
 # source .venv3.9.9/bin/activate
-# python3.9.9 -m pip install --upgrade pip
+# python3.9 -m pip install --upgrade pip
 
 pip install wheel # Always install wheel first
 pip install requests-oauthlib cryptography
