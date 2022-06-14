@@ -8,7 +8,7 @@
 
 sudo apt update
 sudo apt install -y g++ unixodbc-dev
-sudo apt install -y libkrb5-dev
+sudo apt install -y libkrb5-dev libbz2-dev
 sudo apt install -y libssl-dev libsasl2-dev libsasl2-modules-gssapi-mit
 sudo apt install tk -y
 
