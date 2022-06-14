@@ -17,8 +17,8 @@ sudo apt install -y python3-dev libpq-dev
 
 cd ~
 # deactivate
-# python3.9 -m venv .venv3.9.9
-# source .venv3.9.9/bin/activate
+# python3.10 -m venv .venv3
+# source .venv3/bin/activate
 # python -m pip install --upgrade pip
 
 pip install wheel # Always install wheel first
