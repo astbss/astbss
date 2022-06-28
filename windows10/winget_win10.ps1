@@ -20,7 +20,7 @@ https://docs.docker.com/desktop/windows/wsl/
 
 # run as user
 # https://ss64.com/nt/winget-install.html
-winget install Microsoft.WindowsTerminal
+winget install --accept-source-agreements Microsoft.WindowsTerminal
 winget install --accept-package-agreements --accept-source-agreements Google.Chrome
 winget install --accept-source-agreements --id Git.Git -e   
 winget install -e --id Python.Python.3 -v 3.10.1150.0
