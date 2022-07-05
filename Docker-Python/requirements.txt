@@ -143,7 +143,7 @@ py-daemon==0.1.2
 pyaml==16.12.2
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
-pycares==4.1.2
+pycares==4.2.0
 pycodestyle==2.8.0
 pycountry==22.3.5
 pycparser==2.21
