@@ -29,6 +29,7 @@ winget install brackets-cont.brackets
 winget install Skillbrains.lightshot
 winget install --id=Skillbrains.lightshot  -e
 winget install -e --id Discord.Discord
+winget install -e --id WireGuard.WireGuard
 
 winget install --accept-source-agreements -e --id Microsoft.VisualStudioCode
 Restart Ubuntu and Powershell windows for code to appear in the path
