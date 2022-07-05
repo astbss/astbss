@@ -57,12 +57,4 @@ code --install-extension ms-toolsai.jupyter-renderers
 code --install-extension ms-vscode.powershell
 ```
 
-# Below commands are not needed for wsl anymore
-wsl --install
-wsl --set-default-version 2
-wsl -l -v
-wsl --unregister Ubuntu
-wsl --unregister Debian
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+
