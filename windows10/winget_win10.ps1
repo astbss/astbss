@@ -20,7 +20,7 @@ https://docs.docker.com/desktop/windows/wsl/
 
 # run as user
 # https://ss64.com/nt/winget-install.html
-winget install Microsoft.WindowsTerminal
+winget install --accept-source-agreements Microsoft.WindowsTerminal
 winget install --accept-package-agreements --accept-source-agreements Google.Chrome
 winget install --accept-source-agreements --id Git.Git -e   
 winget install -e --id Python.Python.3 -v 3.10.1150.0
@@ -29,6 +29,7 @@ winget install brackets-cont.brackets
 winget install Skillbrains.lightshot
 winget install --id=Skillbrains.lightshot  -e
 winget install -e --id Discord.Discord
+winget install -e --id WireGuard.WireGuard
 
 winget install --accept-source-agreements -e --id Microsoft.VisualStudioCode
 Restart Ubuntu and Powershell windows for code to appear in the path
@@ -56,12 +57,4 @@ code --install-extension ms-toolsai.jupyter-renderers
 code --install-extension ms-vscode.powershell
 ```
 
-# Below commands are not needed for wsl anymore
-wsl --install
-wsl --set-default-version 2
-wsl -l -v
-wsl --unregister Ubuntu
-wsl --unregister Debian
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+
