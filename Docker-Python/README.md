@@ -12,8 +12,8 @@ pip freeze >requirements.txt
 
 ### How to use
 ```
-python3.9 -m venv .venv3.9.9
-source .venv3.9.9/bin/activate
+python3.10 -m venv .venv3.10
+source .venv3.10/bin/activate
 python3 -m pip install --upgrade pip
 pip install wheel
 pip install -r requirements.txt
