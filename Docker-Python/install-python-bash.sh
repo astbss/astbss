@@ -34,7 +34,6 @@ sudo apt install -y software-properties-common build-essential zlib1g-dev libncu
 
 echo Installing python 3.9
 sudo apt install python3.9 -y
-sudo apt python3.9-distutils -y
 sudo apt install -y python3-pip -y
 sudo apt install python3.9-venv -y
 sudo apt install -y python3.9-dev -y
