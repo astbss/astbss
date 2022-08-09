@@ -34,12 +34,11 @@ sudo apt install -y software-properties-common build-essential zlib1g-dev libncu
 
 echo Installing python 3.9
 sudo apt install python3.9 -y
-sudo apt-get install -y python3-pip
-curl -sS https://bootstrap.pypa.io/get-pip.py | python3.9
-python3.9 -m pip install --user --upgrade pip
-sudo apt install python3.9-venv
-python3.9 -m pip install --user virtualenv
-sudo apt-get install -y python3.9-dev
+sudo apt python3.9-distutils -y
+sudo apt install -y python3-pip -y
+sudo apt install python3.9-venv -y
+sudo apt install -y python3.9-dev -y
+
 
 echo Installing python 3.10
 sudo apt install python3.10 -y
