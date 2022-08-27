@@ -19,7 +19,7 @@ wget -O install-python-bash.sh https://raw.githubusercontent.com/astbss/astbss/m
 ```
 python3.10 -m venv .venv3.10
 source .venv3.10/bin/activate
-python3 -m pip install --upgrade pip
+python -m pip install --upgrade pip
 pip install wheel
 pip install -r requirements.txt
 ```
