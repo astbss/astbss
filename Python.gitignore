@@ -14,6 +14,7 @@ flask_session/
 
 # Environments
 .env
+..env.swp
 .venv
 .venv2
 .venvlux
