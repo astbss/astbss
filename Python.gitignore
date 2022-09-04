@@ -15,13 +15,13 @@ flask_session/
 # Environments
 .env
 ..env.swp
+.env_bak
+.env_are
 .venv
 .venv3
 env/
 venv/
 ENV/
-.env_bak
-.env_are
 env.bak/
 venv.bak/
 # -------------------------------------------
