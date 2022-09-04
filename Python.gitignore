@@ -16,10 +16,7 @@ flask_session/
 .env
 ..env.swp
 .venv
-.venv2
-.venvlux
-.venvdeb
-.venvare
+.venv3
 env/
 venv/
 ENV/
