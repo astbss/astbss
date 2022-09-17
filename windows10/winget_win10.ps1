@@ -23,9 +23,9 @@ https://docs.docker.com/desktop/windows/wsl/
 winget install --accept-source-agreements Microsoft.WindowsTerminal
 winget install --accept-package-agreements --accept-source-agreements Google.Chrome
 winget install --accept-source-agreements --id Git.Git -e   
-winget install -e --id Python.Python.3 -v 3.10.1150.0
-winget install -e --id LibreOffice.LibreOffice
 winget install -e --id Obsidian.Obsidian
+# winget install -e --id Python.Python.3 -v 3.10.1150.0
+winget install -e --id LibreOffice.LibreOffice
 winget install brackets-cont.brackets
 winget install Skillbrains.lightshot
 winget install --id=Skillbrains.lightshot  -e
