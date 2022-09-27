@@ -31,6 +31,7 @@ sudo apt install -y software-properties-common build-essential zlib1g-dev libncu
         tk \
         python3-dev \
         libpq-dev
+        zstd
 
 echo Installing python 3.9
 sudo apt install python3.9 -y
