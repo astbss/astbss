@@ -114,8 +114,8 @@ pip install talisman flask-seasurf phonenumbers
 pip install Faker hurry.filesize tabulate
 
 pip install gnureadline # Fixes back space not functional in python shell
-pip install pymsteams Pillow
+pip install pymsteams Pillow tqdm
 
-pip uninstall msal-extensions msal -y
+# pip uninstall msal-extensions msal -y
 
 # pip freeze >requirements.txt
