@@ -107,6 +107,7 @@ pip install azure-keyvault-secrets azure-keyvault-keys azure-keyvault-certificat
 pip install azure-mgmt-network azure-mgmt-storage
 pip install azure-graphrbac azure-mgmt-authorization
 pip install azure-cosmos pytest-asyncio pytest-aiohttp phonenumberslite pycountry
+pip install aio-cosmos
 
 pip install markdown2 azure-mgmt-dns password_validation
 pip install talisman flask-seasurf phonenumbers
