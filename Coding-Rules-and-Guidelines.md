@@ -10,9 +10,6 @@ Coding rules and guidelines ensure that software is:
 - **Maintainable:** It can be maintained, even as our codebase grows.
 - **Portable:** It works the same in every environment.
 
-# Security Guidelines
-- [We always follow our guidelines for Secure Software Development](Guidelines-for-secure-software-development)
-
 # PEP 8 -- Style Guide for Python Code
 - [We follow the PHP 8 Style Guide](https://www.python.org/dev/peps/pep-0008/#string-quotes)
 - Function and Variable names '''should be lowercase''', with words separated by underscores as necessary to improve readability.
@@ -86,6 +83,9 @@ Small functions that do one thing are easier to understand, follow, and debug. T
 > Simple is better than complex. Complex is better than complicated. -- The Zen of Python
 
 > Complexity is the enemy. Complexity usually means there are many unknowns and that the team has too many variables to work on. A complex problem requires a complex plan which is not easily understood and not easily executed.”
+
+# Improve Discoverability in UX
+- https://xd.adobe.com/ideas/process/information-architecture/tips-to-improve-discoverability-in-ux/
 
 # Security Requirements
 - https://dev.to/azure/pushing-left-like-a-boss-part-2-security-requirements-549a
