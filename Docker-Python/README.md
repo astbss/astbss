@@ -27,7 +27,7 @@ pip install -r requirements.txt
 ```
 
 ### Build requirements file
-build3.7.sh
+build3.9.sh
 
 ### Docker easy install
 `curl -sSL https://get.docker.com/ | sh`
