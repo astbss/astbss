@@ -38,7 +38,8 @@ pip install Flask-Cors
 pip install Flask-Limiter
 pip install redis python-redis-cache
 
-pip install requests pylint pytest pytest-cov pytest-selenium autopep8 flake8
+pip install requests pylint pytest pytest-cov autopep8 flake8
+# pip install pytest-selenium
 
 pip install SQLAlchemy==1.4.*
 pip install PyMySQL python-dotenv
