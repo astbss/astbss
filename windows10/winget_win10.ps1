@@ -34,6 +34,7 @@ winget install -e --id Dropbox.Dropbox
 winget install -e --id Microsoft.Teams
 winget install -e --id Discord.Discord
 winget install -e --id WireGuard.WireGuard
+winget install -e --id OpenVPNTechnologies.OpenVPN
 
 winget install --accept-source-agreements -e --id Microsoft.VisualStudioCode
 Restart Ubuntu and Powershell windows for code to appear in the path
