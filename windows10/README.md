@@ -8,7 +8,9 @@
 
 ## WSL2 Problem
 - netsh winsock reset
+- `dir \\wsl$\Ubuntu`
 - `subst z: "\\wsl$\Ubuntu-20.04\home\are"`
+- `subst z: "\\wsl$\Ubuntu\home\are"`
 
 ## Mount a Linux disk in WSL 2
 - https://docs.microsoft.com/en-us/windows/wsl/wsl2-mount-disk
