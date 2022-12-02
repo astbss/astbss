@@ -28,7 +28,8 @@ winget install -e --id Obsidian.Obsidian
 winget install -e --id LibreOffice.LibreOffice
 winget install brackets-cont.brackets
 winget install Skillbrains.lightshot
-winget install --id=Skillbrains.lightshot  -e
+# winget install --id=Skillbrains.lightshot  -e
+winget install -e --id Microsoft.Skype
 winget install -e --id Discord.Discord
 winget install -e --id WireGuard.WireGuard
 
