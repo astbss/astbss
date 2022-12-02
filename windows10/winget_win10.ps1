@@ -31,6 +31,7 @@ winget install Skillbrains.lightshot
 # winget install --id=Skillbrains.lightshot  -e
 winget install -e --id Microsoft.Skype
 winget install -e --id Dropbox.Dropbox
+winget install -e --id Microsoft.Teams
 winget install -e --id Discord.Discord
 winget install -e --id WireGuard.WireGuard
 
