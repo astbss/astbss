@@ -14,3 +14,7 @@
 
 ## Mount a Linux disk in WSL 2
 - https://docs.microsoft.com/en-us/windows/wsl/wsl2-mount-disk
+
+## Debloat Windows
+- https://beebom.com/how-debloat-windows-11-improve-performance/
+- https://raw.githubusercontent.com/Sycnex/Windows10Debloater/master/Windows10DebloaterGUI.ps1
