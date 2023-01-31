@@ -2,6 +2,7 @@
 # wget -O .gitattributes https://raw.githubusercontent.com/astbss/astbss/master/Python.gitattributes
 # wget -O requirements.txt https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/requirements.txt
 # wget -O requirements.txt https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/requirements_3.7.5.b.txt
+# wget -O build3.9.sh https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/build3.9.sh
 
 # Create requirements.txt (dbare)
 # Python 3.9
