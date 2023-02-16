@@ -226,7 +226,7 @@ urllib3==1.26.13
 uvloop==0.17.0
 var-dump==1.2
 websocket-client==1.4.2
-Werkzeug==2.2.2
+Werkzeug==2.2.3
 wrapt==1.14.1
 wsproto==1.2.0
 WTForms==3.0.1
