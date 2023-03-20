@@ -4,7 +4,8 @@
 # winver
 # 1st Upgrade your windows so you get full latest version
 
-Ensure your Windows 10 are fully upgraded and rebooted
+Ensure your Windows 11 are fully upgraded and rebooted
+
 There is a single command that will install both WSL and Ubuntu at the same time.
 # wsl --install -d Ubuntu-20.04
 wsl --install -d Ubuntu-22.04
