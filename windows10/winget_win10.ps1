@@ -6,8 +6,7 @@
 
 Ensure your Windows 10 are fully upgraded and rebooted
 There is a single command that will install both WSL and Ubuntu at the same time.
-wsl --install -d Ubuntu-20.04
-or
+# wsl --install -d Ubuntu-20.04
 wsl --install -d Ubuntu-22.04
 To get a list of valid wsl distributions, use 'wsl --list --online'
 Restart-Computer
