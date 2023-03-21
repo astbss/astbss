@@ -57,10 +57,10 @@ code --install-extension msazurermtools.azurerm-vscode-tools
 code --list-extensions
 code --install-extension ms-azuretools.vscode-docker
 code --install-extension ms-python.python
-code --install-extension ms-python.vscode-pylance
-code --install-extension ms-toolsai.jupyter
-code --install-extension ms-toolsai.jupyter-keymap
-code --install-extension ms-toolsai.jupyter-renderers
+# code --install-extension ms-python.vscode-pylance
+# code --install-extension ms-toolsai.jupyter
+# code --install-extension ms-toolsai.jupyter-keymap
+# code --install-extension ms-toolsai.jupyter-renderers
 code --install-extension ms-vscode.powershell
 ```
 
