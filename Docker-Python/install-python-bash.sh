@@ -43,5 +43,5 @@ sudo apt install -y python3.9-dev -y
 echo Installing python 3.10
 sudo apt install python3.10 -y
 sudo apt install python3.10-distutils -y
-sudo apt install python3.10-venv
+sudo apt install python3.10-venv -y
 sudo apt-get install -y python3.10-dev
