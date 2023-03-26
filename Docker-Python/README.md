@@ -30,7 +30,9 @@ pip install -r requirements.txt
 build3.9.sh
 
 ### Docker easy install
-`curl -sSL https://get.docker.com/ | sh`
+- curl -sSL https://get.docker.com/ | sh
+- or
+- apt-get -y install podman
 
 ```
 docker pull astbss/python:3.9
