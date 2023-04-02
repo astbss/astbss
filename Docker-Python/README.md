@@ -38,7 +38,6 @@ pip install -r requirements.txt
 ```
 wget -O build3.9.sh https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/build3.9.sh
 
-# Set virtual environment as shown above
 bash build3.9.sh
 ```
 
