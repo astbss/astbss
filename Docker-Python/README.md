@@ -4,8 +4,6 @@ wget -O .gitignore https://raw.githubusercontent.com/astbss/astbss/master/Python
 wget -O .gitattributes https://raw.githubusercontent.com/astbss/astbss/master/Python.gitattributes
 wget -O requirements.txt https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/requirements.txt
 wget -O install-python-bash.sh https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/install-python-bash.sh
-wget -O build3.9.sh https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/build3.9.sh
-
 
 
 
@@ -13,10 +11,13 @@ wget -O build3.9.sh https://raw.githubusercontent.com/astbss/astbss/master/Docke
 
 pip freeze >requirements.txt
 ```
+### How to create updated requirements.txt
+```
+wget -O build3.9.sh https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/build3.9.sh
+```
 ### Install Python 3.x
 ```
 wget -O install-python-bash.sh https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/install-python-bash.sh
-wget -O build3.9.sh https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/build3.9.sh
 ```
 
 ### How to use
