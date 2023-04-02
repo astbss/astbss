@@ -11,16 +11,13 @@ wget -O install-python-bash.sh https://raw.githubusercontent.com/astbss/astbss/m
 
 pip freeze >requirements.txt
 ```
-### How to create updated requirements.txt
-```
-wget -O build3.9.sh https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/build3.9.sh
-```
+
 ### Install Python 3.x
 ```
 wget -O install-python-bash.sh https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/install-python-bash.sh
 ```
 
-### How to use
+### How to use virtual environment 
 ```
 python3.10 -m venv .venv3.10
 source .venv3.10/bin/activate
@@ -29,8 +26,12 @@ pip install wheel
 pip install -r requirements.txt
 ```
 
-### Build requirements file
-build3.9.sh
+### How to Build updated requirements.txt
+```
+wget -O build3.9.sh https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/build3.9.sh
+```
+Set virtual environment as shown above
+bashh build3.9.sh
 
 ### Docker easy install
 - curl -sSL https://get.docker.com/ | sh
