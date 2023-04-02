@@ -7,6 +7,11 @@
 # Create requirements.txt (dbare)
 # Python 3.9
 
+if [ "$(id -u)" -ne 0 ]; then
+        echo 'This script must be run by root or with sudo! Exiting ...' >&2
+        exit 1
+fi
+
 sudo apt update
 sudo apt install -y g++ unixodbc-dev
 sudo apt install -y libkrb5-dev libbz2-dev
