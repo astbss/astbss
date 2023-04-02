@@ -19,8 +19,16 @@ wget -O install-python-bash.sh https://raw.githubusercontent.com/astbss/astbss/m
 
 ### How to use virtual environment 
 ```
-python3.10 -m venv .venv3.10
-source .venv3.10/bin/activate
+python3.11 -m venv .venv3.11
+source .venv3.11/bin/activate
+python -m pip install --upgrade pip
+pip install wheel
+pip install -r requirements.txt
+```
+
+```
+python3.9 -m venv .venv3.9
+source .venv3.6/bin/activate
 python -m pip install --upgrade pip
 pip install wheel
 pip install -r requirements.txt
