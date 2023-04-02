@@ -50,4 +50,7 @@ echo Installing python 3.11
 sudo apt install python3.11 -y
 sudo apt install python3.11-distutils -y
 sudo apt install python3.11-venv -y
-sudo apt-get install -y python3.11-dev
+sudo apt install -y python3.11-dev
+
+python3.9 -V
+python3.11 -V
