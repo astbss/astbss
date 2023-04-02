@@ -29,9 +29,10 @@ pip install -r requirements.txt
 ### How to Build updated requirements.txt
 ```
 wget -O build3.9.sh https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/build3.9.sh
-```
-Set virtual environment as shown above
+
+# Set virtual environment as shown above
 bashh build3.9.sh
+```
 
 ### Docker easy install
 - curl -sSL https://get.docker.com/ | sh
