@@ -28,7 +28,7 @@ pip install -r requirements.txt
 
 ```
 python3.9 -m venv .venv3.9
-source .venv3.6/bin/activate
+source .venv3.9/bin/activate
 python -m pip install --upgrade pip
 pip install wheel
 pip install -r requirements.txt
