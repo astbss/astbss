@@ -16,6 +16,8 @@ sudo apt update && sudo apt upgrade -y
 Install Docker for wsl and Visual studio code
 https://docs.docker.com/desktop/windows/wsl/
 
+# logout or exit then stop ubuntu using
+# wsl --terminate Ubuntu-22.04
 
 # Windows Linux Kernel Upgrade
 # https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
