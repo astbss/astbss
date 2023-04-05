@@ -58,6 +58,7 @@ code --install-extension msazurermtools.azurerm-vscode-tools
 #### WSL2
 ```
 code --list-extensions
+code .
 code --install-extension ms-azuretools.vscode-docker
 code --install-extension ms-python.python
 # code --install-extension ms-python.vscode-pylance
