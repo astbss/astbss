@@ -20,10 +20,16 @@ else {
 
 
 Get-WindowsUpdate
-# This will update Windows and reboot
+# This will update Windows
 Install-WindowsUpdate -AcceptAll -AutoReboot
 # -ForceDownload -ForceInstall
 # Get-WindowsUpdate -AcceptAll -Install -AutoReboot
 
+sleep 10
+# Run Get-WindowsUpdate again
+Get-WindowsUpdate
+Install-WindowsUpdate -AcceptAll -AutoReboot
+
+sleep 5
 Restart-Computer
 # winget install --accept-source-agreements --id Git.Git -e
