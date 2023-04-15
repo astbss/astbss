@@ -31,3 +31,5 @@ winget install Skillbrains.lightshot
 
 winget install --accept-source-agreements -e --id Microsoft.VisualStudioCode
 # Restart Ubuntu and Powershell windows for code to appear in the path
+
+Restart-Computer
