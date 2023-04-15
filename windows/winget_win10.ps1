@@ -26,7 +26,7 @@ https://docs.docker.com/desktop/windows/wsl/
 # https://ss64.com/nt/winget-install.html
 winget install --accept-source-agreements Microsoft.WindowsTerminal
 winget install --accept-package-agreements --accept-source-agreements Google.Chrome
-winget install --accept-source-agreements --id Git.Git -e   
+winget install --accept-source-agreements --id Git.Git -e
 winget install -e --id Obsidian.Obsidian
 # winget install -e --id Python.Python.3 -v 3.10.1150.0
 winget install -e --id TheDocumentFoundation.LibreOffice
@@ -35,10 +35,10 @@ winget install Skillbrains.lightshot
 # winget install --id=Skillbrains.lightshot  -e
 winget install -e --id Microsoft.Skype
 winget install -e --id Dropbox.Dropbox
-winget install -e --id Microsoft.Teams
-winget install -e --id Discord.Discord
-winget install -e --id WireGuard.WireGuard
-winget install -e --id OpenVPNTechnologies.OpenVPN
+# winget install -e --id Microsoft.Teams
+# winget install -e --id Discord.Discord
+# winget install -e --id WireGuard.WireGuard
+# winget install -e --id OpenVPNTechnologies.OpenVPN
 # winget install -e --id OBSProject.OBSStudio
 
 winget install --accept-source-agreements -e --id Microsoft.VisualStudioCode
@@ -67,5 +67,3 @@ code --install-extension ms-python.python
 # code --install-extension ms-toolsai.jupyter-renderers
 code --install-extension ms-vscode.powershell
 ```
-
-
