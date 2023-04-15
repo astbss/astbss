@@ -96,6 +96,8 @@ pip install libgravatar htpasswd python-digitalocean py_daemon
 pip install pandas
 pip install --upgrade tables
 pip install openpyxl
+pip install pyarrow
+# pip install fastparquet  DO NOT USE. Use pyarrow
 
 pip install linode-api4 schedule pycryptodome msrestazure haikunator azure-mgmt-resource
 pip install hcloud python-jwt
@@ -114,7 +116,7 @@ pip install azure-keyvault-secrets azure-keyvault-keys azure-keyvault-certificat
 pip install azure-mgmt-network azure-mgmt-storage
 pip install azure-graphrbac azure-mgmt-authorization
 pip install azure-cosmos pytest-asyncio pytest-aiohttp phonenumberslite pycountry
-pip install aio-cosmos
+pip install aio-cosmos azure-storage-blob
 
 pip install markdown2 azure-mgmt-dns password_validation
 pip install talisman flask-seasurf phonenumbers
