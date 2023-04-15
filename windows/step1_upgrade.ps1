@@ -1,4 +1,8 @@
-# Invoke-WebRequest -URI $URL -OutFile $Path
+# Download this file using the below command
+# Invoke-WebRequest -URI https://raw.githubusercontent.com/astbss/astbss/master/windows/step1_upgrade.ps1 -OutFile step1_upgrade.ps1
+
+# Opwn Powershell as Administrator
+# powershell step1_upgrade.ps1
 
 if (Get-Module -ListAvailable -Name PSWindowsUpdate) {
     Write-Host "PSWindowsUpdate Module exists"
