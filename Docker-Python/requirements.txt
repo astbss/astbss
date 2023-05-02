@@ -60,7 +60,7 @@ exceptiongroup==1.1.1
 fabric==3.0.0
 Faker==0.8.18
 flake8==6.0.0
-Flask==2.2.3
+Flask==2.3.2
 flask-babel==3.1.0
 Flask-Bcrypt==1.0.1
 Flask-Cors==3.0.10
