@@ -125,7 +125,7 @@ pip install Faker hurry.filesize tabulate
 
 pip install gnureadline # Fixes back space not functional in python shell
 pip install pymsteams Pillow tqdm pytz
-pip install prettytable
+pip install prettytable Unidecode
 
 # pip uninstall msal-extensions msal -y
 
