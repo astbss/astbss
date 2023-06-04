@@ -20,5 +20,6 @@
 - https://raw.githubusercontent.com/Sycnex/Windows10Debloater/master/Windows10DebloaterGUI.ps1
 
 ## winget upgrade
+- winget upgrade
 - winget upgrade -h --id APP-ID
 - winget upgrade -h --all
