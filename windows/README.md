@@ -18,3 +18,7 @@
 ## Debloat Windows
 - https://beebom.com/how-debloat-windows-11-improve-performance/
 - https://raw.githubusercontent.com/Sycnex/Windows10Debloater/master/Windows10DebloaterGUI.ps1
+
+## winget upgrade
+- winget upgrade -h --id APP-ID
+- winget upgrade -h --all
