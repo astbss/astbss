@@ -26,3 +26,4 @@
 - winget upgrade
 - winget upgrade -h --id APP-ID
 - winget upgrade -h --all
+- https://learn.microsoft.com/en-us/windows/package-manager/winget/#install-winget-on-windows-sandbox
