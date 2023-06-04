@@ -5,6 +5,9 @@
 - The client is distributed within the **App Installer** package.
 - Search for and install: **App Installer**
 
+## Windows Sandbox
+- Enable-WindowsOptionalFeature -FeatureName "Containers-DisposableClientVM" -All -Online
+
 
 ## WSL2 Problem
 - netsh winsock reset
