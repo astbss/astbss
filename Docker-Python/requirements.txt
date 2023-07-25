@@ -39,7 +39,7 @@ cachelib==0.10.2
 cachetools==5.3.0
 cattrs==22.2.0
 cchardet==2.1.7
-certifi==2022.12.7
+certifi==2023.7.22
 cffi==1.15.1
 charset-normalizer==3.1.0
 cleo==0.6.8
