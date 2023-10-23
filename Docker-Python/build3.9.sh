@@ -40,6 +40,8 @@ pip install Flask-Session
 # pip install Flask-Caching # Security issue with Pickle
 pip install pyOpenSSL
 
+pip install fastapi uvicorn
+
 pip install Flask-Cors
 pip install Flask-Limiter
 pip install redis python-redis-cache
