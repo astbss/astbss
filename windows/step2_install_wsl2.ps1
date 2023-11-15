@@ -20,5 +20,5 @@ Restart-Computer
 # Install Docker for wsl and Visual studio code
 # https://docs.docker.com/desktop/windows/wsl/
 
-# logout or exit then stop ubuntu using
+# logout or exit then stop ubuntu from Powershell using
 # wsl --terminate Ubuntu-22.04
