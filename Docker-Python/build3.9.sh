@@ -113,6 +113,8 @@ pip install async-timeout asyncio-periodic
 # pip install psycopg2-binary
 pip install psycopg2
 
+pip install python-jose
+
 pip install azure-identity azure-mgmt-compute
 pip install azure-keyvault-secrets azure-keyvault-keys azure-keyvault-certificates
 pip install azure-mgmt-network azure-mgmt-storage
@@ -128,6 +130,9 @@ pip install Faker hurry.filesize tabulate
 pip install gnureadline # Fixes back space not functional in python shell
 pip install pymsteams Pillow tqdm pytz
 pip install prettytable Unidecode
+
+# pip install playwright==1.38.0
+# pip install pytest-playwright==0.4.3
 
 # pip uninstall msal-extensions msal -y
 
