@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# wget -O install-python-bash.sh https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/install-python-bash.sh
+
 if [ "$(id -u)" -ne 0 ]; then
         echo 'This script must be run by root or with sudo! Exiting ...' >&2
         exit 1
