@@ -56,7 +56,8 @@ RUN python -m pip install --upgrade pip \
 
 
 # second unnamed stage
-FROM python:3.9-slim-buster
+# FROM python:3.9-slim-buster
+FROM python:3.8.18-slim-bookworm
 WORKDIR /code
 
 LABEL maintainer="are@astbss.com"
