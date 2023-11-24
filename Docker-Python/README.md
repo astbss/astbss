@@ -42,6 +42,7 @@ bash build3.9.sh
 ```
 
 ### Docker easy install
+- apt  install docker.io
 - curl -sSL https://get.docker.com/ | sh
 - or
 - apt-get -y install podman
