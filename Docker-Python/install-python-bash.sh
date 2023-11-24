@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# wget -O requirements.txt https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/requirements.txt
 # wget -O install-python-bash.sh https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/install-python-bash.sh
 
 if [ "$(id -u)" -ne 0 ]; then
