@@ -23,10 +23,7 @@
 
 # FROM debian:stretch-slim
 
-# 3.9.9: digest: sha256:65b432b655094340ce3236c43a9eb4eb18bf6f2c5a540662a0d509385dd95728 size: 2419
-# 3.9.15: digest: sha256:a7c5443abf78162061d5ce7ae6857ea9b53db9d23f0951a910ee3ac3e8578c14 size: 2419
-# 3.9.16: digest: sha256:52c7a2d3c68c3a6225b5fb71c53d2d026b3aa0fda8c6eb3ce5040996cabd58b4 size: 2419
-# 3.9.16: digest: sha256:0e08ac544b57e916a7f84593426c1c2922ea50e82ed73bb0a59ee7af2fca0621 size: 2419
+# 3.11.6: digest: sha256:611c5ec86385c54c02061ae4736c5bbaa847492d0a90d4733fc5fac18f5ba6e5 size: 2419
 
 # set base image (host OS)
 # FROM python:3.9-buster AS builder
