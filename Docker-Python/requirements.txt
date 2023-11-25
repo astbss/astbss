@@ -1,3 +1,4 @@
+# 3.11.6
 adal==1.2.7
 aio-cosmos==0.2.4
 aiodns==3.1.1
@@ -30,7 +31,6 @@ azure-mgmt-resource==23.0.1
 azure-mgmt-storage==21.1.0
 azure-storage-blob==12.19.0
 Babel==2.13.1
-backpack==0.1
 bcrypt==4.0.1
 black==23.11.0
 blinker==1.7.0
@@ -44,7 +44,6 @@ cattrs==23.2.2
 certifi==2023.11.17
 cffi==1.16.0
 charset-normalizer==3.3.2
-cleo==0.6.8
 click==8.1.7
 connexion==3.0.2
 coverage==7.3.2
@@ -54,21 +53,19 @@ Deprecated==1.2.14
 dictdiffer==0.9.0
 dill==0.3.7
 dnspython==2.4.2
+ecdsa==0.18.0
 email-validator==2.1.0.post1
 et-xmlfile==1.1.0
-exceptiongroup==1.2.0
 fabric==3.2.2
-Faker==0.8.18
+Faker==20.1.0
 fastapi==0.104.1
 flake8==6.1.0
 Flask==2.3.3
 flask-babel==4.0.0
-Flask-Bcrypt==1.0.1
 Flask-Cors==4.0.0
 Flask-HTTPAuth==4.8.0
 Flask-Limiter==3.5.0
 Flask-Mail==0.9.1
-flask-orator==0.2.0
 Flask-RESTful==0.3.10
 Flask-SeaSurf==1.1.1
 Flask-Session==0.5.0
@@ -89,9 +86,8 @@ httpcore==1.0.2
 httpx==0.25.2
 hurry.filesize==0.9
 idna==3.4
-importlib-metadata==6.8.0
 importlib-resources==6.1.1
-inflection==0.3.1
+inflection==0.5.1
 iniconfig==2.0.0
 invoke==2.2.0
 isodate==0.6.1
@@ -106,7 +102,6 @@ jwcrypto==1.5.0
 jwt==1.3.1
 krb5==0.5.1
 kubernetes==28.1.0
-lazy-object-proxy==1.9.0
 ldap3==2.9.1
 libgravatar==1.0.4
 limits==3.6.0
@@ -130,16 +125,13 @@ numexpr==2.8.7
 numpy==1.26.2
 oauthlib==3.2.2
 openpyxl==3.1.2
-orator==0.9.9
 ordered-set==4.1.0
 orderedmultidict==1.0.1
 packaging==23.2
 pandas==2.1.3
 paramiko==3.3.1
 Password-Validation==0.1.1
-pastel==0.1.1
 pathspec==0.11.2
-pendulum==1.5.1
 pexpect==4.8.0
 phonenumbers==8.13.26
 phonenumberslite==8.13.26
@@ -153,7 +145,6 @@ psycopg2==2.9.9
 ptyprocess==0.7.0
 py-cpuinfo==9.0.0
 py-daemon==0.1.2
-pyaml==16.12.2
 pyarrow==14.0.1
 pyasn1==0.5.1
 pyasn1-modules==0.3.0
@@ -167,7 +158,6 @@ pydantic_core==2.14.5
 pyflakes==3.1.0
 Pygments==2.17.2
 PyJWT==2.8.0
-pylev==1.4.0
 pylint==3.0.2
 pymssql==2.2.10
 pymsteams==0.2.2
@@ -187,12 +177,12 @@ pytest-mock==3.12.0
 python-dateutil==2.8.2
 python-digitalocean==1.17.0
 python-dotenv==1.0.0
+python-jose==3.3.0
 python-jwt==4.1.0
 python-multipart==0.0.6
 python-redis-cache==2.2.5
 pytz==2023.3.post1
-pytzdata==2020.1
-PyYAML==5.4.1
+PyYAML==6.0.1
 redis==5.0.1
 referencing==0.31.0
 requests==2.31.0
@@ -215,14 +205,11 @@ swagger_ui_bundle==1.1.0
 tables==3.9.1
 tabulate==0.9.0
 talisman==0.1.0
-text-unidecode==1.2
 timeago==1.0.16
-tomli==2.0.1
 tomlkit==0.12.3
 tqdm==4.66.1
 typing_extensions==4.8.0
 tzdata==2023.3
-tzlocal==1.5.1
 ujson==5.8.0
 Unidecode==1.3.7
 url-normalize==1.4.3
@@ -236,6 +223,5 @@ Werkzeug==3.0.1
 wrapt==1.16.0
 WTForms==3.1.1
 yarl==1.9.3
-zipp==3.17.0
 zope.event==5.0
 zope.interface==6.1
