@@ -2,22 +2,22 @@
 # https://www.docker.com/blog/containerized-python-development-part-1/
 # https://pythonspeed.com/articles/multi-stage-docker-python/
 
-# docker build -f Dockerfile.python.3.9 -t astbss/python:3.9 .
-# docker build -f Dockerfile.python.3.9 -t astbss/python:3.9.18 .
+# docker build -f Dockerfile.python.3.11 -t astbss/python:3.11 .
+# docker build -f Dockerfile.python.3.11 -t astbss/python:3.11.6 .
 # docker tag astbss/python:3.9 astbss/python:latest
 
 # docker login --username=astbss
-# docker push astbss/python:3.9
-# docker push astbss/python:3.9.18
+# docker push astbss/python:3.11
+# docker push astbss/python:3.11.6
 # docker push astbss/python:latest
 
 
 # docker images
-# docker run -it --rm astbss/python:3.9 bash
+# docker run -it --rm astbss/python:3.11.6 bash
 
 # Get sha256 using docker inspect RepoDigests: docker inspect
-# docker run -v /app/my-app:/app -it  --rm --entrypoint "/bin/bash" astbss/python:3.7.6
-# docker run -v /home/are:/app -it --rm astbss/python:3.9.18 bash
+# docker run -v /app/my-app:/app -it  --rm --entrypoint "/bin/bash" astbss/python:3.11.6
+# docker run -v /home/are:/app -it --rm astbss/python:3.11.6 bash
 
 # https://hub.docker.com/_/python
 
