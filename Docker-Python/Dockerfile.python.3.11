@@ -87,6 +87,7 @@ RUN python -m pip install --upgrade pip
 ENV PYTHON_PIP_VERSION 23.3.1
 ENV PYTHON_VERSION 3.11.6
 # ENV PYTHONPATH=/usr/local/lib/python3.7/site-packages:/usr/local/lib/python3.7
+ENV TZ="Europe/Oslo"
 
 # update PATH environment variable
 ENV PATH=/root/.local:/root/.local/bin:$PATH
