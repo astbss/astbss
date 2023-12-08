@@ -99,7 +99,10 @@ pip install libgravatar htpasswd python-digitalocean py_daemon
 pip install pandas
 pip install --upgrade tables
 pip install openpyxl
-pip install pyarrow
+pip install xlsxwriter
+
+# pip install pyarrow
+pip install fastparquet
 # pip install fastparquet  DO NOT USE. Use pyarrow
 
 pip install linode-api4 schedule pycryptodome msrestazure haikunator azure-mgmt-resource
