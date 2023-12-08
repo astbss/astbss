@@ -102,8 +102,8 @@ pip install openpyxl
 pip install xlsxwriter
 
 # pip install pyarrow
+# DO NOT USE pyarrow use fastparquet
 pip install fastparquet
-# pip install fastparquet  DO NOT USE. Use pyarrow
 
 pip install linode-api4 schedule pycryptodome msrestazure haikunator azure-mgmt-resource
 pip install hcloud python-jwt
