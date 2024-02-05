@@ -31,3 +31,9 @@
 
 ## Powertoys
 - https://github.com/microsoft/PowerToys
+
+## Ubuntu 22.04 - Windows 11 ssh-agent error
+- winget install "openssh beta"
+- https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH
+- https://stackoverflow.com/questions/75605227/ubuntu-22-04-ssh-agent-error-unable-to-load-resident-keys-device-not-found
+- https://github.com/powershell/Win32-OpenSSH
