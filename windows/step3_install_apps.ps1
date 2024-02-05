@@ -19,6 +19,8 @@ winget install brackets-cont.brackets
 winget install Skillbrains.lightshot
 # winget install --id=Skillbrains.lightshot  -e
 
+# winget install "openssh beta"
+
 # winget install -e --id Microsoft.Skype
 # winget install -e --id Dropbox.Dropbox
 
