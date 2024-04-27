@@ -66,7 +66,7 @@ for k in form:
 # Single Responsibility Principle (SRP)
 - (SRP) is a foundational principle in programming and a pillar of the SOLID design principles.
 - **Core Idea:** A module, class, or function should have one and only one reason to change.
-- This means that every piece of code should have a single, well-defined responsibility or purpose.
+- This means that every function should have a single, well-defined responsibility or purpose.
 
 ### Why SRP Matters:
 
