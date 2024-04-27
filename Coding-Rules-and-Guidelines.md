@@ -63,6 +63,17 @@ for k in form:
 # Modal Placement and rules
 - Modals normally need to be placed in the middle of the screen for better user experience. Remember to set focus to the first user input control.
 
+# Single Responsibility Principle (SRP)
+- (SRP) is a foundational principle in programming and a pillar of the SOLID design principles.
+- **Core Idea:** A module, class, or function should have one and only one reason to change.
+- This means that every piece of code should have a single, well-defined responsibility or purpose.
+
+### Why SRP Matters:
+
+- **Maintainability**: Code that follows SRP is easier to understand, modify, and fix. Changes in one area are less likely to have unintended consequences elsewhere.
+- **Reusability**: Highly focused, single-responsibility components are more likely to be useful in different contexts within your project.
+- **Testability**: It's easier to write focused unit tests for code elements with clear responsibilities.
+
 # Separation of concerns (SoC) 
 - https://en.wikipedia.org/wiki/Separation_of_concerns
 
