@@ -8,6 +8,13 @@
 ## Windows Sandbox
 - Enable-WindowsOptionalFeature -FeatureName "Containers-DisposableClientVM" -All -Online
 
+## Use wsl or wsl2
+- logout or exit then stop ubuntu from Powershell using
+- wsl --terminate Ubuntu-22.04
+- To get a list of valid wsl distributions
+- wsl --list --online
+- Install a new wsl distribution
+- wsl --install -d Ubuntu-22.04
 
 ## WSL2 Problem
 - netsh winsock reset
