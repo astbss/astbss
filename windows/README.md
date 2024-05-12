@@ -15,6 +15,8 @@
 - wsl --list --online
 - Install a new wsl distribution
 - wsl --install -d Ubuntu-22.04
+- Subst a drive to your wsl distribution
+- subst z: "\\wsl$\Ubuntu-22.04\home\myuser"
 
 ## WSL2 Problem
 - netsh winsock reset
