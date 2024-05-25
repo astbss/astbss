@@ -46,3 +46,9 @@
 - https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH
 - https://stackoverflow.com/questions/75605227/ubuntu-22-04-ssh-agent-error-unable-to-load-resident-keys-device-not-found
 - https://github.com/powershell/Win32-OpenSSH
+
+# azchohfi  Setup
+- https://github.com/azchohfi/setup
+- winget configure https://raw.githubusercontent.com/azchohfi/setup/main/azchohfi.admin.dsc.yaml
+- winget configure https://raw.githubusercontent.com/azchohfi/setup/main/azchohfi.user.dsc.yaml
+
