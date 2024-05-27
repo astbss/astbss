@@ -48,6 +48,7 @@
 - https://github.com/powershell/Win32-OpenSSH
 
 # azchohfi  Setup
+- https://apps.microsoft.com/detail/9n8mhtphngvv?hl=en-us&gl=RO
 - https://github.com/azchohfi/setup
 - winget configure https://raw.githubusercontent.com/azchohfi/setup/main/azchohfi.admin.dsc.yaml
 - winget configure https://raw.githubusercontent.com/azchohfi/setup/main/azchohfi.user.dsc.yaml
