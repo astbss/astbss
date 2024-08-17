@@ -134,6 +134,7 @@ pip install Faker hurry.filesize tabulate
 pip install gnureadline # Fixes back space not functional in python shell
 pip install pymsteams Pillow tqdm pytz
 pip install prettytable Unidecode
+pip install asyncmy
 
 # pip install playwright==1.38.0
 # pip install pytest-playwright==0.4.3
