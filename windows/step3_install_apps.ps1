@@ -15,6 +15,7 @@ winget install --accept-package-agreements --accept-source-agreements Google.Chr
 winget install --accept-source-agreements --id Git.Git -e
 winget install -e --id Obsidian.Obsidian
 # winget install -e --id Python.Python.3 -v 3.10.1150.0
+# winget install -e --id Python.Python.3.11
 winget install brackets-cont.brackets
 winget install Skillbrains.lightshot
 # winget install --id=Skillbrains.lightshot  -e
