@@ -18,6 +18,7 @@ winget install -e --id Obsidian.Obsidian
 # winget install -e --id Python.Python.3.11
 winget install brackets-cont.brackets
 winget install Skillbrains.lightshot
+winget install -e --id dbeaver.dbeaver
 # winget install --id=Skillbrains.lightshot  -e
 
 # winget install "openssh beta"
