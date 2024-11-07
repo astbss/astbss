@@ -29,6 +29,8 @@ Add-AppxPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
 - wsl --list -v
 - Install a new wsl distribution
 - wsl --install -d Ubuntu-22.04
+- wsl --install -d Ubuntu-24.04
+- wsl --unregister Ubuntu-22.04
 - Subst a drive to your wsl distribution
 - subst z: "\\wsl$\Ubuntu-22.04\home\myuser"
 
