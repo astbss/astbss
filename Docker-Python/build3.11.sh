@@ -131,7 +131,8 @@ pip install talisman flask-seasurf phonenumbers
 
 pip install Faker hurry.filesize tabulate
 
-pip install gnureadline # Fixes back space not functional in python shell
+# pip install gnureadline 
+pip install pyreadline3 # Fixes back space not functional in python shell
 pip install pymsteams Pillow tqdm pytz
 pip install prettytable Unidecode
 pip install asyncmy
