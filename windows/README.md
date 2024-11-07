@@ -26,6 +26,7 @@ Add-AppxPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
 - wsl --terminate Ubuntu-22.04
 - To get a list of valid wsl distributions
 - wsl --list --online
+- wsl --list -v
 - Install a new wsl distribution
 - wsl --install -d Ubuntu-22.04
 - Subst a drive to your wsl distribution
