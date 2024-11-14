@@ -34,6 +34,10 @@ Add-AppxPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
 - Subst a drive to your wsl distribution
 - subst z: "\\wsl$\Ubuntu-22.04\home\myuser"
 
+## WSL Command line
+- C:\Windows\system32\wsl.exe -d Ubuntu -u are
+- C:\Windows\system32\wsl.exe -d Ubuntu-24.04 -u are
+
 ## WSL2 Problem
 - netsh winsock reset
 - `dir \\wsl$\Ubuntu`
