@@ -59,3 +59,4 @@ docker run -it --rm astbss/python:3.11 bash
 - pip install uv
 - uv pip install -r requirements.txt
 - uv python list
+- pip install ruff
