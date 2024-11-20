@@ -56,4 +56,5 @@ docker run -it --rm astbss/python:3.11 bash
 - https://docs.astral.sh/uv/
 - Drop-in parity with Flake8, isort, and Black
 - https://docs.astral.sh/ruff/
+- pip install uv
 
