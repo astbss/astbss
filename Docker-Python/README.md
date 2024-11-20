@@ -52,4 +52,8 @@ docker pull astbss/python:3.9
 docker run -it --rm astbss/python:3.9 bash
 ```
 
+### Extremely fast Python package manager
+- https://docs.astral.sh/uv/
+- Drop-in parity with Flake8, isort, and Black
+- https://docs.astral.sh/ruff/
 
