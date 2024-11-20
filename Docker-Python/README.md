@@ -48,8 +48,8 @@ bash build3.9.sh
 - apt-get -y install podman
 
 ```
-docker pull astbss/python:3.9
-docker run -it --rm astbss/python:3.9 bash
+docker pull astbss/python:3.11
+docker run -it --rm astbss/python:3.11 bash
 ```
 
 ### Extremely fast Python package manager
