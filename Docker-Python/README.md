@@ -53,6 +53,7 @@ docker run -it --rm astbss/python:3.11 bash
 ```
 
 ### Extremely fast Python package manager
+- curl -LsSf https://astral.sh/uv/install.sh | sh
 - https://docs.astral.sh/uv/
 - Drop-in parity with Flake8, isort, and Black
 - https://docs.astral.sh/ruff/
