@@ -35,7 +35,7 @@ Add-AppxPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
 - subst z: "\\wsl$\Ubuntu-22.04\home\myuser"
 
 ## wsl in terminal 
-- ubuntu2204.exe config --default-user are ; To set a default wsl user for Ubuntu-22.04:
+- ubuntu2204.exe config --default-user user1 ; To set a default wsl user for Ubuntu-22.04:
 - Run multiple instances with different users simultaneously (From Terminal):
 - wsl -d Ubuntu-22.04 -u user1
 - wsl -d Ubuntu-22.04 -u user2
