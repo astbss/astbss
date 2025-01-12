@@ -40,7 +40,7 @@ pip install Flask-Session
 # pip install Flask-Caching # Security issue with Pickle
 pip install pyOpenSSL
 
-pip install fastapi uvicorn
+pip install fastapi fastapi_mail uvicorn
 
 pip install Flask-Cors
 pip install Flask-Limiter
