@@ -105,6 +105,8 @@ case $P in
   (ps|pwsh)
     # kubectl exec -it powershell -- pwsh
     D=$(kubectl get pods $NAMESP | grep $1 | cut -f1 -d' ')
+    D=$(kubectl get pods $NAMESP | grep $2 | cut -f1 -d' ')
+    echo "*** Namespace: $NAMESP  1 is: $1 and 2 is: $2 - Found pod $D ***"
     echo "kubectl exec -it $D -- pwsh $NAMESP"
     exit
   ;; # OK
