@@ -101,6 +101,16 @@ case $P in
   ;; # OK
 esac
 
+case $P in
+  (ps|pwsh)
+    # kubectl exec -it powershell -- pwsh
+    echo "kubectl exec -it $D -- pwsh $NAMESP"
+    kubectl delete pod $D $NAMESP
+    sleep 0.1
+    kubectl get pods $NAMESP -o=wide
+    exit
+  ;; # OK
+esac
 
 case $P in
   (Delete|delete)
@@ -166,6 +176,9 @@ case $P in
 
     echo "  delete [pod]  kubectl delete pod"
     echo "  logs [pod] kubectl logs pod"
+    echo "  pwsh [pod] kubectl exec -it [pod] -- pwsh"
+    echo "  [pod] kubectl exec -it [pod] -- bash"
+
     exit
   ;; # OK
 esac
@@ -184,4 +197,3 @@ if [ -n "$2" ] ; then
 else
   kubectl exec  "$D" -it $NAMESP -- bash -il
 fi
-
