@@ -104,10 +104,8 @@ esac
 case $P in
   (ps|pwsh)
     # kubectl exec -it powershell -- pwsh
+    D=$(kubectl get pods $NAMESP | grep $1 | cut -f1 -d' ')
     echo "kubectl exec -it $D -- pwsh $NAMESP"
-    kubectl delete pod $D $NAMESP
-    sleep 0.1
-    kubectl get pods $NAMESP -o=wide
     exit
   ;; # OK
 esac
