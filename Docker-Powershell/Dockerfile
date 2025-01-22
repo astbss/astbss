@@ -38,6 +38,10 @@ RUN Install-Module -Name Az -Force -AllowClobber -Scope AllUsers && \
 # Create a non-root user for running PowerShell scripts
 RUN useradd -m -s /bin/bash pwshuser
 
+# Set permissions for PowerShell modules directory
+RUN chown -R pwshuser:pwshuser /usr/local/share/powershell/Modules && \
+    chmod -R 755 /usr/local/share/powershell/Modules
+
 # Switch to the non-root user
 USER pwshuser
 
