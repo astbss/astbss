@@ -6,7 +6,7 @@
 # docker push astbss/powershell:latest
 
 # docker images
-# docker run -it --rm astbss/powershell:latest pwsh
+# docker run -it --rm astbss/powershell:latest
 
 
 # Use the official PowerShell image
