@@ -8,6 +8,7 @@
 # docker images
 # docker run -it --rm astbss/powershell:latest
 
+# powershell 7.4: digest: sha256:c1e3f9c4a73b20e1288284cacba34daa52aff06af9bec3096ee08763b3bbbdc6
 
 # Use the official PowerShell image
 FROM mcr.microsoft.com/powershell:7.4-ubuntu-22.04
