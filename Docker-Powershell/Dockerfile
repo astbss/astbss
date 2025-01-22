@@ -19,8 +19,8 @@ USER root
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     ca-certificates \
-    curl \
     apt-transport-https \
+    git nano wget curl net-tools iproute2 iputils-ping openssh-client vim zip unzip \
     && rm -rf /var/lib/apt/lists/*
 
 # Switch to PowerShell
@@ -28,6 +28,7 @@ SHELL ["pwsh", "-Command"]
 
 # Install PowerShell modules
 # Note: We're installing for AllUsers instead of CurrentUser since we're in a container
+# In a container context, CurrentUser scope can be problematic
 RUN Install-Module -Name Az -Force -AllowClobber -Scope AllUsers && \
     Install-Module -Name Microsoft.Graph -Force -AllowClobber -Scope AllUsers && \
     Install-Module -Name simplySQL -Force -AllowClobber -Scope AllUsers && \
