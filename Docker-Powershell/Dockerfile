@@ -6,7 +6,7 @@
 # docker push astbss/powershell:latest
 
 # docker images
-# docker run -it --rm astbss/powershell:latest
+# docker run -it --rm astbss/powershell:7.4
 
 # powershell 7.4: digest: sha256:b1cd1a5f55fbc6b10d7e6e784413483fffd5805cd6f107e4537ea8b6e8efe13b size: 1588
 
