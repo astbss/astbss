@@ -17,6 +17,11 @@
 
 # In Kubernetes use StatefulSet
 
+# Managed Service Accounts (gMSA): If you need to run applications within containers that require Active Directory authentication,
+# you can use group Managed Service Accounts (gMSAs). This allows containers to access domain resources without needing to be domain-joined.
+# https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/group-managed-service-accounts/group-managed-service-accounts/group-managed-service-accounts-overview
+
+
 # escape=`
 FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
