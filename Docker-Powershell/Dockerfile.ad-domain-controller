@@ -1,0 +1,99 @@
+# To use this with persistent storage:
+# First, create named volumes for the AD data:
+#    docker volume create ad_ntds_data
+#    docker volume create ad_sysvol_data
+
+# Then run the container with the volumes mounted:
+#    docker run -d --name ad-dc `
+#    --hostname dc01 `
+#    -p 389:389 -p 636:636 -p 3268:3268 -p 3269:3269 `
+#    -p 53:53 -p 88:88 -p 445:445 -p 135:135 `
+#    -v ad_ntds_data:C:/ad-data/NTDS `
+#    -v ad_sysvol_data:C:/ad-data/SYSVOL `
+#    windows-ad-dc
+
+# If you need to backup the AD data, you can access it through the named volumes. To backup:
+# docker run --rm -v ad_ntds_data:C:/backup/ntds -v ad_sysvol_data:C:/backup/sysvol mcr.microsoft.com/windows/servercore:ltsc2019 powershell Compress-Archive C:/backup/* C:/backup/ad_backup.zip
+
+# In Kubernetes use StatefulSet
+
+# escape=`
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
+
+# Set shell to PowerShell
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
+# Install Windows features required for AD DS
+RUN Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
+
+# Create directories for AD data
+RUN New-Item -ItemType Directory -Path C:/ad-data
+RUN New-Item -ItemType Directory -Path C:/ad-data/NTDS
+RUN New-Item -ItemType Directory -Path C:/ad-data/SYSVOL
+
+# Copy configuration scripts
+COPY scripts/configureAD.ps1 C:/setup/
+COPY scripts/setup.ps1 C:/setup/
+
+# Set environment variables
+ENV DOMAIN_NAME="astbsscorp.local" `
+    DOMAIN_NETBIOS_NAME="ASTBSSCORP" `
+    SAFE_MODE_ADMIN_PASSWORD="YourSecurePassword518!" `
+    DOMAIN_ADMIN_PASSWORD="YourAdminPassword518!" `
+    DATABASE_PATH="C:/ad-data/NTDS" `
+    SYSVOL_PATH="C:/ad-data/SYSVOL"
+
+# Configure AD DS
+RUN C:/setup/setup.ps1
+
+# Expose required ports
+EXPOSE 389 636 3268 3269 53 88 445 135
+
+# Define volumes
+VOLUME ["C:/ad-data/NTDS", "C:/ad-data/SYSVOL"]
+
+# Set the entrypoint
+ENTRYPOINT ["powershell", "C:/setup/configureAD.ps1"]
+
+# Create setup.ps1
+RUN @'
+# Install AD DS Forest with custom paths
+Install-ADDSForest `
+    -DomainName $env:DOMAIN_NAME `
+    -DomainNetbiosName $env:DOMAIN_NETBIOS_NAME `
+    -SafeModeAdministratorPassword (ConvertTo-SecureString $env:SAFE_MODE_ADMIN_PASSWORD -AsPlainText -Force) `
+    -DatabasePath $env:DATABASE_PATH `
+    -SysvolPath $env:SYSVOL_PATH `
+    -InstallDns `
+    -Force
+
+# Configure DNS settings
+Set-DnsServerForwarder -IPAddress 8.8.8.8, 8.8.4.4
+
+# Create domain admin account
+$securePassword = ConvertTo-SecureString $env:DOMAIN_ADMIN_PASSWORD -AsPlainText -Force
+New-ADUser -Name "DomainAdmin" `
+    -AccountPassword $securePassword `
+    -Enabled $true `
+    -PasswordNeverExpires $true
+
+Add-ADGroupMember -Identity "Domain Admins" -Members "DomainAdmin"
+'@ | Out-File -Encoding ASCII C:/setup/setup.ps1
+
+# Create configureAD.ps1
+RUN @'
+# Check if AD data exists
+if (-not (Test-Path "$env:DATABASE_PATH\ntds.dit")) {
+    Write-Host "AD database not found. Running initial setup..."
+    C:/setup/setup.ps1
+}
+
+# Start AD services
+Start-Service ADWS
+Start-Service DNS
+Start-Service Netlogon
+Start-Service NTDS
+
+# Keep container running
+while ($true) { Start-Sleep -Seconds 3600 }
+'@ | Out-File -Encoding ASCII C:/setup/configureAD.ps1
