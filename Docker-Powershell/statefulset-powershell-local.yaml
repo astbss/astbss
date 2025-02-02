@@ -1,0 +1,48 @@
+# ----------------------------------------------
+# StatefulSet Demo: Running PowerShell from a Local MicroK8s Registry
+# ----------------------------------------------
+# This YAML defines a Kubernetes StatefulSet that deploys a PowerShell container
+# using an image stored in the MicroK8s local container registry.
+#
+# Key Features:
+# - Uses a locally stored PowerShell 7.4 image from MicroK8s registry (localhost:32000)
+# - Ensures stateful behavior (pod identity remains consistent across restarts)
+# - Can be scaled while preserving unique pod identities
+# - Demonstrates how to run long-lived PowerShell processes inside Kubernetes
+#
+# Usage:
+# 1. Ensure MicroK8s registry is enabled (`microk8s enable registry`)
+# 2. Tag and push the image to the registry:
+#    docker tag mcr.microsoft.com/powershell:7.4 localhost:32000/powershell:7.4
+#    docker push localhost:32000/powershell:7.4
+# 3. Deploy the StatefulSet:
+#    microk8s kubectl apply -f statefulset-powershell-local.yaml
+# 4. Verify the pod:
+#    microk8s kubectl get pods
+# 5. Access PowerShell inside the running pod:
+#    microk8s kubectl exec -it powershell-local-0 -- pwsh
+#
+# This setup is useful for testing containerized applications with a private
+# registry inside a lightweight Kubernetes environment like MicroK8s.
+# ----------------------------------------------
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: powershell-local
+spec:
+  serviceName: "powershell-service"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: mycontainer
+        image: localhost:32000/powershell:7.4
+        command: ["pwsh"]
+        args: ["-Command", "while ($true) { Start-Sleep -Seconds 1 }"]
