@@ -33,7 +33,7 @@ Add-AppxPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
 - wsl --unregister Ubuntu-22.04
 - Subst a drive to your wsl distribution
 - subst z: "\\wsl$\Ubuntu-22.04\home\myuser"
-- Windows c drive fra wsl
+- Windows C drive from wsl
 - cd /mnt/c/Users/myuser
 
 ## wsl in terminal 
