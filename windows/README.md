@@ -33,6 +33,8 @@ Add-AppxPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
 - wsl --unregister Ubuntu-22.04
 - Subst a drive to your wsl distribution
 - subst z: "\\wsl$\Ubuntu-22.04\home\myuser"
+- Windows c drive fra wsl
+- cd /mnt/c/Users/myuser
 
 ## wsl in terminal 
 - ubuntu2204.exe config --default-user user1 ; To set a default wsl user for Ubuntu-22.04:
