@@ -13,7 +13,7 @@
 
 
 # docker images
-# docker run -it --rm astbss/python:3.11.6 bash
+# docker run -it --rm astbss/python:3.11.11 bash
 # docker ps -a
 # docker container prune --force
 
