@@ -87,11 +87,10 @@ pip install requests-cache # itsdangerous<2.0,>=0.24
 pip install cachetools
 
 pip install Babel Flask-Babel
-pip install orator flask-orator Flask-Bcrypt
+pip install Flask-Bcrypt
 pip install email_validator Flask-Mail boto3
 pip install Flask-RESTful
 pip install flask_httpauth
-pip install connexion[swagger-ui]
 pip install connexion2[swagger-ui]
 
 pip install libgravatar htpasswd python-digitalocean py_daemon
@@ -111,6 +110,9 @@ pip install hcloud python-jwt
 pip install aiohttp[speedups]
 pip install asyncio uvloop
 pip install async-timeout asyncio-periodic
+pip install httpx
+
+pip install click
 
 
 # https://www.psycopg.org/docs/install.html#install-from-source
