@@ -2,6 +2,8 @@
 # https://www.docker.com/blog/containerized-python-development-part-1/
 # https://pythonspeed.com/articles/multi-stage-docker-python/
 
+# https://hub.docker.com/r/astbss/python/tags
+
 # docker build -f Dockerfile.python.3.11 -t astbss/python:3.11 .
 # docker build -f Dockerfile.python.3.11 -t astbss/python:3.11.11 .
 # docker tag astbss/python:3.11 astbss/python:latest
@@ -13,6 +15,7 @@
 
 
 # docker images
+# docker pull astbss/python:3.11.11
 # docker run -it --rm astbss/python:3.11.11 bash
 # docker ps -a
 # docker container prune --force
