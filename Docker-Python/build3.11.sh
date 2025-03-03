@@ -49,7 +49,7 @@ pip install redis python-redis-cache
 pip install requests pylint pytest pytest-cov autopep8 flake8
 # pip install pytest-selenium
 
-pip install SQLAlchemy==1.4.*
+pip install SQLAlchemy
 pip install PyMySQL python-dotenv
 pip install gunicorn[gevent]
 
