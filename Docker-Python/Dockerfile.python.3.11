@@ -30,7 +30,7 @@
 # set base image (host OS)
 # FROM python:3.9-buster AS builder
 # FROM python:3.9.18-slim-bookworm AS builder
-FROM python:3.11.6-slim-bookworm AS builder
+FROM python:3.11.11-slim-bookworm AS builder
 # FROM python:3.9-slim
 
 # ENV PATH=/root/.local:$PATH
@@ -59,7 +59,7 @@ RUN python -m pip install --upgrade pip \
 # second unnamed stage
 # FROM python:3.9-slim-buster
 # FROM python:3.9.18-slim-bookworm
-FROM python:3.11.6-slim-bookworm
+FROM python:3.11.11-slim-bookworm
 WORKDIR /code
 
 LABEL maintainer="are@astbss.com"
