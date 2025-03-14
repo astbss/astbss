@@ -84,6 +84,7 @@ Add-AppxPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
 - winget configure https://raw.githubusercontent.com/azchohfi/setup/main/azchohfi.user.dsc.yaml
 
 # VScode Extentions
+- https://code.visualstudio.com/docs/editor/command-line
 ```
 # wsl
 code --list-extensions
@@ -104,4 +105,10 @@ ms-toolsai.jupyter-keymap
 ms-vscode-remote.remote-wsl
 msazurermtools.azurerm-vscode-tools
 
+# install
+code --install-extension ms-python.python
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension ms-python.debugpy
+code --install-extension ms-python.vscode-pylance
+code --install-extension ms-vscode.powershell
 ```
