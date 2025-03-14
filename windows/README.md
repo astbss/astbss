@@ -122,4 +122,21 @@ code --install-extension ms-toolsai.jupyter-keymap
 code --install-extension ms-vscode-remote.remote-wsl
 code --install-extension msazurermtools.azurerm-vscode-tools
 
+# install WSL
+windsurf --install-extension ms-python.python
+windsurf --install-extension ms-azuretools.vscode-docker
+windsurf --install-extension ms-python.debugpy
+windsurf --install-extension ms-python.vscode-pylance
+windsurf --install-extension ms-vscode.powershell
+
+# install Powershell
+windsurf --install-extension alefragnani.bookmarks
+windsurf --install-extension ms-dotnettools.vscode-dotnet-runtime
+windsurf --install-extension ms-python.debugpy
+windsurf --install-extension ms-python.python
+windsurf --install-extension ms-python.vscode-pylance
+windsurf --install-extension ms-toolsai.jupyter-keymap
+windsurf --install-extension ms-vscode-remote.remote-wsl
+windsurf --install-extension msazurermtools.azurerm-vscode-tools
+
 ```
