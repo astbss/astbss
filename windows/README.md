@@ -83,3 +83,25 @@ Add-AppxPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
 - winget configure https://raw.githubusercontent.com/azchohfi/setup/main/azchohfi.admin.dsc.yaml
 - winget configure https://raw.githubusercontent.com/azchohfi/setup/main/azchohfi.user.dsc.yaml
 
+# VScode Extentions
+```
+# wsl
+code --list-extensions
+ms-azuretools.vscode-docker
+ms-python.debugpy
+ms-python.python
+ms-python.vscode-pylance
+ms-vscode.powershell
+
+# Powershell
+code --list-extensions
+alefragnani.bookmarks
+ms-dotnettools.vscode-dotnet-runtime
+ms-python.debugpy
+ms-python.python
+ms-python.vscode-pylance
+ms-toolsai.jupyter-keymap
+ms-vscode-remote.remote-wsl
+msazurermtools.azurerm-vscode-tools
+
+```
