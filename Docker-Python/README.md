@@ -34,6 +34,12 @@ pip install wheel
 pip install -r requirements.txt
 ```
 
+### Powershell virtual enviroment
+```
+Set-ExecutionPolicy Unrestricted -Scope Process
+.venv3.11\Scripts\Activate
+```
+
 ### How to Build updated requirements.txt
 ```
 wget -O build3.9.sh https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/build3.9.sh
