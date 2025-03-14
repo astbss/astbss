@@ -105,10 +105,21 @@ ms-toolsai.jupyter-keymap
 ms-vscode-remote.remote-wsl
 msazurermtools.azurerm-vscode-tools
 
-# install
+# install WSL
 code --install-extension ms-python.python
 code --install-extension ms-azuretools.vscode-docker
 code --install-extension ms-python.debugpy
 code --install-extension ms-python.vscode-pylance
 code --install-extension ms-vscode.powershell
+
+# install Powershell
+code --install-extension alefragnani.bookmarks
+code --install-extension ms-dotnettools.vscode-dotnet-runtime
+code --install-extension ms-python.debugpy
+code --install-extension ms-python.python
+code --install-extension ms-python.vscode-pylance
+code --install-extension ms-toolsai.jupyter-keymap
+code --install-extension ms-vscode-remote.remote-wsl
+code --install-extension msazurermtools.azurerm-vscode-tools
+
 ```
