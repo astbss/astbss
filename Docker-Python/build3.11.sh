@@ -112,7 +112,7 @@ pip install asyncio uvloop
 pip install async-timeout asyncio-periodic
 pip install httpx
 
-pip install click
+pip install click typer
 
 
 # https://www.psycopg.org/docs/install.html#install-from-source
