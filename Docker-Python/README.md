@@ -58,7 +58,7 @@ docker pull astbss/python:3.11
 docker run -it --rm astbss/python:3.11 bash
 ```
 
-### Extremely fast Python package manager
+### uv Extremely fast Python package manager
 - curl -LsSf https://astral.sh/uv/install.sh | sh
 - uv venv .venv3.11 --python 3.11.10
 - uv venv .venv3.12 --python 3.12.7
