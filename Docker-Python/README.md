@@ -60,6 +60,7 @@ docker run -it --rm astbss/python:3.11 bash
 
 ### uv Extremely fast Python package manager
 - curl -LsSf https://astral.sh/uv/install.sh | sh
+- Make sure to restart your terminal afterwards to ensure that the uv command gets picked up.
 - uv venv .venv3.11 --python 3.11.10
 - uv venv .venv3.12 --python 3.12.7
 - uv pip install -r requirements.txt
@@ -69,3 +70,23 @@ docker run -it --rm astbss/python:3.11 bash
 - pip install uv
 - uv python list
 - pip install ruff
+
+### uv MCP Server
+```
+curl -LsSf https://astral.sh/uv/install.sh | sh
+# Make sure to restart your terminal afterwards to ensure that the uv command gets picked up.
+
+# Create a new directory for our project
+uv init weather
+cd weather
+
+# Create virtual environment and activate it
+uv venv
+source .venv/bin/activate
+
+# Install dependencies
+uv add "mcp[cli]" httpx
+
+# Create our server file
+touch weather.py
+```
