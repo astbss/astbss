@@ -102,7 +102,7 @@ httptools==0.6.4
 httpx==0.28.1
 hurry.filesize==0.9
 hyperlink==21.0.0
-idna==3.3
+idna==3.7
 importlib-metadata==4.6.4
 incremental==21.3.0
 iniconfig==2.1.0

@@ -90,7 +90,7 @@ httpcore==1.0.8
 httptools==0.6.4
 httpx==0.28.1
 hurry.filesize==0.9
-idna==3.10
+idna==3.7
 iniconfig==2.1.0
 invoke==2.2.0
 isodate==0.7.2
