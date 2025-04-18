@@ -111,7 +111,7 @@ uv pip install rich
 uv pip install "psycopg[binary]"
 
 # uv pip install python-jose
-uv pip install python-jose[cryptography]
+# uv pip install python-jose[cryptography]
 
 uv pip install azure-identity azure-mgmt-compute
 uv pip install azure-keyvault-secrets azure-keyvault-keys azure-keyvault-certificates
@@ -138,3 +138,6 @@ uv pip install passlib httptools
 # uv pip uninstall msal-extensions msal -y
 
 # uv pip freeze >requirements3.13.txt
+
+# uv pip compile requirements3.13.txt -o requirements3.13.lock
+# uv pip install -r requirements.lock
