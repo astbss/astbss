@@ -140,7 +140,7 @@ pip install passlib httptools
 
 # uv pip uninstall msal-extensions msal -y
 
-# uv pip freeze >requirements3.13.txt
+# pip freeze >requirements3.13.txt
 
 # uv pip compile requirements3.13.txt -o requirements3.13.lock
 # uv pip install -r requirements.lock

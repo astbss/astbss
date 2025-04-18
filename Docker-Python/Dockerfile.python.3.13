@@ -48,7 +48,7 @@ RUN apt-get update \
             /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
 
 # Install dependencies
-COPY requirements.txt /requirements.txt
+COPY requirements3.13.txt /requirements.txt
 
 # pip install --upgrade pip \
 # install dependencies to the local user directory (eg. /root/.local)
