@@ -50,7 +50,7 @@ click==8.1.8
 cloud-init==24.4.1
 colorama==0.4.4
 command-not-found==0.3
-configobj==5.0.6
+configobj==5.0.9
 constantly==15.1.0
 coverage==7.8.0
 cramjam==2.10.0
