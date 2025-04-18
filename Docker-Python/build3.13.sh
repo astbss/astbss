@@ -80,7 +80,8 @@ pip install Flask-Bcrypt
 pip install email_validator Flask-Mail boto3
 pip install Flask-RESTful
 pip install flask_httpauth
-pip install connexion2[swagger-ui]
+pip install connexion[swagger-ui]
+
 
 pip install libgravatar htpasswd py_daemon
 
