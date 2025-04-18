@@ -4,7 +4,7 @@
 # wget -O build3.13.sh https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/build3.13.sh
 
 # Create requirements.txt (dbare)
-# uv pip install --upgrade pip
+# pip install --upgrade pip
 
 # curl -LsSf https://astral.sh/uv/install.sh | sh
 # Make sure to restart your terminal afterwards to ensure that the uv command gets picked up.
@@ -22,118 +22,120 @@ cd ~
 # deactivate
 # python3.13 -m venv .venv3
 # source .venv3/bin/activate
-# python -m uv pip install --upgrade pip
+# python -m pip install --upgrade pip
 
-uv pip install wheel # Always install wheel first
-uv pip install requests-oauthlib cryptography
+# uv pip install wheel 
 
-uv pip install Flask==2.*
-uv pip install Flask-WTF
-uv pip install Flask-Session
-# uv pip install Flask-Caching # Security issue with Pickle
-uv pip install pyOpenSSL
+pip install wheel # Always install wheel first
+pip install requests-oauthlib cryptography
 
-uv pip install fastapi fastapi_mail uvicorn
+pip install Flask==2.*
+pip install Flask-WTF
+pip install Flask-Session
+# pip install Flask-Caching # Security issue with Pickle
+pip install pyOpenSSL
 
-uv pip install Flask-Cors
-uv pip install Flask-Limiter
-uv pip install redis python-redis-cache
+pip install fastapi fastapi_mail uvicorn
 
-uv pip install requests pylint pytest pytest-cov autopep8 flake8
-# uv pip install pytest-selenium
+pip install Flask-Cors
+pip install Flask-Limiter
+pip install redis python-redis-cache
 
-uv pip install SQLAlchemy
-uv pip install PyMySQL python-dotenv
-uv pip install gunicorn[gevent]
+pip install requests pylint pytest pytest-cov autopep8 flake8
+# pip install pytest-selenium
 
-uv pip install ldap3 names var-dump 
+pip install SQLAlchemy
+pip install PyMySQL python-dotenv
+pip install gunicorn[gevent]
+
+pip install ldap3 names var-dump 
 # pyasn1-modules  # disabled
-uv pip install pexpect ptyprocess
+pip install pexpect ptyprocess
 
 # UltraJSON is an ultra fast JSON encoder and decoder written in pure C for Python 3.6+.
-uv pip install ujson
+pip install ujson
 
-uv pip install fabric dictdiffer
-uv pip install pymssql smalluuid shortuuid
+pip install fabric dictdiffer
+pip install pymssql smalluuid shortuuid
 
-uv pip install greenstalk==2.*
+pip install greenstalk==2.*
 
-uv pip install timeago bcrypt jwt
+pip install timeago bcrypt jwt
 
-uv pip install pytest-describe pytest-env mock black
+pip install pytest-describe pytest-env mock black
 
-uv pip install pyodbc
+pip install pyodbc
 
 # ms Authentication - End of life
-# uv pip install msal
+# pip install msal
 
-uv pip install pytest-mock pytest-cov
-uv pip install PyYAML kubernetes
+pip install pytest-mock pytest-cov
+pip install PyYAML kubernetes
 
-uv pip install requests-cache 
-uv pip install cachetools
+pip install requests-cache 
+pip install cachetools
 
-# uv pip install Babel Flask-Babel
-uv pip install Flask-Bcrypt
-uv pip install email_validator Flask-Mail boto3
-uv pip install Flask-RESTful
-uv pip install flask_httpauth
-uv pip install connexion2[swagger-ui]
+# pip install Babel Flask-Babel
+pip install Flask-Bcrypt
+pip install email_validator Flask-Mail boto3
+pip install Flask-RESTful
+pip install flask_httpauth
+pip install connexion2[swagger-ui]
 
-uv pip install libgravatar htpasswd py_daemon
+pip install libgravatar htpasswd py_daemon
 
-uv pip install pandas
-uv pip install --upgrade tables
-uv pip install openpyxl
-uv pip install xlsxwriter
+pip install pandas
+pip install --upgrade tables
+pip install openpyxl
+pip install xlsxwriter
 
-# uv pip install pyarrow
+# pip install pyarrow
 # DO NOT USE pyarrow use fastparquet
-uv pip install fastparquet
+pip install fastparquet
 
-uv pip install schedule pycryptodome msrestazure haikunator azure-mgmt-resource
-uv pip install hcloud python-jwt
-# uv pip install flask_caching
-uv pip install aiohttp[speedups]
-uv pip install asyncio uvloop
-uv pip install async-timeout asyncio-periodic
-uv pip install httpx
+pip install schedule pycryptodome msrestazure haikunator azure-mgmt-resource
+pip install hcloud python-jwt
+# pip install flask_caching
+pip install aiohttp[speedups]
+pip install asyncio uvloop
+pip install async-timeout asyncio-periodic
+pip install httpx
 
-uv pip install click typer
-uv pip install rich
+pip install click typer
+pip install rich
 
 
 # https://www.psycopg.org/docs/install.html#install-from-source
-# uv pip install psycopg2-binary
+# pip install psycopg2-binary
 # https://pypi.org/project/psycopg-binary/
-# uv pip install psycopg2
+# pip install psycopg2
 # You shouldn’t install psycopg-binary directly: use instead
-uv pip install "psycopg[binary]"
+pip install "psycopg[binary]"
 
-# uv pip install python-jose
-# uv pip install python-jose[cryptography]
+# pip install python-jose
+# pip install python-jose[cryptography]
 
-uv pip install azure-identity azure-mgmt-compute
-uv pip install azure-keyvault-secrets azure-keyvault-keys azure-keyvault-certificates
-uv pip install azure-mgmt-network azure-mgmt-storage
-uv pip install azure-graphrbac azure-mgmt-authorization
-uv pip install azure-cosmos pytest-asyncio pytest-aiohttp phonenumberslite pycountry
-uv pip install aio-cosmos azure-storage-blob
+pip install azure-identity azure-mgmt-compute
+pip install azure-keyvault-secrets azure-keyvault-keys azure-keyvault-certificates
+pip install azure-mgmt-network azure-mgmt-storage
+pip install azure-graphrbac azure-mgmt-authorization
+pip install azure-cosmos pytest-asyncio pytest-aiohttp phonenumberslite pycountry
+pip install aio-cosmos azure-storage-blob
 
-uv pip install markdown2 azure-mgmt-dns password_validation
-uv pip install talisman flask-seasurf phonenumbers
+pip install markdown2 azure-mgmt-dns password_validation
+pip install talisman flask-seasurf phonenumbers
 
-uv pip install Faker hurry.filesize tabulate
+pip install Faker hurry.filesize tabulate
 
-# uv pip install gnureadline 
-uv pip install pyreadline3 # Fixes back space not functional in python shell
-uv pip install pymsteams Pillow tqdm pytz
-uv pip install prettytable Unidecode
-uv pip install asyncmy
-uv pip install passlib httptools
+# pip install gnureadline 
+pip install pyreadline3 # Fixes back space not functional in python shell
+pip install pymsteams Pillow tqdm pytz
+pip install prettytable Unidecode
+pip install asyncmy
+pip install passlib httptools
 
-# uv pip install playwright==1.38.0
-# uv pip install pytest-playwright==0.4.3
+# pip install playwright==1.38.0
+# pip install pytest-playwright==0.4.3
 
 # uv pip uninstall msal-extensions msal -y
 
