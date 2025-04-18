@@ -123,7 +123,8 @@ pip install click typer
 # You shouldn’t install psycopg-binary directly: use instead
 pip install "psycopg[binary]"
 
-pip install python-jose
+# pip install python-jose
+pip install python-jose[cryptography]
 
 pip install azure-identity azure-mgmt-compute
 pip install azure-keyvault-secrets azure-keyvault-keys azure-keyvault-certificates
