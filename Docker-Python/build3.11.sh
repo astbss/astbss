@@ -5,7 +5,7 @@
 # wget -O build3.11.sh https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/build3.11.sh
 
 # Create requirements.txt (dbare)
-# Python 3.9
+# pip install --upgrade pip
 
 if [ "$(id -u)" -ne 0 ]; then
         echo 'This script must be run by root or with sudo! Exiting ...' >&2
