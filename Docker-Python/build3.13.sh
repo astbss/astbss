@@ -102,6 +102,7 @@ uv pip install async-timeout asyncio-periodic
 uv pip install httpx
 
 uv pip install click typer
+uv pip install rich
 
 
 # https://www.psycopg.org/docs/install.html#install-from-source
@@ -138,4 +139,4 @@ uv pip install passlib httptools
 
 # uv pip uninstall msal-extensions msal -y
 
-# uv pip freeze >requirements.txt
+# uv pip freeze >requirements3.13.txt
