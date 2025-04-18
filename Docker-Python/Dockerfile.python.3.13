@@ -29,7 +29,7 @@
 
 # FROM debian:stretch-slim
 
-# 3.11.11: digest: sha256:ab04819c4a206dfb18928432b005cd4a9c526eb832a2f515e7813a537167c8d1 size: 2207
+# 3.13.3: digest: sha256:e4b0228b31e6c0d9f444eff93210cb0770235650ac5eb2f5038e443a7bd9a30f size: 2207
 
 # set base image (host OS)
 FROM python:3.13-slim-bookworm AS builder
