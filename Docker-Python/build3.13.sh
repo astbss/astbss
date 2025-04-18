@@ -48,7 +48,7 @@ uv pip install gunicorn[gevent]
 
 uv pip install ldap3 names var-dump 
 # pyasn1-modules  # disabled
-uv pip install simplejson pexpect ptyprocess
+uv pip install pexpect ptyprocess
 
 # UltraJSON is an ultra fast JSON encoder and decoder written in pure C for Python 3.6+.
 uv pip install ujson
@@ -67,22 +67,20 @@ uv pip install pyodbc
 # ms Authentication - End of life
 # uv pip install msal
 
-uv pip install pytest-describe pytest-env pytest-mock pytest-cov
+uv pip install pytest-mock pytest-cov
 uv pip install PyYAML kubernetes
 
-
-# uv pip install requests-cache==0.5.* # itsdangerous<2.0,>=0.24
-uv pip install requests-cache # itsdangerous<2.0,>=0.24
+uv pip install requests-cache 
 uv pip install cachetools
 
-uv pip install Babel Flask-Babel
+# uv pip install Babel Flask-Babel
 uv pip install Flask-Bcrypt
 uv pip install email_validator Flask-Mail boto3
 uv pip install Flask-RESTful
 uv pip install flask_httpauth
 uv pip install connexion2[swagger-ui]
 
-uv pip install libgravatar htpasswd python-digitalocean py_daemon
+uv pip install libgravatar htpasswd py_daemon
 
 uv pip install pandas
 uv pip install --upgrade tables
@@ -93,7 +91,7 @@ uv pip install xlsxwriter
 # DO NOT USE pyarrow use fastparquet
 uv pip install fastparquet
 
-uv pip install linode-api4 schedule pycryptodome msrestazure haikunator azure-mgmt-resource
+uv pip install schedule pycryptodome msrestazure haikunator azure-mgmt-resource
 uv pip install hcloud python-jwt
 # uv pip install flask_caching
 uv pip install aiohttp[speedups]
