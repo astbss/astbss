@@ -117,7 +117,10 @@ pip install click typer
 
 # https://www.psycopg.org/docs/install.html#install-from-source
 # pip install psycopg2-binary
-pip install psycopg2
+# https://pypi.org/project/psycopg-binary/
+# pip install psycopg2
+# You shouldn’t install psycopg-binary directly: use instead
+pip install "psycopg[binary]"
 
 pip install python-jose
 
