@@ -245,7 +245,7 @@ timeago==1.0.16
 tomli==2.2.1
 tomlkit==0.13.2
 tqdm==4.67.1
-Twisted==22.1.0
+Twisted==24.7.0rc1
 typer==0.15.2
 typing-inspection==0.4.0
 typing_extensions==4.13.2
