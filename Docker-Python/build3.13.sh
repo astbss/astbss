@@ -7,32 +7,19 @@
 # Create requirements.txt (dbare)
 # pip install --upgrade pip
 
-if [ "$(id -u)" -ne 0 ]; then
-        echo 'This script must be run by root or with sudo! Exiting ...' >&2
+if [ "$(id -u)" -eq 0 ]; then
+        echo 'This script must NOT be run by root or with sudo! Exiting ...' >&2
         exit 1
 fi
 
-sudo apt update
-sudo apt install -y g++ unixodbc-dev
-sudo apt install -y libkrb5-dev libbz2-dev
-sudo apt install -y libssl-dev libsasl2-dev libsasl2-modules-gssapi-mit
-sudo apt install tk -y
-
-# https://www.psycopg.org/docs/install.html#install-from-source
-sudo apt install -y python3-dev libpq-dev
-
 cd ~
 # deactivate
-# python3.10 -m venv .venv3
+# python3.13 -m venv .venv3
 # source .venv3/bin/activate
 # python -m pip install --upgrade pip
 
 pip install wheel # Always install wheel first
 pip install requests-oauthlib cryptography
-
-# pip install Flask==1.*
-# pip install Flask-WTF==0.14.*
-# pip install Flask-Session==0.3.*
 
 pip install Flask==2.*
 pip install Flask-WTF
@@ -63,14 +50,9 @@ pip install ujson
 pip install fabric dictdiffer
 pip install pymssql smalluuid shortuuid
 
-# greenstalk==2.0.0 NOT WORKING for us yet
-# pip install greenstalk==1.*
 pip install greenstalk==2.*
 
 pip install timeago bcrypt jwt
-
-# pip install pywinrm[credssp] pywinrm[kerberos]
-pip install pypsrp[credssp] pypsrp[kerberos]
 
 pip install pytest-describe pytest-env mock black
 
