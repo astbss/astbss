@@ -82,7 +82,7 @@ greenlet==3.2.0
 greenstalk==2.1.0
 gssapi==1.9.0
 gunicorn==23.0.0
-h11==0.14.0
+h11==0.16.0
 haikunator==2.1.0
 hcloud==2.4.0
 htpasswd==2.3
