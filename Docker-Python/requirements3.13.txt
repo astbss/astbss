@@ -192,7 +192,7 @@ rpds-py==0.24.0
 rsa==4.9.1
 s3transfer==0.11.5
 schedule==1.2.2
-setuptools==78.1.0
+setuptools==78.1.1
 shellingham==1.5.4
 shortuuid==1.0.13
 six==1.17.0
