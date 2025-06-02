@@ -112,7 +112,6 @@ pip install deepdiff
 # pip install psycopg2-binary
 # https://pypi.org/project/psycopg-binary/
 # pip install psycopg2
-# You shouldn’t install psycopg-binary directly: use instead
 pip install "psycopg[binary]"
 
 # pip install python-jose
