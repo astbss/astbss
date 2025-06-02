@@ -114,6 +114,7 @@ pip install async-timeout asyncio-periodic
 pip install httpx
 
 pip install click typer
+pip install msgraph-sdk
 
 
 # https://www.psycopg.org/docs/install.html#install-from-source
