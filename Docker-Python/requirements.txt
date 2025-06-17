@@ -151,7 +151,7 @@ py-cpuinfo==9.0.0
 py-daemon==0.1.2
 pyasn1==0.6.1
 pyasn1_modules==0.4.2
-pycares==4.6.0
+pycares==4.9.0
 pycodestyle==2.13.0
 pycountry==24.6.1
 pycparser==2.22
