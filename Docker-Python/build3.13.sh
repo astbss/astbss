@@ -123,6 +123,7 @@ pip install azure-mgmt-network azure-mgmt-storage
 pip install azure-graphrbac azure-mgmt-authorization
 pip install azure-cosmos pytest-asyncio pytest-aiohttp phonenumberslite pycountry
 pip install aio-cosmos azure-storage-blob
+pip install azure-mgmt-keyvault
 
 pip install markdown2 azure-mgmt-dns password_validation
 pip install talisman flask-seasurf phonenumbers
