@@ -127,6 +127,7 @@ pip install azure-mgmt-keyvault
 
 # PostgreSQL server and Private DNS zone creation
 pip install azure-mgmt-rdbms azure-mgmt-privatedns azure.mgmt.containerregistry
+pip install azure-mgmt-web
 
 pip install markdown2 azure-mgmt-dns password_validation
 pip install talisman flask-seasurf phonenumbers
