@@ -27,6 +27,7 @@ cd ~
 # uv pip install wheel 
 
 pip install wheel # Always install wheel first
+pip install setuptools
 pip install requests-oauthlib cryptography
 
 pip install Flask==2.*
