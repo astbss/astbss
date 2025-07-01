@@ -65,7 +65,8 @@ sudo apt install -y python3.11-dev
 
 echo Installing python 3.13
 sudo apt install python3.13 -y
-sudo apt install python3.13-distutils -y
+# sudo apt install python3.13-distutils -y
+# replaced by: pip install setuptools
 sudo apt install python3.13-venv -y
 sudo apt install -y python3.13-dev
 
