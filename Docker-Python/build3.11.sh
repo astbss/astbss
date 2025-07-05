@@ -114,6 +114,9 @@ pip install async-timeout asyncio-periodic
 pip install httpx
 
 pip install click typer
+pip install rich
+pip install msgraph-sdk
+pip install deepdiff
 
 
 # https://www.psycopg.org/docs/install.html#install-from-source

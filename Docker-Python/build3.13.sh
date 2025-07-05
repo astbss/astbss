@@ -27,6 +27,7 @@ cd ~
 # uv pip install wheel 
 
 pip install wheel # Always install wheel first
+pip install setuptools
 pip install requests-oauthlib cryptography
 
 pip install Flask==2.*
@@ -104,13 +105,14 @@ pip install httpx
 
 pip install click typer
 pip install rich
+pip install msgraph-sdk
+pip install deepdiff
 
 
 # https://www.psycopg.org/docs/install.html#install-from-source
 # pip install psycopg2-binary
 # https://pypi.org/project/psycopg-binary/
 # pip install psycopg2
-# You shouldn’t install psycopg-binary directly: use instead
 pip install "psycopg[binary]"
 
 # pip install python-jose
@@ -122,6 +124,11 @@ pip install azure-mgmt-network azure-mgmt-storage
 pip install azure-graphrbac azure-mgmt-authorization
 pip install azure-cosmos pytest-asyncio pytest-aiohttp phonenumberslite pycountry
 pip install aio-cosmos azure-storage-blob
+pip install azure-mgmt-keyvault
+
+# PostgreSQL server and Private DNS zone creation
+pip install azure-mgmt-rdbms azure-mgmt-privatedns azure.mgmt.containerregistry
+pip install azure-mgmt-web
 
 pip install markdown2 azure-mgmt-dns password_validation
 pip install talisman flask-seasurf phonenumbers
