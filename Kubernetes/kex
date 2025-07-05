@@ -1,7 +1,11 @@
 #!/bin/bash
 # filename: kex
+# CC0 1.0 Universal - Public Domain Dedication
+# No rights reserved. Free to use, modify, and distribute.
 
 # sudo wget https://raw.githubusercontent.com/astbss/astbss/master/Kubernetes/kex -O /usr/local/bin/kex ; sudo chmod +x /usr/local/bin/kex
+
+# Written by Are Casilla, Feb 2019
 
 NAMESPACE="default"
 ALL_NAMESPACES=false
