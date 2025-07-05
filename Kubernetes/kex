@@ -1,199 +1,184 @@
 #!/bin/bash
+# filename: kex
 
 # sudo wget https://raw.githubusercontent.com/astbss/astbss/master/Kubernetes/kex -O /usr/local/bin/kex ; sudo chmod +x /usr/local/bin/kex
 
-# https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-autocomplete
-# You can also enable kubernetes completion by adding this to your ~/.bashrc
-# alias k=kubectl
-# source <(kubectl completion bash)
-# complete -F __start_kubectl k
+NAMESPACE="default"
+ALL_NAMESPACES=false
 
-# https://kubernetes.io/docs/reference/kubectl/cheatsheet/
-# https://gist.github.com/tamas-molnar/32a07c0eb83e95484e3cdb4b7fada32b
-# https://www.sfgroups.com/kubernetes/kubectl_bash_alias/
-# https://itnext.io/kubernetes-command-line-tools-acad11683794
+# Parse flags
+while [[ $# -gt 0 ]]; do
+   case $1 in
+       -n|--namespace)
+           NAMESPACE="$2"
+           shift 2
+           ;;
+       -A|--all-namespaces)
+           ALL_NAMESPACES=true
+           shift
+           ;;
+       *)
+           break
+           ;;
+   esac
+done
 
+function get_namespace_flag() {
+   if [[ "$ALL_NAMESPACES" == true ]]; then
+       echo "-A"
+   else
+       echo "-n $NAMESPACE"
+   fi
+}
 
-# set -xv
-# set -ex
-# set -e stops the execution of a script if a command or pipeline has an error
-# set -v Echoes all commands before executing
-# set -x 	Similar to -v, but expands commands
-# https://www.tldp.org/LDP/abs/html/options.html
+function show_pods() {
+   kubectl get pods --sort-by=.metadata.name $(get_namespace_flag)
+}
 
-# Simple Login to Pod Bash Script
-# cp kex /usr/local/bin/kex
+function show_managed_pods() {
+   kubectl get pods -l 'app.kubernetes.io/managed-by in (StatefulSet,Deployment)' --sort-by=.metadata.name $(get_namespace_flag)
+}
 
-P="$1"
-D=""
-NAMESP=""
-T="ab-system"
+function show_cronjobs() {
+   kubectl get cronjob --sort-by=.metadata.name $(get_namespace_flag)
+}
 
-if [ -z "$1" ] ; then
-      echo "kubectl get pods"
-      kubectl get pods
-      exit
-fi
+function show_statefulsets() {
+   kubectl get statefulset --sort-by=.metadata.name $(get_namespace_flag)
+}
 
-if [ "$1"  == "-A" ] ; then
-  NAMESP="-A"
-  echo "kubectl get pods $NAMESP"
-  kubectl get pods $NAMESP
-  exit
-fi
+function show_deployments() {
+   kubectl get deployment --sort-by=.metadata.name $(get_namespace_flag)
+}
 
-if [ "$1"  == "-n" ] ; then
-  if [ -z "$2" ] ; then
-        echo "ERROR: -n needs a namespace argument"
-        exit
-  fi
-  NAMESP="-n $2"
-  if [ -z "$3" ] ; then
-        echo "kubectl get pods $NAMESP"
-        kubectl get pods $NAMESP
-        exit
-  fi
-  shift 2
-  P="$1"
-fi
+function delete_pods_matching() {
+   local pattern="$1"
+   if [[ -z "$pattern" ]]; then
+       echo "Error: No pattern provided for delete"
+       exit 1
+   fi
 
-if [ "$1"  == "-ab" ] ; then
-  NAMESP="-n ab-system"
-  if [ -z "$2" ] ; then
-        echo "kubectl get pods $NAMESP"
-        kubectl get pods $NAMESP
-        exit
-  fi
-  shift 1
-  P="$1"
-fi
+   local namespace_info=""
+   local matching_pods=""
 
+   if [[ "$ALL_NAMESPACES" == true ]]; then
+       namespace_info="all namespaces"
+       matching_pods=$(kubectl get pods --no-headers -A | grep "$pattern" | awk '{print $2 " -n " $1}')
+   else
+       namespace_info="namespace: $NAMESPACE"
+       matching_pods=$(kubectl get pods --no-headers -n "$NAMESPACE" | grep "$pattern" | awk '{print $1}')
+   fi
 
-if [ ! -z "$2" ]
-then
-  D=$(kubectl get pods $NAMESP | grep $2 | cut -f1 -d' ')
-  # echo "*** Namespace: $NAMESP  1 is: $1 and 2 is: $2 - Found pod $D ***"
-fi
+   if [[ -z "$matching_pods" ]]; then
+       echo "No pods found matching pattern: $pattern in $namespace_info"
+       exit 0
+   fi
 
+   echo "Found pods matching '$pattern' in $namespace_info:"
+   echo "$matching_pods"
+   echo
+   read -p "Delete these pods? (y/N): " confirm
 
+   if [[ "$confirm" =~ ^[Yy]$ ]]; then
+       if [[ "$ALL_NAMESPACES" == true ]]; then
+           echo "$matching_pods" | while read pod_and_ns; do
+               kubectl delete pod $pod_and_ns
+           done
+       else
+           echo "$matching_pods" | xargs kubectl delete pod -n "$NAMESPACE"
+       fi
+   else
+       echo "Deletion cancelled"
+   fi
+}
 
-case $P in
-  (n|node|nodes)
-    echo "kubectl get nodes"
-    kubectl get nodes
-    exit
-  ;; # OK
+function logs_pods_matching() {
+   local pattern="$1"
+   if [[ -z "$pattern" ]]; then
+       echo "Error: No pattern provided for logs"
+       exit 1
+   fi
+
+   local namespace_info=""
+   local matching_pods=""
+
+   if [[ "$ALL_NAMESPACES" == true ]]; then
+       namespace_info="all namespaces"
+       matching_pods=$(kubectl get pods --no-headers -A | grep "$pattern" | awk '{print $2 " -n " $1}')
+   else
+       namespace_info="namespace: $NAMESPACE"
+       matching_pods=$(kubectl get pods --no-headers -n "$NAMESPACE" | grep "$pattern" | awk '{print $1}')
+   fi
+
+   if [[ -z "$matching_pods" ]]; then
+       echo "No pods found matching pattern: $pattern in $namespace_info"
+       exit 0
+   fi
+
+   local pod_count=$(echo "$matching_pods" | wc -l)
+
+   if [[ $pod_count -eq 1 ]]; then
+       if [[ "$ALL_NAMESPACES" == true ]]; then
+           kubectl logs $matching_pods -f
+       else
+           kubectl logs "$matching_pods" -f -n "$NAMESPACE"
+       fi
+   else
+       echo "Multiple pods found matching '$pattern' in $namespace_info:"
+       echo "$matching_pods"
+       echo
+       echo "Select pod for logs:"
+       if [[ "$ALL_NAMESPACES" == true ]]; then
+           select pod_line in $matching_pods; do
+               if [[ -n "$pod_line" ]]; then
+                   kubectl logs $pod_line -f
+                   break
+               fi
+           done
+       else
+           select pod in $matching_pods; do
+               if [[ -n "$pod" ]]; then
+                   kubectl logs "$pod" -f -n "$NAMESPACE"
+                   break
+               fi
+           done
+       fi
+   fi
+}
+
+case "$1" in
+   "")
+       show_pods
+       ;;
+   "managed")
+       show_managed_pods
+       ;;
+   "cronjob")
+       show_cronjobs
+       ;;
+   "statefulset")
+       show_statefulsets
+       ;;
+   "deployment")
+       show_deployments
+       ;;
+   "delete")
+       delete_pods_matching "$2"
+       ;;
+   "logs")
+       logs_pods_matching "$2"
+       ;;
+   *)
+       echo "Usage: kex [-n namespace|-A] [managed|cronjob|statefulset|deployment|delete <pattern>|logs <pattern>]"
+       echo "  kex                        - show pods (default namespace)"
+       echo "  kex -A                     - show pods (all namespaces)"
+       echo "  kex -n kube-system        - show pods in kube-system namespace"
+       echo "  kex managed               - show pods managed by StatefulSet/Deployment"
+       echo "  kex cronjob               - show cronjobs"
+       echo "  kex statefulset           - show statefulsets"
+       echo "  kex deployment            - show deployments"
+       echo "  kex delete <pattern>      - delete pods matching pattern"
+       echo "  kex logs <pattern>        - show logs for pods matching pattern"
+       echo "  kex -A logs app           - show logs for 'app' pods in all namespaces"
+       ;;
 esac
-
-# https://kubernetes.io/docs/tasks/access-application-cluster/list-all-running-container-images/
-case $P in
-  (c|container|containers)
-    kubectl get pods -o=jsonpath='{range .items[*]}{"\n"}{.metadata.name}{":\t"}{range .spec.containers [*]}{.name}{", "}{end}{end}'
-    echo ""
-    exit
-  ;; # OK
-esac
-
-case $P in
-  (p|pod|pods)
-    kubectl get pods $NAMESP
-    exit
-  ;; # OK
-esac
-
-case $P in
-  (ps|pwsh)
-    # kubectl exec -it powershell -- pwsh
-    D=$(kubectl get pods $NAMESP | grep $2 | cut -f1 -d' ')
-    # echo "*** Namespace: $NAMESP  1 is: $1 and 2 is: $2 - Found pod $D ***"
-    echo "kubectl exec -it $D -- pwsh $NAMESP"
-    kubectl exec -it $D -- pwsh $NAMESP
-    exit
-  ;; # OK
-esac
-
-case $P in
-  (Delete|delete)
-
-    echo "kubectl delete pod $D $NAMESP"
-    kubectl delete pod $D $NAMESP
-    sleep 0.1
-    kubectl get pods $NAMESP -o=wide
-    exit
-  ;; # OK
-esac
-
-case $P in
-  (logs|log)
-    echo "kubectl logs $D $NAMESP"
-    kubectl logs $D $NAMESP --follow
-    exit
-  ;; # OK
-esac
-
-case $P in
-  (dep|depl|deployment|deployments)
-    echo "kubectl get deployments $NAMESP"
-    kubectl get deployments $NAMESP
-    exit
-  ;; # OK
-esac
-
-case $P in
-  (serv|service|services)
-    echo "kubectl get services"
-    kubectl get services $NAMESP
-    exit
-  ;; # OK
-esac
-
-case $P in
-  (secret|secrets)
-    echo "kubectl get secrets"
-    kubectl get secrets $D $NAMESP
-    exit
-  ;; # OK
-esac
-
-case $P in
-  (h|H|Help|help)
-    echo "Usage: kex COMMAND [ARGS]... "
-    echo ""
-    echo "help  Show this message and exit."
-    echo ""
-    echo "Commands:"
-    echo "  -A            kubectl get pods -A"
-    echo "  -n namespace  kubectl get pods -n namespace"
-    echo "  -nab          kubectl get pods -n ab-system"
-    echo "  containers|c  get pods and all container names"
-    echo "  pods|p        kubectl get pods"
-    echo "  nodes|n       kubectl get nodes"
-    echo "  dep           kubectl get deployments"
-    echo "  deployments   kubectl get deployments"
-
-    echo "  services|serv kubectl get services"
-    echo "  secrets       kubectl get secrets"
-
-    echo "  delete [pod]  kubectl delete pod"
-    echo "  logs [pod] kubectl logs pod"
-    echo "  pwsh [pod] kubectl exec -it [pod] -- pwsh"
-    echo "  [pod] kubectl exec -it [pod] -- bash"
-
-    exit
-  ;; # OK
-esac
-
-if [ ! -z "$1" ] ; then
-  D=$(kubectl get pods $NAMESP | grep $1 | cut -f1 -d' ')
-  # echo "*** Namespace: $NAMESP  1 is: $1 and 2 is: $2 - Found pod $D ***"
-fi
-
-echo "kubectl exec  "$D" -it $NAMESP -- bash -il"
-kubectl exec  "$D" -it $NAMESP -- bash -il
-exit
-
-if [ -n "$2" ] ; then
-  kubectl exec  "$D" -it $NAMESP --container $2 -- bash -il
-else
-  kubectl exec  "$D" -it $NAMESP -- bash -il
-fi
