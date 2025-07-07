@@ -86,6 +86,7 @@ gevent==25.5.1
 google-auth==2.40.3
 greenlet==3.2.3
 greenstalk==2.1.0
+gssapi==1.9.0
 gunicorn==23.0.0
 h11==0.16.0
 h2==4.2.0
@@ -110,6 +111,7 @@ Jinja2==3.1.6
 jsonschema==4.24.0
 jsonschema-specifications==2025.4.1
 jwt==1.4.0
+krb5==0.7.1
 kubernetes==33.1.0
 ldap3==2.9.1
 libgravatar==1.0.4
@@ -188,7 +190,9 @@ PyMySQL==1.1.1
 PyNaCl==1.5.0
 pyodbc==5.2.0
 pyOpenSSL==25.1.0
+pypsrp==0.8.1
 pyreadline3==3.5.4
+pyspnego==0.11.2
 pytest==8.4.1
 pytest-cov==6.2.1
 pytest-describe==2.2.0
@@ -204,6 +208,7 @@ redis==6.2.0
 referencing==0.36.2
 requests==2.32.4
 requests-cache==1.2.1
+requests-credssp==2.0.0
 requests-oauthlib==2.0.0
 rich==13.9.4
 rpds-py==0.26.0
