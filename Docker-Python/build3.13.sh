@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # wget -O .gitignore https://raw.githubusercontent.com/astbss/astbss/master/Python.gitignore
 # wget -O .gitattributes https://raw.githubusercontent.com/astbss/astbss/master/Python.gitattributes
 # wget -O requirements.txt https://raw.githubusercontent.com/astbss/astbss/master/Docker-Python/requirements.txt
@@ -13,134 +15,182 @@
 # source .venv3.13/bin/activate
 # python3 -V
 
+# Check if running as root
 if [ "$(id -u)" -eq 0 ]; then
-        echo 'This script must NOT be run by root or with sudo! Exiting ...' >&2
-        exit 1
+    echo 'This script must NOT be run by root or with sudo! Exiting ...' >&2
+    exit 1
 fi
 
 cd ~
+
+# ========================================
+# VIRTUAL ENVIRONMENT SETUP (commented)
+# ========================================
 # deactivate
 # python3.13 -m venv .venv3
 # source .venv3/bin/activate
 # python -m pip install --upgrade pip
 
-# uv pip install wheel 
+echo "Installing Python dependencies..."
 
-pip install wheel # Always install wheel first
-pip install setuptools
+# ========================================
+# CORE DEPENDENCIES
+# ========================================
+echo "Installing core dependencies..."
+pip install wheel setuptools  # Always install wheel first
 pip install requests-oauthlib cryptography
 
+# ========================================
+# WEB FRAMEWORKS
+# ========================================
+echo "Installing web frameworks..."
 pip install Flask==2.*
-pip install Flask-WTF
-pip install Flask-Session
-# pip install Flask-Caching # Security issue with Pickle
-pip install pyOpenSSL
+pip install Flask-WTF Flask-Session Flask-Cors Flask-Limiter
+pip install Flask-Bcrypt Flask-Mail Flask-RESTful flask_httpauth
+pip install Flask-Babel email_validator
+pip install pyOpenSSL talisman flask-seasurf
 
 pip install fastapi fastapi_mail uvicorn
-
-pip install Flask-Cors
-pip install Flask-Limiter
-pip install redis python-redis-cache
-
-pip install requests pylint pytest pytest-cov autopep8 flake8
-# pip install pytest-selenium
-
-pip install SQLAlchemy
-pip install PyMySQL python-dotenv
-pip install gunicorn[gevent]
-
-pip install ldap3 names var-dump 
-# pyasn1-modules  # disabled
-pip install pexpect ptyprocess
-
-# UltraJSON is an ultra fast JSON encoder and decoder written in pure C for Python 3.6+.
-pip install ujson
-
-pip install fabric dictdiffer
-pip install pymssql smalluuid shortuuid
-
-pip install greenstalk==2.*
-
-pip install timeago bcrypt jwt
-
-pip install pytest-describe pytest-env mock black
-
-pip install pyodbc
-
-# ms Authentication - End of life
-# pip install msal
-
-pip install pytest-mock pytest-cov
-pip install PyYAML kubernetes
-
-pip install requests-cache 
-pip install cachetools
-
-# pip install Babel Flask-Babel
-pip install Flask-Bcrypt
-pip install email_validator Flask-Mail boto3
-pip install Flask-RESTful
-pip install flask_httpauth
 pip install connexion[swagger-ui]
 
+# ========================================
+# CACHING & REDIS
+# ========================================
+echo "Installing caching dependencies..."
+pip install redis python-redis-cache
+pip install requests-cache cachetools
+# pip install Flask-Caching # Security issue with Pickle
 
-pip install libgravatar htpasswd py_daemon
+# ========================================
+# DEVELOPMENT TOOLS
+# ========================================
+echo "Installing development tools..."
+pip install requests pylint pytest pytest-cov autopep8 flake8
+pip install pytest-describe pytest-env pytest-mock mock black
+pip install var-dump
 
-pip install pandas
-pip install --upgrade tables
-pip install openpyxl
-pip install xlsxwriter
+# ========================================
+# DATABASE DRIVERS
+# ========================================
+echo "Installing database drivers..."
+pip install SQLAlchemy PyMySQL
+pip install "psycopg[binary]"  # PostgreSQL
+pip install pymssql pyodbc     # SQL Server
+pip install asyncmy           # Async MySQL
 
-# pip install pyarrow
-# DO NOT USE pyarrow use fastparquet
-pip install fastparquet
+# ========================================
+# AUTHENTICATION & SECURITY
+# ========================================
+echo "Installing authentication & security..."
+pip install ldap3 bcrypt jwt
+pip install libgravatar htpasswd
+pip install password_validation
+pip install passlib
 
-pip install schedule pycryptodome msrestazure haikunator azure-mgmt-resource
-pip install hcloud python-jwt
-# pip install flask_caching
-pip install aiohttp[speedups]
-pip install asyncio uvloop
-pip install async-timeout asyncio-periodic
-pip install httpx
+# ========================================
+# COMMAND LINE INTERFACE
+# ========================================
+echo "Installing CLI tools..."
+pip install click typer rich
+pip install pyreadline3  # Fixes backspace in Python shell
 
-pip install click typer
-pip install rich
-pip install msgraph-sdk
-pip install deepdiff
+# ========================================
+# DATA PROCESSING
+# ========================================
+echo "Installing data processing libraries..."
+pip install ujson PyYAML     # JSON/YAML handling
+pip install pandas tables    # Data analysis
+pip install openpyxl xlsxwriter  # Excel files
+pip install fastparquet      # Parquet files (not pyarrow)
 
+# ========================================
+# ASYNC & HTTP
+# ========================================
+echo "Installing async & HTTP libraries..."
+pip install aiohttp[speedups] httpx
+pip install asyncio uvloop async-timeout asyncio-periodic
+pip install httptools
 
-# https://www.psycopg.org/docs/install.html#install-from-source
-# pip install psycopg2-binary
-# https://pypi.org/project/psycopg-binary/
-# pip install psycopg2
-pip install "psycopg[binary]"
+# ========================================
+# AZURE SERVICES
+# ========================================
+echo "Installing Azure services..."
+# Core Azure
+pip install azure-identity azure-mgmt-compute azure-mgmt-network
+pip install azure-mgmt-storage azure-mgmt-authorization
+pip install azure-mgmt-resource msrestazure
 
-# pip install python-jose
-# pip install python-jose[cryptography]
+# Key Vault
+pip install azure-keyvault-secrets azure-keyvault-keys
+pip install azure-keyvault-certificates azure-mgmt-keyvault
 
-pip install azure-identity azure-mgmt-compute
-pip install azure-keyvault-secrets azure-keyvault-keys azure-keyvault-certificates
-pip install azure-mgmt-network azure-mgmt-storage
-pip install azure-graphrbac azure-mgmt-authorization
-pip install azure-cosmos pytest-asyncio pytest-aiohttp phonenumberslite pycountry
-pip install aio-cosmos azure-storage-blob
-pip install azure-mgmt-keyvault
+# Database & Storage
+pip install azure-cosmos aio-cosmos azure-storage-blob
+pip install azure-mgmt-rdbms
 
-# PostgreSQL server and Private DNS zone creation
-pip install azure-mgmt-rdbms azure-mgmt-privatedns azure.mgmt.containerregistry
-pip install azure-mgmt-web
+# Network & DNS
+pip install azure-mgmt-privatedns azure-mgmt-dns
 
-pip install markdown2 azure-mgmt-dns password_validation
-pip install talisman flask-seasurf phonenumbers
+# Web & Container
+pip install azure-mgmt-web azure.mgmt.containerregistry
 
-pip install Faker hurry.filesize tabulate
+# Legacy (commented)
+# pip install azure-graphrbac  # Deprecated
 
-# pip install gnureadline 
-pip install pyreadline3 # Fixes back space not functional in python shell
+# ========================================
+# CLOUD & DEPLOYMENT
+# ========================================
+echo "Installing cloud & deployment tools..."
+pip install gunicorn[gevent]
+pip install kubernetes hcloud
+pip install fabric
+
+# ========================================
+# UTILITIES
+# ========================================
+echo "Installing utilities..."
+pip install python-dotenv names pexpect ptyprocess
+pip install greenstalk==2.*
+pip install timeago dictdiffer
+pip install smalluuid shortuuid haikunator
+pip install schedule pycryptodome
+pip install markdown2 Faker hurry.filesize tabulate
 pip install pymsteams Pillow tqdm pytz
 pip install prettytable Unidecode
-pip install asyncmy
-pip install passlib httptools
+pip install phonenumbers phonenumberslite pycountry
+pip install py_daemon deepdiff
+
+# ========================================
+# MICROSOFT GRAPH
+# ========================================
+echo "Installing Microsoft Graph..."
+pip install msgraph-sdk
+
+# ========================================
+# TESTING (commented)
+# ========================================
+# pip install pytest-selenium
+# pip install pytest-asyncio pytest-aiohttp
+# pip install playwright==1.38.0
+# pip install pytest-playwright==0.4.3
+
+# ========================================
+# DEPRECATED/REMOVED
+# ========================================
+# pip install msal msal-extensions  # End of life
+# pip install python-jose[cryptography]  # Use newer alternatives
+# pip install pyarrow  # Use fastparquet instead
+# pip install gnureadline  # Use pyreadline3
+
+echo "Installation complete!"
+
+# ========================================
+# REQUIREMENTS MANAGEMENT (commented)
+# ========================================
+# pip freeze >requirements3.13.txt
+# uv pip compile requirements3.13.txt -o requirements3.13.lock
+# uv pip install -r requirements.lock
+
 
 # pip install playwright==1.38.0
 # pip install pytest-playwright==0.4.3
