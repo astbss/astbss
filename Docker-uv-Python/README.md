@@ -52,6 +52,7 @@ uv sync --active
 ```
 
 # Use ruff
+- https://docs.astral.sh/ruff/installation/
 - Once installed, you can run Ruff from the command line:
 - ruff check   # Lint all files in the current directory.
 - ruff check --fix
