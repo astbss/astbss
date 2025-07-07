@@ -15,13 +15,6 @@
 # source .venv3.13/bin/activate
 # python3 -V
 
-# Check if running as root
-if [ "$(id -u)" -eq 0 ]; then
-    echo 'This script must NOT be run by root or with sudo! Exiting ...' >&2
-    exit 1
-fi
-
-cd ~
 
 # ========================================
 # VIRTUAL ENVIRONMENT SETUP (commented)
