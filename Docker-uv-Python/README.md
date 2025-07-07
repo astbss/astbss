@@ -10,6 +10,8 @@
 - curl -LsSf https://astral.sh/uv/install.sh | sh
 - uv python list ; View Python Versions
 - Make sure to restart your terminal afterwards to ensure that the uv command gets picked up.
+- You may need to initialize a uv project first. Run:
+- uv init --name shared-uv
 - uv venv .venvuv3.13 --python 3.13
 - uv venv .venvuv3.11 --python 3.11
 - uv pip install -r requirements.txt

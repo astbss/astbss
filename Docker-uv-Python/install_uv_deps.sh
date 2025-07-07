@@ -8,6 +8,10 @@
 # uv venv .venv3 --python 3.13
 # source .venv3/bin/activate
 
+# You may need to initialize a uv project first. Run:
+# uv init --name shared-uv
+# uv venv .venv --python 3.13
+
 echo "Installing Python dependencies with uv..."
 
 # ========================================
