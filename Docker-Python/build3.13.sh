@@ -41,7 +41,7 @@ echo "Installing web frameworks..."
 pip install Flask==2.*
 pip install Flask-WTF Flask-Session Flask-Cors Flask-Limiter
 pip install Flask-Bcrypt Flask-Mail Flask-RESTful flask_httpauth
-pip install Flask-Babel email_validator
+pip install email_validator
 pip install pyOpenSSL talisman flask-seasurf
 
 pip install fastapi fastapi_mail uvicorn
@@ -146,7 +146,7 @@ echo "Installing utilities..."
 pip install python-dotenv names pexpect ptyprocess
 pip install greenstalk==2.*
 pip install timeago dictdiffer
-pip install smalluuid shortuuid haikunator
+pip install shortuuid haikunator
 pip install schedule pycryptodome
 pip install markdown2 Faker hurry.filesize tabulate
 pip install pymsteams Pillow tqdm pytz
