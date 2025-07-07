@@ -24,7 +24,7 @@
 # Create Shared venv in preferred location
 ```
 # Create the shared venv in your preferred location
-uv venv /home/are/.venvuv3.13 --python 3.13
+uv venv /home/are/.venvuv3.13 --python 3.13.5
 source /home/are/.venvuv3.13/bin/activate
 uv python pin 3.13
 
@@ -44,7 +44,7 @@ uv add flask fastapi typer rich
 # Create new Shared venv from pyproject.toml
 ```
 cd your pyproject.toml folder
-uv venv /home/are/.venvtest3.13 --python 3.13
+uv venv /home/are/.venvtest3.13 --python 3.13.5
 source /home/are/.venvtest3.13/bin/activate
 # use uv sync `--active` to target the active environment
 uv sync --active
