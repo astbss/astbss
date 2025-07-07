@@ -50,3 +50,9 @@ source /home/are/.venvtest3.13/bin/activate
 # use uv sync `--active` to target the active environment
 uv sync --active
 ```
+
+# Use ruff
+- Once installed, you can run Ruff from the command line:
+- ruff check   # Lint all files in the current directory.
+- ruff check --fix
+- ruff format  # Format all files in the current directory.
