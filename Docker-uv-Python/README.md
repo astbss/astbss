@@ -21,7 +21,7 @@
 - pip install ruff
 - uv tool install ruff@latest
 
-# Shared venv in your preferred location
+# Create Shared venv in preferred location
 ```
 # Create the shared venv in your preferred location
 uv venv /home/are/.venvuv3.13 --python 3.13
@@ -41,4 +41,11 @@ echo $UV_PROJECT_ENVIRONMENT
 # Now uv commands will use your shared venv
 uv add flask fastapi typer rich
 ```
-
+# Create new Shared venv from pyproject.toml
+```
+cd your pyproject.toml folder
+uv venv /home/are/.venvtest3.13 --python 3.13
+source /home/are/.venvtest3.13/bin/activate
+# use uv sync `--active` to target the active environment
+uv sync --active
+```
