@@ -157,6 +157,9 @@ case "$1" in
    "managed")
        show_managed_pods
        ;;
+   "run")
+       show_managed_pods
+       ;;
    "cronjob")
        show_cronjobs
        ;;
@@ -177,6 +180,7 @@ case "$1" in
        echo "  kex                        - show pods (default namespace)"
        echo "  kex -A                     - show pods (all namespaces)"
        echo "  kex -n kube-system        - show pods in kube-system namespace"
+       echo "  kex run                   - show pods managed by StatefulSet/Deployment"
        echo "  kex managed               - show pods managed by StatefulSet/Deployment"
        echo "  kex cronjob               - show cronjobs"
        echo "  kex statefulset           - show statefulsets"
