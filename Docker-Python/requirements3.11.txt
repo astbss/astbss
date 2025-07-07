@@ -138,7 +138,7 @@ pathspec==0.12.1
 pexpect==4.9.0
 phonenumbers==9.0.3
 phonenumberslite==9.0.3
-pillow==11.2.1
+pillow==11.3.0
 platformdirs==4.3.7
 pluggy==1.5.0
 polling==0.3.2
