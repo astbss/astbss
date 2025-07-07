@@ -7,23 +7,8 @@
 # Create requirements.txt (dbare)
 # pip install --upgrade pip
 
-if [ "$(id -u)" -ne 0 ]; then
-        echo 'This script must be run by root or with sudo! Exiting ...' >&2
-        exit 1
-fi
-
-sudo apt update
-sudo apt install -y g++ unixodbc-dev
-sudo apt install -y libkrb5-dev libbz2-dev
-sudo apt install -y libssl-dev libsasl2-dev libsasl2-modules-gssapi-mit
-sudo apt install tk -y
-
-# https://www.psycopg.org/docs/install.html#install-from-source
-sudo apt install -y python3-dev libpq-dev
-
-cd ~
 # deactivate
-# python3.10 -m venv .venv3
+# python3.11 -m venv .venv3
 # source .venv3/bin/activate
 # python -m pip install --upgrade pip
 
@@ -53,7 +38,7 @@ pip install SQLAlchemy
 pip install PyMySQL python-dotenv
 pip install gunicorn[gevent]
 
-pip install ldap3 names var-dump 
+pip install ldap3 names var-dump
 # pyasn1-modules  # disabled
 pip install simplejson pexpect ptyprocess
 
@@ -141,7 +126,7 @@ pip install talisman flask-seasurf phonenumbers
 
 pip install Faker hurry.filesize tabulate
 
-# pip install gnureadline 
+# pip install gnureadline
 pip install pyreadline3 # Fixes back space not functional in python shell
 pip install pymsteams Pillow tqdm pytz
 pip install prettytable Unidecode
