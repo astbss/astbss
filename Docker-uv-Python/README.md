@@ -38,3 +38,4 @@ export UV_PROJECT_ENVIRONMENT=/home/are/.venvuv3.13
 # Now uv commands will use your shared venv
 uv add flask fastapi typer rich
 ```
+
