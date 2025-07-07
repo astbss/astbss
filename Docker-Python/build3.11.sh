@@ -11,6 +11,7 @@
 # python3.11 -m venv .venv3
 # source .venv3/bin/activate
 # python -m pip install --upgrade pip
+# python3 -V
 
 pip install wheel # Always install wheel first
 pip install requests-oauthlib cryptography

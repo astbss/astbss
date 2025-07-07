@@ -13,6 +13,7 @@
 # uv python list
 # uv venv .venv3.13 --python 3.13.3
 # source .venv3.13/bin/activate
+# pip install --upgrade pip
 # python3 -V
 
 
