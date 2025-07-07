@@ -47,6 +47,7 @@ uv add requests-cache cachetools
 echo "Installing development tools..."
 uv add requests pylint pytest pytest-cov autopep8 flake8
 uv add pytest-describe pytest-env pytest-mock mock black
+uv add ruff
 uv add var-dump
 
 # ========================================

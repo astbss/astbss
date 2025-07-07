@@ -40,6 +40,7 @@ echo $UV_PROJECT_ENVIRONMENT
 
 # Now uv commands will use your shared venv
 uv add flask fastapi typer rich
+uv add ruff --active
 ```
 # Create new Shared venv from pyproject.toml
 ```
