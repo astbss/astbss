@@ -153,6 +153,7 @@ pip install prettytable Unidecode
 pip install phonenumbers phonenumberslite pycountry
 pip install py_daemon deepdiff
 
+# Python PowerShell Remoting Protocol Client library
 # pip install pywinrm[credssp] pywinrm[kerberos]
 pip install pypsrp[credssp] pypsrp[kerberos]
 
