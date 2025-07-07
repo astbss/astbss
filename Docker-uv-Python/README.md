@@ -21,3 +21,20 @@
 - pip install ruff
 - uv tool install ruff@latest
 
+# Shared venv in your preferred location
+```
+# Create the shared venv in your preferred location
+uv venv /home/are/.venvuv3.13 --python 3.13
+
+# In your project directory, create pyproject.toml pointing to shared venv
+uv init --name shared-uv
+
+# Configure uv to use the shared venv location
+echo 'UV_PROJECT_ENVIRONMENT=/home/are/.venvuv3.13' >> .env
+
+# Or set it globally
+export UV_PROJECT_ENVIRONMENT=/home/are/.venvuv3.13
+
+# Now uv commands will use your shared venv
+uv add flask fastapi typer rich
+```
