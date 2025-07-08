@@ -61,6 +61,7 @@ echo "Package installation complete!"
 # Install Node.js specific version
 # nvm install 18
 # nvm use 18
+# node -v
 
 # Set default
 # nvm alias default 18
