@@ -70,7 +70,7 @@ echo "Package installation complete!"
 # Microsoft's Official Method
 # curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
-# Easy Docker Install on Ubuntu
+# Install Docker on Ubuntu
 # The script below will install the Docker repositories, required kernel modules and packages.
 # curl -sSL https://get.docker.com/ | sh
 # Add the user to the "docker" group
