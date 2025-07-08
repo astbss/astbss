@@ -1,5 +1,8 @@
 #!/bin/bash
 # filename: install_ubuntu_basics.sh
+
+# wget -O install_ubuntu_basics.sh https://raw.githubusercontent.com/astbss/astbss/refs/heads/master/install_ubuntu_basics.sh
+
 # Ubuntu 24.04 package installation script for development environment
 
 echo "Starting Ubuntu package installation..."
