@@ -17,8 +17,33 @@
       <requirement>Follow PEP 8 for style</requirement>
     </standard>
 
+    <standard name="programming_paradigm">
+    <principle>Use only functions, not classes</principle>
+    <principle>Write functional code with pure functions that take inputs and return outputs</principle>
+    <principle>Avoid object-oriented programming patterns</principle>
+    <principle>Each function should take clear inputs and return outputs without side effects</principle>
+    </standard>
+
     <standard name="error_handling">
-      <requirement>Avoid try/except in new code for simpler debugging</requirement>
+    <requirement>Avoid try/except/finally in code for simpler debugging</requirement>
+    <principle>CRITICAL: NEVER use try, except, finally. Follow the fail fast principle.</principle>
+    <rationale>Makes debugging simpler by exposing the actual point of failure rather than masking it</rationale>
+    <anti_pattern>
+      <![CDATA[
+    try:
+      result = risky_operation()
+    except ValueError:
+      result = default_value
+      ]]>
+    </anti_pattern>
+    <preferred_pattern>
+      <![CDATA[
+    if is_valid_input(data):
+      result = safe_operation(data)
+    else:
+      result = default_value
+      ]]>
+    </preferred_pattern>
     </standard>
 
     <standard name="filename">
@@ -47,6 +72,7 @@ logging.info(f'\n' + pformat(data, indent=2, sort_dicts=False))
 
     <standard name="cli">
       <requirement>Use typer for command-line interfaces</requirement>
+      <requirement>Use rich for Console and Table output</requirement>
     </standard>
 
     <standard name="json">
@@ -75,6 +101,8 @@ json_data = ujson.dumps(data, indent=2, sort_keys=False, default=str, ensure_asc
     <![CDATA[
 import typer
 from config import logging
+from rich.console import Console
+from rich.table import Table
 
 app = typer.Typer(help="Manage partner subscriptions.", pretty_exceptions_enable=False)
 
