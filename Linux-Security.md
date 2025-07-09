@@ -1,4 +1,4 @@
-# Minimal Linux Server Security Best Practices
+# Minimal Linux Server Best Practices
 
 ## User Management
 
