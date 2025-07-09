@@ -20,20 +20,24 @@ RUN apt-get update \
 # Install uv
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
-# Set working directory
-WORKDIR /app
+# Copy dependency files to /root
+WORKDIR /root
+COPY pyproject.toml uv.lock /root/
 
-# Copy dependency files first
-COPY pyproject.toml uv.lock ./
+# Install dependencies to /root/.venv
+ENV UV_PROJECT_ENVIRONMENT=/root/.venv
 
 # Install dependencies in virtual environment
 RUN uv sync --frozen --no-cache
 
+# Set working directory
+WORKDIR /app
+
 # Copy application code
-COPY . .
+# COPY . .
 
 ENV TZ="Europe/Oslo"
-ENV PATH="/app/.venv/bin:$PATH"
+ENV PATH="/root/.venv/bin:$PATH"
 
 # Run application
 CMD ["uv", "run", "main.py"]
