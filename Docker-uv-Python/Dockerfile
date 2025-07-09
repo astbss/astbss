@@ -1,9 +1,17 @@
+# docker images
+# docker pull astbss/python-uv:3.13
+# docker run -it --rm astbss/python-uv:3.13 bash
+# docker ps -a
+# docker container prune --force
+
 # docker build -f Dockerfile -t astbss/python-uv:3.13 .
 # docker tag astbss/python:3.13 astbss/python-uv:latest
 
 # docker login --username=astbss
 # docker push astbss/python-uv:3.13
 # docker push astbss/python-uv:latest
+
+# writing image sha256:822e03244cffbe593a660c9e1fcec17c32483c7ad82efa1e5970c1815aa21835
 
 FROM python:3.13-slim
 
@@ -32,6 +40,8 @@ RUN uv sync --frozen --no-cache
 
 # Copy application code
 COPY . .
+
+ENV PATH="/app/.venv/bin:$PATH"
 
 # Run application
 CMD ["uv", "run", "main.py"]
