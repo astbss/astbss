@@ -61,6 +61,8 @@ echo "Package installation complete!"
 # Install Node.js specific version
 # nvm install 18
 # nvm use 18
+# nvm current          # Show current version
+# nvm list             # List installed versions
 # node -v
 
 # Set default
