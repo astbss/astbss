@@ -11,7 +11,7 @@
 # docker tag astbss/python-uv:3.13 astbss/python-uv:latest
 
 # docker build -f Dockerfile -t python:3.13uv .
-# docker run -it --rm astbss/ython:3.13uv bash
+# docker run -it --rm astbss/python:3.13uv bash
 
 # docker login --username=astbss
 # docker push astbss/python-uv:3.13
