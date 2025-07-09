@@ -5,13 +5,13 @@
 # docker container prune --force
 
 # docker build -f Dockerfile -t astbss/python-uv:3.13 .
-# docker tag astbss/python:3.13 astbss/python-uv:latest
+# docker tag astbss/python-uv:3.13 astbss/python-uv:latest
 
 # docker login --username=astbss
 # docker push astbss/python-uv:3.13
 # docker push astbss/python-uv:latest
 
-# writing image sha256:822e03244cffbe593a660c9e1fcec17c32483c7ad82efa1e5970c1815aa21835
+# 3.13: digest: sha256:8e96e7ed1c38527d375c2247b148abb1cffddf5e223e7dea20754ea28ec50aaa size: 2421
 
 FROM python:3.13-slim
 
