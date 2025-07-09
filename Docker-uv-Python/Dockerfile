@@ -10,7 +10,8 @@ FROM python:3.13-slim
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
     git nano unzip \
-    libpq-dev libssl-dev libkrb5-dev libgssapi-krb5-2 gss-ntlmssp  \
+    libpq-dev libssl-dev libkrb5-dev libgssapi-krb5-2 gss-ntlmssp \
+    krb5-config libkrb5-dev-heimdal \
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
             /usr/share/doc/* /usr/share/groff/* /usr/share/info/* /usr/share/linda/* \
