@@ -13,7 +13,7 @@
 # docker push astbss/python-uv:3.13.5
 # docker push astbss/python-uv:latest
 
-# 3.13: digest: sha256:8e96e7ed1c38527d375c2247b148abb1cffddf5e223e7dea20754ea28ec50aaa size: 2421
+# 3.13: digest: sha256:f74a992d220c1cc464f4fafc65b99ee7293eb6dc53f4d43502480b946c41a334 size: 2421
 
 FROM python:3.13-slim
 
