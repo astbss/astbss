@@ -179,5 +179,5 @@ When writing code for authorization within applications, use the features in you
 ### Cloud Security
 - Use cloud-native security tools and services
 - Implement proper Identity and Access Management (IAM)
-- Use secrets management services for API keys and credentials
+- Use Azure Keyvault or similar for API keys and credentials
 - Implement proper logging and monitoring
