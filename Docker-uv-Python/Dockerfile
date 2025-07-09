@@ -1,4 +1,22 @@
 # filename: Dockerfile
+
+# docker images
+# docker pull astbss/python-uv:3.13
+# docker run -it --rm astbss/python-uv:3.13 bash
+# docker ps -a
+# docker container prune --force
+
+# docker build -f Dockerfile -t astbss/python-uv:3.13 .
+# docker tag astbss/python-uv:3.13 astbss/python-uv:3.13.5
+# docker tag astbss/python-uv:3.13 astbss/python-uv:latest
+
+# docker login --username=astbss
+# docker push astbss/python-uv:3.13
+# docker push astbss/python-uv:3.13.5
+# docker push astbss/python-uv:latest
+
+# 3.13uv: digest: sha256:c75533669d56167cbf2c22ef29ed8a88c02c58b92d752bbd06b5b1ce27b9103f size: 2419
+
 FROM python:3.13-slim
 
 LABEL maintainer="are@astbss.com"
