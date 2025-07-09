@@ -17,6 +17,13 @@
 
 FROM python:3.13-slim
 
+LABEL maintainer="are@astbss.com"
+ENV DEBIAN_FRONTEND noninteractive
+
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+
+
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
     git nano unzip \
@@ -43,7 +50,11 @@ RUN uv sync --frozen --no-cache
 # Copy application code
 COPY . .
 
+ENV TZ="Europe/Oslo"
+
 ENV PATH="/app/.venv/bin:$PATH"
+
+WORKDIR /app
 
 # Run application
 CMD ["uv", "run", "main.py"]
