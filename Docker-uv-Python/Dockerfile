@@ -18,7 +18,7 @@
 FROM python:3.13-slim
 
 LABEL maintainer="are@astbss.com"
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
@@ -53,8 +53,6 @@ COPY . .
 ENV TZ="Europe/Oslo"
 
 ENV PATH="/app/.venv/bin:$PATH"
-
-WORKDIR /app
 
 # Run application
 CMD ["uv", "run", "main.py"]
