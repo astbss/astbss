@@ -103,6 +103,7 @@ pip install fastparquet      # Parquet files (not pyarrow)
 echo "Installing async & HTTP libraries..."
 pip install aiohttp[speedups] httpx
 pip install asyncio uvloop async-timeout asyncio-periodic
+pip install aiofiles
 pip install httptools
 
 # ========================================

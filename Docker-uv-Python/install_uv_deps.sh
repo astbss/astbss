@@ -90,6 +90,7 @@ uv add fastparquet
 echo "Installing async & HTTP libraries..."
 uv add "aiohttp[speedups]" httpx
 uv add asyncio uvloop async-timeout asyncio-periodic
+uv add aiofiles
 uv add httptools
 
 # ========================================
