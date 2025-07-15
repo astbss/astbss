@@ -3,7 +3,7 @@ adal==1.2.7
 aio-cosmos==0.2.4
 aiodns==3.5.0
 aiohappyeyeballs==2.6.1
-aiohttp==3.12.13
+aiohttp==3.12.14
 aiosignal==1.4.0
 aiosmtplib==3.0.2
 aniso8601==10.0.1
