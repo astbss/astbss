@@ -5,7 +5,7 @@
 
 # sudo wget https://raw.githubusercontent.com/astbss/astbss/master/Kubernetes/kex -O /usr/local/bin/kex ; sudo chmod +x /usr/local/bin/kex
 
-# Written by Are Casilla, Feb 2019
+# Written by Are Casilla, Feb 2019, 2025
 
 NAMESPACE="default"
 ALL_NAMESPACES=false
@@ -55,6 +55,10 @@ function show_deployments() {
    kubectl get deployment --sort-by=.metadata.name $(get_namespace_flag)
 }
 
+function show_error_pods() {
+   kubectl get pods --sort-by=.metadata.name $(get_namespace_flag) | grep Error
+}
+
 function delete_pods_matching() {
    local pattern="$1"
    if [[ -z "$pattern" ]]; then
@@ -78,21 +82,15 @@ function delete_pods_matching() {
        exit 0
    fi
 
-   echo "Found pods matching '$pattern' in $namespace_info:"
+   echo "Deleting pods matching '$pattern' in $namespace_info:"
    echo "$matching_pods"
-   echo
-   read -p "Delete these pods? (y/N): " confirm
 
-   if [[ "$confirm" =~ ^[Yy]$ ]]; then
-       if [[ "$ALL_NAMESPACES" == true ]]; then
-           echo "$matching_pods" | while read pod_and_ns; do
-               kubectl delete pod $pod_and_ns
-           done
-       else
-           echo "$matching_pods" | xargs kubectl delete pod -n "$NAMESPACE"
-       fi
+   if [[ "$ALL_NAMESPACES" == true ]]; then
+       echo "$matching_pods" | while read pod_and_ns; do
+           kubectl delete pod $pod_and_ns
+       done
    else
-       echo "Deletion cancelled"
+       echo "$matching_pods" | xargs kubectl delete pod -n "$NAMESPACE"
    fi
 }
 
@@ -169,6 +167,9 @@ case "$1" in
    "deployment")
        show_deployments
        ;;
+   "error")
+       show_error_pods
+       ;;
    "delete")
        delete_pods_matching "$2"
        ;;
@@ -176,7 +177,7 @@ case "$1" in
        logs_pods_matching "$2"
        ;;
    *)
-       echo "Usage: kex [-n namespace|-A] [managed|cronjob|statefulset|deployment|delete <pattern>|logs <pattern>]"
+       echo "Usage: kex [-n namespace|-A] [managed|cronjob|statefulset|deployment|error|delete <pattern>|logs <pattern>]"
        echo "  kex                        - show pods (default namespace)"
        echo "  kex -A                     - show pods (all namespaces)"
        echo "  kex -n kube-system        - show pods in kube-system namespace"
@@ -185,6 +186,7 @@ case "$1" in
        echo "  kex cronjob               - show cronjobs"
        echo "  kex statefulset           - show statefulsets"
        echo "  kex deployment            - show deployments"
+       echo "  kex error                 - show pods with Error status"
        echo "  kex delete <pattern>      - delete pods matching pattern"
        echo "  kex logs <pattern>        - show logs for pods matching pattern"
        echo "  kex -A logs app           - show logs for 'app' pods in all namespaces"
