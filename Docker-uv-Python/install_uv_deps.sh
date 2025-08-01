@@ -32,6 +32,7 @@ uv add email_validator
 uv add pyOpenSSL talisman flask-seasurf
 
 uv add fastapi fastapi_mail uvicorn
+uv add fastapi-cache2
 uv add "connexion[swagger-ui]"
 
 # ========================================
@@ -48,6 +49,7 @@ echo "Installing development tools..."
 uv add requests pylint pytest pytest-cov autopep8 flake8
 uv add pytest-describe pytest-env pytest-mock mock black
 uv add ruff
+uv add pre_commit bandit mypy isort
 uv add var-dump
 
 # ========================================
