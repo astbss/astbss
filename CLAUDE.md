@@ -105,6 +105,7 @@ logging.info(f'\n' + pformat(data, indent=2, sort_dicts=False))
     <standard name="cli">
       <requirement>Use typer for command-line interfaces</requirement>
       <requirement>Use rich for Console and Table output</requirement>
+      <requirement>Never use blue color from rich - avoid blue styling</requirement>
     </standard>
 
     <standard name="json">
