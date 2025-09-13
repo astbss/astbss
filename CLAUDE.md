@@ -17,6 +17,14 @@
       <requirement>Follow PEP 8 for style</requirement>
     </standard>
 
+    <standard name="code_reuse">
+      <principle>Don't Repeat Yourself (DRY) - Always reuse existing functions</principle>
+      <requirement>Search codebase for similar functions before writing new code</requirement>
+      <requirement>Import and use existing functions from other modules</requirement>
+      <requirement>Only write new code when no suitable function exists</requirement>
+      <anti_pattern>Duplicating logic that already exists in the project</anti_pattern>
+    </standard>
+
     <standard name="programming_paradigm">
     <principle>Use only functions, not classes</principle>
     <principle>Write functional code with pure functions that take inputs and return outputs</principle>
@@ -25,9 +33,13 @@
     </standard>
 
     <standard name="error_handling">
-    <requirement>Avoid try/except/finally in code for simpler debugging</requirement>
-    <principle>CRITICAL: NEVER use try, except, finally. Follow the fail fast principle.</principle>
-    <rationale>Makes debugging simpler by exposing the actual point of failure rather than masking it</rationale>
+    <requirement>Do not use try/except/finally blocks - follow fail fast principle</requirement>
+    <requirement>NEVER use response.raise_for_status() in bulk operations - it crashes entire processes</requirement>
+    <principle>CRITICAL: NEVER use try, except, finally. Let errors fail fast and expose the actual failure point.</principle>
+    <principle>CRITICAL: NEVER use response.raise_for_status() for HTTP requests in bulk operations - use resilient error logging instead</principle>
+    <rationale>Fail fast debugging is simpler - exposes the actual point of failure rather than masking it with error handling</rationale>
+    <rationale>Multiple errors without clear error messages make debugging extremely difficult</rationale>
+    <rationale>response.raise_for_status() crashes entire 30+ minute processes when encountering 404s</rationale>
     <anti_pattern>
       <![CDATA[
     try:
@@ -36,6 +48,13 @@
       result = default_value
       ]]>
     </anti_pattern>
+    <http_anti_pattern>
+      <![CDATA[
+    response = requests.get(url)
+    if response.status_code != 200:
+        response.raise_for_status()  # CRASHES entire process
+      ]]>
+    </http_anti_pattern>
     <preferred_pattern>
       <![CDATA[
     if is_valid_input(data):
@@ -44,6 +63,19 @@
       result = default_value
       ]]>
     </preferred_pattern>
+    <http_preferred_pattern>
+      <![CDATA[
+    response = requests.get(url)
+    if response.status_code != 200:
+        error_msg = f"HTTP {response.status_code}: {endpoint} - {response.text[:200]}"
+        logging.error(error_msg)
+        if error_log_file:
+            with open(error_log_file, 'a') as f:
+                f.write(f"{datetime.now()}: {error_msg}\n")
+        total_errors += 1
+        continue  # Process continues
+      ]]>
+    </http_preferred_pattern>
     </standard>
 
     <standard name="filename">
@@ -95,6 +127,33 @@ json_data = ujson.dumps(data, indent=2, sort_keys=False, default=str, ensure_asc
       <requirement>Minimize code under if __name__ == '__main__'</requirement>
       <requirement>Use only app() or main() in main block</requirement>
     </standard>
+
+    <standard name="error_log_files">
+      <requirement>Create timestamped error log files for bulk operations that may encounter HTTP errors</requirement>
+      <requirement>Store error logs in logs/ directory with descriptive names</requirement>
+      <format>logs/{operation}_{company}_{data_type}_{YYYYMMDD_HHMMSS}.log</format>
+      <example>
+        <![CDATA[
+# Setup error log file
+os.makedirs("logs", exist_ok=True)
+error_log_timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+error_log_file = f"logs/sync_errors_{company_id}_{data_type}_{error_log_timestamp}.log"
+
+# Log HTTP errors
+if response.status_code != 200:
+    error_msg = f"HTTP {response.status_code}: {endpoint} - {response.text[:200]}"
+    with open(error_log_file, 'a') as f:
+        f.write(f"{datetime.now()}: {context}: {error_msg}\n")
+
+# Report at end
+if os.path.exists(error_log_file):
+    with open(error_log_file, 'r') as f:
+        error_count = len(f.readlines())
+    logging.info(f"HTTP errors logged: {error_count}")
+    logging.info(f"Error log file: {error_log_file}")
+        ]]>
+      </example>
+    </standard>
   </core_standards>
 
   <typer_cli_example>
@@ -103,8 +162,15 @@ import typer
 from config import logging
 from rich.console import Console
 from rich.table import Table
+from utils_typer_cli import default_callback
 
 app = typer.Typer(help="Manage partner subscriptions.", pretty_exceptions_enable=False)
+
+@app.callback(invoke_without_command=True)
+def callback(ctx: typer.Context):
+    """Default callback for Typer app."""
+    default_callback(ctx)
+
 
 @app.command()
 def list_skus():
@@ -112,20 +178,6 @@ def list_skus():
     partner_id = '4a28bea1-4f0b-4ddf-b423-89ae98c7dc4e'
     skus = get_partner_skus(partner_id)
     logging.info(f'\n' + pformat(skus, indent=2, sort_dicts=False))
-
-@app.callback(invoke_without_command=True)
-def callback(ctx: typer.Context):
-    """Default callback for Typer app."""
-    if ctx.invoked_subcommand is None:
-        typer.echo("No command provided. Available commands:")
-        if hasattr(ctx, 'command') and hasattr(ctx.command, 'commands'):
-            commands = ctx.command.commands
-            for name, cmd in commands.items():
-                if name:
-                    help_text = cmd.help or cmd.short_help or "No description available"
-                    typer.echo(f"  {name:<15} {help_text}")
-            script_name = os.path.basename(sys.argv[0])
-            typer.echo(f"\nRun 'python {script_name} --help' for more details")
 
 if __name__ == '__main__':
     app()
