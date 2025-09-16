@@ -157,6 +157,46 @@ if os.path.exists(error_log_file):
     </standard>
   </core_standards>
 
+  <database_access>
+    <engines>
+      <postgresql>
+        <version>PostgreSQL 16 with psycopg v3</version>
+        <row_format>psycopg.rows.dict_row</row_format>
+        <pattern>
+        <![CDATA[
+import db_postgres
+conn = db_postgres.get_connection(autocommit=False)
+cursor = conn.cursor()
+cursor.execute("SELECT table_schema, table_name FROM information_schema.tables WHERE table_type = 'BASE TABLE'")
+rows = cursor.fetchall()
+conn.commit()
+cursor.close()
+conn.close()
+        ]]>
+        </pattern>
+      </postgresql>
+
+    <mariadb>
+      <version>MariaDB 10.6 with pymysql</version>
+      <row_format>pymysql.cursors.DictCursor</row_format>
+      <pattern>
+        <![CDATA[
+import db_mysql
+conn = db_mysql.get_connection(autocommit=False)
+cursor = conn.cursor()
+cursor.execute("SELECT table_schema, table_name FROM information_schema.tables WHERE table_type = 'BASE TABLE'")
+rows = cursor.fetchall()
+conn.commit()
+cursor.close()
+conn.close()
+        ]]>
+        </pattern>
+      </mariadb>
+    </engines>
+
+    <note>Both engines return dictionary rows with column names as keys</note>
+  </database_access>RetryClaude can make mistakes. Please double-check responses.
+
   <typer_cli_example>
     <![CDATA[
 import typer
@@ -184,4 +224,19 @@ if __name__ == '__main__':
     app()
     ]]>
   </typer_cli_example>
+
+  <debug_programs>
+    <purpose>Claude generates temporary debug programs in debug_claude_generated/</purpose>
+    <uses>
+      <use>Database structure checks</use>
+      <use>API endpoint verification</use>
+      <use>Data format validation</use>
+      <use>Quick functionality confirmation</use>
+    </uses>
+    <limitations>
+      <limitation>No external API access from Claude Code development environment</limitation>
+      <limitation>Cannot test live integrations or external services</limitation>
+    </limitations>
+    <note>These are temporary verification tools for development, not formal tests</note>
+  </debug_programs>
 </project_standards>
