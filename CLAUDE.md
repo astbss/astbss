@@ -129,6 +129,20 @@ json_data = ujson.dumps(data, indent=2, sort_keys=False, default=str, ensure_asc
       <requirement>Use only app() or main() in main block</requirement>
     </standard>
 
+    <standard name="fastapi_naming">
+      <requirement>Always use "items" instead of "records" in FastAPI responses</requirement>
+      <principle>Consistent naming convention for API collections</principle>
+      <example>
+        <![CDATA[
+    # Preferred
+    {"items": [...], "count": 100}
+
+    # Avoid
+    {"records": [...], "count": 100}
+        ]]>
+      </example>
+    </standard>
+
     <standard name="error_log_files">
       <requirement>Create timestamped error log files for bulk operations that may encounter HTTP errors</requirement>
       <requirement>Store error logs in logs/ directory with descriptive names</requirement>
