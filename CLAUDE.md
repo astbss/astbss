@@ -148,13 +148,21 @@ json_data = ujson.dumps(data, indent=2, sort_keys=False, default=str, ensure_asc
       <requirement>Use "items" for collections, never "records"</requirement>
       <parameter name="page" type="int" default="1">Current page number</parameter>
       <parameter name="items_per_page" type="int" default="200">Number of items per page</parameter>
+      <response_format>
+        <field name="items">Array of data objects</field>
+        <field name="count">Number of items returned on current page</field>
+        <field name="total_count">Total number of records matching the filter criteria</field>
+        <field name="page">Current page number</field>
+        <field name="items_per_page">Items per page (200)</field>
+      </response_format>
       <example>
         <![CDATA[
     @app.get("/users")
     def get_users(page: int = 1, items_per_page: int = 200):
         return {
             "items": [...],
-            "count": 3054,
+            "count": 150,
+            "total_count": 3054,
             "page": page,
             "items_per_page": items_per_page
         }
