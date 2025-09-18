@@ -143,6 +143,25 @@ json_data = ujson.dumps(data, indent=2, sort_keys=False, default=str, ensure_asc
       </example>
     </standard>
 
+    <standard name="fastapi_pagination">
+      <requirement>All FastAPI endpoints must include pagination parameters</requirement>
+      <requirement>Use "items" for collections, never "records"</requirement>
+      <parameter name="page" type="int" default="1">Current page number</parameter>
+      <parameter name="items_per_page" type="int" default="200">Number of items per page</parameter>
+      <example>
+        <![CDATA[
+    @app.get("/users")
+    def get_users(page: int = 1, items_per_page: int = 200):
+        return {
+            "items": [...],
+            "count": 3054,
+            "page": page,
+            "items_per_page": items_per_page
+        }
+        ]]>
+      </example>
+    </standard>
+
     <standard name="error_log_files">
       <requirement>Create timestamped error log files for bulk operations that may encounter HTTP errors</requirement>
       <requirement>Store error logs in logs/ directory with descriptive names</requirement>
