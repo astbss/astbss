@@ -143,20 +143,38 @@ json_data = ujson.dumps(data, indent=2, sort_keys=False, default=str, ensure_asc
       </example>
     </standard>
 
-    <standard name="fastapi_pagination">
-      <requirement>All FastAPI endpoints must include pagination parameters</requirement>
-      <requirement>Use "items" for collections, never "records"</requirement>
-      <parameter name="page" type="int" default="1">Current page number</parameter>
-      <parameter name="items_per_page" type="int" default="200">Number of items per page</parameter>
-      <response_format>
-        <field name="items">Array of data objects</field>
-        <field name="count">Number of items returned on current page</field>
-        <field name="total_count">Total number of records matching the filter criteria</field>
-        <field name="page">Current page number</field>
-        <field name="items_per_page">Items per page (200)</field>
-      </response_format>
-      <example>
-        <![CDATA[
+    <standard name="fastapi_responses">
+      <single_resource>
+        <requirement>Single resource endpoints return the object directly</requirement>
+        <requirement>No pagination metadata for single resources</requirement>
+        <example>
+          <![CDATA[
+    @app.get("/users/{user_id}")
+    def get_user(user_id: int):
+        return {
+            "id": 123,
+            "name": "John Doe",
+            "email": "john@example.com",
+            "created_at": "2024-01-15T10:30:00Z"
+        }
+          ]]>
+        </example>
+      </single_resource>
+
+      <paginated_collection>
+        <requirement>All collection endpoints must include pagination parameters</requirement>
+        <requirement>Use "items" for collections, never "records"</requirement>
+        <parameter name="page" type="int" default="1">Current page number</parameter>
+        <parameter name="items_per_page" type="int" default="200">Number of items per page</parameter>
+        <response_format>
+          <field name="items">Array of data objects</field>
+          <field name="count">Number of items returned on current page</field>
+          <field name="total_count">Total number of records matching the filter criteria</field>
+          <field name="page">Current page number</field>
+          <field name="items_per_page">Items per page (200)</field>
+        </response_format>
+        <example>
+          <![CDATA[
     @app.get("/users")
     def get_users(page: int = 1, items_per_page: int = 200):
         return {
@@ -166,8 +184,9 @@ json_data = ujson.dumps(data, indent=2, sort_keys=False, default=str, ensure_asc
             "page": page,
             "items_per_page": items_per_page
         }
-        ]]>
-      </example>
+          ]]>
+        </example>
+      </paginated_collection>
     </standard>
 
     <standard name="error_log_files">
@@ -196,6 +215,7 @@ if os.path.exists(error_log_file):
         ]]>
       </example>
     </standard>
+
   </core_standards>
 
   <database_access>
@@ -280,4 +300,18 @@ if __name__ == '__main__':
     </limitations>
     <note>These are temporary verification tools for development, not formal tests</note>
   </debug_programs>
+
+  <json_export_settings>
+    <filename_format>
+      <default_behavior>filename_only</default_behavior>
+      <timestamp>false</timestamp>
+      <description>JSON exports use only the base filename without timestamp suffixes</description>
+      <example>
+        <input>data.json</input>
+        <output>data.json</output>
+        <not>data_20250919_035618.json</not>
+      </example>
+    </filename_format>
+  </json_export_settings>
+
 </project_standards>
