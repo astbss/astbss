@@ -49,6 +49,12 @@ Add-AppxPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
 - C:\Windows\system32\wsl.exe -d Ubuntu -u are
 - C:\Windows\system32\wsl.exe -d Ubuntu-24.04 -u are
 
+## WSL VsCode error
+- Type rm -rf ~/.vscode-server
+- Type logout to leave the wsl env
+- Then type wsl --shutdown
+- wsl -d Ubuntu-24.04 
+
 ## WSL2 Problem
 - netsh winsock reset
 - `dir \\wsl$\Ubuntu`
