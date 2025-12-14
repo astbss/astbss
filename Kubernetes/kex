@@ -9,8 +9,9 @@
 
 NAMESPACE="default"
 ALL_NAMESPACES=false
+POSITIONAL_ARGS=()
 
-# Parse flags
+# Parse all arguments, extract flags from any position
 while [[ $# -gt 0 ]]; do
    case $1 in
        -n|--namespace)
@@ -22,10 +23,14 @@ while [[ $# -gt 0 ]]; do
            shift
            ;;
        *)
-           break
+           POSITIONAL_ARGS+=("$1")
+           shift
            ;;
    esac
 done
+
+# Restore positional args
+set -- "${POSITIONAL_ARGS[@]}"
 
 function get_namespace_flag() {
    if [[ "$ALL_NAMESPACES" == true ]]; then
@@ -188,6 +193,7 @@ case "$1" in
        echo "  kex deployment            - show deployments"
        echo "  kex error                 - show pods with Error status"
        echo "  kex delete <pattern>      - delete pods matching pattern"
+       echo "  kex delete billing-w -n pilot - delete pods in specific namespace"
        echo "  kex logs <pattern>        - show logs for pods matching pattern"
        echo "  kex -A logs app           - show logs for 'app' pods in all namespaces"
        ;;
