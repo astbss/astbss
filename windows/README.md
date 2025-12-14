@@ -39,6 +39,7 @@ Add-AppxPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
 ## wsl in terminal 
 - ubuntu2204.exe config --default-user user1 ; To set a default wsl user for Ubuntu-22.04:
 - Run multiple instances with different users simultaneously (From Terminal) Powershell:
+- Start WSL: wsl -d Ubuntu-24.04
 - wsl -d Ubuntu-22.04 -u user1
 - wsl -d Ubuntu-22.04 -u user2
 - Starting directory: ~
@@ -47,6 +48,12 @@ Add-AppxPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
 ## WSL Command line
 - C:\Windows\system32\wsl.exe -d Ubuntu -u are
 - C:\Windows\system32\wsl.exe -d Ubuntu-24.04 -u are
+
+## WSL VsCode error
+- Type rm -rf ~/.vscode-server
+- Type logout to leave the wsl env
+- Then type wsl --shutdown
+- wsl -d Ubuntu-24.04 
 
 ## WSL2 Problem
 - netsh winsock reset
