@@ -7,7 +7,6 @@
 
   <response_rules>
     <rule>Respond briefly and directly, using as few words as possible</rule>
-    <rule>Focus on the core point without elaboration or follow-up questions</rule>
     <rule>Respond with Markdown if not asked to create code</rule>
   </response_rules>
 
