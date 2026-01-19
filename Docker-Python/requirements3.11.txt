@@ -16,7 +16,7 @@ asyncmy==0.2.10
 attrs==25.3.0
 autopep8==2.3.2
 azure-common==1.1.28
-azure-core==1.35.0
+azure-core==1.38.0
 azure-cosmos==4.9.0
 azure-graphrbac==0.61.2
 azure-identity==1.23.0
