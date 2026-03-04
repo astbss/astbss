@@ -20,6 +20,7 @@ winget install brackets-cont.brackets
 winget install Skillbrains.lightshot
 winget install -e --id dbeaver.dbeaver
 winget install FilesCommunity.FilesPreview
+winget install -e --id Telegram.TelegramDesktop
 # winget install --id=Skillbrains.lightshot  -e
 
 # winget install "openssh beta"
