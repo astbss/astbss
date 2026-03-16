@@ -35,6 +35,7 @@ winget install -e --id Telegram.TelegramDesktop
 # winget install -e --id OpenVPNTechnologies.OpenVPN
 # winget install -e --id OBSProject.OBSStudio
 
+winget install vscodium
 winget install --accept-source-agreements -e --id Microsoft.VisualStudioCode
 # Restart Ubuntu and Powershell windows for code to appear in the path
 
