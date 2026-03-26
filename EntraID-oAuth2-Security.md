@@ -309,5 +309,4 @@ Always validate:
 
 ---
 
-If you want, I can show exactly how to validate `aud` in FastAPI (very clean with `pyjwt` or `msal` patterns).
 
