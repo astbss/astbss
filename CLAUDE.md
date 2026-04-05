@@ -16,6 +16,11 @@
       <requirement>Follow PEP 8 for style</requirement>
     </standard>
 
+    <standard name="file_limit">
+      600 lines max per file. Split large files into focused components.
+      Only split when actively working on the file.
+    </standard>
+    
     <standard name="code_reuse">
       <principle>Don't Repeat Yourself (DRY) - Always reuse existing functions</principle>
       <requirement>Search codebase for similar functions before writing new code</requirement>
