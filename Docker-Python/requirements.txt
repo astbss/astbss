@@ -170,7 +170,7 @@ psycopg-binary==3.2.9
 ptyprocess==0.7.0
 py-cpuinfo==9.0.0
 py_daemon==0.1.2
-pyasn1==0.6.1
+pyasn1==0.6.2
 pyasn1_modules==0.4.2
 pycares==4.9.0
 pycodestyle==2.14.0
