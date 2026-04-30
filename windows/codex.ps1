@@ -16,3 +16,4 @@ winget install --id GitHub.cli
 
 # Claude Code
 irm https://claude.ai/install.ps1 | iex
+[Environment]::SetEnvironmentVariable("PATH", [Environment]::GetEnvironmentVariable("PATH", "User") + ";C:\Users\are\.local\bin", "User")
