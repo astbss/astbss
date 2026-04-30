@@ -2,6 +2,7 @@
 # https://developers.openai.com/codex/app/windows
 # https://developers.openai.com/codex/windows
 # https://developers.openai.com/codex/concepts/sandboxing
+# https://developers.openai.com/codex/windows#windows-sandbox
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 
 winget install Codex -s msstore
