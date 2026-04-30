@@ -12,3 +12,7 @@ winget install --id OpenJS.NodeJS.LTS
 winget install --id Python.Python.3.14
 # winget install --id Microsoft.DotNet.SDK.10
 winget install --id GitHub.cli
+
+
+# Claude Code
+irm https://claude.ai/install.ps1 | iex
