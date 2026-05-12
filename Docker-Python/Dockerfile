@@ -2,39 +2,37 @@
 # https://www.docker.com/blog/containerized-python-development-part-1/
 # https://pythonspeed.com/articles/multi-stage-docker-python/
 
+# https://www.youtube.com/watch?v=tc713anE3UY Python Docker Image 80% Smaller
+# https://github.com/ArjanCodes/examples/blob/main/2025/efficient-python-dockerfile/Dockerfile.10_final
+
 # https://hub.docker.com/r/astbss/python/tags
 
-# docker build -f Dockerfile.python.3.11 -t astbss/python:3.11 .
-# docker build -f Dockerfile.python.3.11 -t astbss/python:3.11.11 .
-# docker tag astbss/python:3.11 astbss/python:latest
+# docker build -f Dockerfile.python.3.13 -t astbss/python:3.13.13 .
+# docker tag astbss/python:3.13 astbss/python:latest
 
 # docker login --username=astbss
-# docker push astbss/python:3.11
-# docker push astbss/python:3.11.11
+# docker push astbss/python:3.13.13
 # docker push astbss/python:latest
 
 
 # docker images
-# docker pull astbss/python:3.11.11
-# docker run -it --rm astbss/python:3.11.11 bash
+# docker pull astbss/python:3.13
+# docker run -it --rm astbss/python:3.13 bash
 # docker ps -a
 # docker container prune --force
 
 # Get sha256 using docker inspect RepoDigests: docker inspect
-# docker run -v /app/my-app:/app -it  --rm --entrypoint "/bin/bash" astbss/python:3.11.11
-# docker run -v /home/are:/app -it --rm astbss/python:3.11.11 bash
+# docker run -v /app/my-app:/app -it  --rm --entrypoint "/bin/bash" astbss/python:3.13
+# docker run -v /home/are:/app -it --rm astbss/python:3.13 bash
 
 # https://hub.docker.com/_/python
 
 # FROM debian:stretch-slim
 
-# 3.11.11: digest: sha256:ab04819c4a206dfb18928432b005cd4a9c526eb832a2f515e7813a537167c8d1 size: 2207
+# 3.13.3: digest: sha256:e4b0228b31e6c0d9f444eff93210cb0770235650ac5eb2f5038e443a7bd9a30f size: 2207
 
 # set base image (host OS)
-# FROM python:3.9-buster AS builder
-# FROM python:3.9.18-slim-bookworm AS builder
-FROM python:3.11.11-slim-bookworm AS builder
-# FROM python:3.9-slim
+FROM python:3.13-slim-bookworm AS builder
 
 # ENV PATH=/root/.local:$PATH
 ENV PATH=/root/.local:/root/.local/bin:$PATH
@@ -50,7 +48,7 @@ RUN apt-get update \
             /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
 
 # Install dependencies
-COPY requirements.txt /requirements.txt
+COPY requirements3.13.txt /requirements.txt
 
 # pip install --upgrade pip \
 # install dependencies to the local user directory (eg. /root/.local)
@@ -60,9 +58,7 @@ RUN python -m pip install --upgrade pip \
 
 
 # second unnamed stage
-# FROM python:3.9-slim-buster
-# FROM python:3.9.18-slim-bookworm
-FROM python:3.11.11-slim-bookworm
+FROM python:3.13-slim-bookworm
 WORKDIR /code
 
 LABEL maintainer="are@astbss.com"
@@ -77,7 +73,7 @@ COPY --from=builder /root/.local /root/.local
 
 RUN apt-get update \
     && apt-get --no-install-recommends --no-install-suggests --yes --quiet install \
-    git nano wget vim zip unzip \
+    git nano wget vim zip unzip libpq-dev build-essential  \
     && apt-get clean && apt-get --yes --quiet autoremove --purge \
     && ln /root/.local/bin/gunicorn /usr/local/bin/gunicorn \
     && rm -rf  /var/lib/apt/lists/* /tmp/* /var/tmp/* \
@@ -86,11 +82,11 @@ RUN apt-get update \
 
 RUN python -m pip install --upgrade pip
 
-# docker run -it --rm astbss/python:3.11.6 bash
+# docker run -it --rm astbss/python:3.13 bash
 # docker images
 # if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
-ENV PYTHON_PIP_VERSION 23.3.1
-ENV PYTHON_VERSION 3.11.6
+ENV PYTHON_PIP_VERSION 25.0.1
+ENV PYTHON_VERSION 3.13
 # ENV PYTHONPATH=/usr/local/lib/python3.7/site-packages:/usr/local/lib/python3.7
 ENV TZ="Europe/Oslo"
 
