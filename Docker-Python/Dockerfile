@@ -8,10 +8,12 @@
 # https://hub.docker.com/r/astbss/python/tags
 
 # docker build -f Dockerfile.python.3.13 -t astbss/python:3.13.13 .
-# docker tag astbss/python:3.13 astbss/python:latest
+# docker tag astbss/python:3.13.13 astbss/python:latest
+# docker tag astbss/python:3.13.13 astbss/python:3.13
 
 # docker login --username=astbss
 # docker push astbss/python:3.13.13
+# docker push astbss/python:3.13
 # docker push astbss/python:latest
 
 
@@ -29,7 +31,7 @@
 
 # FROM debian:stretch-slim
 
-# 3.13.3: digest: sha256:e4b0228b31e6c0d9f444eff93210cb0770235650ac5eb2f5038e443a7bd9a30f size: 2207
+# 3.13.13: digest: sha256:56322498fc6a77a8ffe9f4f74c83db33879451772557cea1b6d1b691e89b145f size: 856
 
 # set base image (host OS)
 FROM python:3.13-slim-bookworm AS builder
@@ -48,7 +50,7 @@ RUN apt-get update \
             /usr/share/lintian/* /usr/share/locale/* /usr/share/man/*
 
 # Install dependencies
-COPY requirements3.13.txt /requirements.txt
+COPY requirements.txt /requirements.txt
 
 # pip install --upgrade pip \
 # install dependencies to the local user directory (eg. /root/.local)
@@ -62,7 +64,7 @@ FROM python:3.13-slim-bookworm
 WORKDIR /code
 
 LABEL maintainer="are@astbss.com"
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 # At the moment, setting "LANG=C" on a Linux system *fundamentally breaks Python 3*, and that's not OK.
 ENV LANG=C.UTF-8
@@ -85,8 +87,8 @@ RUN python -m pip install --upgrade pip
 # docker run -it --rm astbss/python:3.13 bash
 # docker images
 # if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
-ENV PYTHON_PIP_VERSION 25.0.1
-ENV PYTHON_VERSION 3.13
+ENV PYTHON_PIP_VERSION=26.1.1
+ENV PYTHON_VERSION=3.13
 # ENV PYTHONPATH=/usr/local/lib/python3.7/site-packages:/usr/local/lib/python3.7
 ENV TZ="Europe/Oslo"
 
