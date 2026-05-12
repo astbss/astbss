@@ -57,11 +57,11 @@ sudo apt install -y software-properties-common build-essential zlib1g-dev libncu
 # source .venv3.13/bin/activate
 # python3 -V
 
-echo Installing python 3.11
-sudo apt install python3.11 -y
-sudo apt install python3.11-distutils -y
-sudo apt install python3.11-venv -y
-sudo apt install -y python3.11-dev
+# echo Installing python 3.11
+# sudo apt install python3.11 -y
+# sudo apt install python3.11-distutils -y
+# sudo apt install python3.11-venv -y
+# sudo apt install -y python3.11-dev
 
 echo Installing python 3.13
 sudo apt install python3.13 -y
@@ -70,6 +70,5 @@ sudo apt install python3.13 -y
 sudo apt install python3.13-venv -y
 sudo apt install -y python3.13-dev
 
-# python3.9 -V
-python3.11 -V
+# python3.11 -V
 python3.13 -V
