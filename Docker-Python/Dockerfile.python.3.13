@@ -85,8 +85,8 @@ RUN python -m pip install --upgrade pip
 # docker run -it --rm astbss/python:3.13 bash
 # docker images
 # if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
-ENV PYTHON_PIP_VERSION 25.0.1
-ENV PYTHON_VERSION 3.13
+ENV PYTHON_PIP_VERSION=26.1.1
+ENV PYTHON_VERSION=3.13
 # ENV PYTHONPATH=/usr/local/lib/python3.7/site-packages:/usr/local/lib/python3.7
 ENV TZ="Europe/Oslo"
 
