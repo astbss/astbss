@@ -130,3 +130,6 @@ code --install-extension ms-vscode-remote.remote-wsl
 code --install-extension msazurermtools.azurerm-vscode-tools
 
 ```
+
+# Chrome Extentions
+- https://chromewebstore.google.com/detail/whatfont/jabopobgcpjmedljpbcaablpmlmfcogm
