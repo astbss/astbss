@@ -154,6 +154,7 @@ pip install pymsteams Pillow tqdm pytz
 pip install prettytable Unidecode
 pip install phonenumbers phonenumberslite pycountry
 pip install py_daemon deepdiff
+pip install zstandard
 
 # Python PowerShell Remoting Protocol Client library
 # pip install pywinrm[credssp] pywinrm[kerberos]
