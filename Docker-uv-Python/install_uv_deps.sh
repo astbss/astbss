@@ -136,6 +136,7 @@ uv add prettytable Unidecode
 uv add phonenumbers phonenumberslite pycountry
 uv add py_daemon deepdiff
 uv add zstandard
+uv add pdfplumber
 
 uv add "pypsrp[credssp]" "pypsrp[kerberos]"
 

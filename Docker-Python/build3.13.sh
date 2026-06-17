@@ -155,6 +155,7 @@ pip install prettytable Unidecode
 pip install phonenumbers phonenumberslite pycountry
 pip install py_daemon deepdiff
 pip install zstandard
+pip install pdfplumber
 
 # Python PowerShell Remoting Protocol Client library
 # pip install pywinrm[credssp] pywinrm[kerberos]
